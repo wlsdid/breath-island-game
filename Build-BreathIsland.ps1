@@ -1,6 +1,7 @@
 [CmdletBinding()]
 param(
-    [switch]$SkipTests
+    [switch]$SkipTests,
+    [switch]$ReleaseIl2Cpp
 )
 
 $ErrorActionPreference = 'Stop'
@@ -18,15 +19,27 @@ if (-not (Test-Path -LiteralPath $unity)) {
 New-Item -ItemType Directory -Force $buildDirectory | Out-Null
 
 if (-not $SkipTests) {
-    & $unity -batchmode -nographics -quit -projectPath $projectRoot -runTests -testPlatform EditMode -testResults $testResults -logFile $testLog
+    # Unity Test Framework exits the Editor after the run. Passing -quit here can
+    # terminate Unity 6 before the test runner creates its result file.
+    & $unity -batchmode -nographics -projectPath $projectRoot -runTests -testPlatform EditMode -testResults $testResults -logFile $testLog
     if ($LASTEXITCODE -ne 0) {
         throw "EditMode tests failed. See $testLog"
     }
 }
 
-& $unity -batchmode -nographics -quit -projectPath $projectRoot -executeMethod BreathIsland.Editor.CommercialBuild.BuildWindowsCI -logFile $buildLog
-if ($LASTEXITCODE -ne 0) {
-    throw "Windows build failed. See $buildLog"
+if ($ReleaseIl2Cpp) {
+    $env:BREATH_ISLAND_BACKEND = 'IL2CPP'
+} else {
+    $env:BREATH_ISLAND_BACKEND = 'MONO'
+}
+
+try {
+    & $unity -batchmode -nographics -quit -projectPath $projectRoot -executeMethod BreathIsland.Editor.CommercialBuild.BuildWindowsCI -logFile $buildLog
+    if ($LASTEXITCODE -ne 0) {
+        throw "Windows build failed. See $buildLog"
+    }
+} finally {
+    Remove-Item Env:BREATH_ISLAND_BACKEND -ErrorAction SilentlyContinue
 }
 
 $executable = Join-Path $projectRoot 'Builds\Windows\BreathIsland.exe'
@@ -35,4 +48,3 @@ if (-not (Test-Path -LiteralPath $executable)) {
 }
 
 Get-Item -LiteralPath $executable | Select-Object FullName, Length, LastWriteTime
-

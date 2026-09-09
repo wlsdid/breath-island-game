@@ -28,15 +28,25 @@ namespace BreathIsland.Editor
             Debug.Log($"Playable scene generated: {ScenePath}");
         }
 
-        [MenuItem("숨결섬/Windows 빌드")]
-        public static void BuildWindows() => BuildWindowsInternal(false);
+        [MenuItem("숨결섬/Windows 검증 빌드 (Mono)")]
+        public static void BuildWindows() => BuildWindowsInternal(false, ScriptingImplementation.Mono2x);
 
-        public static void BuildWindowsCI() => BuildWindowsInternal(true);
+        [MenuItem("숨결섬/Windows 출시 빌드 (IL2CPP)")]
+        public static void BuildWindowsRelease() => BuildWindowsInternal(false, ScriptingImplementation.IL2CPP);
 
-        private static void BuildWindowsInternal(bool batchMode)
+        public static void BuildWindowsCI()
+        {
+            bool release = string.Equals(
+                Environment.GetEnvironmentVariable("BREATH_ISLAND_BACKEND"),
+                "IL2CPP",
+                StringComparison.OrdinalIgnoreCase);
+            BuildWindowsInternal(true, release ? ScriptingImplementation.IL2CPP : ScriptingImplementation.Mono2x);
+        }
+
+        private static void BuildWindowsInternal(bool batchMode, ScriptingImplementation backend)
         {
             GeneratePlayableScene();
-            ConfigurePlayer();
+            ConfigurePlayer(backend);
             Directory.CreateDirectory(Path.GetDirectoryName(BuildPath) ?? "Builds/Windows");
             BuildReport report = BuildPipeline.BuildPlayer(new BuildPlayerOptions
             {
@@ -55,7 +65,7 @@ namespace BreathIsland.Editor
             Debug.Log($"Windows build complete: {BuildPath} ({report.summary.totalSize / 1048576f:0.0} MB)");
         }
 
-        private static void ConfigurePlayer()
+        private static void ConfigurePlayer(ScriptingImplementation backend)
         {
             PlayerSettings.companyName = "Breath Island Studio";
             PlayerSettings.productName = "Breath Island";
@@ -66,7 +76,7 @@ namespace BreathIsland.Editor
             PlayerSettings.runInBackground = false;
             PlayerSettings.resizableWindow = true;
             PlayerSettings.SetApplicationIdentifier(NamedBuildTarget.Standalone, "com.breathisland.game");
-            PlayerSettings.SetScriptingBackend(NamedBuildTarget.Standalone, ScriptingImplementation.IL2CPP);
+            PlayerSettings.SetScriptingBackend(NamedBuildTarget.Standalone, backend);
             PlayerSettings.SetApiCompatibilityLevel(NamedBuildTarget.Standalone, ApiCompatibilityLevel.NET_Standard);
         }
     }

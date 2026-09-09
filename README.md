@@ -20,12 +20,18 @@ Unity Hub에서 Personal 라이선스를 활성화한 뒤 프로젝트를 엽니
 
 1. `숨결섬 > 플레이 씬 생성`으로 `Assets/BreathIsland/Scenes/BeachVerticalSlice.unity`를 생성합니다.
 2. 생성된 씬을 열고 Play를 누릅니다.
-3. `숨결섬 > Windows 빌드`로 `Builds/Windows/BreathIsland.exe`를 생성합니다.
+3. `숨결섬 > Windows 검증 빌드 (Mono)`로 `Builds/Windows/BreathIsland.exe`를 생성합니다.
 
 배치 빌드:
 
 ```powershell
 .\Build-BreathIsland.ps1
+```
+
+MSVC C++ Build Tools와 Windows SDK가 설치된 출시 환경에서는 다음 명령으로 IL2CPP 빌드를 생성합니다.
+
+```powershell
+.\Build-BreathIsland.ps1 -ReleaseIl2Cpp
 ```
 
 ## 기본 조작
