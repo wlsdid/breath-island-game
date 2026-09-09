@@ -1,0 +1,8 @@
+{
+  "name": "BreathIsland.Editor",
+  "rootNamespace": "BreathIsland.Editor",
+  "references": ["BreathIsland.Runtime"],
+  "includePlatforms": ["Editor"],
+  "autoReferenced": true
+}
+

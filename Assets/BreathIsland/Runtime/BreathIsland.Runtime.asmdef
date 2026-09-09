@@ -1,0 +1,7 @@
+{
+  "name": "BreathIsland.Runtime",
+  "rootNamespace": "BreathIsland",
+  "references": ["Unity.InputSystem"],
+  "autoReferenced": true
+}
+
