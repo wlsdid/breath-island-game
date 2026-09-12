@@ -16,8 +16,6 @@ Unity 6000.5.4f1 기반 상용 3D 힐링 낚시 게임 프로젝트입니다. �
 
 Unity Hub에서 Personal 라이선스를 활성화한 뒤 프로젝트를 엽니다.
 
-현재 이 컴퓨터의 Unity Editor는 설치되어 있지만 활성 라이선스가 없어 자동 컴파일과 Windows 빌드는 라이선스 활성화 이후에 가능합니다.
-
 1. `숨결섬 > 플레이 씬 생성`으로 `Assets/BreathIsland/Scenes/BeachVerticalSlice.unity`를 생성합니다.
 2. 생성된 씬을 열고 Play를 누릅니다.
 3. `숨결섬 > Windows 검증 빌드 (Mono)`로 `Builds/Windows/BreathIsland.exe`를 생성합니다.
@@ -33,6 +31,10 @@ MSVC C++ Build Tools와 Windows SDK가 설치된 출시 환경에서는 다음 �
 ```powershell
 .\Build-BreathIsland.ps1 -ReleaseIl2Cpp
 ```
+
+## 코드 구조
+
+런타임은 낚시, 포식자 전투, 관계, 시설, 콘텐츠, 현지화, UI, 코어 흐름으로 분리되어 있습니다. 씬 진입점은 기능 객체를 조립하고 상태별 업데이트만 전달합니다. 세부 의존 규칙은 [Documentation/ARCHITECTURE.md](Documentation/ARCHITECTURE.md)를 참고하세요.
 
 ## 기본 조작
 

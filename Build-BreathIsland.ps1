@@ -18,12 +18,41 @@ if (-not (Test-Path -LiteralPath $unity)) {
 
 New-Item -ItemType Directory -Force $buildDirectory | Out-Null
 
+function Invoke-UnityBatch {
+    param(
+        [string[]]$Arguments,
+        [string]$LogPath,
+        [string]$SuccessPattern
+    )
+
+    Remove-Item -LiteralPath $LogPath -Force -ErrorAction SilentlyContinue
+    Start-Process -FilePath $unity -ArgumentList $Arguments -WindowStyle Hidden | Out-Null
+    $deadline = (Get-Date).AddMinutes(20)
+    do {
+        Start-Sleep -Milliseconds 500
+        if (Test-Path -LiteralPath $LogPath) {
+            $tail = Get-Content -LiteralPath $LogPath -Tail 80 -ErrorAction SilentlyContinue
+            if ($tail -match $SuccessPattern) { return }
+            if ($tail -match 'Aborting batchmode|Compilation failed|BuildFailedException|Error building Player') {
+                throw "Unity batch operation failed. See $LogPath"
+            }
+        }
+    } while ((Get-Date) -lt $deadline)
+
+    throw "Unity batch operation timed out. See $LogPath"
+}
+
 if (-not $SkipTests) {
     # Unity Test Framework exits the Editor after the run. Passing -quit here can
     # terminate Unity 6 before the test runner creates its result file.
-    & $unity -batchmode -nographics -projectPath $projectRoot -runTests -testPlatform EditMode -testResults $testResults -logFile $testLog
-    if ($LASTEXITCODE -ne 0) {
+    Remove-Item -LiteralPath $testResults -Force -ErrorAction SilentlyContinue
+    Invoke-UnityBatch -Arguments @('-batchmode', '-nographics', '-projectPath', $projectRoot, '-runTests', '-testPlatform', 'EditMode', '-testResults', $testResults, '-logFile', $testLog) -LogPath $testLog -SuccessPattern 'Test run completed\. Exiting with code 0'
+    if (-not (Test-Path -LiteralPath $testResults)) {
         throw "EditMode tests failed. See $testLog"
+    }
+    [xml]$testReport = Get-Content -LiteralPath $testResults
+    if ($testReport.'test-run'.result -ne 'Passed' -or [int]$testReport.'test-run'.failed -ne 0) {
+        throw "EditMode tests failed. See $testResults"
     }
 }
 
@@ -34,10 +63,7 @@ if ($ReleaseIl2Cpp) {
 }
 
 try {
-    & $unity -batchmode -nographics -quit -projectPath $projectRoot -executeMethod BreathIsland.Editor.CommercialBuild.BuildWindowsCI -logFile $buildLog
-    if ($LASTEXITCODE -ne 0) {
-        throw "Windows build failed. See $buildLog"
-    }
+    Invoke-UnityBatch -Arguments @('-batchmode', '-nographics', '-quit', '-projectPath', $projectRoot, '-executeMethod', 'BreathIsland.Editor.CommercialBuild.BuildWindowsCI', '-logFile', $buildLog) -LogPath $buildLog -SuccessPattern 'Exiting batchmode successfully now!'
 } finally {
     Remove-Item Env:BREATH_ISLAND_BACKEND -ErrorAction SilentlyContinue
 }

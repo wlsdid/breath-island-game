@@ -89,6 +89,15 @@ namespace BreathIsland.Tests
             }
         }
 
+        [Test]
+        public void VerticalSliceCatalogKeepsFeatureContentSeparatedFromBootstrap()
+        {
+            DefinitionCatalog catalog = DefinitionCatalog.CreateVerticalSlice();
+            Assert.That(catalog.Fish, Has.Count.EqualTo(6));
+            Assert.That(catalog.Facilities.Keys, Is.EquivalentTo(new[] { FacilityId.Boatyard, FacilityId.Aquarium }));
+            Assert.That(catalog.Npcs.Keys, Is.EquivalentTo(new[] { NpcId.Nari, NpcId.Maru }));
+        }
+
         private static FacilityDefinition Facility(FacilityId id)
         {
             var value = ScriptableObject.CreateInstance<FacilityDefinition>();
