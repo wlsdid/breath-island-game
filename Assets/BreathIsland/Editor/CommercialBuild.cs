@@ -45,7 +45,8 @@ namespace BreathIsland.Editor
 
         private static void BuildWindowsInternal(bool batchMode, ScriptingImplementation backend)
         {
-            GeneratePlayableScene();
+            LocalizationSetup.EnsureConfigured();
+            if (!File.Exists(ScenePath)) GeneratePlayableScene();
             ConfigurePlayer(backend);
             Directory.CreateDirectory(Path.GetDirectoryName(BuildPath) ?? "Builds/Windows");
             BuildReport report = BuildPipeline.BuildPlayer(new BuildPlayerOptions

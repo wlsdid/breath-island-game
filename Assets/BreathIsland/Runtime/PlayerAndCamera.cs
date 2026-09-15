@@ -64,6 +64,15 @@ namespace BreathIsland
         private void Awake() => controller = GetComponent<CharacterController>();
         public void SetCamera(Transform target) => cameraTransform = target;
 
+        public void Teleport(Vector3 position)
+        {
+            bool wasEnabled = controller.enabled;
+            controller.enabled = false;
+            transform.position = position;
+            verticalVelocity = 0f;
+            controller.enabled = wasEnabled;
+        }
+
         private void Update()
         {
             if (!CanMove || cameraTransform == null) return;

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e5d4e15f8fa47f9b1d3d4e62422e29d, type: 3}
+  m_Name: moon
+  m_EditorClassIdentifier:
+  nameKey: fish_moon_name
+  id: moon
+  rarity: 2
+  color: {r: 0.5, g: 0.48, b: 1.0, a: 1}
+  coinValue: 56
+  materialValue: 4
+  pullStrength: 9
+  startHour: 17
+  endHour: 23
+  preferredBait: Basic
+  descriptionKey: fish_moon_description

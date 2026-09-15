@@ -15,11 +15,13 @@ namespace BreathIsland
             this.world = world;
             Content = content;
             this.showMessage = showMessage;
+            Positions = new PlayerPositionSystem(world);
         }
 
         public GameSaveData Save { get; private set; }
         public DefinitionCatalog Content { get; }
         public WorldHandles World => world;
+        public PlayerPositionSystem Positions { get; }
         public bool Korean { get; set; } = true;
 
         public string Text(string key) => GameText.Get(key, Korean);
@@ -47,7 +49,7 @@ namespace BreathIsland
 
         public void RestorePosition()
         {
-            world.player.transform.position = new Vector3(Save.player.x, Mathf.Max(1.2f, Save.player.y), Save.player.z);
+            Positions.Restore(Save.player);
         }
     }
 }

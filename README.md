@@ -1,6 +1,8 @@
 # 숨결섬 (가제)
 
-Unity 6000.5.4f1 기반 상용 3D 힐링 낚시 게임 프로젝트입니다. 현재 구현은 첫 달 버티컬 슬라이스 범위입니다.
+Unity 6000.5.4f1 기반 3D 힐링 낚시 게임 프로젝트입니다. 콘텐츠 범위는 첫 달 버티컬 슬라이스이며, 콘텐츠 에셋·Localization·화면 모듈 구조로 분리되어 있습니다.
+
+테스트·Windows 빌드·실행 화면 검증 결과는 [Documentation/VALIDATION.md](Documentation/VALIDATION.md)를 참고하세요.
 
 ## 현재 플레이 범위
 
@@ -16,15 +18,17 @@ Unity 6000.5.4f1 기반 상용 3D 힐링 낚시 게임 프로젝트입니다. �
 
 Unity Hub에서 Personal 라이선스를 활성화한 뒤 프로젝트를 엽니다.
 
-1. `숨결섬 > 플레이 씬 생성`으로 `Assets/BreathIsland/Scenes/BeachVerticalSlice.unity`를 생성합니다.
-2. 생성된 씬을 열고 Play를 누릅니다.
-3. `숨결섬 > Windows 검증 빌드 (Mono)`로 `Builds/Windows/BreathIsland.exe`를 생성합니다.
+1. 첫 임포트에서 `LocalizationSetup`이 기존 한국어·영어 테이블을 Unity Localization/Addressables에 등록합니다. 필요하면 `숨결섬 > Localization 설정 검증`을 실행합니다.
+2. 기존 `Assets/BreathIsland/Scenes/BeachVerticalSlice.unity`를 열고 Play를 누릅니다. 씬이 없을 때만 `숨결섬 > 플레이 씬 생성`을 사용합니다.
+3. `숨결섬 > Windows 검증 빌드 (Mono)`로 `Builds/Windows/BreathIsland.exe`를 생성합니다. 기존 씬은 빌드 중 재생성하지 않습니다.
 
-배치 빌드:
+Localization 설정 등록, Edit Mode·Play Mode 테스트, Windows Mono 배치 빌드:
 
 ```powershell
 .\Build-BreathIsland.ps1
 ```
+
+테스트 결과는 `Builds/editmode-results.xml`, `Builds/playmode-results.xml`에 기록됩니다. `-SkipTests`는 테스트를 생략하며 완료 조건 검증용으로 사용하지 않습니다.
 
 MSVC C++ Build Tools와 Windows SDK가 설치된 출시 환경에서는 다음 명령으로 IL2CPP 빌드를 생성합니다.
 
@@ -34,7 +38,13 @@ MSVC C++ Build Tools와 Windows SDK가 설치된 출시 환경에서는 다음 �
 
 ## 코드 구조
 
-런타임은 낚시, 포식자 전투, 관계, 시설, 콘텐츠, 현지화, UI, 코어 흐름으로 분리되어 있습니다. 씬 진입점은 기능 객체를 조립하고 상태별 업데이트만 전달합니다. 세부 의존 규칙은 [Documentation/ARCHITECTURE.md](Documentation/ARCHITECTURE.md)를 참고하세요.
+런타임은 낚시, 포식자 전투, 관계, 시설, 콘텐츠, 현지화, UI, 코어 흐름으로 분리되어 있습니다. `BreathIslandGame`은 기능 객체 조립과 프레임 전달, `GameHud`는 8개 화면의 라우팅을 담당합니다.
+
+- 콘텐츠: `Assets/BreathIsland/Resources/Content/VerticalSlice.asset`에서 기존 어종·NPC·시설 에셋을 참조합니다. 수치와 저장용 ID는 에셋에서 유지합니다.
+- 문자열: `Assets/BreathIsland/Localization`의 한국어·영어 Unity String Table에서 편집합니다. 콘텐츠 에셋에는 번역 키를 저장합니다.
+- 저장: JSON 버전 1과 자동 1개·수동 3개 슬롯 형식을 유지합니다. 마이그레이션은 기존 파일을 읽을 때 원본을 수정하지 않습니다.
+
+새로운 콘텐츠·그래픽·Steamworks·장비 시스템·경제 밸런스 변경은 포함하지 않습니다. 세부 경계는 [Documentation/ARCHITECTURE.md](Documentation/ARCHITECTURE.md)를 참고하세요.
 
 ## 기본 조작
 

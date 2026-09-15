@@ -18,7 +18,7 @@ namespace BreathIsland
 
         public void Save(GameSaveData data, int slot = -1)
         {
-            data.version = GameSaveData.CurrentVersion;
+            SaveMigration.Apply(data);
             data.savedAtUtcTicks = DateTime.UtcNow.Ticks;
             string destination = PathForSlot(slot);
             string temporary = destination + ".tmp";
@@ -46,6 +46,7 @@ namespace BreathIsland
                 var data = JsonUtility.FromJson<GameSaveData>(File.ReadAllText(path, Encoding.UTF8));
                 return Migrate(data);
             }
+            catch (NotSupportedException) { throw; }
             catch (Exception exception)
             {
                 Debug.LogWarning($"Save load failed: {exception.Message}");
@@ -53,24 +54,13 @@ namespace BreathIsland
                 if (File.Exists(backup))
                 {
                     try { return Migrate(JsonUtility.FromJson<GameSaveData>(File.ReadAllText(backup, Encoding.UTF8))); }
+                    catch (NotSupportedException) { throw; }
                     catch { /* return a safe new game */ }
                 }
                 return GameSaveData.CreateDefault();
             }
         }
 
-        private static GameSaveData Migrate(GameSaveData data)
-        {
-            if (data == null) return GameSaveData.CreateDefault();
-            data.player ??= new PlayerProgress();
-            data.inventory ??= new InventoryState();
-            data.relationships ??= new RelationshipState();
-            data.facilities ??= new FacilityState();
-            data.world ??= new WorldState();
-            data.inventory.discoveredFish ??= new System.Collections.Generic.List<string>();
-            data.inventory.displayedFish ??= new System.Collections.Generic.List<string>();
-            data.version = GameSaveData.CurrentVersion;
-            return data;
-        }
+        private static GameSaveData Migrate(GameSaveData data) => SaveMigration.Apply(data);
     }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace BreathIsland
 {
@@ -26,19 +27,27 @@ namespace BreathIsland
             context.Message(context.Text("predator"));
         }
 
-        public void Tick()
+        public void Tick() => Tick(Time.deltaTime);
+
+        public void Tick(float deltaTime)
         {
+            if (phases.Current != GamePhase.PredatorCombat) return;
+            var keyboard = Keyboard.current;
+            if (keyboard?.digit1Key.wasPressedThisFrame == true) Act(0);
+            if (keyboard?.digit2Key.wasPressedThisFrame == true) Act(1);
+            if (keyboard?.digit3Key.wasPressedThisFrame == true) Act(2);
             if (GameInput.PadSouthPressed()) Act(0);
             if (GameInput.PadWestPressed()) Act(1);
             if (GameInput.PadNorthPressed()) Act(2);
-            Charge += Time.deltaTime / 3.4f * 100f;
+            if (phases.Current != GamePhase.PredatorCombat) return;
+            Charge += deltaTime / 3.4f * 100f;
             if (Charge < 100f) return;
             Charge = 0f;
             PlayerHearts--;
             context.Message(context.Text("hit"));
             if (PlayerHearts > 0) return;
             context.Save.inventory.bait = Mathf.Max(0, context.Save.inventory.bait - 1);
-            context.World.player.transform.position = new Vector3(0f, 1.2f, 8f);
+            context.Positions.ReturnToShore();
             context.SaveTo();
             phases.Set(GamePhase.Explore);
             context.Message(context.Text("washed_ashore"));
@@ -46,6 +55,7 @@ namespace BreathIsland
 
         public void Act(int action)
         {
+            if (phases.Current != GamePhase.PredatorCombat || action < 0 || action > 2) return;
             if (action == 0)
             {
                 Charge = Mathf.Max(0f, Charge - 68f);

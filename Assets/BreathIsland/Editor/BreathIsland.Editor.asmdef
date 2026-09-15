@@ -1,8 +1,14 @@
 {
   "name": "BreathIsland.Editor",
   "rootNamespace": "BreathIsland.Editor",
-  "references": ["BreathIsland.Runtime"],
-  "includePlatforms": ["Editor"],
+  "references": [
+    "BreathIsland.Runtime",
+    "Unity.Localization",
+    "Unity.Localization.Editor",
+    "Unity.Addressables.Editor"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
   "autoReferenced": true
 }
-

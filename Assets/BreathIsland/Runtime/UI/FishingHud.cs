@@ -1,0 +1,42 @@
+using UnityEngine;
+namespace BreathIsland
+{
+    public sealed class FishingHud : HudScreen
+    {
+        private readonly FishingSystem fishing;
+        public FishingHud(GameContext context, GamePhaseController phases, FishingSystem fishing) : base(context, phases) { this.fishing = fishing; }
+        public override void Draw(float width, float height)
+        {
+            EnsureStyles();
+            bool ko = context.Korean;
+            GUI.Box(new Rect(24, 105, 210, 48), context.Text("ui_first_person_sunny_shore"), DarkBox());
+            Rect panel = new(width / 2f - 275f, height - 290f, 550f, 245f);
+            GUI.Box(panel, string.Empty, panelStyle);
+            if (fishing.Stage == FishingStage.Ready)
+            {
+                GUI.Label(new Rect(panel.x + 25, panel.y + 25, 500, 42), context.Text("ui_gentle_ripples"), titleStyle);
+                GUI.Label(new Rect(panel.x + 25, panel.y + 72, 500, 56), context.Text("ui_cast_when_a_fish_shadow_passes_through_the_water"), bodyStyle);
+                if (GUI.Button(new Rect(panel.x + 135, panel.y + 150, 280, 58), context.Text("ui_cast_line"), primaryButtonStyle)) fishing.Cast();
+            }
+            else if (fishing.Stage == FishingStage.Waiting)
+            {
+                GUI.Label(new Rect(panel.x + 25, panel.y + 52, 500, 42), context.Text("ui_waiting_for_a_bite"), titleStyle);
+                GUI.Label(new Rect(panel.x + 25, panel.y + 105, 500, 50), context.Text("ui_watch_the_movement_of_the_water"), centeredStyle);
+            }
+            else if (fishing.Stage == FishingStage.Hooked)
+            {
+                GUI.Label(new Rect(panel.x + 25, panel.y + 18, 500, 34), fishing.ActiveFish.LocalizedName(ko), titleStyle);
+                DrawMeter(new Rect(panel.x + 28, panel.y + 67, 494, 25), context.Text("ui_reel"), fishing.Progress, new Color(.2f, .75f, .66f));
+                DrawMeter(new Rect(panel.x + 28, panel.y + 111, 494, 25), context.Text("ui_tension"), fishing.Tension, fishing.Tension > 74f ? new Color(.95f, .38f, .28f) : new Color(.95f, .67f, .22f));
+                if (GUI.Button(new Rect(panel.x + 28, panel.y + 164, 235, 52), context.Text("ui_s_ease_line"), buttonStyle)) fishing.Ease();
+                if (GUI.Button(new Rect(panel.x + 278, panel.y + 164, 244, 52), context.Text("ui_space_reel"), primaryButtonStyle)) fishing.Reel();
+            }
+            else
+            {
+                GUI.Label(new Rect(panel.x + 25, panel.y + 35, 500, 42), context.Text("ui_the_line_snapped"), titleStyle);
+                GUI.Label(new Rect(panel.x + 25, panel.y + 91, 500, 48), context.Text("ui_it_is_okay_you_only_lost_one_bait"), centeredStyle);
+                if (GUI.Button(new Rect(panel.x + 135, panel.y + 157, 280, 52), context.Text("ui_try_again"), primaryButtonStyle)) fishing.Retry();
+            }
+        }
+    }
+}

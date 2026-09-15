@@ -9,7 +9,7 @@ namespace BreathIsland
     {
         public float x;
         public float y = 1f;
-        public float z;
+        public float z = 4f;
         public int hour = 9;
         public bool boatUnlocked;
         public bool endingSeen;

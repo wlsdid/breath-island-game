@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace BreathIsland
 {
@@ -12,8 +13,8 @@ namespace BreathIsland
         private RelationshipSystem relationships;
         private FacilitySystem facilities;
         private GameHud hud;
-        private string eventMessage = string.Empty;
-        private float eventMessageUntil;
+        private GameSession session;
+        private ExploreSystem explore;
 
         public GamePhase Phase => phases?.Current ?? GamePhase.Explore;
         public GameSaveData SaveData => context?.Save;
@@ -26,26 +27,39 @@ namespace BreathIsland
             var content = DefinitionCatalog.CreateVerticalSlice();
             WorldHandles world = ProceduralWorld.Build(transform);
             gameObject.AddComponent<ProceduralSeaAudio>();
-            world.player.transform.position = new Vector3(save.player.x, Mathf.Max(1.2f, save.player.y), save.player.z == 0f ? 4f : save.player.z);
 
-            context = new GameContext(save, saveService, world, content, ShowMessage);
+            context = new GameContext(save, saveService, world, content, text => session.ShowMessage(text));
+            context.RestorePosition();
             phases = new GamePhaseController(world);
             combat = new PredatorCombatSystem(context, phases);
             fishing = new FishingSystem(context, phases, combat.Begin);
             relationships = new RelationshipSystem(context, phases);
             facilities = new FacilitySystem(context);
-            hud = new GameHud(context, phases, fishing, combat, relationships, facilities, () => eventMessage, () => eventMessageUntil);
+            session = new GameSession(context, phases);
+            explore = new ExploreSystem(context, phases, fishing, relationships);
+            hud = new GameHud(phases, new Dictionary<GamePhase, HudScreen>
+            {
+                [GamePhase.Explore] = new ExploreHud(context, phases, relationships),
+                [GamePhase.Fishing] = new FishingHud(context, phases, fishing),
+                [GamePhase.CatchResolution] = new CatchResolutionHud(context, phases, fishing),
+                [GamePhase.PredatorCombat] = new PredatorCombatHud(context, phases, combat),
+                [GamePhase.Dialogue] = new DialogueHud(context, phases, relationships),
+                [GamePhase.Facility] = new FacilityHud(context, phases, facilities),
+                [GamePhase.Collection] = new CollectionHud(context, phases),
+                [GamePhase.Pause] = new PauseHud(context, phases, session)
+            }, new HudOverlay(context, phases, session));
 
             phases.Set(GamePhase.Explore);
-            ShowMessage(context.Text("welcome"));
+            session.ShowMessage(context.Text("welcome"));
         }
 
         private void Update()
         {
-            HandleGlobalInput();
+            context.Positions.Tick();
+            if (session.TickGlobalInput()) return;
             switch (phases.Current)
             {
-                case GamePhase.Explore: UpdateExplore(); break;
+                case GamePhase.Explore: explore.Tick(); break;
                 case GamePhase.Fishing: fishing.Tick(); break;
                 case GamePhase.PredatorCombat: combat.Tick(); break;
                 case GamePhase.CatchResolution: fishing.TickResolutionInput(); break;
@@ -54,37 +68,8 @@ namespace BreathIsland
             }
         }
 
-        private void HandleGlobalInput()
-        {
-            if (GameInput.LanguagePressed()) { context.Korean = !context.Korean; ShowMessage(context.Text("language")); }
-            if (GameInput.SavePressed()) { context.SaveTo(0); ShowMessage(context.Text("saved")); }
-            if (GameInput.LoadPressed()) { context.LoadFrom(0); ShowMessage(context.Text("loaded")); }
-            if (GameInput.CancelPressed()) phases.Cancel();
-        }
-
-        private void UpdateExplore()
-        {
-            if (GameInput.FacilityPressed()) phases.Set(GamePhase.Facility);
-            if (GameInput.CollectionPressed()) phases.Set(GamePhase.Collection);
-            if (GameInput.InteractPressed())
-            {
-                NpcId? nearby = relationships.NearbyNpc();
-                if (nearby.HasValue) relationships.Open(nearby.Value);
-            }
-            if (GameInput.PrimaryPressed() && Vector3.Distance(context.World.player.transform.position, context.World.fishingPoint) < 7.5f) fishing.Start();
-        }
-
         private void OnGUI() => hud?.Draw();
-
-        private void OnApplicationQuit()
-        {
-            if (context != null) context.SaveTo();
-        }
-
-        private void ShowMessage(string text)
-        {
-            eventMessage = text;
-            eventMessageUntil = Time.unscaledTime + 2.6f;
-        }
+        private void OnDestroy() => hud?.Dispose();
+        private void OnApplicationQuit() { if (context != null) context.SaveTo(); }
     }
 }

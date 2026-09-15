@@ -1,0 +1,436 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: GameText Shared Data
+  m_EditorClassIdentifier:
+  m_TableCollectionName: GameText
+  m_TableCollectionNameGuidString: 23936318f4c6497ab4d2094eeb83e7f6
+  m_Entries:
+  - m_Id: 1
+    m_Key: welcome
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2
+    m_Key: language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3
+    m_Key: saved
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4
+    m_Key: loaded
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5
+    m_Key: no_bait
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6
+    m_Key: line_broke
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7
+    m_Key: hooked
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8
+    m_Key: predator
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9
+    m_Key: hit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10
+    m_Key: washed_ashore
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11
+    m_Key: sold
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12
+    m_Key: displayed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13
+    m_Key: materials
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14
+    m_Key: recorded
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15
+    m_Key: dodged
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16
+    m_Key: net
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17
+    m_Key: shock
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18
+    m_Key: gift_fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19
+    m_Key: gift_ok
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20
+    m_Key: upgrade_fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21
+    m_Key: upgrade_ok
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22
+    m_Key: boat_unlocked
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23
+    m_Key: talk_prompt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24
+    m_Key: rarity_Common
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25
+    m_Key: rarity_Uncommon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26
+    m_Key: rarity_Rare
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27
+    m_Key: rarity_Predator
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28
+    m_Key: ui_breath_island_nquiet_coastal_village
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29
+    m_Key: ui_time
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30
+    m_Key: ui_f_space_start_fishing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31
+    m_Key: ui_wasd_move_mouse_look_e_talk_nm_village_tab_guide_l_language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32
+    m_Key: ui_hide_help
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33
+    m_Key: ui_first_person_sunny_shore
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34
+    m_Key: ui_gentle_ripples
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35
+    m_Key: ui_cast_when_a_fish_shadow_passes_through_the_water
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36
+    m_Key: ui_cast_line
+    m_Metadata:
+      m_Items: []
+  - m_Id: 37
+    m_Key: ui_waiting_for_a_bite
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38
+    m_Key: ui_watch_the_movement_of_the_water
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39
+    m_Key: ui_reel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40
+    m_Key: ui_tension
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41
+    m_Key: ui_s_ease_line
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42
+    m_Key: ui_space_reel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43
+    m_Key: ui_the_line_snapped
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44
+    m_Key: ui_it_is_okay_you_only_lost_one_bait
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45
+    m_Key: ui_try_again
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46
+    m_Key: ui_new_discovery
+    m_Metadata:
+      m_Items: []
+  - m_Id: 47
+    m_Key: ui_sell_0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 48
+    m_Key: ui_record
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49
+    m_Key: ui_display
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50
+    m_Key: ui_material_0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 51
+    m_Key: ui_predator_breaker_shark
+    m_Metadata:
+      m_Items: []
+  - m_Id: 52
+    m_Key: ui_health
+    m_Metadata:
+      m_Items: []
+  - m_Id: 53
+    m_Key: ui_next_attack_0_0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 54
+    m_Key: ui_1_dodge
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55
+    m_Key: ui_2_net
+    m_Metadata:
+      m_Items: []
+  - m_Id: 56
+    m_Key: ui_3_calm_pulse
+    m_Metadata:
+      m_Items: []
+  - m_Id: 57
+    m_Key: ui_gift_12_coins
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58
+    m_Key: ui_keep_talking
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59
+    m_Key: ui_village_growth
+    m_Metadata:
+      m_Items: []
+  - m_Id: 60
+    m_Key: ui_restore_either_facility_first_every_choice_can_be_completed_later
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61
+    m_Key: ui_close_esc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 62
+    m_Key: ui_unlocks_a_small_boat_and_the_reef_route
+    m_Metadata:
+      m_Items: []
+  - m_Id: 63
+    m_Key: ui_displays_creatures_and_brings_villagers_back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 64
+    m_Key: ui_restore
+    m_Metadata:
+      m_Items: []
+  - m_Id: 65
+    m_Key: ui_restoration_complete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 66
+    m_Key: ui_field_guide
+    m_Metadata:
+      m_Items: []
+  - m_Id: 67
+    m_Key: ui_discovered
+    m_Metadata:
+      m_Items: []
+  - m_Id: 68
+    m_Key: ui_undiscovered_creature
+    m_Metadata:
+      m_Items: []
+  - m_Id: 69
+    m_Key: ui_watch_the_ripples_and_time_of_day
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70
+    m_Key: ui_on_show
+    m_Metadata:
+      m_Items: []
+  - m_Id: 71
+    m_Key: ui_take_a_breath
+    m_Metadata:
+      m_Items: []
+  - m_Id: 72
+    m_Key: ui_continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 73
+    m_Key: ui_save
+    m_Metadata:
+      m_Items: []
+  - m_Id: 74
+    m_Key: ui_load
+    m_Metadata:
+      m_Items: []
+  - m_Id: 75
+    m_Key: ui_language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 76
+    m_Key: ui_quit_game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 77
+    m_Key: facility_level
+    m_Metadata:
+      m_Items: []
+  - m_Id: 78
+    m_Key: no_fish
+    m_Metadata:
+      m_Items: []
+  - m_Id: 79
+    m_Key: fish_glimmer_name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 80
+    m_Key: fish_glimmer_description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 81
+    m_Key: fish_cloud_name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 82
+    m_Key: fish_cloud_description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 83
+    m_Key: fish_coral_name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 84
+    m_Key: fish_coral_description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 85
+    m_Key: fish_moon_name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 86
+    m_Key: fish_moon_description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 87
+    m_Key: fish_pearl_name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 88
+    m_Key: fish_pearl_description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 89
+    m_Key: fish_breaker_name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 90
+    m_Key: fish_breaker_description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 91
+    m_Key: definition_Boatyard_name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 92
+    m_Key: definition_Aquarium_name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 93
+    m_Key: definition_Nari_name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 94
+    m_Key: npc_Nari_role
+    m_Metadata:
+      m_Items: []
+  - m_Id: 95
+    m_Key: npc_Nari_line_0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96
+    m_Key: npc_Nari_line_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 97
+    m_Key: npc_Nari_line_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 98
+    m_Key: definition_Maru_name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 99
+    m_Key: npc_Maru_role
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100
+    m_Key: npc_Maru_line_0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 101
+    m_Key: npc_Maru_line_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 102
+    m_Key: npc_Maru_line_2
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 1
+  references:
+    version: 2
+    RefIds:
+    - rid: 1
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1629729710612

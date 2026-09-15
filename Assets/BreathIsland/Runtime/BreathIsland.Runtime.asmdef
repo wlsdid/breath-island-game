@@ -1,7 +1,10 @@
 {
   "name": "BreathIsland.Runtime",
   "rootNamespace": "BreathIsland",
-  "references": ["Unity.InputSystem"],
+  "references": [
+    "Unity.InputSystem",
+    "Unity.Localization",
+    "Unity.ResourceManager"
+  ],
   "autoReferenced": true
 }
-

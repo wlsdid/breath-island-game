@@ -13,6 +13,7 @@ namespace BreathIsland
 
         public void Set(GamePhase next)
         {
+            if (next == GamePhase.Pause && Current != GamePhase.Pause) BeforePause = Current;
             Current = next;
             world.motor.CanMove = next == GamePhase.Explore;
             world.cameraRig.firstPerson = next == GamePhase.Fishing || next == GamePhase.PredatorCombat;

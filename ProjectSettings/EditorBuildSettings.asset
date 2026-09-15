@@ -9,4 +9,6 @@ EditorBuildSettings:
     path: Assets/BreathIsland/Scenes/BeachVerticalSlice.unity
     guid: da1d6795be597384b913add8db4be00b
   m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: fc6e7e90f7a70a643ae6f19ff754fcb9, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+    com.unity.localization.settings: {fileID: 11400000, guid: f23aa71ac7bce584cb87c386e6881d05, type: 2}

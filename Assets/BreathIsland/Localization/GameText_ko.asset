@@ -1,0 +1,428 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: GameText_ko
+  m_EditorClassIdentifier:
+  m_LocaleId:
+    m_Code: ko
+  m_SharedData: {fileID: 11400000, guid: 23936318f4c6497ab4d2094eeb83e7f6, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 1
+    m_Localized: "숨결섬에 오신 것을 환영해요."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2
+    m_Localized: "언어: 한국어"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3
+    m_Localized: "{0}번 슬롯에 저장했습니다."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4
+    m_Localized: "{0}번 슬롯을 불러왔습니다."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5
+    m_Localized: "미끼가 없어요."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6
+    m_Localized: "줄이 끊어졌어요. 미끼만 소모됩니다."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7
+    m_Localized: "{0}이(가) 미끼를 물었어요!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8
+    m_Localized: "포식자 조우! 공격 신호를 보고 회피하세요."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9
+    m_Localized: "꼬리치기에 맞았어요!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10
+    m_Localized: "해안으로 돌아왔어요. 미끼 1개를 잃었습니다."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11
+    m_Localized: "조개코인 {0}개를 받았어요."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12
+    m_Localized: "수족관 전시 목록에 추가했어요."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13
+    m_Localized: "재료 {0}개를 얻었어요."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14
+    m_Localized: "도감을 자세히 기록했어요."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15
+    m_Localized: "물보라를 피해 굴렀어요."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16
+    m_Localized: "그물이 움직임을 늦췄어요."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17
+    m_Localized: "진정 충격으로 기운을 뺐어요."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18
+    m_Localized: "선물을 살 코인이 부족해요."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19
+    m_Localized: "호감도가 올랐어요."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20
+    m_Localized: "업그레이드 재료가 부족해요."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21
+    m_Localized: "시설이 성장했어요."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22
+    m_Localized: "작은 보트가 완성됐어요!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23
+    m_Localized: "E  {0}와 대화"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24
+    m_Localized: "흔함"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25
+    m_Localized: "보통"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26
+    m_Localized: "희귀"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27
+    m_Localized: "포식자"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28
+    m_Localized: "숨결섬\n고요한 해안마을"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29
+    m_Localized: "시간"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30
+    m_Localized: "F / SPACE  낚시 시작"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31
+    m_Localized: "WASD 이동 · 마우스 시점 · E 대화\nM 마을 성장 · TAB 도감 · L 언어"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32
+    m_Localized: "도움말 숨기기"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33
+    m_Localized: "1인칭 낚시 · 햇살 해안"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34
+    m_Localized: "잔잔한 물결"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35
+    m_Localized: "물고기 그림자가 지나갈 때 낚싯줄을 던져 보세요."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36
+    m_Localized: "낚싯줄 던지기"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 37
+    m_Localized: "입질을 기다리는 중…"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38
+    m_Localized: "수면의 움직임에 집중하세요."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39
+    m_Localized: "끌어오기"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40
+    m_Localized: "줄 장력"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41
+    m_Localized: "S  줄 느슨하게"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42
+    m_Localized: "SPACE  줄 감기"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43
+    m_Localized: "줄이 끊어졌어요"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44
+    m_Localized: "괜찮아요. 잃은 것은 미끼 하나뿐이에요."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45
+    m_Localized: "다시 해보기"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46
+    m_Localized: "새로운 발견"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 47
+    m_Localized: "판매  +{0} 코인"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 48
+    m_Localized: "도감 등록"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49
+    m_Localized: "수족관 전시"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50
+    m_Localized: "재료 획득  +{0}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 51
+    m_Localized: "포식자 조우 · 파도송곳상어"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 52
+    m_Localized: "체력"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 53
+    m_Localized: "다음 공격 {0:0}%"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 54
+    m_Localized: "1  회피"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55
+    m_Localized: "2  그물"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 56
+    m_Localized: "3  진정 충격"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 57
+    m_Localized: "선물  12 코인"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58
+    m_Localized: "계속 대화"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59
+    m_Localized: "마을 성장"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 60
+    m_Localized: "원하는 시설부터 복구하세요. 모든 선택은 나중에 완성할 수 있어요."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61
+    m_Localized: "닫기  ESC"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 62
+    m_Localized: "작은 보트와 산호초 항로를 개방합니다."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 63
+    m_Localized: "잡은 생물을 전시하고 주민을 불러옵니다."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 64
+    m_Localized: "복구하기  "
+    m_Metadata:
+      m_Items: []
+  - m_Id: 65
+    m_Localized: "복구 완료"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 66
+    m_Localized: "바다 도감"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 67
+    m_Localized: "발견"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 68
+    m_Localized: "아직 만나지 못한 생물"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 69
+    m_Localized: "물결과 시간대를 관찰해 보세요."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70
+    m_Localized: "전시 중"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 71
+    m_Localized: "잠시 쉬어가기"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 72
+    m_Localized: "계속하기"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 73
+    m_Localized: "저장"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 74
+    m_Localized: "불러오기"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 75
+    m_Localized: "언어 변경 / LANGUAGE"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 76
+    m_Localized: "게임 종료"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 77
+    m_Localized: "{0}  ·  단계 {1}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 78
+    m_Localized: "지금은 입질이 없어요. 다시 던지면 다음 시간대를 살펴봅니다."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 79
+    m_Localized: "윤슬멸치"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 80
+    m_Localized: "햇빛을 따라 반짝이는 작은 물고기"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 81
+    m_Localized: "구름복어"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 82
+    m_Localized: "놀라면 몽글몽글 부풀어 오른다"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 83
+    m_Localized: "산호나비어"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 84
+    m_Localized: "얕은 산호 곁을 맴도는 온순한 물고기"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 85
+    m_Localized: "달빛가오리"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 86
+    m_Localized: "저녁 바다에서 푸른 빛을 남긴다"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 87
+    m_Localized: "진주해마"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 88
+    m_Localized: "해초 사이에 몸을 숨기는 희귀종"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 89
+    m_Localized: "파도송곳상어"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 90
+    m_Localized: "거친 파도를 가르는 외해의 포식자"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 91
+    m_Localized: "바람 조선소"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 92
+    m_Localized: "파도 수족관"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 93
+    m_Localized: "나리"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 94
+    m_Localized: "조선공"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 95
+    m_Localized: "바다는 기다릴 줄 아는 사람을 좋아해."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96
+    m_Localized: "조선소를 손보면 산호초까지 갈 수 있어."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 97
+    m_Localized: "오늘 파도는 얌전하네. 줄 소리에 귀 기울여 봐."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 98
+    m_Localized: "마루"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 99
+    m_Localized: "수족관지기"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100
+    m_Localized: "처음 만난 생물은 도감에 기록해 둬."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 101
+    m_Localized: "수족관이 밝아지면 마을 사람들도 찾아올 거야."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 102
+    m_Localized: "구름복어는 둥글지만 마음은 아주 용감하대."
+    m_Metadata:
+      m_Items: []

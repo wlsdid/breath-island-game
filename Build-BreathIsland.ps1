@@ -1,76 +1,62 @@
 [CmdletBinding()]
-param(
-    [switch]$SkipTests,
-    [switch]$ReleaseIl2Cpp
-)
-
+param([switch]$SkipTests, [switch]$ReleaseIl2Cpp)
 $ErrorActionPreference = 'Stop'
 $projectRoot = $PSScriptRoot
 $unity = 'C:\Program Files\Unity\Hub\Editor\6000.5.4f1\Editor\Unity.exe'
 $buildDirectory = Join-Path $projectRoot 'Builds'
-$testResults = Join-Path $buildDirectory 'editmode-results.xml'
-$testLog = Join-Path $buildDirectory 'tests.log'
-$buildLog = Join-Path $buildDirectory 'build.log'
-
-if (-not (Test-Path -LiteralPath $unity)) {
-    throw "Unity 6000.5.4f1 was not found at $unity"
-}
-
+if (-not (Test-Path -LiteralPath $unity)) { throw "Unity 6000.5.4f1 was not found at $unity" }
 New-Item -ItemType Directory -Force $buildDirectory | Out-Null
 
 function Invoke-UnityBatch {
-    param(
-        [string[]]$Arguments,
-        [string]$LogPath,
-        [string]$SuccessPattern
-    )
-
+    param([string[]]$Arguments, [string]$LogPath)
     Remove-Item -LiteralPath $LogPath -Force -ErrorAction SilentlyContinue
-    Start-Process -FilePath $unity -ArgumentList $Arguments -WindowStyle Hidden | Out-Null
+    # Quote paths for Windows Start-Process and wait for the Editor to release the project.
+    $quotedArguments = $Arguments | ForEach-Object { '"' + $_ + '"' }
+    $process = Start-Process -FilePath $unity -ArgumentList $quotedArguments -WindowStyle Hidden -PassThru
     $deadline = (Get-Date).AddMinutes(20)
-    do {
-        Start-Sleep -Milliseconds 500
-        if (Test-Path -LiteralPath $LogPath) {
-            $tail = Get-Content -LiteralPath $LogPath -Tail 80 -ErrorAction SilentlyContinue
-            if ($tail -match $SuccessPattern) { return }
-            if ($tail -match 'Aborting batchmode|Compilation failed|BuildFailedException|Error building Player') {
-                throw "Unity batch operation failed. See $LogPath"
-            }
+    while (-not $process.WaitForExit(500)) {
+        if ((Get-Date) -gt $deadline) {
+            $process.Kill()
+            throw "Unity operation timed out. See $LogPath"
         }
-    } while ((Get-Date) -lt $deadline)
-
-    throw "Unity batch operation timed out. See $LogPath"
+    }
+    if ($process.ExitCode -ne 0) { throw "Unity exited with code $($process.ExitCode). See $LogPath" }
+    if (-not (Test-Path -LiteralPath $LogPath)) { throw "Unity did not produce $LogPath" }
+    if (Select-String -LiteralPath $LogPath -Pattern 'No valid Unity Editor license|error CS\d+|Aborting batchmode|BuildFailedException' -Quiet) {
+        throw "Unity reported a license, compile or build error. See $LogPath"
+    }
 }
+
+$setupLog = Join-Path $buildDirectory 'localization-setup.log'
+Invoke-UnityBatch -Arguments @('-batchmode', '-nographics', '-quit', '-projectPath', $projectRoot,
+    '-executeMethod', 'BreathIsland.Editor.LocalizationSetup.EnsureConfigured', '-logFile', $setupLog) -LogPath $setupLog
 
 if (-not $SkipTests) {
-    # Unity Test Framework exits the Editor after the run. Passing -quit here can
-    # terminate Unity 6 before the test runner creates its result file.
-    Remove-Item -LiteralPath $testResults -Force -ErrorAction SilentlyContinue
-    Invoke-UnityBatch -Arguments @('-batchmode', '-nographics', '-projectPath', $projectRoot, '-runTests', '-testPlatform', 'EditMode', '-testResults', $testResults, '-logFile', $testLog) -LogPath $testLog -SuccessPattern 'Test run completed\. Exiting with code 0'
-    if (-not (Test-Path -LiteralPath $testResults)) {
-        throw "EditMode tests failed. See $testLog"
-    }
-    [xml]$testReport = Get-Content -LiteralPath $testResults
-    if ($testReport.'test-run'.result -ne 'Passed' -or [int]$testReport.'test-run'.failed -ne 0) {
-        throw "EditMode tests failed. See $testResults"
+    foreach ($testPlatform in @('EditMode', 'PlayMode')) {
+        $testResults = Join-Path $buildDirectory ($testPlatform.ToLowerInvariant() + '-results.xml')
+        $testLog = Join-Path $buildDirectory ($testPlatform.ToLowerInvariant() + '-tests.log')
+        Remove-Item -LiteralPath $testResults -Force -ErrorAction SilentlyContinue
+        # The runner owns shutdown. IMGUI needs a real Game View, which batch mode does not repaint.
+        $testArguments = @('-projectPath', $projectRoot, '-runTests', '-testPlatform', $testPlatform,
+            '-testResults', $testResults, '-logFile', $testLog)
+        if ($testPlatform -eq 'EditMode') { $testArguments = @('-batchmode') + $testArguments }
+        Invoke-UnityBatch -Arguments $testArguments -LogPath $testLog
+        if (-not (Test-Path -LiteralPath $testResults)) { throw "$testPlatform did not produce results. See $testLog" }
+        [xml]$testReport = Get-Content -LiteralPath $testResults -Raw
+        if ($testReport.'test-run'.result -ne 'Passed' -or [int]$testReport.'test-run'.failed -ne 0 -or [int]$testReport.'test-run'.total -eq 0) {
+            throw "$testPlatform tests failed or did not run. See $testResults"
+        }
     }
 }
-
-if ($ReleaseIl2Cpp) {
-    $env:BREATH_ISLAND_BACKEND = 'IL2CPP'
-} else {
-    $env:BREATH_ISLAND_BACKEND = 'MONO'
-}
-
+$previousBackend = $env:BREATH_ISLAND_BACKEND
+$env:BREATH_ISLAND_BACKEND = if ($ReleaseIl2Cpp) { 'IL2CPP' } else { 'MONO' }
+$buildLog = Join-Path $buildDirectory 'build.log'
 try {
-    Invoke-UnityBatch -Arguments @('-batchmode', '-nographics', '-quit', '-projectPath', $projectRoot, '-executeMethod', 'BreathIsland.Editor.CommercialBuild.BuildWindowsCI', '-logFile', $buildLog) -LogPath $buildLog -SuccessPattern 'Exiting batchmode successfully now!'
+    Invoke-UnityBatch -Arguments @('-batchmode', '-nographics', '-quit', '-projectPath', $projectRoot,
+        '-executeMethod', 'BreathIsland.Editor.CommercialBuild.BuildWindowsCI', '-logFile', $buildLog) -LogPath $buildLog
 } finally {
-    Remove-Item Env:BREATH_ISLAND_BACKEND -ErrorAction SilentlyContinue
+    $env:BREATH_ISLAND_BACKEND = $previousBackend
 }
-
-$executable = Join-Path $projectRoot 'Builds\Windows\BreathIsland.exe'
-if (-not (Test-Path -LiteralPath $executable)) {
-    throw "Build reported success but executable is missing: $executable"
-}
-
+$executable = Join-Path $buildDirectory 'Windows\BreathIsland.exe'
+if (-not (Test-Path -LiteralPath $executable)) { throw "Build executable is missing: $executable" }
 Get-Item -LiteralPath $executable | Select-Object FullName, Length, LastWriteTime

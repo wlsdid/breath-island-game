@@ -23,3 +23,6 @@
 sysinfo.txt
 crashlytics-build.properties
 /FIsh/
+/Assets/AddressableAssetsData/link.xml*
+/Assets/AddressableAssetsData/Windows/
+/Assets/AddressableAssetsData/Windows.meta

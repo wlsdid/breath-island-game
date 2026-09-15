@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55e90c494e51487b8486da5451405395, type: 3}
+  m_Name: VerticalSlice
+  m_EditorClassIdentifier:
+  fish:
+  - {fileID: 11400000, guid: b4f4d7373a6e4c06be4715b92259f3bd, type: 2}
+  - {fileID: 11400000, guid: 28fcf9806db040e4b3ee56b1459a6029, type: 2}
+  - {fileID: 11400000, guid: 0aa5347a60ae4324950ec11321729cf0, type: 2}
+  - {fileID: 11400000, guid: e14c82a163ad49a0ad2cc582db32eec0, type: 2}
+  - {fileID: 11400000, guid: 4c4e5fffb731438a81a91862b8dd642a, type: 2}
+  - {fileID: 11400000, guid: cbb10ca399d5484b9099eb8b4c098fa9, type: 2}
+  facilities:
+  - {fileID: 11400000, guid: cb5fbd2f415444229470050e1865e40b, type: 2}
+  - {fileID: 11400000, guid: 3f7a120ce2cd461189e0f9673b97b40c, type: 2}
+  npcs:
+  - {fileID: 11400000, guid: 5c82aea3eb3c475086852b739184b43d, type: 2}
+  - {fileID: 11400000, guid: 032c12b6517449508e29c5d3ae3bdc92, type: 2}

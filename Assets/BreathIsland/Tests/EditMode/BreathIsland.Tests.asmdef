@@ -1,9 +1,8 @@
 {
   "name": "BreathIsland.Tests",
   "rootNamespace": "BreathIsland.Tests",
-  "references": ["BreathIsland.Runtime"],
+  "references": ["BreathIsland.Runtime", "Unity.Localization"],
   "optionalUnityReferences": ["TestAssemblies"],
   "includePlatforms": ["Editor"],
   "autoReferenced": false
 }
-

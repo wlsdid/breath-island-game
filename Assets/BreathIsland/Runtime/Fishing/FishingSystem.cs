@@ -19,34 +19,36 @@ namespace BreathIsland
             this.beginPredatorCombat = beginPredatorCombat;
         }
 
-        public FishingStage Stage { get; set; }
+        public FishingStage Stage { get; private set; }
         public FishDefinition ActiveFish { get; private set; }
         public float Progress { get; private set; }
         public float Tension { get; private set; }
 
         public void Start()
         {
+            if (phases.Current != GamePhase.Explore) return;
             if (context.Save.inventory.bait <= 0) { context.Message(context.Text("no_bait")); return; }
-            context.World.player.transform.position = context.World.fishingPoint;
-            context.World.player.transform.rotation = Quaternion.identity;
             Stage = FishingStage.Ready;
             Progress = 0f;
             Tension = 32f;
             phases.Set(GamePhase.Fishing);
         }
 
-        public void Tick()
+        public void Tick() => Tick(Time.deltaTime);
+
+        public void Tick(float deltaTime)
         {
+            if (phases.Current != GamePhase.Fishing) return;
             if (Stage == FishingStage.Ready && GameInput.PrimaryPressed()) Cast();
             else if (Stage == FishingStage.Waiting)
             {
-                biteTimer -= Time.deltaTime;
+                biteTimer -= deltaTime;
                 if (biteTimer <= 0f) HookFish();
             }
             else if (Stage == FishingStage.Hooked)
             {
-                Tension = FishingMath.PassiveTension(Tension, ActiveFish.pullStrength, Time.deltaTime);
-                Progress = FishingMath.PassiveProgress(Progress, Time.deltaTime);
+                Tension = FishingMath.PassiveTension(Tension, ActiveFish.pullStrength, deltaTime);
+                Progress = FishingMath.PassiveProgress(Progress, deltaTime);
                 if (GameInput.PrimaryPressed()) Reel();
                 if (GameInput.EasePressed()) Ease();
                 if (Tension >= 99.9f)
@@ -58,8 +60,11 @@ namespace BreathIsland
             else if (Stage == FishingStage.Failed && GameInput.PrimaryPressed()) Stage = FishingStage.Ready;
         }
 
+        public void Retry() { if (Stage == FishingStage.Failed) Stage = FishingStage.Ready; }
+
         public void Cast()
         {
+            if (phases.Current != GamePhase.Fishing || Stage != FishingStage.Ready) return;
             if (context.Save.inventory.bait <= 0) { context.Message(context.Text("no_bait")); return; }
             context.Save.inventory.bait--;
             context.Save.player.hour = (context.Save.player.hour + 1) % 24;
@@ -69,6 +74,7 @@ namespace BreathIsland
 
         public void Reel()
         {
+            if (phases.Current != GamePhase.Fishing || Stage != FishingStage.Hooked) return;
             float progress = Progress;
             float tension = Tension;
             FishingMath.Reel(ref progress, ref tension);
@@ -88,6 +94,7 @@ namespace BreathIsland
 
         public void Resolve(CatchDisposition disposition)
         {
+            if (phases.Current != GamePhase.CatchResolution || ActiveFish == null || (ActiveFish.IsPredator && disposition == CatchDisposition.Sell)) return;
             GameEconomy.ApplyCatch(context.Save, ActiveFish, disposition);
             context.SaveTo();
             phases.Set(GamePhase.Explore);
@@ -110,8 +117,15 @@ namespace BreathIsland
 
         private void HookFish()
         {
-            bool predator = context.Save.inventory.totalCatchCount >= 2 && context.Save.inventory.totalCatchCount % 4 == 2;
-            var pool = context.Content.Fish.Where(definition => !definition.IsPredator && IsAvailable(definition)).ToList();
+            bool predator = PredatorDue;
+            var pool = context.Content.Fish.Where(definition => !definition.IsPredator && IsAvailable(definition, context.Save.player.hour)).ToList();
+            // Preserve casting cost and authored spawn hours even when the night pool is empty.
+            if (!predator && pool.Count == 0)
+            {
+                Stage = FishingStage.Ready;
+                context.Message(context.Text("no_fish"));
+                return;
+            }
             ActiveFish = predator ? context.Content.Fish.First(definition => definition.IsPredator) : pool[Random.Range(0, pool.Count)];
             Stage = FishingStage.Hooked;
             Progress = 8f;
@@ -119,9 +133,10 @@ namespace BreathIsland
             context.Message(string.Format(context.Text("hooked"), ActiveFish.LocalizedName(context.Korean)));
         }
 
-        private bool IsAvailable(FishDefinition definition)
+        private bool PredatorDue => context.Save.inventory.totalCatchCount >= 2 && context.Save.inventory.totalCatchCount % 4 == 2;
+
+        private static bool IsAvailable(FishDefinition definition, int hour)
         {
-            int hour = context.Save.player.hour;
             return definition.startHour <= definition.endHour
                 ? hour >= definition.startHour && hour <= definition.endHour
                 : hour >= definition.startHour || hour <= definition.endHour;
