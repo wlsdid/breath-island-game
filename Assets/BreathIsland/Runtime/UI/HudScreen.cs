@@ -38,7 +38,7 @@ namespace BreathIsland
         }
         protected GUIStyle DarkBox() => new(GUI.skin.box) { fontSize = 16, alignment = TextAnchor.MiddleCenter, normal = { background = darkTexture, textColor = Color.white }, padding = new RectOffset(10, 10, 8, 8) };
         protected GUIStyle CenteredLight() => new(centeredStyle) { normal = { textColor = Color.white }, fontStyle = FontStyle.Bold };
-        public void Dispose()
+        public virtual void Dispose()
         {
             foreach (var texture in new[] { panelTexture, darkTexture, tealTexture, paleTexture })
                 if (texture != null) Object.Destroy(texture);

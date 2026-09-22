@@ -10,6 +10,7 @@ namespace BreathIsland
         private readonly string directory;
         public SaveService(string root = null)
         {
+            root = string.IsNullOrWhiteSpace(root) ? Environment.GetEnvironmentVariable("BREATH_ISLAND_SAVE_ROOT") : root;
             directory = string.IsNullOrWhiteSpace(root) ? Path.Combine(Application.persistentDataPath, "Saves") : root;
             Directory.CreateDirectory(directory);
         }

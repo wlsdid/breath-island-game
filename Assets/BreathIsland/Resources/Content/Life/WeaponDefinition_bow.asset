@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a3b2885961f0194399b19867788bc2f, type: 3}
+  m_Name: WeaponDefinition_bow
+  m_EditorClassIdentifier: BreathIsland.Runtime::BreathIsland.WeaponDefinition
+  id: bow
+  nameKey: life_weapon_bow
+  job: {fileID: 11400000, guid: d8f3737489a212d46a60720d11c6eaca, type: 2}
+  basicAttack: {fileID: 11400000, guid: df976e8716a47834dbb289dafc45d306, type: 2}
+  skill: {fileID: 0}
+  model: {fileID: 919132149155446097, guid: f3e80e367e8c3134d80648bd3a97ecff, type: 3}
+  achievementId:

@@ -19,410 +19,708 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 1
-    m_Localized: "숨결섬에 오신 것을 환영해요."
+    m_Localized: "\uC228\uACB0\uC12C\uC5D0 \uC624\uC2E0 \uAC83\uC744 \uD658\uC601\uD574\uC694."
     m_Metadata:
       m_Items: []
   - m_Id: 2
-    m_Localized: "언어: 한국어"
+    m_Localized: "\uC5B8\uC5B4: \uD55C\uAD6D\uC5B4"
     m_Metadata:
       m_Items: []
   - m_Id: 3
-    m_Localized: "{0}번 슬롯에 저장했습니다."
+    m_Localized: "{0}\uBC88 \uC2AC\uB86F\uC5D0 \uC800\uC7A5\uD588\uC2B5\uB2C8\uB2E4."
     m_Metadata:
       m_Items: []
   - m_Id: 4
-    m_Localized: "{0}번 슬롯을 불러왔습니다."
+    m_Localized: "{0}\uBC88 \uC2AC\uB86F\uC744 \uBD88\uB7EC\uC654\uC2B5\uB2C8\uB2E4."
     m_Metadata:
       m_Items: []
   - m_Id: 5
-    m_Localized: "미끼가 없어요."
+    m_Localized: "\uBBF8\uB07C\uAC00 \uC5C6\uC5B4\uC694."
     m_Metadata:
       m_Items: []
   - m_Id: 6
-    m_Localized: "줄이 끊어졌어요. 미끼만 소모됩니다."
+    m_Localized: "\uC904\uC774 \uB04A\uC5B4\uC84C\uC5B4\uC694. \uBBF8\uB07C\uB9CC
+      \uC18C\uBAA8\uB429\uB2C8\uB2E4."
     m_Metadata:
       m_Items: []
   - m_Id: 7
-    m_Localized: "{0}이(가) 미끼를 물었어요!"
+    m_Localized: "{0}\uC774(\uAC00) \uBBF8\uB07C\uB97C \uBB3C\uC5C8\uC5B4\uC694!"
     m_Metadata:
       m_Items: []
   - m_Id: 8
-    m_Localized: "포식자 조우! 공격 신호를 보고 회피하세요."
+    m_Localized: "\uD3EC\uC2DD\uC790 \uC870\uC6B0! \uACF5\uACA9 \uC2E0\uD638\uB97C
+      \uBCF4\uACE0 \uD68C\uD53C\uD558\uC138\uC694."
     m_Metadata:
       m_Items: []
   - m_Id: 9
-    m_Localized: "꼬리치기에 맞았어요!"
+    m_Localized: "\uAF2C\uB9AC\uCE58\uAE30\uC5D0 \uB9DE\uC558\uC5B4\uC694!"
     m_Metadata:
       m_Items: []
   - m_Id: 10
-    m_Localized: "해안으로 돌아왔어요. 미끼 1개를 잃었습니다."
+    m_Localized: "\uD574\uC548\uC73C\uB85C \uB3CC\uC544\uC654\uC5B4\uC694. \uBBF8\uB07C
+      1\uAC1C\uB97C \uC783\uC5C8\uC2B5\uB2C8\uB2E4."
     m_Metadata:
       m_Items: []
   - m_Id: 11
-    m_Localized: "조개코인 {0}개를 받았어요."
+    m_Localized: "\uC870\uAC1C\uCF54\uC778 {0}\uAC1C\uB97C \uBC1B\uC558\uC5B4\uC694."
     m_Metadata:
       m_Items: []
   - m_Id: 12
-    m_Localized: "수족관 전시 목록에 추가했어요."
+    m_Localized: "\uC218\uC871\uAD00 \uC804\uC2DC \uBAA9\uB85D\uC5D0 \uCD94\uAC00\uD588\uC5B4\uC694."
     m_Metadata:
       m_Items: []
   - m_Id: 13
-    m_Localized: "재료 {0}개를 얻었어요."
+    m_Localized: "\uC7AC\uB8CC {0}\uAC1C\uB97C \uC5BB\uC5C8\uC5B4\uC694."
     m_Metadata:
       m_Items: []
   - m_Id: 14
-    m_Localized: "도감을 자세히 기록했어요."
+    m_Localized: "\uB3C4\uAC10\uC744 \uC790\uC138\uD788 \uAE30\uB85D\uD588\uC5B4\uC694."
     m_Metadata:
       m_Items: []
   - m_Id: 15
-    m_Localized: "물보라를 피해 굴렀어요."
+    m_Localized: "\uBB3C\uBCF4\uB77C\uB97C \uD53C\uD574 \uAD74\uB800\uC5B4\uC694."
     m_Metadata:
       m_Items: []
   - m_Id: 16
-    m_Localized: "그물이 움직임을 늦췄어요."
+    m_Localized: "\uADF8\uBB3C\uC774 \uC6C0\uC9C1\uC784\uC744 \uB2A6\uCDC4\uC5B4\uC694."
     m_Metadata:
       m_Items: []
   - m_Id: 17
-    m_Localized: "진정 충격으로 기운을 뺐어요."
+    m_Localized: "\uC9C4\uC815 \uCDA9\uACA9\uC73C\uB85C \uAE30\uC6B4\uC744 \uBE90\uC5B4\uC694."
     m_Metadata:
       m_Items: []
   - m_Id: 18
-    m_Localized: "선물을 살 코인이 부족해요."
+    m_Localized: "\uC120\uBB3C\uC744 \uC0B4 \uCF54\uC778\uC774 \uBD80\uC871\uD574\uC694."
     m_Metadata:
       m_Items: []
   - m_Id: 19
-    m_Localized: "호감도가 올랐어요."
+    m_Localized: "\uD638\uAC10\uB3C4\uAC00 \uC62C\uB790\uC5B4\uC694."
     m_Metadata:
       m_Items: []
   - m_Id: 20
-    m_Localized: "업그레이드 재료가 부족해요."
+    m_Localized: "\uC5C5\uADF8\uB808\uC774\uB4DC \uC7AC\uB8CC\uAC00 \uBD80\uC871\uD574\uC694."
     m_Metadata:
       m_Items: []
   - m_Id: 21
-    m_Localized: "시설이 성장했어요."
+    m_Localized: "\uC2DC\uC124\uC774 \uC131\uC7A5\uD588\uC5B4\uC694."
     m_Metadata:
       m_Items: []
   - m_Id: 22
-    m_Localized: "작은 보트가 완성됐어요!"
+    m_Localized: "\uC791\uC740 \uBCF4\uD2B8\uAC00 \uC644\uC131\uB410\uC5B4\uC694!"
     m_Metadata:
       m_Items: []
   - m_Id: 23
-    m_Localized: "E  {0}와 대화"
+    m_Localized: "E  {0}\uC640 \uB300\uD654"
     m_Metadata:
       m_Items: []
   - m_Id: 24
-    m_Localized: "흔함"
+    m_Localized: "\uD754\uD568"
     m_Metadata:
       m_Items: []
   - m_Id: 25
-    m_Localized: "보통"
+    m_Localized: "\uBCF4\uD1B5"
     m_Metadata:
       m_Items: []
   - m_Id: 26
-    m_Localized: "희귀"
+    m_Localized: "\uD76C\uADC0"
     m_Metadata:
       m_Items: []
   - m_Id: 27
-    m_Localized: "포식자"
+    m_Localized: "\uD3EC\uC2DD\uC790"
     m_Metadata:
       m_Items: []
   - m_Id: 28
-    m_Localized: "숨결섬\n고요한 해안마을"
+    m_Localized: "\uC228\uACB0\uC12C\n\uACE0\uC694\uD55C \uD574\uC548\uB9C8\uC744"
     m_Metadata:
       m_Items: []
   - m_Id: 29
-    m_Localized: "시간"
+    m_Localized: "\uC2DC\uAC04"
     m_Metadata:
       m_Items: []
   - m_Id: 30
-    m_Localized: "F / SPACE  낚시 시작"
+    m_Localized: "F / SPACE  \uB09A\uC2DC \uC2DC\uC791"
     m_Metadata:
       m_Items: []
   - m_Id: 31
-    m_Localized: "WASD 이동 · 마우스 시점 · E 대화\nM 마을 성장 · TAB 도감 · L 언어"
+    m_Localized: "WASD \uC774\uB3D9 \xB7 \uB9C8\uC6B0\uC2A4 \uC2DC\uC810 \xB7 E \uB300\uD654\nM
+      \uB9C8\uC744 \uC131\uC7A5 \xB7 TAB \uB3C4\uAC10 \xB7 L \uC5B8\uC5B4"
     m_Metadata:
       m_Items: []
   - m_Id: 32
-    m_Localized: "도움말 숨기기"
+    m_Localized: "\uB3C4\uC6C0\uB9D0 \uC228\uAE30\uAE30"
     m_Metadata:
       m_Items: []
   - m_Id: 33
-    m_Localized: "1인칭 낚시 · 햇살 해안"
+    m_Localized: "1\uC778\uCE6D \uB09A\uC2DC \xB7 \uD587\uC0B4 \uD574\uC548"
     m_Metadata:
       m_Items: []
   - m_Id: 34
-    m_Localized: "잔잔한 물결"
+    m_Localized: "\uC794\uC794\uD55C \uBB3C\uACB0"
     m_Metadata:
       m_Items: []
   - m_Id: 35
-    m_Localized: "물고기 그림자가 지나갈 때 낚싯줄을 던져 보세요."
+    m_Localized: "\uBB3C\uACE0\uAE30 \uADF8\uB9BC\uC790\uAC00 \uC9C0\uB098\uAC08
+      \uB54C \uB09A\uC2EF\uC904\uC744 \uB358\uC838 \uBCF4\uC138\uC694."
     m_Metadata:
       m_Items: []
   - m_Id: 36
-    m_Localized: "낚싯줄 던지기"
+    m_Localized: "\uB09A\uC2EF\uC904 \uB358\uC9C0\uAE30"
     m_Metadata:
       m_Items: []
   - m_Id: 37
-    m_Localized: "입질을 기다리는 중…"
+    m_Localized: "\uC785\uC9C8\uC744 \uAE30\uB2E4\uB9AC\uB294 \uC911\u2026"
     m_Metadata:
       m_Items: []
   - m_Id: 38
-    m_Localized: "수면의 움직임에 집중하세요."
+    m_Localized: "\uC218\uBA74\uC758 \uC6C0\uC9C1\uC784\uC5D0 \uC9D1\uC911\uD558\uC138\uC694."
     m_Metadata:
       m_Items: []
   - m_Id: 39
-    m_Localized: "끌어오기"
+    m_Localized: "\uB04C\uC5B4\uC624\uAE30"
     m_Metadata:
       m_Items: []
   - m_Id: 40
-    m_Localized: "줄 장력"
+    m_Localized: "\uC904 \uC7A5\uB825"
     m_Metadata:
       m_Items: []
   - m_Id: 41
-    m_Localized: "S  줄 느슨하게"
+    m_Localized: "S  \uC904 \uB290\uC2A8\uD558\uAC8C"
     m_Metadata:
       m_Items: []
   - m_Id: 42
-    m_Localized: "SPACE  줄 감기"
+    m_Localized: "SPACE  \uC904 \uAC10\uAE30"
     m_Metadata:
       m_Items: []
   - m_Id: 43
-    m_Localized: "줄이 끊어졌어요"
+    m_Localized: "\uC904\uC774 \uB04A\uC5B4\uC84C\uC5B4\uC694"
     m_Metadata:
       m_Items: []
   - m_Id: 44
-    m_Localized: "괜찮아요. 잃은 것은 미끼 하나뿐이에요."
+    m_Localized: "\uAD1C\uCC2E\uC544\uC694. \uC783\uC740 \uAC83\uC740 \uBBF8\uB07C
+      \uD558\uB098\uBFD0\uC774\uC5D0\uC694."
     m_Metadata:
       m_Items: []
   - m_Id: 45
-    m_Localized: "다시 해보기"
+    m_Localized: "\uB2E4\uC2DC \uD574\uBCF4\uAE30"
     m_Metadata:
       m_Items: []
   - m_Id: 46
-    m_Localized: "새로운 발견"
+    m_Localized: "\uC0C8\uB85C\uC6B4 \uBC1C\uACAC"
     m_Metadata:
       m_Items: []
   - m_Id: 47
-    m_Localized: "판매  +{0} 코인"
+    m_Localized: "\uD310\uB9E4  +{0} \uCF54\uC778"
     m_Metadata:
       m_Items: []
   - m_Id: 48
-    m_Localized: "도감 등록"
+    m_Localized: "\uB3C4\uAC10 \uB4F1\uB85D"
     m_Metadata:
       m_Items: []
   - m_Id: 49
-    m_Localized: "수족관 전시"
+    m_Localized: "\uC218\uC871\uAD00 \uC804\uC2DC"
     m_Metadata:
       m_Items: []
   - m_Id: 50
-    m_Localized: "재료 획득  +{0}"
+    m_Localized: "\uC7AC\uB8CC \uD68D\uB4DD  +{0}"
     m_Metadata:
       m_Items: []
   - m_Id: 51
-    m_Localized: "포식자 조우 · 파도송곳상어"
+    m_Localized: "\uD3EC\uC2DD\uC790 \uC870\uC6B0 \xB7 \uD30C\uB3C4\uC1A1\uACF3\uC0C1\uC5B4"
     m_Metadata:
       m_Items: []
   - m_Id: 52
-    m_Localized: "체력"
+    m_Localized: "\uCCB4\uB825"
     m_Metadata:
       m_Items: []
   - m_Id: 53
-    m_Localized: "다음 공격 {0:0}%"
+    m_Localized: "\uB2E4\uC74C \uACF5\uACA9 {0:0}%"
     m_Metadata:
       m_Items: []
   - m_Id: 54
-    m_Localized: "1  회피"
+    m_Localized: "1  \uD68C\uD53C"
     m_Metadata:
       m_Items: []
   - m_Id: 55
-    m_Localized: "2  그물"
+    m_Localized: "2  \uADF8\uBB3C"
     m_Metadata:
       m_Items: []
   - m_Id: 56
-    m_Localized: "3  진정 충격"
+    m_Localized: "3  \uC9C4\uC815 \uCDA9\uACA9"
     m_Metadata:
       m_Items: []
   - m_Id: 57
-    m_Localized: "선물  12 코인"
+    m_Localized: "\uC120\uBB3C  12 \uCF54\uC778"
     m_Metadata:
       m_Items: []
   - m_Id: 58
-    m_Localized: "계속 대화"
+    m_Localized: "\uACC4\uC18D \uB300\uD654"
     m_Metadata:
       m_Items: []
   - m_Id: 59
-    m_Localized: "마을 성장"
+    m_Localized: "\uB9C8\uC744 \uC131\uC7A5"
     m_Metadata:
       m_Items: []
   - m_Id: 60
-    m_Localized: "원하는 시설부터 복구하세요. 모든 선택은 나중에 완성할 수 있어요."
+    m_Localized: "\uC6D0\uD558\uB294 \uC2DC\uC124\uBD80\uD130 \uBCF5\uAD6C\uD558\uC138\uC694.
+      \uBAA8\uB4E0 \uC120\uD0DD\uC740 \uB098\uC911\uC5D0 \uC644\uC131\uD560 \uC218
+      \uC788\uC5B4\uC694."
     m_Metadata:
       m_Items: []
   - m_Id: 61
-    m_Localized: "닫기  ESC"
+    m_Localized: "\uB2EB\uAE30  ESC"
     m_Metadata:
       m_Items: []
   - m_Id: 62
-    m_Localized: "작은 보트와 산호초 항로를 개방합니다."
+    m_Localized: "\uC791\uC740 \uBCF4\uD2B8\uC640 \uC0B0\uD638\uCD08 \uD56D\uB85C\uB97C
+      \uAC1C\uBC29\uD569\uB2C8\uB2E4."
     m_Metadata:
       m_Items: []
   - m_Id: 63
-    m_Localized: "잡은 생물을 전시하고 주민을 불러옵니다."
+    m_Localized: "\uC7A1\uC740 \uC0DD\uBB3C\uC744 \uC804\uC2DC\uD558\uACE0 \uC8FC\uBBFC\uC744
+      \uBD88\uB7EC\uC635\uB2C8\uB2E4."
     m_Metadata:
       m_Items: []
   - m_Id: 64
-    m_Localized: "복구하기  "
+    m_Localized: "\uBCF5\uAD6C\uD558\uAE30  "
     m_Metadata:
       m_Items: []
   - m_Id: 65
-    m_Localized: "복구 완료"
+    m_Localized: "\uBCF5\uAD6C \uC644\uB8CC"
     m_Metadata:
       m_Items: []
   - m_Id: 66
-    m_Localized: "바다 도감"
+    m_Localized: "\uBC14\uB2E4 \uB3C4\uAC10"
     m_Metadata:
       m_Items: []
   - m_Id: 67
-    m_Localized: "발견"
+    m_Localized: "\uBC1C\uACAC"
     m_Metadata:
       m_Items: []
   - m_Id: 68
-    m_Localized: "아직 만나지 못한 생물"
+    m_Localized: "\uC544\uC9C1 \uB9CC\uB098\uC9C0 \uBABB\uD55C \uC0DD\uBB3C"
     m_Metadata:
       m_Items: []
   - m_Id: 69
-    m_Localized: "물결과 시간대를 관찰해 보세요."
+    m_Localized: "\uBB3C\uACB0\uACFC \uC2DC\uAC04\uB300\uB97C \uAD00\uCC30\uD574
+      \uBCF4\uC138\uC694."
     m_Metadata:
       m_Items: []
   - m_Id: 70
-    m_Localized: "전시 중"
+    m_Localized: "\uC804\uC2DC \uC911"
     m_Metadata:
       m_Items: []
   - m_Id: 71
-    m_Localized: "잠시 쉬어가기"
+    m_Localized: "\uC7A0\uC2DC \uC26C\uC5B4\uAC00\uAE30"
     m_Metadata:
       m_Items: []
   - m_Id: 72
-    m_Localized: "계속하기"
+    m_Localized: "\uACC4\uC18D\uD558\uAE30"
     m_Metadata:
       m_Items: []
   - m_Id: 73
-    m_Localized: "저장"
+    m_Localized: "\uC800\uC7A5"
     m_Metadata:
       m_Items: []
   - m_Id: 74
-    m_Localized: "불러오기"
+    m_Localized: "\uBD88\uB7EC\uC624\uAE30"
     m_Metadata:
       m_Items: []
   - m_Id: 75
-    m_Localized: "언어 변경 / LANGUAGE"
+    m_Localized: "\uC5B8\uC5B4 \uBCC0\uACBD / LANGUAGE"
     m_Metadata:
       m_Items: []
   - m_Id: 76
-    m_Localized: "게임 종료"
+    m_Localized: "\uAC8C\uC784 \uC885\uB8CC"
     m_Metadata:
       m_Items: []
   - m_Id: 77
-    m_Localized: "{0}  ·  단계 {1}"
+    m_Localized: "{0}  \xB7  \uB2E8\uACC4 {1}"
     m_Metadata:
       m_Items: []
   - m_Id: 78
-    m_Localized: "지금은 입질이 없어요. 다시 던지면 다음 시간대를 살펴봅니다."
+    m_Localized: "\uC9C0\uAE08\uC740 \uC785\uC9C8\uC774 \uC5C6\uC5B4\uC694. \uB2E4\uC2DC
+      \uB358\uC9C0\uBA74 \uB2E4\uC74C \uC2DC\uAC04\uB300\uB97C \uC0B4\uD3B4\uBD05\uB2C8\uB2E4."
     m_Metadata:
       m_Items: []
   - m_Id: 79
-    m_Localized: "윤슬멸치"
+    m_Localized: "\uC724\uC2AC\uBA78\uCE58"
     m_Metadata:
       m_Items: []
   - m_Id: 80
-    m_Localized: "햇빛을 따라 반짝이는 작은 물고기"
+    m_Localized: "\uD587\uBE5B\uC744 \uB530\uB77C \uBC18\uC9DD\uC774\uB294 \uC791\uC740
+      \uBB3C\uACE0\uAE30"
     m_Metadata:
       m_Items: []
   - m_Id: 81
-    m_Localized: "구름복어"
+    m_Localized: "\uAD6C\uB984\uBCF5\uC5B4"
     m_Metadata:
       m_Items: []
   - m_Id: 82
-    m_Localized: "놀라면 몽글몽글 부풀어 오른다"
+    m_Localized: "\uB180\uB77C\uBA74 \uBABD\uAE00\uBABD\uAE00 \uBD80\uD480\uC5B4
+      \uC624\uB978\uB2E4"
     m_Metadata:
       m_Items: []
   - m_Id: 83
-    m_Localized: "산호나비어"
+    m_Localized: "\uC0B0\uD638\uB098\uBE44\uC5B4"
     m_Metadata:
       m_Items: []
   - m_Id: 84
-    m_Localized: "얕은 산호 곁을 맴도는 온순한 물고기"
+    m_Localized: "\uC595\uC740 \uC0B0\uD638 \uACC1\uC744 \uB9F4\uB3C4\uB294 \uC628\uC21C\uD55C
+      \uBB3C\uACE0\uAE30"
     m_Metadata:
       m_Items: []
   - m_Id: 85
-    m_Localized: "달빛가오리"
+    m_Localized: "\uB2EC\uBE5B\uAC00\uC624\uB9AC"
     m_Metadata:
       m_Items: []
   - m_Id: 86
-    m_Localized: "저녁 바다에서 푸른 빛을 남긴다"
+    m_Localized: "\uC800\uB141 \uBC14\uB2E4\uC5D0\uC11C \uD478\uB978 \uBE5B\uC744
+      \uB0A8\uAE34\uB2E4"
     m_Metadata:
       m_Items: []
   - m_Id: 87
-    m_Localized: "진주해마"
+    m_Localized: "\uC9C4\uC8FC\uD574\uB9C8"
     m_Metadata:
       m_Items: []
   - m_Id: 88
-    m_Localized: "해초 사이에 몸을 숨기는 희귀종"
+    m_Localized: "\uD574\uCD08 \uC0AC\uC774\uC5D0 \uBAB8\uC744 \uC228\uAE30\uB294
+      \uD76C\uADC0\uC885"
     m_Metadata:
       m_Items: []
   - m_Id: 89
-    m_Localized: "파도송곳상어"
+    m_Localized: "\uD30C\uB3C4\uC1A1\uACF3\uC0C1\uC5B4"
     m_Metadata:
       m_Items: []
   - m_Id: 90
-    m_Localized: "거친 파도를 가르는 외해의 포식자"
+    m_Localized: "\uAC70\uCE5C \uD30C\uB3C4\uB97C \uAC00\uB974\uB294 \uC678\uD574\uC758
+      \uD3EC\uC2DD\uC790"
     m_Metadata:
       m_Items: []
   - m_Id: 91
-    m_Localized: "바람 조선소"
+    m_Localized: "\uBC14\uB78C \uC870\uC120\uC18C"
     m_Metadata:
       m_Items: []
   - m_Id: 92
-    m_Localized: "파도 수족관"
+    m_Localized: "\uD30C\uB3C4 \uC218\uC871\uAD00"
     m_Metadata:
       m_Items: []
   - m_Id: 93
-    m_Localized: "나리"
+    m_Localized: "\uB098\uB9AC"
     m_Metadata:
       m_Items: []
   - m_Id: 94
-    m_Localized: "조선공"
+    m_Localized: "\uC870\uC120\uACF5"
     m_Metadata:
       m_Items: []
   - m_Id: 95
-    m_Localized: "바다는 기다릴 줄 아는 사람을 좋아해."
+    m_Localized: "\uBC14\uB2E4\uB294 \uAE30\uB2E4\uB9B4 \uC904 \uC544\uB294 \uC0AC\uB78C\uC744
+      \uC88B\uC544\uD574."
     m_Metadata:
       m_Items: []
   - m_Id: 96
-    m_Localized: "조선소를 손보면 산호초까지 갈 수 있어."
+    m_Localized: "\uC870\uC120\uC18C\uB97C \uC190\uBCF4\uBA74 \uC0B0\uD638\uCD08\uAE4C\uC9C0
+      \uAC08 \uC218 \uC788\uC5B4."
     m_Metadata:
       m_Items: []
   - m_Id: 97
-    m_Localized: "오늘 파도는 얌전하네. 줄 소리에 귀 기울여 봐."
+    m_Localized: "\uC624\uB298 \uD30C\uB3C4\uB294 \uC58C\uC804\uD558\uB124. \uC904
+      \uC18C\uB9AC\uC5D0 \uADC0 \uAE30\uC6B8\uC5EC \uBD10."
     m_Metadata:
       m_Items: []
   - m_Id: 98
-    m_Localized: "마루"
+    m_Localized: "\uB9C8\uB8E8"
     m_Metadata:
       m_Items: []
   - m_Id: 99
-    m_Localized: "수족관지기"
+    m_Localized: "\uC218\uC871\uAD00\uC9C0\uAE30"
     m_Metadata:
       m_Items: []
   - m_Id: 100
-    m_Localized: "처음 만난 생물은 도감에 기록해 둬."
+    m_Localized: "\uCC98\uC74C \uB9CC\uB09C \uC0DD\uBB3C\uC740 \uB3C4\uAC10\uC5D0
+      \uAE30\uB85D\uD574 \uB46C."
     m_Metadata:
       m_Items: []
   - m_Id: 101
-    m_Localized: "수족관이 밝아지면 마을 사람들도 찾아올 거야."
+    m_Localized: "\uC218\uC871\uAD00\uC774 \uBC1D\uC544\uC9C0\uBA74 \uB9C8\uC744
+      \uC0AC\uB78C\uB4E4\uB3C4 \uCC3E\uC544\uC62C \uAC70\uC57C."
     m_Metadata:
       m_Items: []
   - m_Id: 102
-    m_Localized: "구름복어는 둥글지만 마음은 아주 용감하대."
+    m_Localized: "\uAD6C\uB984\uBCF5\uC5B4\uB294 \uB465\uAE00\uC9C0\uB9CC \uB9C8\uC74C\uC740
+      \uC544\uC8FC \uC6A9\uAC10\uD558\uB300."
     m_Metadata:
       m_Items: []
+  - m_Id: 672402522322714624
+    m_Localized: "\uD6C8\uB828 \uB300\uC0C1\uC5D0\uAC8C \uB354 \uAC00\uAE4C\uC774
+      \uB2E4\uAC00\uAC00\uC138\uC694."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434880
+    m_Localized: "{0}: \uD53C\uD574 {1} \xB7 \uB300\uC0C1 \uCCB4\uB825 {2}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434881
+    m_Localized: "\uB3C4\uC804\uACFC\uC81C \uB2EC\uC131! {0}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434882
+    m_Localized: "\uAC00\uAD6C 3\uAC1C \uC81C\uC791 \u2192 \uD2B9\uC218 \uAC80"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434883
+    m_Localized: "\uC720\uD6A8 \uBA85\uC911 30\uD68C \u2192 \uD2B9\uC218 \uD65C"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434884
+    m_Localized: "\uB098\uBB34\xB7\uB3CC\xB7\uC57D\uCD08 \uAC01\uAC01 3\uD68C \uCC44\uC9D1
+      \u2192 \uD2B9\uC218 \uC9C0\uD321\uC774"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434885
+    m_Localized: "\uD544\uC694\uD55C \uB3C4\uAD6C: {0}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434886
+    m_Localized: '{0} +{1}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434887
+    m_Localized: "\uD479 \uC26C\uC5C8\uC5B4\uC694. \uC790\uC6D0\uC774 \uB2E4\uC2DC
+      \uC790\uB790\uC2B5\uB2C8\uB2E4."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434888
+    m_Localized: "\uC81C\uC791\uC6A9 \uB9DD\uCE58\uB97C \uC120\uD0DD\uD558\uC138\uC694."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434889
+    m_Localized: "\uC81C\uC791\uC5D0 \uD544\uC694\uD55C \uC790\uC6D0\uC774 \uBD80\uC871\uD569\uB2C8\uB2E4."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434890
+    m_Localized: "\uBB34\uAE30 \uC5C6\uC74C \xB7 \uC9C1\uC5C5 \uC5C6\uC74C"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434891
+    m_Localized: "\uB9E8\uC190 / \uBB34\uAE30 \uB4E4\uAE30"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434892
+    m_Localized: "\uB3C4\uB07C"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434893
+    m_Localized: "\uACE1\uAD2D\uC774"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434894
+    m_Localized: "\uB9DD\uCE58"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434895
+    m_Localized: "I  \uC7A5\uBE44\uC640 \uB3C4\uAD6C"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434896
+    m_Localized: "Q  \uAE30\uBCF8 \uACF5\uACA9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434897
+    m_Localized: "R  \uBB34\uAE30 \uC2A4\uD0AC"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434898
+    m_Localized: "\uD6C8\uB828 \uB300\uC0C1 \uCCB4\uB825 {0}/100\n\uC2A4\uD0AC \uB300\uAE30
+      {1:0.0}\uCD08"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434899
+    m_Localized: "\uD6C8\uB828 \uB300\uC0C1 \uD68C\uBCF5"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434900
+    m_Localized: "E: \uCC44\uC9D1\xB7\uC2E4\uB0B4 \uC785\uC7A5\n\uD6C8\uB828 \uB300\uC0C1\uC740
+      \uC12C \uC911\uC559\uC5D0 \uC788\uC5B4\uC694."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434901
+    m_Localized: "\uB098\uBB34 {0} \xB7 \uB3CC {1} \xB7 \uC57D\uCD08 {2}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434902
+    m_Localized: "E  \uC9D1 \uAFB8\uBBF8\uAE30 \uC785\uC7A5"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434903
+    m_Localized: "\uC18C\uC9C4\uB428 \xB7 \uD558\uB8E8 \uC26C\uBA74 \uB2E4\uC2DC
+      \uC790\uB77C\uC694"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434904
+    m_Localized: "E  {0} \uCC44\uC9D1 \xB7 {1}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434905
+    m_Localized: "\uC7A5\uBE44 \xB7 \uC9C1\uC5C5 \xB7 \uC0DD\uD65C \uB3C4\uAD6C"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434906
+    m_Localized: "{0} \xB7 \uBA85\uC911 {1}\uD68C \xB7 \uC219\uB828 \uB2E8\uACC4
+      {2}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434907
+    m_Localized: "\uBB34\uAE30 \uD574\uC81C"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434908
+    m_Localized: "\uC9C1\uC5C5\uBCC4 \uBA85\uC911 10\uD68C: \uC2A4\uD0AC \uD53C\uD574
+      +25% / 30\uD68C: \uB300\uAE30 -20%\n\uC77C\uBC18 \uBB34\uAE30\uB294 \uAE30\uBCF8
+      \uACF5\uACA9\uB9CC \uAC00\uB2A5\uD569\uB2C8\uB2E4."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434909
+    m_Localized: "\uC791\uC740 \uC9D1 \uAFB8\uBBF8\uAE30"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434910
+    m_Localized: "\uC81C\uC791\uC6A9 \uB9DD\uCE58 \uB4E4\uAE30"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434911
+    m_Localized: "{0} \xB7 \uBCF4\uC720 {1}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434912
+    m_Localized: "\uC81C\uC791: \uB098\uBB34 {0} / \uB3CC {1}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434913
+    m_Localized: "\uBC30\uCE58 \uC120\uD0DD"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434914
+    m_Localized: "\uD558\uB8E8 \uC26C\uAE30"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434915
+    m_Localized: "\uC12C\uC73C\uB85C \uB098\uAC00\uAE30"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434916
+    m_Localized: "\uBC30\uCE58\uD560 \uCE78\uC744 \uC120\uD0DD\uD558\uC138\uC694.
+      \uCD08\uB85D\uC740 \uAC00\uB2A5, \uBE68\uAC15\uC740 \uBD88\uAC00. \uC544\uB798
+      \uC911\uC559\uC740 \uCD9C\uC785\uAD6C\uC785\uB2C8\uB2E4."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434917
+    m_Localized: "90\xB0 \uD68C\uC804"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434918
+    m_Localized: "\uBC30\uCE58 \uCDE8\uC18C"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434919
+    m_Localized: "\uBC30\uCE58 \uD655\uC815"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434920
+    m_Localized: "\uBC30\uCE58\uB41C \uAC00\uAD6C\uB97C \uB20C\uB7EC \uD68C\uC218\uD558\uC138\uC694."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434921
+    m_Localized: "\uC54C \uC218 \uC5C6\uB294 \uAC00\uAD6C"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434922
+    m_Localized: "\uAC80\uC0AC"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434923
+    m_Localized: "\uAD81\uC218"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434924
+    m_Localized: "\uB9C8\uBC95\uC0AC"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434925
+    m_Localized: "\uC5F0\uC2B5\uC6A9 \uAC80"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434926
+    m_Localized: "\uC5F0\uC2B5\uC6A9 \uD65C"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434927
+    m_Localized: "\uC5F0\uC2B5\uC6A9 \uC9C0\uD321\uC774"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434928
+    m_Localized: "\uC228\uACB0 \uAC80"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434929
+    m_Localized: "\uBC14\uB78C \uD65C"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434930
+    m_Localized: "\uC232 \uC9C0\uD321\uC774"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434931
+    m_Localized: "\uBCA0\uAE30"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434932
+    m_Localized: "\uD654\uC0B4"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434933
+    m_Localized: "\uB9C8\uB825\uD0C4"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434934
+    m_Localized: "\uC228\uACB0 \uAC00\uB974\uAE30"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434935
+    m_Localized: "\uC9D1\uC911 \uC0AC\uACA9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434936
+    m_Localized: "\uC232\uC758 \uD30C\uB3D9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434937
+    m_Localized: "\uB098\uBB34 \uC758\uC790"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434938
+    m_Localized: "\uD0C1\uC790"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434939
+    m_Localized: "\uCE68\uB300"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434940
+    m_Localized: "\uC870\uBA85"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434941
+    m_Localized: "\uB098\uBB34"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434942
+    m_Localized: "\uB3CC"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434943
+    m_Localized: "\uC57D\uCD08"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

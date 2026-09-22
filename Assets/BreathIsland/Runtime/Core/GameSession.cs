@@ -16,7 +16,7 @@ namespace BreathIsland
         public void Load(int slot)
         {
             context.LoadFrom(slot);
-            phases.Set(GamePhase.Explore);
+            phases.Set(context.Save.housing.inside ? GamePhase.Home : GamePhase.Explore);
             ShowMessage(string.Format(context.Text("loaded"), slot + 1));
         }
         public bool TickGlobalInput()

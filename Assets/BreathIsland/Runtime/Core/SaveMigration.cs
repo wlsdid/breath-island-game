@@ -5,7 +5,7 @@ namespace BreathIsland
 {
     public static class SaveMigration
     {
-        // The asset/UI refactor does not change the v1 JSON schema or content IDs.
+        // v2 only adds equipment, land resources and housing; legacy values are retained.
         public static GameSaveData Apply(GameSaveData data)
         {
             if (data == null) throw new ArgumentException("Empty save data.");
@@ -18,6 +18,15 @@ namespace BreathIsland
             data.world ??= new WorldState();
             data.inventory.discoveredFish ??= new List<string>();
             data.inventory.displayedFish ??= new List<string>();
+            data.equipment ??= new EquipmentState();
+            data.equipment.weaponId ??= "";
+            data.equipment.mastery ??= new List<JobMastery>();
+            data.equipment.achievements ??= new List<string>();
+            data.resources ??= new LifeResources();
+            data.resources.harvested ??= new List<NodeHarvest>();
+            data.housing ??= new HousingState();
+            data.housing.placed ??= new List<PlacedFurniture>();
+            data.housing.stock ??= new List<FurnitureStock>();
             data.version = GameSaveData.CurrentVersion;
             return data;
         }

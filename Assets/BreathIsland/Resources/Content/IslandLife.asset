@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e28574745efaa814697e6a0a6a3b2c6c, type: 3}
+  m_Name: IslandLife
+  m_EditorClassIdentifier: BreathIsland.Runtime::BreathIsland.IslandLifeCatalog
+  weapons:
+  - {fileID: 11400000, guid: f0562f8e02d536045b5c4b610aa74414, type: 2}
+  - {fileID: 11400000, guid: d601deea8697d5c4390e309ab182c457, type: 2}
+  - {fileID: 11400000, guid: 7f9c6fc418c240b42b552354f4366e42, type: 2}
+  - {fileID: 11400000, guid: 2991cdefb19d694429bbf9d9075e1679, type: 2}
+  - {fileID: 11400000, guid: 6e06ee3baf683ad4ab95ca0c5582b50c, type: 2}
+  - {fileID: 11400000, guid: 0547380ed21229248bf92640f91c21bb, type: 2}
+  furniture:
+  - {fileID: 11400000, guid: 0b3b4d9ac56e06f41a0fd69d91b8edcf, type: 2}
+  - {fileID: 11400000, guid: 372384d8b507e2b49abd06337ed9210a, type: 2}
+  - {fileID: 11400000, guid: 0a7f601089eef2e48addddb1fda99ae9, type: 2}
+  - {fileID: 11400000, guid: e44e975fdd0ace3449531834b2519cce, type: 2}
+  nodes:
+  - {fileID: 11400000, guid: 3b97b48dcd388814989f962bd23c1051, type: 2}
+  - {fileID: 11400000, guid: 23f732533fd05ff46b9169e2fd35f6ee, type: 2}
+  - {fileID: 11400000, guid: 4316824b70028b948a01f4676f3f8364, type: 2}
+  - {fileID: 11400000, guid: 6e63eab95303f224a9f4477d42bd612f, type: 2}
+  - {fileID: 11400000, guid: 4e43100750310564f88bc8c805a57abc, type: 2}
+  - {fileID: 11400000, guid: 5afb74df10858b94a89cd65d109972fd, type: 2}
+  - {fileID: 11400000, guid: 67570ededa7919240bdedd71c0745f92, type: 2}
+  achievements:
+  - {fileID: 11400000, guid: 496a0c99388284a4fa9ffc003ac26ae2, type: 2}
+  - {fileID: 11400000, guid: 3da4c08c3fbffd243be9da5258db9f68, type: 2}
+  - {fileID: 11400000, guid: 4ea3767a05392d048acb85e7476f03c9, type: 2}
+  axeModel: {fileID: 919132149155446097, guid: b72c47a0e34a8344d87308a413ea96ad, type: 3}
+  pickaxeModel: {fileID: 919132149155446097, guid: d8414d52834d93745afd2d08072517fc, type: 3}
+  hammerModel: {fileID: 919132149155446097, guid: 44b1f544995db0b4c9d4d572e29b0051, type: 3}
+  characterModel: {fileID: 919132149155446097, guid: b12baa5d26ba33a4d8a868f496cd8349, type: 3}
+  animator: {fileID: 9100000, guid: d9b1bf1076733fc429b08125c7e39ccd, type: 2}
+  characterAvatar: {fileID: 9000000, guid: c538cc06c232eb04bb877f861ced77d9, type: 2}
+  furnitureMaterial: {fileID: 2100000, guid: 9b1f8ab6cd0c2594db4930248c626403, type: 2}
+  weaponMaterial: {fileID: 2100000, guid: 1788e94db066b994f9e07cc95c9f61b6, type: 2}
+  toolMaterial: {fileID: 2100000, guid: ba0aad007d98590449e6e5caefbf1700, type: 2}
+  natureMaterial: {fileID: 2100000, guid: a92113c262cc19b479c1186c75df80b1, type: 2}
+  characterMaterial: {fileID: 2100000, guid: 2b570b5f366d3f64f9593ef2e40a3b96, type: 2}

@@ -11,7 +11,12 @@
 - `Core/GameSession`: 전역 입력, 슬롯 저장·불러오기, 언어 변경, 알림. 저장 불러오기는 탐험으로 돌아가 진행 중 포획 보상의 중복 적용을 막는다.
 - `Core/ExploreSystem`: 탐험 중 낚시·NPC·시설·도감 진입 명령.
 - `Fishing`, `Combat`, `Relationships`, `Facilities`: 기능 규칙과 입력. 전투 숫자키 처리는 Update에서 한 번만 실행하며 UI에서 키보드를 읽지 않는다.
-- `GameState`: JSON 도메인 데이터와 순수 경제·낚시 계산. 현재 별도 장비/장착 시스템은 없으며 인벤토리, 어종 선호 미끼 정의를 유지한다.
+- `GameState`: 기존 JSON 도메인 데이터와 순수 경제·낚시 계산. 확장 상태는 `Core/IslandLifeState`에 분리한다.
+- `Core/IslandLifeSession`: 장비·숙련도·도전과제·육지 활동·집 꾸미기 객체 연결, 탐험의 신규 입력 전달과 로드 시 표현 갱신.
+- `Equipment`: 장착, 도전과제 조건, 직업 숙련도와 훈련 대상 공격. 기존 포식자 전투는 독립적으로 유지한다.
+- `LandActivities`: 거리·도구·소진 조건, 생활 자원 지급, 휴식에 따른 날짜 전진.
+- `Housing`: 제작 비용, 가구 재고, 배치 영역·겹침 검사, 확정·취소·회수와 실내 출입.
+- `Presentation`: 모델 정규화·URP 재질·캐릭터 애니메이션·손 장비·채집 지점·가구 미리보기·공격 표현. 규칙은 기능 시스템에 남긴다.
 - `ProceduralWorld`, `PlayerAndCamera`, `ProceduralSeaAudio`: 월드 표현 계층.
 
 ## 콘텐츠
@@ -20,9 +25,11 @@
 
 각 ScriptableObject는 같은 이름의 C# 파일에 정의한다. 런타임에서 콘텐츠용 `ScriptableObject.CreateInstance`를 호출하지 않는다. 기존 에셋의 ID와 GUID는 저장 호환성과 참조를 위해 유지한다. 콘텐츠 수정은 에셋에서 수행하며 초기 데이터를 재생성하는 런타임/에디터 부트스트랩은 없다.
 
+확장 콘텐츠는 `Resources/Content/IslandLife.asset`와 `Content/Life/` 에셋에 둔다. 일반 무기 3종·특수 무기 3종, 직업 3종, 기본 공격·스킬 각 3종, 도전과제 3종, 가구 4종, 채집 지점 7개를 참조한다. `Editor/IslandLifeAuthoring`은 명시적 초기 작성 명령이며 기존 정의를 덮어쓰지 않는다. 기본 빌드 경로에서는 호출하지 않는다. `IslandLifeLocalization`도 기존 키를 보존하고 없는 키만 추가한다.
+
 ## Localization
 
-`Assets/BreathIsland/Localization/GameText_ko.asset`, `GameText_en.asset`는 Unity Localization 1.5.12의 StringTable이다. Shared Data에 공통 키를 보관하며 UI, 알림, 어종 이름·설명, 시설 이름, NPC 이름·역할·대사가 모두 이 테이블을 사용한다.
+`Assets/BreathIsland/Localization/GameText_ko.asset`, `GameText_en.asset`는 Unity Localization 1.5.12의 StringTable이다. Shared Data에 공통 키를 보관하며 UI, 알림, 어종 이름·설명, 시설 이름, NPC 이름·역할·대사와 신규 생활 기능 문구가 모두 이 테이블을 사용한다.
 
 `GameText.Get`은 Localization 초기화 후 명시적인 ko/en Locale로 StringDatabase를 조회한다. 화면별 문자열 사전이나 하드코딩 언어 분기는 없다. 포맷 문자열의 `{0}` 등은 호출부에서 채운다. 현재 동기 초기화는 검증 대상인 Windows Mono용이다.
 
@@ -42,6 +49,10 @@
 | FacilityHud | 시설 상태·복구 명령 |
 | CollectionHud | 발견·전시 상태 |
 | PauseHud | 이어하기·수동 슬롯·언어·종료 |
+| EquipmentHud | 무기·해금 조건·직업 숙련도·생활 도구 선택 |
+| HousingHud | 가구 제작·재고·배치 격자·회전·확정·취소·회수·휴식·퇴장 |
+
+`ExploreHud`는 기존 탐험 안내와 `LifeExploreHud`를 구성한다. 후자는 장비·훈련 대상·채집·실내 입장 명령을 기능 시스템에 전달한다. 실내에서는 이동 대신 고정 카메라와 배치 UI를 사용한다. 메뉴를 여는 동안 마우스 카메라 회전을 멈춘다. Home의 Esc는 실내 상태를 보존한 채 Pause를 열고, 실내 퇴장은 HousingSystem 명령으로만 수행한다.
 
 `HudScreen`은 스타일과 미터 등 공통 그리기 도구, `HudCanvas`는 해상도 스케일 및 GUI 행렬 복원, `HudOverlay`는 자원·시간·알림을 담당한다. UI는 경제·낚시·관계 수치를 직접 변경하지 않고 기능 시스템의 공개 명령을 호출한다. 생성한 GUI 텍스처는 화면 수명 종료 때 해제한다.
 
@@ -51,15 +62,22 @@
 - 포식자 패배의 해안 복귀와 미끼 1개 손실은 기존 규칙대로 유지한다.
 - 포획 처리와 전투 명령은 현재 상태를 검사하여 반복 UI 이벤트로 보상이 중복 적용되지 않게 한다.
 - 야간에 출현 가능한 일반 어종이 없으면 대기 후 준비 상태로 돌아간다. 기존 캐스팅 시간 진행·미끼 소모·출현 시간·보상은 유지한다.
-- JSON 스키마와 `CurrentVersion = 1`은 유지한다. `Core/SaveMigration`은 v0/v1의 누락 객체·목록을 복구하며 알려진 값은 보존한다. 지원하지 않는 미래 버전은 로드/저장 데이터 처리 시 거부한다.
+- `CurrentVersion = 2`. `Core/SaveMigration`은 v0/v1의 기존 필드를 보존하고 장비·숙련도·도전과제 해금, 생활 자원·누적 채집·소진 날짜, 가구 재고·배치·실내 여부·야외 복귀 위치를 추가한다. v2의 누락 객체·목록도 복구한다. 지원하지 않는 미래 버전은 로드/저장 데이터 처리 시 거부한다.
 - 자동 저장은 `autosave.json`, 수동 슬롯 1~3은 `save_0.json`~`save_2.json`이다. `.tmp`와 교체 시 `.bak` 정책을 유지한다. 읽기와 마이그레이션은 원본 파일을 수정하지 않는다.
 - 새 게임의 시작 z는 4이며 기존 저장 파일의 유효한 z=0은 그대로 복원한다.
 - 기존 저장이나 플레이 중 좌표가 월드 아래(y < -5)이면 안전한 해안 `(0, 1.2, 8)`으로 복귀한다. 복구 자체는 인벤토리·파일을 수정하지 않으며, 정상 좌표와 화면 전환 위치는 유지한다.
+- 일반 무기는 스킬 참조가 없고 특수 무기는 도전과제 ID를 요구한다. 잠긴 무기는 장착할 수 없다. 스킬 명령은 현재 무기·화면·재사용 시간·거리·대상 생존을 다시 확인한다. 스킬 대기 시간은 장비 교체로 초기화하지 않는다.
+- 생활 도구 선택은 직업·숙련도를 바꾸지 않는다. 공격 시 현재 무기를 다시 손에 표시한다. 숙련도는 직업 ID별 유효 명중 수이며 스킬 수치만 변화시킨다.
+- 생활 자원은 기존 시설 재료·코인과 독립적이다. 지점 ID별 소진 날짜를 저장해 같은 날 중복 보상을 차단한다. 휴식은 실내에서만 가능하며 날짜를 1 올리고 시간을 09시로 설정한다.
+- 실내는 독립된 8×8 공간이다. 배치 미리보기는 저장하지 않고 확정된 인스턴스 ID·가구 ID·격자 좌표·90도 회전만 저장한다. 경계·다른 가구·출입구 겹침을 차단하며 회수는 같은 인스턴스에 한 번만 적용한다.
+- `GameContext.Loaded` 이벤트로 장비·채집 지점·가구 표현을 새 저장에 맞춰 복원한다. 실내 저장을 불러오면 Home으로 라우팅하며 야외 복귀 위치를 유지한다.
+- `BREATH_ISLAND_SAVE_ROOT`는 명시적인 격리 검증용 경로 재정의다. 테스트용 Composition Root도 이 경로를 사용하여 실제 사용자 저장을 읽거나 쓰지 않는다.
 
 ## 검증과 확장 규칙
 
 - `Tests/EditMode`: 기존 규칙, 콘텐츠 에셋 및 밸런스, 두 언어 키, 처리별 보상, 시설·관계 경계, 기존 v1 전체 필드, v0 복구, 네 슬롯, 백업 복구 검증.
-- `Tests/PlayMode`: 탐험→포획 처리→시설→NPC, 승리·패배, 상태 전환 참조 유지, 언어 전환, 슬롯 불러오기, 줄 끊김, 야간 빈 후보, 낙하 복구, 양 언어 8개 HUD 렌더링 및 실제 Composition Root 초기화 검증. 테스트 저장은 임시 디렉터리를 사용하며 Composition Root 스모크 테스트는 종료 전에 객체를 파괴하여 사용자 저장에 쓰지 않는다.
+- `Tests/PlayMode`: 탐험→포획 처리→시설→NPC, 승리·패배, 상태 전환 참조 유지, 언어 전환, 슬롯 불러오기, 줄 끊김, 야간 빈 후보, 낙하 복구, 양 언어 10개 HUD 렌더링 및 실제 Composition Root 초기화 검증. 테스트 저장은 임시 디렉터리를 사용하며 Composition Root 스모크 테스트는 종료 전에 객체를 파괴하여 사용자 저장에 쓰지 않는다.
+- 신규 기능 테스트는 무기 해금·숙련도·도구 분리, 채집·재생·제작, 배치 경계·회수, 실내 저장 복원과 야외 위치 유지, 실제 키보드 입력 및 모델·아바타·재질을 검증한다.
 - `Build-BreathIsland.ps1`: Localization 등록 → Edit Mode → Play Mode → Windows Mono 빌드. `-ReleaseIl2Cpp`는 별도 출시 도구 체인이 필요하다.
 - Play Mode는 IMGUI를 그리는 실제 Game View로 실행한다. `-batchmode`에서는 `OnGUI`가 호출되지 않으므로 HUD 렌더링 검증을 대신할 수 없다.
 - 실제 검증 상태는 [VALIDATION.md](VALIDATION.md)에 기록한다. 테스트 추가와 소스 컴파일을 Unity 테스트/플레이/빌드 통과로 간주하지 않는다.

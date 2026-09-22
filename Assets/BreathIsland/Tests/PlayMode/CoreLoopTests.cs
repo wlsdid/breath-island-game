@@ -216,6 +216,7 @@ namespace BreathIsland.Tests
             Catch(); combat.Begin(); relationships.Open(NpcId.Nari);
             var session = new GameSession(context, phases);
             var host = root.AddComponent<HudTestHost>();
+            using var life = new IslandLifeSession(context, phases, root.transform);
             host.Hud = new GameHud(phases, new Dictionary<GamePhase, HudScreen>
             {
                 [GamePhase.Explore] = new ExploreHud(context, phases, relationships),
@@ -225,7 +226,9 @@ namespace BreathIsland.Tests
                 [GamePhase.Dialogue] = new DialogueHud(context, phases, relationships),
                 [GamePhase.Facility] = new FacilityHud(context, phases, facilities),
                 [GamePhase.Collection] = new CollectionHud(context, phases),
-                [GamePhase.Pause] = new PauseHud(context, phases, session)
+                [GamePhase.Pause] = new PauseHud(context, phases, session),
+                [GamePhase.Equipment] = new EquipmentHud(context, phases, life),
+                [GamePhase.Home] = new HousingHud(context, phases, life)
             }, new HudOverlay(context, phases, session));
             foreach (bool korean in new[] { true, false })
             {

@@ -1,0 +1,260 @@
+[
+  {
+    "archive": "KayKit_Furniture_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Furniture_Bits_1.0_FREE/Assets/fbx (unity)/bed_single_A.fbx",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/KayKit/Furniture/bed_single_A.fbx",
+    "sha256": "3BEF87857C689E7C2DDA2A8CEFC156FAB4F025CD1D6C664F84A663DDB9FA673A"
+  },
+  {
+    "archive": "KayKit_Furniture_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Furniture_Bits_1.0_FREE/Assets/fbx (unity)/chair_A_wood.fbx",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/KayKit/Furniture/chair_A_wood.fbx",
+    "sha256": "27CCDF8B93A569C48008E0DEE7B828741A086F2CD2A5CB451BF2CB81D69154D4"
+  },
+  {
+    "archive": "KayKit_Furniture_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Furniture_Bits_1.0_FREE/Assets/fbx (unity)/table_medium.fbx",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/KayKit/Furniture/table_medium.fbx",
+    "sha256": "84F48D3FC346E06D60A62CBE77CDD212E8BC67382B8E40D31064B256BD544E75"
+  },
+  {
+    "archive": "KayKit_Furniture_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Furniture_Bits_1.0_FREE/Assets/fbx (unity)/table_low.fbx",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/KayKit/Furniture/table_low.fbx",
+    "sha256": "D9E06711BAB8A29A6C11610813F04F2FB83D9F71D5CDA7EA8EB17F542A6A2142"
+  },
+  {
+    "archive": "KayKit_Furniture_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Furniture_Bits_1.0_FREE/Assets/fbx (unity)/couch.fbx",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/KayKit/Furniture/couch.fbx",
+    "sha256": "903C67CFD8ACAC88537C47529A66B000B6DDFD0AD37C092484B38128DDC6CF6A"
+  },
+  {
+    "archive": "KayKit_Furniture_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Furniture_Bits_1.0_FREE/Assets/fbx (unity)/cabinet_medium.fbx",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/KayKit/Furniture/cabinet_medium.fbx",
+    "sha256": "B2D170910F2E2BEAD3ADF794E350FDEC69C3B3B16920392918E0C7D777C22790"
+  },
+  {
+    "archive": "KayKit_Furniture_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Furniture_Bits_1.0_FREE/Assets/fbx (unity)/shelf_A_small.fbx",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/KayKit/Furniture/shelf_A_small.fbx",
+    "sha256": "640230980AF6E99332AA74F94B18893C121A08E7429107D764F803CD9A3E27A3"
+  },
+  {
+    "archive": "KayKit_Furniture_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Furniture_Bits_1.0_FREE/Assets/fbx (unity)/lamp_standing.fbx",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/KayKit/Furniture/lamp_standing.fbx",
+    "sha256": "7DD8456BFF90C669EC9546041778DE9BA02C16D046A30FDDF948ED4C751D9FB7"
+  },
+  {
+    "archive": "KayKit_Furniture_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Furniture_Bits_1.0_FREE/Assets/fbx (unity)/lamp_table.fbx",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/KayKit/Furniture/lamp_table.fbx",
+    "sha256": "514BDD1C2BF6DFEC99FCB115D56680A96F63E0DBD972DFE1034EE6CB2CCD489C"
+  },
+  {
+    "archive": "KayKit_Furniture_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Furniture_Bits_1.0_FREE/Assets/fbx (unity)/rug_rectangle_A.fbx",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/KayKit/Furniture/rug_rectangle_A.fbx",
+    "sha256": "DB61869B53EED582725AB1612B741A7480D0A6C5DF9C67EEA2046B63F0099487"
+  },
+  {
+    "archive": "KayKit_Furniture_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Furniture_Bits_1.0_FREE/Assets/fbx (unity)/cactus_small_A.fbx",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/KayKit/Furniture/cactus_small_A.fbx",
+    "sha256": "ED1D332070C625BE283B45CF51F8ABC97EFBB4752DB744D80DF9552E7115792C"
+  },
+  {
+    "archive": "KayKit_Furniture_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Furniture_Bits_1.0_FREE/Assets/fbx (unity)/pictureframe_small_A.fbx",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/KayKit/Furniture/pictureframe_small_A.fbx",
+    "sha256": "4E1C63C5B0695BE70555285E8579F79A6CAC23BAD8E1F6884616E85582C13A30"
+  },
+  {
+    "archive": "KayKit_Furniture_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Furniture_Bits_1.0_FREE/License.txt",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/KayKit/Furniture/License.txt",
+    "sha256": "CD8A847D4936A2AA1C97EF632808A8C9B9297AD1B1AC9FA069CF8490ADA017AF"
+  },
+  {
+    "archive": "KayKit_Furniture_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Furniture_Bits_1.0_FREE/Assets/fbx (unity)/furniturebits_texture.png",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/KayKit/Furniture/furniturebits_texture.png",
+    "sha256": "DE62DB37A80D1801C3D9EB674890AE04B04469E0C149481A51FA250562C628DC"
+  },
+  {
+    "archive": "KayKit Dungeon Pack 1.0.zip",
+    "entry": "Models/fbx/wall.fbx",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/KayKit/HouseParts/wall.fbx",
+    "sha256": "AFD778309954A75B6F1ADAD89C723F7E333CAB90609EC671BC3BEA259BB839D1"
+  },
+  {
+    "archive": "KayKit Dungeon Pack 1.0.zip",
+    "entry": "Models/fbx/wallCorner.fbx",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/KayKit/HouseParts/wallCorner.fbx",
+    "sha256": "43572352F3E930F5E6ECC2C9D7D67D570924C438D1F08F1A8C0F9068008D4AC0"
+  },
+  {
+    "archive": "KayKit Dungeon Pack 1.0.zip",
+    "entry": "Models/fbx/wall_door.fbx",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/KayKit/HouseParts/wall_door.fbx",
+    "sha256": "AF54B71DCF699F0D4139A5CE9F27CD8DE76D787890C98552097080B04949D03B"
+  },
+  {
+    "archive": "KayKit Dungeon Pack 1.0.zip",
+    "entry": "Models/fbx/wall_window.fbx",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/KayKit/HouseParts/wall_window.fbx",
+    "sha256": "5E792817F41878DDBEBB760AA24DB44098B610C0F0A297124C44C0627F6564AC"
+  },
+  {
+    "archive": "KayKit Dungeon Pack 1.0.zip",
+    "entry": "Models/fbx/door.fbx",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/KayKit/HouseParts/door.fbx",
+    "sha256": "921FC06FF7DE46C59A7522B79213F166F4078C90E90E89724EDABEEB2B994778"
+  },
+  {
+    "archive": "KayKit Dungeon Pack 1.0.zip",
+    "entry": "Models/fbx/tileBrickA_large.fbx",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/KayKit/HouseParts/tileBrickA_large.fbx",
+    "sha256": "006043B6EE7A762C1EA5C26BB86F8369DFAA8070ABEE9117FB4352EDB3F69D00"
+  },
+  {
+    "archive": "KayKit Dungeon Pack 1.0.zip",
+    "entry": "Models/fbx/crate.fbx",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/KayKit/HouseParts/crate.fbx",
+    "sha256": "67E7D2F897B3A1E5FFAB39D3E859B1BB419A4059FC0743D1C803DCEBCD718ECE"
+  },
+  {
+    "archive": "KayKit Dungeon Pack 1.0.zip",
+    "entry": "Models/fbx/weaponRack.fbx",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/KayKit/HouseParts/weaponRack.fbx",
+    "sha256": "CAA60B7772569DE9C451AEAF8BF33DA1B3CFE8A9C7A4B2B56DB654B86AE670EC"
+  },
+  {
+    "archive": "KayKit Dungeon Pack 1.0.zip",
+    "entry": "License.txt",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/KayKit/HouseParts/License.txt",
+    "sha256": "A673C10F2A586E5B4AA0BE7EE3FC9B45F77ABE65D0B8E4E5435D5F4E7CAE69F3"
+  },
+  {
+    "archive": "KayKit_FantasyWeaponsBits_1.0_FREE.zip",
+    "entry": "KayKit_FantasyWeaponsBits_1.0_FREE/Assets/fbx/sword_A.fbx",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/KayKit/Weapons/sword_A.fbx",
+    "sha256": "1D18AA35E6D912DB8C92A435C91B348FD5414234FE94CCC166F1FE6E2F083715"
+  },
+  {
+    "archive": "KayKit_FantasyWeaponsBits_1.0_FREE.zip",
+    "entry": "KayKit_FantasyWeaponsBits_1.0_FREE/Assets/fbx/bow_A_withString.fbx",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/KayKit/Weapons/bow_A_withString.fbx",
+    "sha256": "783DC3585E8BAC90EE6174A21770420BF58EC1B77FEC37A0499EFD145BD942FA"
+  },
+  {
+    "archive": "KayKit_FantasyWeaponsBits_1.0_FREE.zip",
+    "entry": "KayKit_FantasyWeaponsBits_1.0_FREE/Assets/fbx/staff_A.fbx",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/KayKit/Weapons/staff_A.fbx",
+    "sha256": "C3EC9265477B1EE01E02835116543A2BE16381C5A12D1D8C59DFEDBDA78D4819"
+  },
+  {
+    "archive": "KayKit_FantasyWeaponsBits_1.0_FREE.zip",
+    "entry": "KayKit_FantasyWeaponsBits_1.0_FREE/Assets/fbx/weapons_bits_texture.png",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/KayKit/Weapons/weapons_bits_texture.png",
+    "sha256": "C153429A49928594B00B53C07C4AB3D6352087B7F5DF6C272D4AEDFDB99A40BE"
+  },
+  {
+    "archive": "KayKit_FantasyWeaponsBits_1.0_FREE.zip",
+    "entry": "KayKit_FantasyWeaponsBits_1.0_FREE/License.txt",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/KayKit/Weapons/License.txt",
+    "sha256": "CEF02A74A4F2F24CEC8FE9C63EE98F8B095D1F7B72B3A1AF417DB6458DD0B278"
+  },
+  {
+    "archive": "KayKit_RPGToolsBits_1.0_FREE.zip",
+    "entry": "KayKit_RPGToolsBits_1.0_FREE/Assets/fbx/axe.fbx",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/KayKit/Tools/axe.fbx",
+    "sha256": "7B2C2D116D06F6E9256C3E91FB011FD55A07AED6548CFEE61F20C4DD3820E6E1"
+  },
+  {
+    "archive": "KayKit_RPGToolsBits_1.0_FREE.zip",
+    "entry": "KayKit_RPGToolsBits_1.0_FREE/Assets/fbx/pickaxe.fbx",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/KayKit/Tools/pickaxe.fbx",
+    "sha256": "C65A05A6FF124174C464A93154836753E1B6F429D8A0DBF2D0AB1D4BCCD54543"
+  },
+  {
+    "archive": "KayKit_RPGToolsBits_1.0_FREE.zip",
+    "entry": "KayKit_RPGToolsBits_1.0_FREE/Assets/fbx/hammer.fbx",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/KayKit/Tools/hammer.fbx",
+    "sha256": "E73E329CFA19E0B82712F2A82F67AE3C6223CFC2F6ADC6D3B67CF4C15DDB675F"
+  },
+  {
+    "archive": "KayKit_RPGToolsBits_1.0_FREE.zip",
+    "entry": "KayKit_RPGToolsBits_1.0_FREE/Assets/fbx/tools_bits_texture.png",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/KayKit/Tools/tools_bits_texture.png",
+    "sha256": "E0663527C0C0A8E9F4DBA0BB15261C367DE31981CB3E3EC80F84BF6A5E47FC60"
+  },
+  {
+    "archive": "KayKit_RPGToolsBits_1.0_FREE.zip",
+    "entry": "KayKit_RPGToolsBits_1.0_FREE/License.txt",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/KayKit/Tools/License.txt",
+    "sha256": "A0D34ADB9FDDC83036BD28CEF791B05EDF2108EBCCE7F75539D16AD1F01D76EE"
+  },
+  {
+    "archive": "KayKit_Forest_Nature_Pack_1.0_FREE.zip",
+    "entry": "KayKit_Forest_Nature_Pack_1.0_FREE/Assets/fbx/Tree_1_A_Color1.fbx",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/KayKit/Nature/Tree_1_A_Color1.fbx",
+    "sha256": "10C36F90FC3B78F30EA5C9F87B81CED562BC770F190C2F29AEB41F2FC845F002"
+  },
+  {
+    "archive": "KayKit_Forest_Nature_Pack_1.0_FREE.zip",
+    "entry": "KayKit_Forest_Nature_Pack_1.0_FREE/Assets/fbx/Rock_1_A_Color1.fbx",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/KayKit/Nature/Rock_1_A_Color1.fbx",
+    "sha256": "E42995BD5F5F84040F15F8B01142036BE7897584E4DB080530D7D2CD96D4A401"
+  },
+  {
+    "archive": "KayKit_Forest_Nature_Pack_1.0_FREE.zip",
+    "entry": "KayKit_Forest_Nature_Pack_1.0_FREE/Assets/fbx/Bush_1_A_Color1.fbx",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/KayKit/Nature/Bush_1_A_Color1.fbx",
+    "sha256": "769E07C6361DC6898A8093A63C25FABB55B633EC1304E2C00F4ABDFFA9E5EFD3"
+  },
+  {
+    "archive": "KayKit_Forest_Nature_Pack_1.0_FREE.zip",
+    "entry": "KayKit_Forest_Nature_Pack_1.0_FREE/Assets/fbx/forest_texture.png",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/KayKit/Nature/forest_texture.png",
+    "sha256": "406C01E0AC1D3368FC7B26FF5FB0D3335BA5E48BD19A703540ED92EE3971EA39"
+  },
+  {
+    "archive": "KayKit_Forest_Nature_Pack_1.0_FREE.zip",
+    "entry": "KayKit_Forest_Nature_Pack_1.0_FREE/License.txt",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/KayKit/Nature/License.txt",
+    "sha256": "987811FA42C7548AD487324531813B0210EE6D1EBD410089E881820630E3BE54"
+  },
+  {
+    "archive": "KayKit_Adventurers_2.0_FREE.zip",
+    "entry": "KayKit_Adventurers_2.0_FREE/Characters/fbx/Ranger.fbx",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/KayKit/Character/Ranger.fbx",
+    "sha256": "0058F761D01D6465717BADB13565F1AD1CFBC3AFA7841B993CC6902E3A9BEA08"
+  },
+  {
+    "archive": "KayKit_Adventurers_2.0_FREE.zip",
+    "entry": "KayKit_Adventurers_2.0_FREE/Characters/fbx/ranger_texture.png",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/KayKit/Character/ranger_texture.png",
+    "sha256": "639CD0BA5106FBDF65370B52B9290091D3BD92FE267693ABC8DC474471BB800F"
+  },
+  {
+    "archive": "KayKit_Adventurers_2.0_FREE.zip",
+    "entry": "KayKit_Adventurers_2.0_FREE/Animations/fbx/Rig_Medium/Rig_Medium_General.fbx",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/KayKit/Character/Rig_Medium_General.fbx",
+    "sha256": "0A3420D6CBBF00694E625D84E55C2AFBF0A7284C4280C46642F62F066DBD3950"
+  },
+  {
+    "archive": "KayKit_Adventurers_2.0_FREE.zip",
+    "entry": "KayKit_Adventurers_2.0_FREE/Animations/fbx/Rig_Medium/Rig_Medium_MovementBasic.fbx",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/KayKit/Character/Rig_Medium_MovementBasic.fbx",
+    "sha256": "6B0339D304A07D87AC0A02028D1822078E581924EDDF9C7C7F2049132AD89EC4"
+  },
+  {
+    "archive": "KayKit_Adventurers_2.0_FREE.zip",
+    "entry": "KayKit_Adventurers_2.0_FREE/License.txt",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/KayKit/Character/License.txt",
+    "sha256": "D4ADC31660D1DB22EB60EBA648E01DB41577548F6FA1A3576CB4A6283DAE0A58"
+  }
+]

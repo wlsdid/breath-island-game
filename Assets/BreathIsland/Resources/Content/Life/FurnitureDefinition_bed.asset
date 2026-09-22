@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0421a5099a7fad84dbc0508514c58c32, type: 3}
+  m_Name: FurnitureDefinition_bed
+  m_EditorClassIdentifier: BreathIsland.Runtime::BreathIsland.FurnitureDefinition
+  id: bed
+  nameKey: life_furniture_bed
+  model: {fileID: 919132149155446097, guid: 38f1984883898e746aca57bbfd3b9bb1, type: 3}
+  footprint: {x: 2, y: 3}
+  height: 1.1
+  woodCost: 8
+  stoneCost: 0

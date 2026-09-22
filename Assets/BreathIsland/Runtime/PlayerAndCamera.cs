@@ -66,6 +66,7 @@ namespace BreathIsland
 
         public void Teleport(Vector3 position)
         {
+            if (controller == null) controller = GetComponent<CharacterController>();
             bool wasEnabled = controller.enabled;
             controller.enabled = false;
             transform.position = position;
@@ -93,6 +94,8 @@ namespace BreathIsland
     {
         public Transform target;
         public bool firstPerson;
+        public bool homeView;
+        public bool allowLook = true;
         private float yaw = 20f;
         private float pitch = 20f;
         private Vector3 velocity;
@@ -100,7 +103,14 @@ namespace BreathIsland
         private void LateUpdate()
         {
             if (target == null) return;
-            Vector2 look = GameInput.Look;
+            if (homeView)
+            {
+                transform.position = HousingSystem.InteriorOrigin + new Vector3(4, 13, -3);
+                transform.LookAt(HousingSystem.InteriorOrigin + new Vector3(4, 0, 4));
+                velocity = Vector3.zero;
+                return;
+            }
+            Vector2 look = allowLook ? GameInput.Look : Vector2.zero;
             yaw += look.x;
             pitch = Mathf.Clamp(pitch - look.y, -8f, 55f);
             Quaternion rotation = Quaternion.Euler(pitch, yaw, 0f);

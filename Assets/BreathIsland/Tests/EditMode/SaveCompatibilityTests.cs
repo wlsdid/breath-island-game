@@ -20,6 +20,7 @@ namespace BreathIsland.Tests
             var data = service.Load(slot);
             Assert.That(File.ReadAllText(service.PathForSlot(slot)), Is.EqualTo(legacy));
             var expected = JsonUtility.FromJson<GameSaveData>(legacy);
+            expected.version = GameSaveData.CurrentVersion;
             Assert.That(JsonUtility.ToJson(data), Is.EqualTo(JsonUtility.ToJson(expected)));
             service.Save(data, slot);
             var roundTrip = service.Load(slot);
@@ -38,7 +39,7 @@ namespace BreathIsland.Tests
         [Test] public void VersionZeroRepairsMissingFieldsWithoutChangingKnownValues()
         {
             var migrated = SaveMigration.Apply(JsonUtility.FromJson<GameSaveData>("{\"version\":0,\"inventory\":{\"coins\":99,\"discoveredFish\":null},\"player\":null}"));
-            Assert.That(migrated.version, Is.EqualTo(1)); Assert.That(migrated.inventory.coins, Is.EqualTo(99));
+            Assert.That(migrated.version, Is.EqualTo(GameSaveData.CurrentVersion)); Assert.That(migrated.inventory.coins, Is.EqualTo(99));
             Assert.That(migrated.player, Is.Not.Null); Assert.That(migrated.inventory.discoveredFish, Is.Not.Null);
         }
 

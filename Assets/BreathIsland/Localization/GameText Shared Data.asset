@@ -423,6 +423,266 @@ MonoBehaviour:
     m_Key: npc_Maru_line_2
     m_Metadata:
       m_Items: []
+  - m_Id: 672402522322714624
+    m_Key: life_out_of_range
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434880
+    m_Key: life_hit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434881
+    m_Key: life_achievement_unlocked
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434882
+    m_Key: life_achievement_craft
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434883
+    m_Key: life_achievement_training
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434884
+    m_Key: life_achievement_gather
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434885
+    m_Key: life_need_tool
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434886
+    m_Key: life_harvested
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434887
+    m_Key: life_new_day
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434888
+    m_Key: life_craft_hammer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434889
+    m_Key: life_craft_materials
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434890
+    m_Key: life_unarmed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434891
+    m_Key: life_tool_None
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434892
+    m_Key: life_tool_Axe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434893
+    m_Key: life_tool_Pickaxe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434894
+    m_Key: life_tool_Hammer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434895
+    m_Key: life_equipment_open
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434896
+    m_Key: life_attack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434897
+    m_Key: life_skill
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434898
+    m_Key: life_training
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434899
+    m_Key: life_reset_target
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434900
+    m_Key: life_explore_help
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434901
+    m_Key: life_resources
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434902
+    m_Key: life_enter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434903
+    m_Key: life_depleted
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434904
+    m_Key: life_node_prompt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434905
+    m_Key: life_equipment
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434906
+    m_Key: life_mastery
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434907
+    m_Key: life_unequip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434908
+    m_Key: life_mastery_help
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434909
+    m_Key: life_home
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434910
+    m_Key: life_select_hammer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434911
+    m_Key: life_furniture_stock
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434912
+    m_Key: life_craft
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434913
+    m_Key: life_select
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434914
+    m_Key: life_rest
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434915
+    m_Key: life_exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434916
+    m_Key: life_grid_help
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434917
+    m_Key: life_rotate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434918
+    m_Key: life_cancel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434919
+    m_Key: life_place
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434920
+    m_Key: life_recall_help
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434921
+    m_Key: life_unknown
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434922
+    m_Key: life_job_warrior
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434923
+    m_Key: life_job_ranger
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434924
+    m_Key: life_job_mage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434925
+    m_Key: life_weapon_sword
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434926
+    m_Key: life_weapon_bow
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434927
+    m_Key: life_weapon_staff
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434928
+    m_Key: life_weapon_sword_special
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434929
+    m_Key: life_weapon_bow_special
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434930
+    m_Key: life_weapon_staff_special
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434931
+    m_Key: life_sword_basic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434932
+    m_Key: life_bow_basic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434933
+    m_Key: life_staff_basic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434934
+    m_Key: life_sword_skill
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434935
+    m_Key: life_bow_skill
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434936
+    m_Key: life_staff_skill
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434937
+    m_Key: life_furniture_chair
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434938
+    m_Key: life_furniture_table
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434939
+    m_Key: life_furniture_bed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434940
+    m_Key: life_furniture_lamp
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434941
+    m_Key: life_resource_Wood
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434942
+    m_Key: life_resource_Stone
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434943
+    m_Key: life_resource_Herb
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

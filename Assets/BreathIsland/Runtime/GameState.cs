@@ -70,7 +70,10 @@ namespace BreathIsland
         public RelationshipState relationships = new();
         public FacilityState facilities = new();
         public WorldState world = new();
-        public const int CurrentVersion = 1;
+        public EquipmentState equipment = new();
+        public LifeResources resources = new();
+        public HousingState housing = new();
+        public const int CurrentVersion = 2;
 
         public static GameSaveData CreateDefault() => new() { savedAtUtcTicks = DateTime.UtcNow.Ticks };
     }

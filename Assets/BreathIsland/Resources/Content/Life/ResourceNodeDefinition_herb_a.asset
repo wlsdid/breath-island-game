@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aed5d421a1d0c6c49b0db1cbb4d8d04f, type: 3}
+  m_Name: ResourceNodeDefinition_herb_a
+  m_EditorClassIdentifier: BreathIsland.Runtime::BreathIsland.ResourceNodeDefinition
+  id: herb_a
+  nameKey: life_resource_Herb
+  tool: 0
+  resource: 2
+  yield: 2
+  model: {fileID: 919132149155446097, guid: dc38d585caa5026479e7a86625a91690, type: 3}
+  height: 0.6
+  position: {x: -1, y: 0.6, z: -4}

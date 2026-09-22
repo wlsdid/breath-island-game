@@ -19,410 +19,683 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 1
-    m_Localized: "Welcome to Breath Island."
+    m_Localized: Welcome to Breath Island.
     m_Metadata:
       m_Items: []
   - m_Id: 2
-    m_Localized: "Language: English"
+    m_Localized: 'Language: English'
     m_Metadata:
       m_Items: []
   - m_Id: 3
-    m_Localized: "Saved to slot {0}."
+    m_Localized: Saved to slot {0}.
     m_Metadata:
       m_Items: []
   - m_Id: 4
-    m_Localized: "Loaded slot {0}."
+    m_Localized: Loaded slot {0}.
     m_Metadata:
       m_Items: []
   - m_Id: 5
-    m_Localized: "You are out of bait."
+    m_Localized: You are out of bait.
     m_Metadata:
       m_Items: []
   - m_Id: 6
-    m_Localized: "The line snapped. Only the bait was lost."
+    m_Localized: The line snapped. Only the bait was lost.
     m_Metadata:
       m_Items: []
   - m_Id: 7
-    m_Localized: "A {0} took the bait!"
+    m_Localized: A {0} took the bait!
     m_Metadata:
       m_Items: []
   - m_Id: 8
-    m_Localized: "Predator! Watch the signal and dodge."
+    m_Localized: Predator! Watch the signal and dodge.
     m_Metadata:
       m_Items: []
   - m_Id: 9
-    m_Localized: "The tail strike hit you!"
+    m_Localized: The tail strike hit you!
     m_Metadata:
       m_Items: []
   - m_Id: 10
-    m_Localized: "You washed ashore and lost one bait."
+    m_Localized: You washed ashore and lost one bait.
     m_Metadata:
       m_Items: []
   - m_Id: 11
-    m_Localized: "Received {0} shell coins."
+    m_Localized: Received {0} shell coins.
     m_Metadata:
       m_Items: []
   - m_Id: 12
-    m_Localized: "Added to the aquarium display."
+    m_Localized: Added to the aquarium display.
     m_Metadata:
       m_Items: []
   - m_Id: 13
-    m_Localized: "Received {0} materials."
+    m_Localized: Received {0} materials.
     m_Metadata:
       m_Items: []
   - m_Id: 14
-    m_Localized: "The field guide has been updated."
+    m_Localized: The field guide has been updated.
     m_Metadata:
       m_Items: []
   - m_Id: 15
-    m_Localized: "You rolled clear of the spray."
+    m_Localized: You rolled clear of the spray.
     m_Metadata:
       m_Items: []
   - m_Id: 16
-    m_Localized: "The net slowed it down."
+    m_Localized: The net slowed it down.
     m_Metadata:
       m_Items: []
   - m_Id: 17
-    m_Localized: "The calming pulse weakened it."
+    m_Localized: The calming pulse weakened it.
     m_Metadata:
       m_Items: []
   - m_Id: 18
-    m_Localized: "Not enough coins for a gift."
+    m_Localized: Not enough coins for a gift.
     m_Metadata:
       m_Items: []
   - m_Id: 19
-    m_Localized: "Friendship increased."
+    m_Localized: Friendship increased.
     m_Metadata:
       m_Items: []
   - m_Id: 20
-    m_Localized: "Not enough upgrade materials."
+    m_Localized: Not enough upgrade materials.
     m_Metadata:
       m_Items: []
   - m_Id: 21
-    m_Localized: "The facility has grown."
+    m_Localized: The facility has grown.
     m_Metadata:
       m_Items: []
   - m_Id: 22
-    m_Localized: "The small boat is ready!"
+    m_Localized: The small boat is ready!
     m_Metadata:
       m_Items: []
   - m_Id: 23
-    m_Localized: "E  Talk to {0}"
+    m_Localized: E  Talk to {0}
     m_Metadata:
       m_Items: []
   - m_Id: 24
-    m_Localized: "Common"
+    m_Localized: Common
     m_Metadata:
       m_Items: []
   - m_Id: 25
-    m_Localized: "Uncommon"
+    m_Localized: Uncommon
     m_Metadata:
       m_Items: []
   - m_Id: 26
-    m_Localized: "Rare"
+    m_Localized: Rare
     m_Metadata:
       m_Items: []
   - m_Id: 27
-    m_Localized: "Predator"
+    m_Localized: Predator
     m_Metadata:
       m_Items: []
   - m_Id: 28
-    m_Localized: "BREATH ISLAND\nQuiet coastal village"
+    m_Localized: 'BREATH ISLAND
+
+      Quiet coastal village'
     m_Metadata:
       m_Items: []
   - m_Id: 29
-    m_Localized: "TIME"
+    m_Localized: TIME
     m_Metadata:
       m_Items: []
   - m_Id: 30
-    m_Localized: "F / SPACE  Start fishing"
+    m_Localized: F / SPACE  Start fishing
     m_Metadata:
       m_Items: []
   - m_Id: 31
-    m_Localized: "WASD Move · Mouse Look · E Talk\nM Village · TAB Guide · L Language"
+    m_Localized: "WASD Move \xB7 Mouse Look \xB7 E Talk\nM Village \xB7 TAB Guide
+      \xB7 L Language"
     m_Metadata:
       m_Items: []
   - m_Id: 32
-    m_Localized: "Hide help"
+    m_Localized: Hide help
     m_Metadata:
       m_Items: []
   - m_Id: 33
-    m_Localized: "FIRST-PERSON · SUNNY SHORE"
+    m_Localized: "FIRST-PERSON \xB7 SUNNY SHORE"
     m_Metadata:
       m_Items: []
   - m_Id: 34
-    m_Localized: "Gentle ripples"
+    m_Localized: Gentle ripples
     m_Metadata:
       m_Items: []
   - m_Id: 35
-    m_Localized: "Cast when a fish shadow passes through the water."
+    m_Localized: Cast when a fish shadow passes through the water.
     m_Metadata:
       m_Items: []
   - m_Id: 36
-    m_Localized: "CAST LINE"
+    m_Localized: CAST LINE
     m_Metadata:
       m_Items: []
   - m_Id: 37
-    m_Localized: "Waiting for a bite…"
+    m_Localized: "Waiting for a bite\u2026"
     m_Metadata:
       m_Items: []
   - m_Id: 38
-    m_Localized: "Watch the movement of the water."
+    m_Localized: Watch the movement of the water.
     m_Metadata:
       m_Items: []
   - m_Id: 39
-    m_Localized: "REEL"
+    m_Localized: REEL
     m_Metadata:
       m_Items: []
   - m_Id: 40
-    m_Localized: "TENSION"
+    m_Localized: TENSION
     m_Metadata:
       m_Items: []
   - m_Id: 41
-    m_Localized: "S  EASE LINE"
+    m_Localized: S  EASE LINE
     m_Metadata:
       m_Items: []
   - m_Id: 42
-    m_Localized: "SPACE  REEL"
+    m_Localized: SPACE  REEL
     m_Metadata:
       m_Items: []
   - m_Id: 43
-    m_Localized: "The line snapped"
+    m_Localized: The line snapped
     m_Metadata:
       m_Items: []
   - m_Id: 44
-    m_Localized: "It is okay. You only lost one bait."
+    m_Localized: It is okay. You only lost one bait.
     m_Metadata:
       m_Items: []
   - m_Id: 45
-    m_Localized: "TRY AGAIN"
+    m_Localized: TRY AGAIN
     m_Metadata:
       m_Items: []
   - m_Id: 46
-    m_Localized: "NEW DISCOVERY"
+    m_Localized: NEW DISCOVERY
     m_Metadata:
       m_Items: []
   - m_Id: 47
-    m_Localized: "SELL  +{0}"
+    m_Localized: SELL  +{0}
     m_Metadata:
       m_Items: []
   - m_Id: 48
-    m_Localized: "RECORD"
+    m_Localized: RECORD
     m_Metadata:
       m_Items: []
   - m_Id: 49
-    m_Localized: "DISPLAY"
+    m_Localized: DISPLAY
     m_Metadata:
       m_Items: []
   - m_Id: 50
-    m_Localized: "MATERIAL  +{0}"
+    m_Localized: MATERIAL  +{0}
     m_Metadata:
       m_Items: []
   - m_Id: 51
-    m_Localized: "PREDATOR · BREAKER SHARK"
+    m_Localized: "PREDATOR \xB7 BREAKER SHARK"
     m_Metadata:
       m_Items: []
   - m_Id: 52
-    m_Localized: "HEALTH"
+    m_Localized: HEALTH
     m_Metadata:
       m_Items: []
   - m_Id: 53
-    m_Localized: "NEXT ATTACK {0:0}%"
+    m_Localized: NEXT ATTACK {0:0}%
     m_Metadata:
       m_Items: []
   - m_Id: 54
-    m_Localized: "1  DODGE"
+    m_Localized: 1  DODGE
     m_Metadata:
       m_Items: []
   - m_Id: 55
-    m_Localized: "2  NET"
+    m_Localized: 2  NET
     m_Metadata:
       m_Items: []
   - m_Id: 56
-    m_Localized: "3  CALM PULSE"
+    m_Localized: 3  CALM PULSE
     m_Metadata:
       m_Items: []
   - m_Id: 57
-    m_Localized: "GIFT  12 COINS"
+    m_Localized: GIFT  12 COINS
     m_Metadata:
       m_Items: []
   - m_Id: 58
-    m_Localized: "KEEP TALKING"
+    m_Localized: KEEP TALKING
     m_Metadata:
       m_Items: []
   - m_Id: 59
-    m_Localized: "VILLAGE GROWTH"
+    m_Localized: VILLAGE GROWTH
     m_Metadata:
       m_Items: []
   - m_Id: 60
-    m_Localized: "Restore either facility first. Every choice can be completed later."
+    m_Localized: Restore either facility first. Every choice can be completed later.
     m_Metadata:
       m_Items: []
   - m_Id: 61
-    m_Localized: "CLOSE  ESC"
+    m_Localized: CLOSE  ESC
     m_Metadata:
       m_Items: []
   - m_Id: 62
-    m_Localized: "Unlocks a small boat and the reef route."
+    m_Localized: Unlocks a small boat and the reef route.
     m_Metadata:
       m_Items: []
   - m_Id: 63
-    m_Localized: "Displays creatures and brings villagers back."
+    m_Localized: Displays creatures and brings villagers back.
     m_Metadata:
       m_Items: []
   - m_Id: 64
-    m_Localized: "RESTORE  "
+    m_Localized: 'RESTORE  '
     m_Metadata:
       m_Items: []
   - m_Id: 65
-    m_Localized: "RESTORATION COMPLETE"
+    m_Localized: RESTORATION COMPLETE
     m_Metadata:
       m_Items: []
   - m_Id: 66
-    m_Localized: "FIELD GUIDE"
+    m_Localized: FIELD GUIDE
     m_Metadata:
       m_Items: []
   - m_Id: 67
-    m_Localized: "DISCOVERED"
+    m_Localized: DISCOVERED
     m_Metadata:
       m_Items: []
   - m_Id: 68
-    m_Localized: "UNDISCOVERED CREATURE"
+    m_Localized: UNDISCOVERED CREATURE
     m_Metadata:
       m_Items: []
   - m_Id: 69
-    m_Localized: "Watch the ripples and time of day."
+    m_Localized: Watch the ripples and time of day.
     m_Metadata:
       m_Items: []
   - m_Id: 70
-    m_Localized: "ON SHOW"
+    m_Localized: ON SHOW
     m_Metadata:
       m_Items: []
   - m_Id: 71
-    m_Localized: "TAKE A BREATH"
+    m_Localized: TAKE A BREATH
     m_Metadata:
       m_Items: []
   - m_Id: 72
-    m_Localized: "CONTINUE"
+    m_Localized: CONTINUE
     m_Metadata:
       m_Items: []
   - m_Id: 73
-    m_Localized: "SAVE"
+    m_Localized: SAVE
     m_Metadata:
       m_Items: []
   - m_Id: 74
-    m_Localized: "LOAD"
+    m_Localized: LOAD
     m_Metadata:
       m_Items: []
   - m_Id: 75
-    m_Localized: "LANGUAGE / 한국어"
+    m_Localized: "LANGUAGE / \uD55C\uAD6D\uC5B4"
     m_Metadata:
       m_Items: []
   - m_Id: 76
-    m_Localized: "QUIT GAME"
+    m_Localized: QUIT GAME
     m_Metadata:
       m_Items: []
   - m_Id: 77
-    m_Localized: "{0}  ·  LEVEL {1}"
+    m_Localized: "{0}  \xB7  LEVEL {1}"
     m_Metadata:
       m_Items: []
   - m_Id: 78
-    m_Localized: "No bites now. Cast again to check the next hour."
+    m_Localized: No bites now. Cast again to check the next hour.
     m_Metadata:
       m_Items: []
   - m_Id: 79
-    m_Localized: "Glimmer Anchovy"
+    m_Localized: Glimmer Anchovy
     m_Metadata:
       m_Items: []
   - m_Id: 80
-    m_Localized: "A small fish that follows sunlit ripples."
+    m_Localized: A small fish that follows sunlit ripples.
     m_Metadata:
       m_Items: []
   - m_Id: 81
-    m_Localized: "Cloud Puffer"
+    m_Localized: Cloud Puffer
     m_Metadata:
       m_Items: []
   - m_Id: 82
-    m_Localized: "It puffs up like a tiny cloud."
+    m_Localized: It puffs up like a tiny cloud.
     m_Metadata:
       m_Items: []
   - m_Id: 83
-    m_Localized: "Coral Butterfly"
+    m_Localized: Coral Butterfly
     m_Metadata:
       m_Items: []
   - m_Id: 84
-    m_Localized: "A gentle fish that circles shallow coral."
+    m_Localized: A gentle fish that circles shallow coral.
     m_Metadata:
       m_Items: []
   - m_Id: 85
-    m_Localized: "Moon Ray"
+    m_Localized: Moon Ray
     m_Metadata:
       m_Items: []
   - m_Id: 86
-    m_Localized: "It leaves a blue trail across evening water."
+    m_Localized: It leaves a blue trail across evening water.
     m_Metadata:
       m_Items: []
   - m_Id: 87
-    m_Localized: "Pearl Seahorse"
+    m_Localized: Pearl Seahorse
     m_Metadata:
       m_Items: []
   - m_Id: 88
-    m_Localized: "A rare creature hiding among sea grass."
+    m_Localized: A rare creature hiding among sea grass.
     m_Metadata:
       m_Items: []
   - m_Id: 89
-    m_Localized: "Breaker Shark"
+    m_Localized: Breaker Shark
     m_Metadata:
       m_Items: []
   - m_Id: 90
-    m_Localized: "An open-sea predator that cuts through rough waves."
+    m_Localized: An open-sea predator that cuts through rough waves.
     m_Metadata:
       m_Items: []
   - m_Id: 91
-    m_Localized: "Wind Boatyard"
+    m_Localized: Wind Boatyard
     m_Metadata:
       m_Items: []
   - m_Id: 92
-    m_Localized: "Tide Aquarium"
+    m_Localized: Tide Aquarium
     m_Metadata:
       m_Items: []
   - m_Id: 93
-    m_Localized: "Nari"
+    m_Localized: Nari
     m_Metadata:
       m_Items: []
   - m_Id: 94
-    m_Localized: "Boatwright"
+    m_Localized: Boatwright
     m_Metadata:
       m_Items: []
   - m_Id: 95
-    m_Localized: "The sea likes people who know how to wait."
+    m_Localized: The sea likes people who know how to wait.
     m_Metadata:
       m_Items: []
   - m_Id: 96
-    m_Localized: "Repair the boatyard and we can reach the reef."
+    m_Localized: Repair the boatyard and we can reach the reef.
     m_Metadata:
       m_Items: []
   - m_Id: 97
-    m_Localized: "The waves are gentle today. Listen to your line."
+    m_Localized: The waves are gentle today. Listen to your line.
     m_Metadata:
       m_Items: []
   - m_Id: 98
-    m_Localized: "Maru"
+    m_Localized: Maru
     m_Metadata:
       m_Items: []
   - m_Id: 99
-    m_Localized: "Aquarium Keeper"
+    m_Localized: Aquarium Keeper
     m_Metadata:
       m_Items: []
   - m_Id: 100
-    m_Localized: "Record every creature you meet for the first time."
+    m_Localized: Record every creature you meet for the first time.
     m_Metadata:
       m_Items: []
   - m_Id: 101
-    m_Localized: "A brighter aquarium will bring people back."
+    m_Localized: A brighter aquarium will bring people back.
     m_Metadata:
       m_Items: []
   - m_Id: 102
-    m_Localized: "Cloud puffers are round, but very brave."
+    m_Localized: Cloud puffers are round, but very brave.
     m_Metadata:
       m_Items: []
+  - m_Id: 672402522322714624
+    m_Localized: Move closer to the training target.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434880
+    m_Localized: "{0}: {1} damage \xB7 target health {2}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434881
+    m_Localized: Challenge complete! {0}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434882
+    m_Localized: "Craft 3 furniture items \u2192 special sword"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434883
+    m_Localized: "Land 30 valid hits \u2192 special bow"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434884
+    m_Localized: "Harvest wood, stone and herbs 3 times each \u2192 special staff"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434885
+    m_Localized: 'Required tool: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434886
+    m_Localized: '{0} +{1}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434887
+    m_Localized: A new day. Resources have regrown.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434888
+    m_Localized: Select the crafting hammer.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434889
+    m_Localized: Not enough crafting resources.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434890
+    m_Localized: "Unarmed \xB7 no job"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434891
+    m_Localized: Hands / hold weapon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434892
+    m_Localized: Axe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434893
+    m_Localized: Pickaxe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434894
+    m_Localized: Hammer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434895
+    m_Localized: I  Equipment & tools
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434896
+    m_Localized: Q  Attack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434897
+    m_Localized: R  Weapon skill
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434898
+    m_Localized: 'Target health {0}/100
+
+      Skill cooldown {1:0.0}s'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434899
+    m_Localized: Reset training target
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434900
+    m_Localized: 'E: harvest / enter home
+
+      Training target: island centre.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434901
+    m_Localized: "Wood {0} \xB7 Stone {1} \xB7 Herbs {2}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434902
+    m_Localized: E  Enter home
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434903
+    m_Localized: "Depleted \xB7 rest a day to regrow"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434904
+    m_Localized: "E  Harvest {0} \xB7 {1}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434905
+    m_Localized: "Equipment \xB7 jobs \xB7 tools"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434906
+    m_Localized: "{0} \xB7 {1} hits \xB7 mastery tier {2}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434907
+    m_Localized: Unequip weapon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434908
+    m_Localized: 'Per job: 10 hits = +25% skill damage; 30 hits = -20% cooldown.
+
+      Regular
+      weapons have basic attacks only.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434909
+    m_Localized: Decorate your room
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434910
+    m_Localized: Hold crafting hammer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434911
+    m_Localized: "{0} \xB7 available {1}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434912
+    m_Localized: 'Craft: wood {0} / stone {1}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434913
+    m_Localized: Select
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434914
+    m_Localized: Rest a day
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434915
+    m_Localized: Return to island
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434916
+    m_Localized: 'Choose a cell. Green: valid, red: blocked. Entrance: bottom centre.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434917
+    m_Localized: "Rotate 90\xB0"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434918
+    m_Localized: Cancel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434919
+    m_Localized: Place
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434920
+    m_Localized: Click placed furniture below to recall.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434921
+    m_Localized: Unknown furniture
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434922
+    m_Localized: Warrior
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434923
+    m_Localized: Ranger
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434924
+    m_Localized: Mage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434925
+    m_Localized: Practice sword
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434926
+    m_Localized: Practice bow
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434927
+    m_Localized: Practice staff
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434928
+    m_Localized: Breath sword
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434929
+    m_Localized: Wind bow
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434930
+    m_Localized: Forest staff
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434931
+    m_Localized: Slash
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434932
+    m_Localized: Arrow
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434933
+    m_Localized: Magic bolt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434934
+    m_Localized: Breath cleave
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434935
+    m_Localized: Focused shot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434936
+    m_Localized: Forest pulse
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434937
+    m_Localized: Wooden chair
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434938
+    m_Localized: Table
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434939
+    m_Localized: Bed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434940
+    m_Localized: Lamp
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434941
+    m_Localized: Wood
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434942
+    m_Localized: Stone
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672402522381434943
+    m_Localized: Herbs
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

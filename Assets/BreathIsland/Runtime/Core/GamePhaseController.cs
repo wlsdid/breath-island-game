@@ -17,13 +17,15 @@ namespace BreathIsland
             Current = next;
             world.motor.CanMove = next == GamePhase.Explore;
             world.cameraRig.firstPerson = next == GamePhase.Fishing || next == GamePhase.PredatorCombat;
+            world.cameraRig.homeView = next == GamePhase.Home || (next == GamePhase.Pause && BeforePause == GamePhase.Home);
+            world.cameraRig.allowLook = next == GamePhase.Explore || next == GamePhase.Fishing || next == GamePhase.PredatorCombat;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
 
         public void Cancel()
         {
-            if (Current == GamePhase.Explore)
+            if (Current == GamePhase.Explore || Current == GamePhase.Home)
             {
                 BeforePause = Current;
                 Set(GamePhase.Pause);

@@ -10,6 +10,9 @@ namespace BreathIsland.Tests
         [UnityTest]
         public IEnumerator CompositionRootBuildsWorldCameraAndExploreHud()
         {
+            string oldRoot = System.Environment.GetEnvironmentVariable("BREATH_ISLAND_SAVE_ROOT");
+            string isolated = System.IO.Path.Combine(Application.temporaryCachePath, "breath-bootstrap-" + System.Guid.NewGuid().ToString("N"));
+            System.Environment.SetEnvironmentVariable("BREATH_ISLAND_SAVE_ROOT", isolated);
             var root = new GameObject("Bootstrap smoke test");
             try
             {
@@ -27,8 +30,10 @@ namespace BreathIsland.Tests
             {
                 // Destroy before Editor shutdown so this read-only smoke test never auto-saves user data.
                 Object.Destroy(root);
+                System.Environment.SetEnvironmentVariable("BREATH_ISLAND_SAVE_ROOT", oldRoot);
             }
             yield return null;
+            if (System.IO.Directory.Exists(isolated)) System.IO.Directory.Delete(isolated, true);
         }
     }
 }

@@ -15,6 +15,7 @@ namespace BreathIsland
         private GameHud hud;
         private GameSession session;
         private ExploreSystem explore;
+        private IslandLifeSession life;
 
         public GamePhase Phase => phases?.Current ?? GamePhase.Explore;
         public GameSaveData SaveData => context?.Save;
@@ -36,20 +37,23 @@ namespace BreathIsland
             relationships = new RelationshipSystem(context, phases);
             facilities = new FacilitySystem(context);
             session = new GameSession(context, phases);
+            life = new IslandLifeSession(context, phases, transform);
             explore = new ExploreSystem(context, phases, fishing, relationships);
             hud = new GameHud(phases, new Dictionary<GamePhase, HudScreen>
             {
-                [GamePhase.Explore] = new ExploreHud(context, phases, relationships),
+                [GamePhase.Explore] = new ExploreHud(context, phases, relationships, life),
                 [GamePhase.Fishing] = new FishingHud(context, phases, fishing),
                 [GamePhase.CatchResolution] = new CatchResolutionHud(context, phases, fishing),
                 [GamePhase.PredatorCombat] = new PredatorCombatHud(context, phases, combat),
                 [GamePhase.Dialogue] = new DialogueHud(context, phases, relationships),
                 [GamePhase.Facility] = new FacilityHud(context, phases, facilities),
                 [GamePhase.Collection] = new CollectionHud(context, phases),
-                [GamePhase.Pause] = new PauseHud(context, phases, session)
+                [GamePhase.Pause] = new PauseHud(context, phases, session),
+                [GamePhase.Equipment] = new EquipmentHud(context, phases, life),
+                [GamePhase.Home] = new HousingHud(context, phases, life)
             }, new HudOverlay(context, phases, session));
 
-            phases.Set(GamePhase.Explore);
+            phases.Set(context.Save.housing.inside ? GamePhase.Home : GamePhase.Explore);
             session.ShowMessage(context.Text("welcome"));
         }
 
@@ -59,7 +63,7 @@ namespace BreathIsland
             if (session.TickGlobalInput()) return;
             switch (phases.Current)
             {
-                case GamePhase.Explore: explore.Tick(); break;
+                case GamePhase.Explore: if (!life.TickExplore()) explore.Tick(); break;
                 case GamePhase.Fishing: fishing.Tick(); break;
                 case GamePhase.PredatorCombat: combat.Tick(); break;
                 case GamePhase.CatchResolution: fishing.TickResolutionInput(); break;
@@ -69,7 +73,7 @@ namespace BreathIsland
         }
 
         private void OnGUI() => hud?.Draw();
-        private void OnDestroy() => hud?.Dispose();
+        private void OnDestroy() { hud?.Dispose(); life?.Dispose(); }
         private void OnApplicationQuit() { if (context != null) context.SaveTo(); }
     }
 }

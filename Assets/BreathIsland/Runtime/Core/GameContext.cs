@@ -23,6 +23,7 @@ namespace BreathIsland
         public WorldHandles World => world;
         public PlayerPositionSystem Positions { get; }
         public bool Korean { get; set; } = true;
+        public event System.Action Loaded;
 
         public string Text(string key) => GameText.Get(key, Korean);
         public void Message(string text) => showMessage(text);
@@ -37,6 +38,7 @@ namespace BreathIsland
         {
             Save = saveService.Load(slot);
             RestorePosition();
+            Loaded?.Invoke();
         }
 
         public void CapturePosition()

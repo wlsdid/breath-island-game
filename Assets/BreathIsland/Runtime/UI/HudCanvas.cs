@@ -9,7 +9,7 @@ namespace BreathIsland
         public HudCanvas(bool begin)
         {
             previous = GUI.matrix;
-            float scale = Mathf.Clamp(Mathf.Min(Screen.width / 1600f, Screen.height / 900f), .62f, 1.35f);
+            float scale = Mathf.Clamp(Mathf.Min(Screen.width / 1600f, Screen.height / 900f), .1f, 1.35f);
             Width = Screen.width / scale; Height = Screen.height / scale;
             GUI.matrix = Matrix4x4.Scale(new Vector3(scale, scale, 1));
         }
