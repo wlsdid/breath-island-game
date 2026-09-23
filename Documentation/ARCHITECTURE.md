@@ -8,7 +8,7 @@
 - `Core/GameContext`: 동일한 저장 상태·월드·콘텐츠 참조 공유, 위치 캡처와 복원.
 - `Core/PlayerPositionSystem`: 저장 위치 복원과 월드 아래 낙하 복구. 이동 컨트롤러의 수직 속도를 초기화하며 자원과 저장 원본은 변경하지 않는다.
 - `Core/GamePhaseController`: 화면 상태, 이동 허용, 카메라 모드 전환. 화면 전환은 저장 상태나 대상 객체를 교체하지 않는다.
-- `Core/GameSession`: 전역 입력, 슬롯 저장·불러오기, 언어 변경, 알림. 저장 불러오기는 탐험으로 돌아가 진행 중 포획 보상의 중복 적용을 막는다.
+- `Core/GameSession`: 전역 입력, 슬롯 저장·불러오기, 언어 변경, 알림. 저장 불러오기는 실내 여부에 따라 Home 또는 Explore로 돌아가 진행 중 포획 보상의 중복 적용을 막는다.
 - `Core/ExploreSystem`: 탐험 중 낚시·NPC·시설·도감 진입 명령.
 - `Fishing`, `Combat`, `Relationships`, `Facilities`: 기능 규칙과 입력. 전투 숫자키 처리는 Update에서 한 번만 실행하며 UI에서 키보드를 읽지 않는다.
 - `GameState`: 기존 JSON 도메인 데이터와 순수 경제·낚시 계산. 확장 상태는 `Core/IslandLifeState`에 분리한다.
@@ -17,6 +17,7 @@
 - `LandActivities`: 거리·도구·소진 조건, 생활 자원 지급, 휴식에 따른 날짜 전진.
 - `Housing`: 제작 비용, 가구 재고, 배치 영역·겹침 검사, 확정·취소·회수와 실내 출입.
 - `Presentation`: 모델 정규화·URP 재질·캐릭터 애니메이션·손 장비·채집 지점·가구 미리보기·공격 표현. 규칙은 기능 시스템에 남긴다.
+- `ModelPresentation`은 FBX 원본 축 보정 회전을 유지한다. `ToolSwing`은 Animator 이후 고정 리그 기준으로 팔 준비·타격·복귀를 표현하며, 보상은 ToolUseSystem만 처리한다.
 - `ProceduralWorld`, `PlayerAndCamera`, `ProceduralSeaAudio`: 월드 표현 계층.
 
 ## 콘텐츠
@@ -49,12 +50,12 @@
 | FacilityHud | 시설 상태·복구 명령 |
 | CollectionHud | 발견·전시 상태 |
 | PauseHud | 이어하기·수동 슬롯·언어·종료 |
-| EquipmentHud | 무기·해금 조건·직업 숙련도·생활 도구 선택 |
-| HousingHud | 가구 제작·재고·배치 격자·회전·확정·취소·회수·휴식·퇴장 |
+| EquipmentHud | 인벤토리의 도구·무기·자원·가구 탭, 상세·해금·숙련도, 손에 들기·제작·배치 명령 |
+| HousingHud | 배치 격자·회전·확정·취소·회수·휴식·퇴장, 제작·재고는 인벤토리로 안내 |
 
-`ExploreHud`는 기존 탐험 안내와 `LifeExploreHud`를 구성한다. 후자는 장비·훈련 대상·채집·실내 입장 명령을 기능 시스템에 전달한다. 실내에서는 이동 대신 고정 카메라와 배치 UI를 사용한다. 메뉴를 여는 동안 마우스 카메라 회전을 멈춘다. Home의 Esc는 실내 상태를 보존한 채 Pause를 열고, 실내 퇴장은 HousingSystem 명령으로만 수행한다.
+`ExploreHud`는 근처 대상 안내와 훈련 대상 상태만 표시한다. 인벤토리는 탐험과 실내에서 열 수 있고 닫으면 직전 상태로 돌아간다. `InventorySystem`은 기존 저장 데이터를 읽는 통합 표시 모델과 기능 명령을 제공한다. 실내는 고정 카메라를 사용한다. Home의 Esc는 실내 상태를 보존한 채 Pause를 열고, 실내 퇴장은 HousingSystem 명령으로만 수행한다.
 
-`HudScreen`은 스타일과 미터 등 공통 그리기 도구, `HudCanvas`는 해상도 스케일 및 GUI 행렬 복원, `HudOverlay`는 자원·시간·알림을 담당한다. UI는 경제·낚시·관계 수치를 직접 변경하지 않고 기능 시스템의 공개 명령을 호출한다. 생성한 GUI 텍스처는 화면 수명 종료 때 해제한다.
+`HudScreen`은 화면 수명과 공통 스타일, `NotebookSurface`는 에셋 프리팹에서 만든 uGUI 노드를 재사용한다. `GameHud.Draw`는 LateUpdate에서 현재 화면과 오버레이만 갱신하고 나머지를 숨긴다. 화면 프리팹과 공통 요소는 `Resources/UI`에 있으며 Editor/NotebookAuthoring은 명시적 작성 명령이다. `NotebookGraphic`, `IslandIcon`, `NotebookButtonMotion`은 벡터 도형·아이콘·버튼 움직임만 담당한다. UI는 공개 기능 명령만 호출하며 게임 규칙이나 저장 수치를 직접 변경하지 않는다.
 
 ## 상태와 저장 호환성
 
@@ -67,9 +68,10 @@
 - 새 게임의 시작 z는 4이며 기존 저장 파일의 유효한 z=0은 그대로 복원한다.
 - 기존 저장이나 플레이 중 좌표가 월드 아래(y < -5)이면 안전한 해안 `(0, 1.2, 8)`으로 복귀한다. 복구 자체는 인벤토리·파일을 수정하지 않으며, 정상 좌표와 화면 전환 위치는 유지한다.
 - 일반 무기는 스킬 참조가 없고 특수 무기는 도전과제 ID를 요구한다. 잠긴 무기는 장착할 수 없다. 스킬 명령은 현재 무기·화면·재사용 시간·거리·대상 생존을 다시 확인한다. 스킬 대기 시간은 장비 교체로 초기화하지 않는다.
-- 생활 도구 선택은 직업·숙련도를 바꾸지 않는다. 공격 시 현재 무기를 다시 손에 표시한다. 숙련도는 직업 ID별 유효 명중 수이며 스킬 수치만 변화시킨다.
+- 생활 도구 선택은 직업·숙련도를 바꾸지 않는다. 도구를 들고 있는 동안 무기 공격·스킬 명령을 거부한다. 무기는 인벤토리에서 다시 선택해야 한다. 숙련도는 직업 ID별 유효 명중 수이며 스킬 수치만 변화시킨다.
 - 생활 자원은 기존 시설 재료·코인과 독립적이다. 지점 ID별 소진 날짜를 저장해 같은 날 중복 보상을 차단한다. 휴식은 실내에서만 가능하며 날짜를 1 올리고 시간을 09시로 설정한다.
 - 실내는 독립된 8×8 공간이다. 배치 미리보기는 저장하지 않고 확정된 인스턴스 ID·가구 ID·격자 좌표·90도 회전만 저장한다. 경계·다른 가구·출입구 겹침을 차단하며 회수는 같은 인스턴스에 한 번만 적용한다.
+- 집 표현은 `HomeInteriorView`가 실제 `Resources/World/HomeInterior`와 `HomeDoorway` 프리팹을 생성한다. Kenney 목재 구조 모델·URP 재질은 Editor/HomeInteriorAuthoring의 명시적 작성 명령으로 구성한다. 마루 윗면은 기존 InteriorOrigin 높이이고 벽은 8×8 가구 영역 밖에 둔다. 출입·저장·가구 규칙은 HousingSystem에 남긴다.
 - `GameContext.Loaded` 이벤트로 장비·채집 지점·가구 표현을 새 저장에 맞춰 복원한다. 실내 저장을 불러오면 Home으로 라우팅하며 야외 복귀 위치를 유지한다.
 - `BREATH_ISLAND_SAVE_ROOT`는 명시적인 격리 검증용 경로 재정의다. 테스트용 Composition Root도 이 경로를 사용하여 실제 사용자 저장을 읽거나 쓰지 않는다.
 
@@ -79,8 +81,14 @@
 - `Tests/PlayMode`: 탐험→포획 처리→시설→NPC, 승리·패배, 상태 전환 참조 유지, 언어 전환, 슬롯 불러오기, 줄 끊김, 야간 빈 후보, 낙하 복구, 양 언어 10개 HUD 렌더링 및 실제 Composition Root 초기화 검증. 테스트 저장은 임시 디렉터리를 사용하며 Composition Root 스모크 테스트는 종료 전에 객체를 파괴하여 사용자 저장에 쓰지 않는다.
 - 신규 기능 테스트는 무기 해금·숙련도·도구 분리, 채집·재생·제작, 배치 경계·회수, 실내 저장 복원과 야외 위치 유지, 실제 키보드 입력 및 모델·아바타·재질을 검증한다.
 - `Build-BreathIsland.ps1`: Localization 등록 → Edit Mode → Play Mode → Windows Mono 빌드. `-ReleaseIl2Cpp`는 별도 출시 도구 체인이 필요하다.
-- Play Mode는 IMGUI를 그리는 실제 Game View로 실행한다. `-batchmode`에서는 `OnGUI`가 호출되지 않으므로 HUD 렌더링 검증을 대신할 수 없다.
+- Play Mode는 실제 Game View 및 RenderTexture로 uGUI·폰트·벡터 메시·화면 비율을 검증한다. 인벤토리의 1280×720, 1920×1080, 2560×1080 한·영 렌더링을 기록한다.
 - 실제 검증 상태는 [VALIDATION.md](VALIDATION.md)에 기록한다. 테스트 추가와 소스 컴파일을 Unity 테스트/플레이/빌드 통과로 간주하지 않는다.
 - 기능 간 참조는 Composition Root에서 주입한다. UI에 게임 규칙을 넣지 않는다. 저장은 `GameContext.SaveTo`를 사용한다.
 - 저장 형식·경제·콘텐츠 범위·플랫폼 동작 등 구현 결과를 바꾸는 요구가 불명확하면 작업 전에 질문한다.
 - 단일 Runtime Assembly Definition 내 폴더 경계를 유지한다. 향후 어셈블리 분리는 Domain → Application → Presentation 방향으로 진행한다.
+
+## 필드 입력과 지형
+
+- 탐험에서는 커서를 고정하고 좌클릭을 손에 든 물건에 전달한다. 메뉴 입력을 먼저 처리하고 이후 ToolUseSystem을 갱신하므로 메뉴 진입 시 대기 중인 타격을 취소한다. 화면 전환 직후 두 프레임은 필드 사용 입력을 차단한다.
+- ToolUseSystem은 0.5초 사용 동작의 중간 시점에 2.3m 거리·전방 내적 0.65 이상의 지정 대상을 검사한다. 실제 보상과 소진 검사는 LandActivitySystem에 남긴다. 도구 교체·로드·메뉴 진입은 진행 중 사용을 취소한다. E는 맨손 채집과 기존 대상 상호작용에 사용한다.
+- 납작한 섬·잔디·해변 원통의 기본 CapsuleCollider는 보이는 지형과 다른 돔을 만들므로 해당 세 지형만 정적 MeshCollider로 교체했다. 기존 지형 모델·좌표·저장값은 유지한다.

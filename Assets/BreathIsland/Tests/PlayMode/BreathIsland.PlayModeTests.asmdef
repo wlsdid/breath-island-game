@@ -1,6 +1,14 @@
 {
   "name": "BreathIsland.PlayModeTests",
-  "references": ["BreathIsland.Runtime", "Unity.Localization", "Unity.ResourceManager", "Unity.InputSystem"],
-  "optionalUnityReferences": ["TestAssemblies"],
+  "references": [
+    "BreathIsland.Runtime",
+    "Unity.Localization",
+    "Unity.ResourceManager",
+    "Unity.InputSystem",
+    "Unity.ugui"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ],
   "autoReferenced": false
 }

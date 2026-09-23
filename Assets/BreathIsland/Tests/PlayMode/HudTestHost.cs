@@ -5,7 +5,7 @@ namespace BreathIsland.Tests
     {
         [System.NonSerialized] public GameHud Hud;
         public int DrawCount { get; private set; }
-        private void OnGUI() { if (Hud != null) { Hud.Draw(); DrawCount++; } }
+        private void LateUpdate() { if (Hud != null) { Hud.Draw(); DrawCount++; } }
         private void OnDestroy() => Hud?.Dispose();
     }
 }

@@ -31,7 +31,9 @@ namespace BreathIsland.Tests
             root = new GameObject("Loop Test World");
             var player = new GameObject("Player", typeof(CharacterController), typeof(ThirdPersonMotor));
             player.transform.SetParent(root.transform);
-            var camera = new GameObject("Camera", typeof(IslandCameraRig)); camera.transform.SetParent(root.transform);
+            var camera = new GameObject("Camera", typeof(Camera), typeof(IslandCameraRig)); camera.transform.SetParent(root.transform);
+            camera.GetComponent<Camera>().clearFlags = CameraClearFlags.SolidColor;
+            camera.GetComponent<Camera>().backgroundColor = new Color(.25f, .45f, .46f);
             var world = new WorldHandles { player = player, motor = player.GetComponent<ThirdPersonMotor>(), cameraRig = camera.GetComponent<IslandCameraRig>() };
             position = new Vector3(2.5f, 1.5f, 22f); player.transform.position = position;
             context = new GameContext(GameSaveData.CreateDefault(), saves, world, DefinitionCatalog.CreateVerticalSlice(), _ => { });
@@ -230,6 +232,7 @@ namespace BreathIsland.Tests
                 [GamePhase.Equipment] = new EquipmentHud(context, phases, life),
                 [GamePhase.Home] = new HousingHud(context, phases, life)
             }, new HudOverlay(context, phases, session));
+            var missingLabels = new List<string>();
             foreach (bool korean in new[] { true, false })
             {
                 context.Korean = korean;
@@ -238,8 +241,18 @@ namespace BreathIsland.Tests
                     phases.Set(phase); int before = host.DrawCount;
                     yield return null; yield return null;
                     Assert.That(host.DrawCount, Is.GreaterThan(before), phase.ToString());
+                    yield return new WaitForSeconds(.18f);
+                    Canvas.ForceUpdateCanvases();
+                    foreach (var label in UnityEngine.Object.FindObjectsByType<UnityEngine.UI.Text>(FindObjectsSortMode.None))
+                        if (!string.IsNullOrWhiteSpace(label.text))
+                            if (label.cachedTextGenerator.vertexCount == 0) missingLabels.Add(phase + ": " + label.text);
+                    string review = System.IO.Path.GetFullPath("Builds/NotebookReview/AllScreens");
+                    System.IO.Directory.CreateDirectory(review);
+                    ScreenCapture.CaptureScreenshot(System.IO.Path.Combine(review, phase + (korean ? "-ko.png" : "-en.png")));
+                    yield return null; yield return null;
                 }
             }
+            Assert.That(missingLabels, Is.Empty, "Missing rendered labels");
             LogAssert.NoUnexpectedReceived();
         }
     }

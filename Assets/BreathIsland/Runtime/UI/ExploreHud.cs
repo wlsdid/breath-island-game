@@ -4,26 +4,27 @@ namespace BreathIsland
     public sealed class ExploreHud : HudScreen
     {
         private readonly RelationshipSystem relationships;
-        private bool showHelp = true;
-        private readonly LifeExploreHud lifeHud;
-        public ExploreHud(GameContext context, GamePhaseController phases, RelationshipSystem relationships, IslandLifeSession life = null) : base(context, phases)
-        { this.relationships = relationships; if (life != null) lifeHud = new LifeExploreHud(context, phases, life); }
-        public override void Draw(float width, float height)
+        private readonly IslandLifeSession life;
+        public ExploreHud(GameContext context,GamePhaseController phases,RelationshipSystem relationships,IslandLifeSession life=null):base(context,phases)
+        {this.relationships=relationships;this.life=life;}
+        public override void Draw(float width,float height)
         {
-            EnsureStyles();
-            bool ko = context.Korean;
-            NpcId? nearby = relationships.NearbyNpc();
-            if (nearby.HasValue)
+            string prompt="";
+            if(life?.Housing.CanEnter==true)prompt=context.Text("life_enter");
+            else if(life?.Land.Nearby!=null)
             {
-                NpcDefinition npc = context.Content.Npcs[nearby.Value];
-                GUI.Box(new Rect(width / 2f - 190f, height - 170f, 380f, 48f), string.Format(context.Text("talk_prompt"), npc.LocalizedName(ko)), DarkBox());
+                var node=life.Land.Nearby;
+                prompt=life.Land.Depleted(node.id)?context.Text("life_depleted"):string.Format(context.Text(node.tool==LifeTool.None?"bag_gather_hint":"bag_tool_hint"),context.Text(node.nameKey),context.Text("life_tool_"+node.tool));
             }
-            if (Vector3.Distance(context.World.player.transform.position, context.World.fishingPoint) < 7.5f)
-                GUI.Box(new Rect(width / 2f - 190f, height - 220f, 380f, 48f), context.Text("ui_f_space_start_fishing"), DarkBox());
-            GUI.Box(new Rect(24, height - 118f, 390f, 92f), context.Text("ui_wasd_move_mouse_look_e_talk_nm_village_tab_guide_l_language"), DarkBox());
-            if (showHelp && GUI.Button(new Rect(width - 182f, height - 72f, 158f, 46f), context.Text("ui_hide_help"), buttonStyle)) showHelp = false;
-            lifeHud?.Draw(width, height);
+            else if(relationships.NearbyNpc().HasValue)prompt=context.Text("bag_talk_hint");
+            else if(Vector3.Distance(context.World.player.transform.position,context.World.fishingPoint)<7.5f)prompt=context.Text("bag_fish_hint");
+            if(!string.IsNullOrEmpty(prompt))ui.Panel(new Rect(width/2-310,height-134,620,62),prompt);
+            ui.Icon(new Rect(width/2-6,height/2-6,12,12),"reticle",NotebookSurface.Paper);
+            if(life!=null && Vector3.Distance(context.World.player.transform.position,life.Training.TargetPosition)<5)
+            {
+                ui.Panel(new Rect(width/2-210,130,420,62),string.Format(context.Text("life_training"),life.Training.Health,life.Training.SkillCooldown));
+                ui.Label(new Rect(width/2-225,198,450,38),context.Text("bag_reset_hint"),smallStyle);
+            }
         }
-        public override void Dispose() { lifeHud?.Dispose(); base.Dispose(); }
     }
 }

@@ -696,6 +696,170 @@ MonoBehaviour:
     m_Localized: Herbs
     m_Metadata:
       m_Items: []
+  - m_Id: 672465243055538176
+    m_Localized: My island satchel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258432
+    m_Localized: A little room for today's adventures
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258433
+    m_Localized: Tools
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258434
+    m_Localized: Weapons
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258435
+    m_Localized: Resources
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258436
+    m_Localized: Furniture
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258437
+    m_Localized: I  Open satchel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258438
+    m_Localized: Close  I
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258439
+    m_Localized: Take in hand
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258440
+    m_Localized: In hand
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258441
+    m_Localized: Put away
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258442
+    m_Localized: Take it out and use it freely. Gather resources when it strikes
+      a matching target.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258443
+    m_Localized: Switch to this weapon's job. This regular weapon has a basic attack.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258444
+    m_Localized: A special weapon earned through a challenge. Its skill grows with
+      job mastery.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258445
+    m_Localized: Supplies collected around the island. Used for crafting and island
+      activities.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258446
+    m_Localized: Place it inside your room. Reclaim it to return it to your satchel.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258447
+    m_Localized: Wood
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258448
+    m_Localized: Stone
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258449
+    m_Localized: Herbs
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258450
+    m_Localized: Coins
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258451
+    m_Localized: Building materials
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258452
+    m_Localized: Bait
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258453
+    m_Localized: Craft with hammer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258454
+    m_Localized: "Wood {0} \xB7 Stone {1}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258455
+    m_Localized: Place in room
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258456
+    m_Localized: Available inside your room
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258457
+    m_Localized: Back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258458
+    m_Localized: "Island day {0} \xB7 {1:00}:00"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258459
+    m_Localized: Island day {0}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258460
+    m_Localized: Choose something and make a little plan for today.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258461
+    m_Localized: E  Gather {0}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258462
+    m_Localized: "Left click  {0} \xB7 Tool: {1}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258463
+    m_Localized: E  Talk
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258464
+    m_Localized: F  Start fishing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258465
+    m_Localized: T  Reset training target
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258466
+    m_Localized: Open your satchel to craft with the hammer. Select furniture you
+      own to place it.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258467
+    m_Localized: In your room
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258468
+    m_Localized: Previous
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258469
+    m_Localized: Next
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258470
+    m_Localized: Coins {0} + materials {1}
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

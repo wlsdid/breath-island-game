@@ -8,6 +8,7 @@ namespace BreathIsland
         private readonly Transform socket;
         private GameObject held;
         public GameObject Held => held;
+        public void Swing() => socket.GetComponent<ToolSwing>().Play();
         public EquipmentView(EquipmentSystem equipment, IslandLifeCatalog catalog, Transform player)
         {
             this.equipment = equipment; this.catalog = catalog;
@@ -19,10 +20,12 @@ namespace BreathIsland
             if (hand != null) anchor.transform.SetParent(hand, false);
             else anchor.transform.localPosition = new Vector3(.5f, .85f, .25f);
             socket = anchor.transform;
+            anchor.AddComponent<ToolSwing>().Initialize(player);
             equipment.Changed += Refresh; Refresh();
         }
         private void Refresh()
         {
+            socket.GetComponent<ToolSwing>().SetHeldTool(equipment.Tool != LifeTool.None);
             if (held != null) { held.SetActive(false); Object.Destroy(held); }
             GameObject source = equipment.Tool switch
             {

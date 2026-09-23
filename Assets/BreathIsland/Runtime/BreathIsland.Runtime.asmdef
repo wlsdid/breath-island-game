@@ -4,7 +4,8 @@
   "references": [
     "Unity.InputSystem",
     "Unity.Localization",
-    "Unity.ResourceManager"
+    "Unity.ResourceManager",
+    "Unity.ugui"
   ],
   "autoReferenced": true
 }

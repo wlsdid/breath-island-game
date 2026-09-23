@@ -12,7 +12,7 @@ namespace BreathIsland
         { this.context = context; this.phases = phases; this.catalog = catalog; this.housing = housing; this.equipment = equipment; this.achievements = achievements; }
         public bool Craft(string id)
         {
-            if (phases.Current != GamePhase.Home) return false;
+            if (phases.Current != GamePhase.Home && !(phases.Current == GamePhase.Equipment && phases.BeforeInventory == GamePhase.Home && context.Save.housing.inside)) return false;
             var furniture = catalog.Furniture(id);
             if (furniture == null) return false;
             if (equipment.Tool != LifeTool.Hammer) { context.Message(context.Text("life_craft_hammer")); return false; }

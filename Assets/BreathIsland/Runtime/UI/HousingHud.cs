@@ -4,56 +4,45 @@ namespace BreathIsland
     public sealed class HousingHud : HudScreen
     {
         private readonly IslandLifeSession life;
-        private Vector2 scroll;
-        public HousingHud(GameContext context, GamePhaseController phases, IslandLifeSession life) : base(context, phases) => this.life = life;
-        public override void Draw(float width, float height)
+        private int page;
+        public HousingHud(GameContext context,GamePhaseController phases,IslandLifeSession life):base(context,phases){this.life=life;}
+        public override void Draw(float width,float height)
         {
-            EnsureStyles(); var housing = life.Housing;
-            GUI.Box(new Rect(20, 110, 345, height - 135), "", panelStyle);
-            GUI.Label(new Rect(35, 126, 320, 40), context.Text("life_home"), titleStyle);
-            var r = context.Save.resources;
-            GUI.Label(new Rect(35, 173, 320, 54), string.Format(context.Text("life_resources"), r.wood, r.stone, r.herbs), bodyStyle);
-            if (GUI.Button(new Rect(35, 230, 310, 40), context.Text("life_select_hammer"), life.Equipment.Tool == LifeTool.Hammer ? primaryButtonStyle : buttonStyle)) life.Equipment.SelectTool(LifeTool.Hammer);
-            for (int i = 0; i < housing.Furniture.Length; i++)
+            var housing=life.Housing;
+            ui.Panel(new Rect(30,140,310,620));
+            ui.Label(new Rect(50,155,270,74),context.Text("life_home"),titleStyle);
+            ui.Button(new Rect(55,256,260,56),context.Text("bag_open"),()=>phases.OpenInventory(),primaryButtonStyle);
+            ui.Label(new Rect(50,330,270,135),context.Text("bag_room_help"),bodyStyle);
+            ui.Button(new Rect(55,578,260,56),context.Text("life_rest"),()=>life.Land.Rest());
+            ui.Button(new Rect(55,654,260,56),context.Text("life_exit"),()=>housing.Exit());
+            float x=width-405;
+            ui.Panel(new Rect(x,140,375,620));
+            if(housing.Selection!=null)
             {
-                var definition = housing.Furniture[i]; float y = 286 + i * 99;
-                GUI.Label(new Rect(35, y, 315, 34), string.Format(context.Text("life_furniture_stock"), context.Text(definition.nameKey), housing.Available(definition.id)), bodyStyle);
-                if (GUI.Button(new Rect(35, y + 37, 182, 46), string.Format(context.Text("life_craft"), definition.woodCost, definition.stoneCost), new GUIStyle(buttonStyle) { fontSize = 14, wordWrap = true })) life.Crafting.Craft(definition.id);
-                GUI.enabled = housing.Available(definition.id) > 0;
-                if (GUI.Button(new Rect(225, y + 37, 120, 46), context.Text("life_select"), primaryButtonStyle)) housing.Select(definition.id);
-                GUI.enabled = true;
+                ui.Label(new Rect(x+15,160,345,70),context.Text(housing.Selection.nameKey),titleStyle);
+                for(int z=0;z<8;z++)for(int column=0;column<8;column++)
+                {
+                    int cx=column,cz=z;
+                    bool marked=FurniturePlacement.Area(housing.Selection,housing.X,housing.Z,housing.Turns).Contains(new Vector2(column+.5f,z+.5f));
+                    ui.Button(new Rect(x+27+column*40,255+(7-z)*40,36,36),"",()=>housing.Move(cx,cz),marked?(housing.IsValid?NotebookStyle.Selected:NotebookStyle.Primary):buttonStyle);
+                }
+                ui.Button(new Rect(x+27,590,151,46),context.Text("life_rotate"),()=>housing.Rotate());
+                ui.Button(new Rect(x+189,590,151,46),context.Text("life_cancel"),()=>housing.Cancel());
+                ui.Button(new Rect(x+27,650,313,54),context.Text("life_place"),()=>housing.Place(),primaryButtonStyle,housing.IsValid);
             }
-            if (GUI.Button(new Rect(35, height - 123, 310, 40), context.Text("life_rest"), buttonStyle)) life.Land.Rest();
-            if (GUI.Button(new Rect(35, height - 73, 310, 40), context.Text("life_exit"), primaryButtonStyle)) housing.Exit();
-            DrawPlacement(width, height);
-        }
-        private void DrawPlacement(float width, float height)
-        {
-            var housing = life.Housing; float x = width - 365;
-            GUI.Box(new Rect(x, 110, 345, height - 135), "", panelStyle);
-            GUI.Label(new Rect(x + 18, 128, 312, 68), context.Text("life_grid_help"), bodyStyle);
-            for (int z = 0; z < 8; z++) for (int column = 0; column < 8; column++)
+            else
             {
-                Color previous = GUI.backgroundColor;
-                bool marked = housing.Selection != null && FurniturePlacement.Area(housing.Selection, housing.X, housing.Z, housing.Turns).Contains(new Vector2(column + .5f, z + .5f));
-                if (marked) GUI.backgroundColor = housing.IsValid ? Color.green : Color.red;
-                if (GUI.Button(new Rect(x + 20 + column * 38, 205 + (7 - z) * 38, 35, 35), (column + 1) + "," + (z + 1))) housing.Move(column, z);
-                GUI.backgroundColor = previous;
+                ui.Label(new Rect(x+20,160,335,70),context.Text("bag_placed"),titleStyle);
+                ui.Label(new Rect(x+20,234,335,64),context.Text("life_recall_help"),smallStyle);
+                int pages=Mathf.Max(1,Mathf.CeilToInt(housing.State.placed.Count/5f));page=Mathf.Clamp(page,0,pages-1);
+                for(int i=page*5;i<Mathf.Min(housing.State.placed.Count,page*5+5);i++)
+                {
+                    var item=housing.State.placed[i];var definition=life.Catalog.Furniture(item.furnitureId);
+                    ui.Button(new Rect(x+24,321+(i%5)*63,327,52),context.Text(definition?.nameKey??"life_unknown"),()=>housing.Recall(item.instanceId));
+                }
+                ui.Button(new Rect(x+24,675,155,42),context.Text("bag_previous"),()=>page--,buttonStyle,page>0);
+                ui.Button(new Rect(x+195,675,155,42),context.Text("bag_next"),()=>page++,buttonStyle,page+1<pages);
             }
-            if (GUI.Button(new Rect(x + 20, 520, 145, 38), context.Text("life_rotate"), buttonStyle)) housing.Rotate();
-            if (GUI.Button(new Rect(x + 175, 520, 145, 38), context.Text("life_cancel"), buttonStyle)) housing.Cancel();
-            GUI.enabled = housing.IsValid;
-            if (GUI.Button(new Rect(x + 20, 565, 300, 42), context.Text("life_place"), primaryButtonStyle)) housing.Place();
-            GUI.enabled = true;
-            GUI.Label(new Rect(x + 20, 615, 305, 35), context.Text("life_recall_help"), smallStyle);
-            scroll = GUI.BeginScrollView(new Rect(x + 20, 655, 305, Mathf.Max(80, height - 695)), scroll, new Rect(0, 0, 280, housing.State.placed.Count * 45));
-            // Stop iterating after a command that mutates the collection.
-            for (int i = 0; i < housing.State.placed.Count; i++)
-            {
-                var item = housing.State.placed[i]; var definition = life.Catalog.Furniture(item.furnitureId);
-                if (GUI.Button(new Rect(0, i * 45, 275, 38), context.Text(definition?.nameKey ?? "life_unknown"), buttonStyle)) { housing.Recall(item.instanceId); break; }
-            }
-            GUI.EndScrollView();
         }
     }
 }

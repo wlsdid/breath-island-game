@@ -683,6 +683,166 @@ MonoBehaviour:
     m_Key: life_resource_Herb
     m_Metadata:
       m_Items: []
+  - m_Id: 672465243055538176
+    m_Key: bag_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258432
+    m_Key: bag_subtitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258433
+    m_Key: bag_tab_Tools
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258434
+    m_Key: bag_tab_Weapons
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258435
+    m_Key: bag_tab_Resources
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258436
+    m_Key: bag_tab_Furniture
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258437
+    m_Key: bag_open
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258438
+    m_Key: bag_close
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258439
+    m_Key: bag_hold
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258440
+    m_Key: bag_held
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258441
+    m_Key: bag_put_away
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258442
+    m_Key: bag_tool_detail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258443
+    m_Key: bag_regular_detail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258444
+    m_Key: bag_special_detail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258445
+    m_Key: bag_resource_detail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258446
+    m_Key: bag_furniture_detail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258447
+    m_Key: bag_wood
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258448
+    m_Key: bag_stone
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258449
+    m_Key: bag_herbs
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258450
+    m_Key: bag_coins
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258451
+    m_Key: bag_materials
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258452
+    m_Key: bag_bait
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258453
+    m_Key: bag_craft
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258454
+    m_Key: bag_cost
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258455
+    m_Key: bag_place
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258456
+    m_Key: bag_indoor_only
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258457
+    m_Key: bag_back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258458
+    m_Key: bag_day
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258459
+    m_Key: bag_day_short
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258460
+    m_Key: bag_hint
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258461
+    m_Key: bag_gather_hint
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258462
+    m_Key: bag_tool_hint
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258463
+    m_Key: bag_talk_hint
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258464
+    m_Key: bag_fish_hint
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258465
+    m_Key: bag_reset_hint
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258466
+    m_Key: bag_room_help
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258467
+    m_Key: bag_placed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258468
+    m_Key: bag_previous
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258469
+    m_Key: bag_next
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672465243114258470
+    m_Key: bag_facility_cost
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

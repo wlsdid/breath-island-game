@@ -1,0 +1,44 @@
+[
+  {
+    "archive": "kenney_fantasy-town-kit_2.0.zip",
+    "entry": "Models/FBX format/wall-wood.fbx",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/Kenney/Town/wall-wood.fbx",
+    "sha256": "DDDBB478341216C732AAA64D3DAAA9F86CCCE8A04FB516AEA2E7DB87383C9277"
+  },
+  {
+    "archive": "kenney_fantasy-town-kit_2.0.zip",
+    "entry": "Models/FBX format/wall-wood-window-small.fbx",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/Kenney/Town/wall-wood-window-small.fbx",
+    "sha256": "D54C4A9845392207A451203ADD8200340F1D23970630F45D4163F4F574DFEDC2"
+  },
+  {
+    "archive": "kenney_fantasy-town-kit_2.0.zip",
+    "entry": "Models/FBX format/wall-wood-doorway-square.fbx",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/Kenney/Town/wall-wood-doorway-square.fbx",
+    "sha256": "83841D08586241391A1EC0105DFFE9D3D949C323B50CC3B3A494E3A16561892E"
+  },
+  {
+    "archive": "kenney_fantasy-town-kit_2.0.zip",
+    "entry": "Models/FBX format/wall-wood-door.fbx",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/Kenney/Town/wall-wood-door.fbx",
+    "sha256": "1843685693D30B9AFE28D43057DAAD0182B3730C6C9ECA7DDEC059EB37CCDADF"
+  },
+  {
+    "archive": "kenney_fantasy-town-kit_2.0.zip",
+    "entry": "Models/FBX format/planks.fbx",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/Kenney/Town/planks.fbx",
+    "sha256": "255F4272401D5D8435FE66DEA72770FEF16BFF344E4EE55B055AD5DC354AE499"
+  },
+  {
+    "archive": "kenney_fantasy-town-kit_2.0.zip",
+    "entry": "Models/FBX format/Textures/colormap.png",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/Kenney/Town/colormap.png",
+    "sha256": "4AAC939DC33195E35CAF8C382EE3CB170054DA763577F22D3C22692EC6AFCCDF"
+  },
+  {
+    "archive": "kenney_fantasy-town-kit_2.0.zip",
+    "entry": "License.txt",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/Kenney/Town/License.txt",
+    "sha256": "FB8E4817197EF9F62215E95B4451A0F09C769C8E03E416E3A2CE108DFA6117E4"
+  }
+]

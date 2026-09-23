@@ -62,3 +62,20 @@
 - 내부 바닥·낮은 벽은 배치 시야를 확보하기 위한 기본 도형으로 구성한다. 주택 외관·지붕은 제외한다. 기존 HouseParts 에셋은 준비 상태로 유지한다.
 - 새로 제공된 Restaurant 팩, 출처 미확인 해양 생물, 나머지 도구·무기 변형은 이번 기능에 필요하지 않아 원본 폴더에 보존한다.
 - 최종 테스트·빌드·화면 검증 결과는 `VALIDATION.md`에 기록한다.
+
+## UI 개편 적용 — 2026-09-22
+
+기존 선별 모델을 유지하고 UI 아이콘은 직접 작성한 선화로 통일했다. 제목·행동 버튼은 Gaegu Bold, 본문은 Gowun Dodum Regular를 사용하며 공식 Google Fonts 저장소 원본과 OFL 문서를 함께 반입했다. 별도 이미지 팩을 사용하지 않는다. 화면·공통 요소 프리팹은 `Resources/UI`, 디자인 기준은 `UI_DESIGN.md`에 있다. `design asset/` 원본은 변경하지 않았다.
+
+## 추가 제공 팩 확인 — 2026-09-23
+
+- `kenney_fantasy-town-kit_2.0.zip`: Fantasy Town Kit 2.0, FBX 모델 167종과 OBJ·GLB 대체 포맷, 공용 `colormap.png`. 동봉 `License.txt`에 제작자 Kenney, CC0 및 상업 이용 허용 명시. `Sample.png`를 확인했다. 완성된 집 프리팹이 아닌 벽·문·창·바닥 판재·계단·지붕 등을 조합하는 모듈형 팩이다.
+- 실내 마감 후보: `wall-wood.fbx`, `wall-wood-corner.fbx`, `wall-wood-doorway-square.fbx`, `wall-wood-door.fbx`, `planks.fbx`. 기존 가구와 함께 쓸 수 있는 구조 부품 후보이며 실제 치수·피벗·재질·충돌 및 뒷면 렌더링은 Unity에서 별도 검증해야 한다.
+- `kenney_food-kit.zip`: Food Kit 2.0, FBX 모델 200종과 OBJ·GLB 대체 포맷. 음식·그릇·조리 소품이며 동봉 라이선스는 Kenney CC0, 상업 이용 허용. 신규 요리 기능을 추가하거나 기존 가구 정의를 늘리지 않는다.
+- 이번 확인은 압축 구성·라이선스·주택 샘플 검토다. 모델은 `Assets/`에 반입하지 않았으며 Unity 임포트·실행 호환성을 검증한 상태는 아니다. 외관·지붕 적용은 기존 보류 범위를 유지한다. 원본 압축파일과 진행 중 UI·도구 수정은 보존했다.
+
+### 후속 게임 적용
+
+사용자의 적용 요청에 따라 Fantasy Town Kit의 `wall-wood`, `wall-wood-window-small`, `wall-wood-doorway-square`, `wall-wood-door`, `planks` FBX 5종과 공용 colormap, License.txt를 `Art/ThirdParty/Kenney/Town`에 선별 반입했다. 파일별 원본 경로·SHA-256은 `HOUSE_ASSET_SELECTION.json`에 있다.
+
+`Resources/World/HomeInterior.prefab`은 기존 8×8 실내를 목재 마루와 창문 있는 벽으로 교체한다. 벽은 배치 영역 밖에 두고 카메라 쪽을 열어 가구 조작 시야를 확보한다. `HomeDoorway.prefab`은 기존 야외 입구 표시를 문틀·문으로 바꾼다. 집 전체 외관·지붕과 Food Kit는 적용하지 않았다. 기존 저장 위치·가구 점유 영역·출입 규칙은 그대로다. 모델은 정적 구조물이므로 캐릭터 리깅 변경은 없다.

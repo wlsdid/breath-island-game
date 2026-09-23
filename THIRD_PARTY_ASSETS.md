@@ -16,3 +16,25 @@ Unity 패키지는 `Packages/manifest.json` 및 각 패키지 라이선스를 �
 선별 근거와 보류 항목은 `Documentation/ASSET_SELECTION.md`, 파일별 원본 경로·SHA-256은 `Documentation/ASSET_SELECTION.json`에 기록한다. 여섯 팩의 라이선스 원문은 각 대상 폴더에 포함했다. 원본 FBX·텍스처 바이트는 변경하지 않았으며 임포트 설정·파생 재질·컨트롤러만 별도로 관리한다. 준비된 가구 12종 중 의자·탁자·침대·조명 4종을 플레이에 연결했다. 나머지 사용자 제공 압축파일의 게임 적용을 의미하지 않는다.
 
 상업적 이용, 수정, 재배포 포함 여부를 확인할 수 없는 에셋은 프로젝트에 추가하지 않습니다.
+
+## UI 서체와 자체 그래픽 — 2026-09-22
+
+| Asset | Author | Source URL | License | Local path | Modifications |
+|---|---|---|---|---|---|
+| Gaegu Bold | The Gaegu Project Authors | https://github.com/google/fonts/tree/main/ofl/gaegu | SIL OFL 1.1; Gaegu-OFL.txt 동봉, 소프트웨어 포함·임베딩·재배포 허용 | `Assets/BreathIsland/Resources/UI/Fonts/Gaegu-Bold.ttf` | 원본 바이트 그대로, 제목·버튼용 Unity 동적 폰트 임포트 |
+| Gowun Dodum Regular | The Gowun Dodum Project Authors | https://github.com/google/fonts/tree/main/ofl/gowundodum | SIL OFL 1.1; GowunDodum-OFL.txt 동봉, 소프트웨어 포함·임베딩·재배포 허용 | `Assets/BreathIsland/Resources/UI/Fonts/GowunDodum-Regular.ttf` | 원본 바이트 그대로, 본문용 Unity 동적 폰트 임포트 |
+
+천 탭·종이 라벨·박음질·물결과 아이템 선화는 프로젝트의 `NotebookGraphic`·`IslandIcon` 코드로 직접 작성했다. 다른 게임의 UI 이미지나 외부 아이콘 팩을 반입하지 않았다. 서체 파일을 단독 판매하거나 수정하지 않는다.
+
+## 제공 원본 확인·미적용 — 2026-09-23
+
+| Asset | Author | Source | License evidence | Status |
+|---|---|---|---|---|
+| Fantasy Town Kit 2.0 | Kenney | 사용자 제공 `design asset/kenney_fantasy-town-kit_2.0.zip`; 동봉 제작자 주소 www.kenney.nl | 압축 내 `License.txt`: CC0, personal/educational/commercial use 허용, 크레딧 선택 | FBX 167종, 샘플과 구성 확인. 게임 미반입 |
+| Food Kit 2.0 | Kenney | 사용자 제공 `design asset/kenney_food-kit.zip`; 동봉 제작자 주소 www.kenney.nl | 압축 내 `License.txt`: CC0, personal/educational/commercial use 허용, 크레딧 선택 | FBX 200종, 구성 확인. 게임 미반입 |
+
+두 원본 압축파일은 변경하지 않았다. 후보와 적용 경계는 `Documentation/ASSET_SELECTION.md`에 기록한다.
+
+### Fantasy Town Kit 게임 적용
+
+2026-09-23 후속 요청으로 FBX 5종·colormap·License.txt를 `Assets/BreathIsland/Art/ThirdParty/Kenney/Town`에 원본 바이트 그대로 반입했다. CC0 원문을 동봉했다. 파생 URP 재질과 실내·출입문 프리팹은 `Resources/World`에 작성했으며 모델 스케일·위치는 프리팹에서 조정했다. 파일별 원본 경로와 해시는 `Documentation/HOUSE_ASSET_SELECTION.json`에 기록한다. Food Kit는 여전히 미적용이다.

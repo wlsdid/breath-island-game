@@ -60,7 +60,9 @@ namespace BreathIsland
         private void Update()
         {
             context.Positions.Tick();
-            if (session.TickGlobalInput()) return;
+            bool handled = session.TickGlobalInput();
+            life.Tick();
+            if (handled) return;
             switch (phases.Current)
             {
                 case GamePhase.Explore: if (!life.TickExplore()) explore.Tick(); break;
@@ -72,7 +74,7 @@ namespace BreathIsland
             }
         }
 
-        private void OnGUI() => hud?.Draw();
+        private void LateUpdate() => hud?.Draw();
         private void OnDestroy() { hud?.Dispose(); life?.Dispose(); }
         private void OnApplicationQuit() { if (context != null) context.SaveTo(); }
     }

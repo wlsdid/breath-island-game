@@ -21,13 +21,7 @@ namespace BreathIsland
             }
             var dummy = Primitive("Training Target", new Vector3(0, 1.4f, -1), new Vector3(.7f, 1.5f, .7f));
             TrainingTarget = dummy.transform;
-            Primitive("Home Entrance", HousingSystem.Entrance, new Vector3(1.4f, .12f, 1.4f));
-            Vector3 origin = HousingSystem.InteriorOrigin;
-            Primitive("Interior Floor", origin + new Vector3(4, -.15f, 4), new Vector3(8, .3f, 8));
-            // Open roof and low walls keep the placement camera clear.
-            Primitive("Interior Back Wall", origin + new Vector3(4, .65f, 8), new Vector3(8.3f, 1.3f, .2f));
-            Primitive("Interior Left Wall", origin + new Vector3(0, .65f, 4), new Vector3(.2f, 1.3f, 8));
-            Primitive("Interior Right Wall", origin + new Vector3(8, .65f, 4), new Vector3(.2f, 1.3f, 8));
+            HomeInteriorView.Create(root);
         }
         private GameObject Primitive(string name, Vector3 position, Vector3 size)
         {

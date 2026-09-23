@@ -24,7 +24,7 @@ namespace BreathIsland
         public bool Attack(bool skill, string expectedWeaponId = null)
         {
             var weapon = equipment.Weapon;
-            if (phases.Current != GamePhase.Explore || weapon == null || Health <= 0) return false;
+            if (phases.Current != GamePhase.Explore || equipment.Tool != LifeTool.None || weapon == null || Health <= 0) return false;
             if (expectedWeaponId != null && expectedWeaponId != weapon.id) return false;
             var action = skill ? weapon.skill : weapon.basicAttack;
             if (action == null) return false;

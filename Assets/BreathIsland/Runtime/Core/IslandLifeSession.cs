@@ -17,6 +17,7 @@ namespace BreathIsland
         public LandActivitySystem Land { get; }
         public HousingSystem Housing { get; }
         public FurnitureCraftingSystem Crafting { get; }
+        public ToolUseSystem Tools { get; }
         public IslandLifeSession(GameContext context, GamePhaseController phases, Transform parent)
         {
             this.context = context; this.phases = phases; Catalog = IslandLifeCatalog.Load();
@@ -30,6 +31,8 @@ namespace BreathIsland
             Housing = new HousingSystem(context, phases, Catalog);
             Crafting = new FurnitureCraftingSystem(context, phases, Catalog, Housing, Equipment, achievements);
             equipmentView = new EquipmentView(Equipment, Catalog, context.World.player.transform);
+            Tools = new ToolUseSystem(context, phases, Equipment, Land, Catalog);
+            Tools.Swing += equipmentView.Swing;
             housingView = new HousingView(Housing, Catalog, parent);
             var feedback = new GameObject("Weapon Feedback"); feedback.transform.SetParent(parent, false);
             var feedbackView = feedback.AddComponent<CombatFeedback>(); feedbackView.Initialize(Catalog.weaponMaterial);
@@ -39,22 +42,28 @@ namespace BreathIsland
             Restore();
         }
         private void RefreshNodes() => world.RefreshNodes(Land);
-        private void Restore() { Equipment.Restore(); Land.Restore(); Housing.Restore(); }
+        private void Restore() { Tools.Cancel(); Equipment.Restore(); Land.Restore(); Housing.Restore(); }
+        public void Tick() { Tools.Tick(Time.deltaTime); }
         public bool TickExplore()
         {
             Training.Tick(Time.deltaTime);
             var keys = Keyboard.current;
-            if (keys?.iKey.wasPressedThisFrame == true) { OpenEquipment(); return true; }
-            if (keys?.qKey.wasPressedThisFrame == true) { Training.Attack(false); return true; }
+            if (!phases.FieldInputAllowed) return true;
+            if (Mouse.current?.leftButton.wasPressedThisFrame == true)
+            {
+                if (Equipment.Tool != LifeTool.None) Tools.Use(); else Training.Attack(false);
+                return true;
+            }
             if (keys?.rKey.wasPressedThisFrame == true) { Training.Attack(true); return true; }
+            if (keys?.tKey.wasPressedThisFrame == true) { Training.ResetTarget(); return true; }
             if (GameInput.InteractPressed())
             {
                 if (Housing.CanEnter) { Housing.Enter(); return true; }
-                if (Land.Nearby != null) { Land.Harvest(Land.Nearby.id); return true; }
+                if (Land.Nearby != null && Land.Nearby.tool == LifeTool.None) { Land.Harvest(Land.Nearby.id); return true; }
             }
             return false;
         }
-        public void OpenEquipment() { if (phases.Current == GamePhase.Explore) phases.Set(GamePhase.Equipment); }
+        public void OpenEquipment() => phases.OpenInventory();
         public void Dispose()
         {
             context.Loaded -= Restore; Land.Changed -= RefreshNodes;

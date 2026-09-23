@@ -21,6 +21,11 @@ namespace BreathIsland
         }
         public bool TickGlobalInput()
         {
+            if (UnityEngine.InputSystem.Keyboard.current?.iKey.wasPressedThisFrame == true)
+            {
+                if (phases.Current == GamePhase.Equipment) phases.CloseInventory(); else phases.OpenInventory();
+                return true;
+            }
             if (GameInput.LanguagePressed()) { context.Korean = !context.Korean; ShowMessage(context.Text("language")); }
             if (GameInput.SavePressed()) Save(0);
             if (GameInput.LoadPressed()) { Load(0); return true; }

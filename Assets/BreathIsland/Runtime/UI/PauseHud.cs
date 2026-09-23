@@ -9,18 +9,18 @@ namespace BreathIsland
         {
             EnsureStyles();
             bool ko = context.Korean;
-            Rect panel = new(width / 2f - 310, height / 2f - 280, 620, 560); GUI.Box(panel, string.Empty, panelStyle);
-            GUI.Label(new Rect(panel.x + 30, panel.y + 28, 440, 45), context.Text("ui_take_a_breath"), titleStyle);
-            if (GUI.Button(new Rect(panel.x + 65, panel.y + 92, 490, 50), context.Text("ui_continue"), primaryButtonStyle)) phases.Set(phases.BeforePause);
+            Rect panel = new(width / 2f - 310, height / 2f - 280, 620, 560); ui.Panel(panel, string.Empty, panelStyle);
+            ui.Label(new Rect(panel.x + 30, panel.y + 28, 440, 45), context.Text("ui_take_a_breath"), titleStyle);
+            ui.Button(new Rect(panel.x + 65, panel.y + 92, 490, 50), context.Text("ui_continue"), () => phases.Set(phases.BeforePause), primaryButtonStyle);
             for (int slot = 0; slot < 3; slot++)
             {
                 int capturedSlot = slot;
                 float y = panel.y + 164 + slot * 70;
-                if (GUI.Button(new Rect(panel.x + 65, y, 235, 50), $"{(context.Text("ui_save"))} {slot + 1}", buttonStyle)) { session.Save(capturedSlot); }
-                if (GUI.Button(new Rect(panel.x + 320, y, 235, 50), $"{(context.Text("ui_load"))} {slot + 1}", buttonStyle)) { session.Load(capturedSlot); }
+                ui.Button(new Rect(panel.x + 65, y, 235, 50), $"{(context.Text("ui_save"))} {slot + 1}", () => session.Save(capturedSlot), buttonStyle);
+                ui.Button(new Rect(panel.x + 320, y, 235, 50), $"{(context.Text("ui_load"))} {slot + 1}", () => session.Load(capturedSlot), buttonStyle);
             }
-            if (GUI.Button(new Rect(panel.x + 65, panel.y + 390, 490, 50), context.Text("ui_language"), buttonStyle)) context.Korean = !context.Korean;
-            if (GUI.Button(new Rect(panel.x + 65, panel.y + 462, 490, 50), context.Text("ui_quit_game"), buttonStyle)) Application.Quit();
+            ui.Button(new Rect(panel.x + 65, panel.y + 390, 490, 50), context.Text("ui_language"), () => context.Korean = !context.Korean, buttonStyle);
+            ui.Button(new Rect(panel.x + 65, panel.y + 462, 490, 50), context.Text("ui_quit_game"), () => Application.Quit(), buttonStyle);
         }
     }
 }

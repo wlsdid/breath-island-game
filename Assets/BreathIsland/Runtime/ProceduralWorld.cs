@@ -176,6 +176,15 @@ namespace BreathIsland
             var gameObject = GameObject.CreatePrimitive(type); gameObject.name = name; gameObject.transform.SetParent(parent);
             if (local) gameObject.transform.localPosition = position; else gameObject.transform.position = position;
             gameObject.transform.localScale = scale; gameObject.GetComponent<Renderer>().sharedMaterial = MaterialFor(color);
+            // Unity cylinders use a capsule collider, which becomes a tall dome when flattened.
+            // Static terrain must collide with the visible cylinder mesh instead.
+            if (name == "Island Rock" || name == "Island Grass" || name == "Beach")
+            {
+                var original = gameObject.GetComponent<Collider>();
+                original.enabled = false;
+                Object.Destroy(original);
+                gameObject.AddComponent<MeshCollider>().sharedMesh = gameObject.GetComponent<MeshFilter>().sharedMesh;
+            }
             return gameObject;
         }
 

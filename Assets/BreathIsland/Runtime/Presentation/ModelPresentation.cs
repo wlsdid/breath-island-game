@@ -10,7 +10,8 @@ namespace BreathIsland
             root.transform.SetParent(parent, false);
             var model = Object.Instantiate(source, root.transform);
             model.transform.localPosition = Vector3.zero;
-            model.transform.localRotation = Quaternion.identity;
+            // FBX roots carry the authored Z-up to Unity Y-up correction.
+            model.transform.localRotation = source.transform.localRotation;
             model.transform.localScale = Vector3.one;
             foreach (var collider in model.GetComponentsInChildren<Collider>()) Object.Destroy(collider);
             var renderers = model.GetComponentsInChildren<Renderer>();

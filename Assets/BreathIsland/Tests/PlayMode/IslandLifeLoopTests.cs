@@ -148,5 +148,51 @@ namespace BreathIsland.Tests
                 foreach (var material in renderer.sharedMaterials) Assert.That(material.shader.name, Does.StartWith("Universal Render Pipeline/"));
             LogAssert.NoUnexpectedReceived();
         }
+        [UnityTest] public IEnumerator ImportedNatureKeepsUpAxisAndToolChopMovesTheArmWithItsGrip()
+        {
+            life.Equipment.SelectTool(LifeTool.Axe);
+            yield return null;
+            var player = context.World.player.transform;
+            var swing = player.GetComponentInChildren<ToolSwing>();
+            var hand = player.GetComponentsInChildren<Transform>().Single(t => t.name == "handslot.r");
+            var upper = player.GetComponentsInChildren<Transform>().Single(t => t.name == "upperarm.r");
+            var tree = life.Catalog.nodes.First(n => n.resource == LifeResource.Wood);
+            var treeView = root.GetComponentsInChildren<Transform>().Single(t => t.name == tree.id);
+            Assert.That(Quaternion.Angle(treeView.GetChild(0).localRotation, tree.model.transform.localRotation), Is.LessThan(.01f), "Keep the FBX root axis correction; otherwise trees lie on their side.");
+            var treeBounds = treeView.GetComponentInChildren<Renderer>().bounds;
+            Assert.That(treeBounds.min.y, Is.EqualTo(tree.position.y).Within(.02f));
+            Assert.That(treeBounds.size.y, Is.EqualTo(tree.height).Within(.02f));
+            var camera = context.World.camera;
+            context.World.cameraRig.enabled = false;
+            context.World.motor.Teleport(new Vector3(0, .68f, 4));
+            camera.transform.position = player.position + new Vector3(3, 2, 3);
+            camera.transform.LookAt(player.position + Vector3.up);
+            swing.enabled = false;
+            player.GetComponentInChildren<Animator>().enabled = false;
+            swing.ApplyPose(.5f); Vector3 restingHand = player.InverseTransformPoint(hand.position); Quaternion restingArm = upper.rotation;
+            Assert.That(Vector3.Dot(swing.transform.up, player.up), Is.GreaterThan(.99f), "Carried shaft must point up.");
+            yield return null; CaptureTool(camera, "carry");
+            swing.ApplyPose(.16f);
+            Assert.That(Vector3.Distance(restingHand, player.InverseTransformPoint(hand.position)), Is.GreaterThan(.4f), "The arm must wind up, not just rotate a prop.");
+            Assert.That(Quaternion.Angle(restingArm, upper.rotation), Is.GreaterThan(60));
+            Assert.That(Vector3.Distance(swing.transform.position, hand.position), Is.LessThan(.001f));
+            yield return null; CaptureTool(camera, "windup");
+            swing.ApplyPose(.25f); yield return null; CaptureTool(camera, "impact");
+            swing.ApplyPose(.5f);
+            Assert.That(Vector3.Distance(restingHand, player.InverseTransformPoint(hand.position)), Is.LessThan(.02f), "Compare the pose relative to the player, independently of ground settling.");
+            Assert.That(context.Save.resources.wood, Is.Zero, "Presentation must not grant resources.");
+            yield return null;
+        }
+        private static void CaptureTool(Camera camera, string pose)
+        {
+            string directory = Path.GetFullPath("Builds/ToolReview"); Directory.CreateDirectory(directory);
+            var target = new RenderTexture(960, 720, 24); var prior = RenderTexture.active;
+            camera.targetTexture = target; camera.Render(); RenderTexture.active = target;
+            var image = new Texture2D(960, 720, TextureFormat.RGB24, false);
+            image.ReadPixels(new Rect(0, 0, 960, 720), 0, 0); image.Apply();
+            File.WriteAllBytes(Path.Combine(directory, pose + ".png"), image.EncodeToPNG());
+            camera.targetTexture = null; RenderTexture.active = prior;
+            UnityEngine.Object.Destroy(image); UnityEngine.Object.Destroy(target);
+        }
     }
 }
