@@ -49,7 +49,7 @@ namespace BreathIsland.Editor
             PrefabUtility.SaveAsPrefabAsset(root, Output + "HomeDoorway.prefab"); Object.DestroyImmediate(root);
             AssetDatabase.SaveAssets();
         }
-        private static void Part(Transform parent, string name, Vector3 position, Vector3 size, float yaw, Material material)
+        public static Transform Part(Transform parent, string name, Vector3 position, Vector3 size, float yaw, Material material)
         {
             var source = AssetDatabase.LoadAssetAtPath<GameObject>(Art + name + ".fbx");
             if (source == null) throw new System.InvalidOperationException("Missing house model: " + name);
@@ -65,6 +65,7 @@ namespace BreathIsland.Editor
             pivot.localScale = scale;
             model.transform.localPosition -= new Vector3(bounds.center.x, bounds.min.y, bounds.center.z);
             pivot.localPosition = position; pivot.localRotation = Quaternion.Euler(0, yaw, 0);
+            return pivot;
         }
     }
 }

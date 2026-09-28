@@ -1,0 +1,44 @@
+[
+  {
+    "archive": "kenney_fantasy-town-kit_2.0.zip",
+    "entry": "Models/FBX format/wall.fbx",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/Kenney/Town/wall.fbx",
+    "sha256": "F95918B35138BCE71EB4D53538145A2B174BEF663D09FF31B7000642E3C9F524"
+  },
+  {
+    "archive": "kenney_fantasy-town-kit_2.0.zip",
+    "entry": "Models/FBX format/roof-gable.fbx",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/Kenney/Town/roof-gable.fbx",
+    "sha256": "3EEADD1FBA05DB6BE2124679877931A8B968C581CAC8934BCF8E51D933F59F7E"
+  },
+  {
+    "archive": "kenney_fantasy-town-kit_2.0.zip",
+    "entry": "Models/FBX format/road.fbx",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/Kenney/Town/road.fbx",
+    "sha256": "1FF68BDF18C1E505D43F8D328A0279CD8AB62053D2ABB423E3EB32F765D93464"
+  },
+  {
+    "archive": "kenney_fantasy-town-kit_2.0.zip",
+    "entry": "Models/FBX format/fence.fbx",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/Kenney/Town/fence.fbx",
+    "sha256": "9A07E843E62DA97651DDBBB985500BD3A52B960BB2B6B1EBBDF35E9F08232823"
+  },
+  {
+    "archive": "kenney_fantasy-town-kit_2.0.zip",
+    "entry": "Models/FBX format/lantern.fbx",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/Kenney/Town/lantern.fbx",
+    "sha256": "4F24FD0340841E82317CF05C841B48C05429F052E17131D129B66E7F4BBAB532"
+  },
+  {
+    "archive": "kenney_fantasy-town-kit_2.0.zip",
+    "entry": "Models/FBX format/pillar-wood.fbx",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/Kenney/Town/pillar-wood.fbx",
+    "sha256": "43EA3B04F682E490F95AC5F3AF069FD8909401D2D8FDED4D72B6ACB64C6D0255"
+  },
+  {
+    "archive": "kenney_fantasy-town-kit_2.0.zip",
+    "entry": "Models/FBX format/tree.fbx",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/Kenney/Town/tree.fbx",
+    "sha256": "1B39D4F72E82F9AAD5174917192282F848E0895F40B83F6D2DE51E605C4777E4"
+  }
+]

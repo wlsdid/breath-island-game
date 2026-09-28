@@ -33,7 +33,8 @@ namespace BreathIsland
         {
             if (phases.Current != GamePhase.Home) return;
             Cancel(); State.inside = false;
-            context.World.motor.Teleport(State.outdoorPosition);
+            var outdoor = context.World.village != null ? context.World.village.RestoreSafePosition(State.outdoorPosition) : State.outdoorPosition;
+            context.World.motor.Teleport(outdoor);
             phases.Set(GamePhase.Explore); context.SaveTo();
         }
         public void Restore()

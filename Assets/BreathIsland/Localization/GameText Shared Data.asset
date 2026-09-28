@@ -843,6 +843,70 @@ MonoBehaviour:
     m_Key: bag_facility_cost
     m_Metadata:
       m_Items: []
+  - m_Id: 674598019343007744
+    m_Key: life_furniture_couch
+    m_Metadata:
+      m_Items: []
+  - m_Id: 674598019426893824
+    m_Key: life_furniture_cabinet
+    m_Metadata:
+      m_Items: []
+  - m_Id: 674598019426893825
+    m_Key: life_furniture_shelf
+    m_Metadata:
+      m_Items: []
+  - m_Id: 674598019426893826
+    m_Key: life_furniture_table_low
+    m_Metadata:
+      m_Items: []
+  - m_Id: 674598019426893827
+    m_Key: finish_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 674598019426893828
+    m_Key: finish_preview_help
+    m_Metadata:
+      m_Items: []
+  - m_Id: 674598019426893829
+    m_Key: finish_wall
+    m_Metadata:
+      m_Items: []
+  - m_Id: 674598019426893830
+    m_Key: finish_floor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 674598019426893831
+    m_Key: finish_apply
+    m_Metadata:
+      m_Items: []
+  - m_Id: 674598019426893832
+    m_Key: finish_plaster
+    m_Metadata:
+      m_Items: []
+  - m_Id: 674598019426893833
+    m_Key: finish_wood_dark
+    m_Metadata:
+      m_Items: []
+  - m_Id: 674598019426893834
+    m_Key: finish_stone
+    m_Metadata:
+      m_Items: []
+  - m_Id: 674598019426893835
+    m_Key: finish_planks_light
+    m_Metadata:
+      m_Items: []
+  - m_Id: 674598019426893836
+    m_Key: finish_planks_dark
+    m_Metadata:
+      m_Items: []
+  - m_Id: 674598019426893837
+    m_Key: finish_tiles
+    m_Metadata:
+      m_Items: []
+  - m_Id: 674599845119344640
+    m_Key: finish_cancel
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

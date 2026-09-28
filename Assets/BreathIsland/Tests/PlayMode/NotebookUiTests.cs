@@ -60,6 +60,46 @@ namespace BreathIsland.Tests
             context.LoadFrom();Assert.That(context.Save.housing.placed.Count,Is.EqualTo(1));Assert.That(life.Housing.Available("chair"),Is.Zero);
             yield return null;
         }
+        [UnityTest] public IEnumerator ExpandedFurnitureFinishesAndVillageRenderAndPersist()
+        {
+            context.World.motor.Teleport(HousingSystem.Entrance);life.Housing.Enter();life.Equipment.SelectTool(LifeTool.Hammer);
+            context.Save.resources.wood=40;
+            string[] ids={"couch","cabinet","shelf","table_low"};
+            for(int i=0;i<ids.Length;i++)
+            {
+                Assert.That(life.Crafting.Craft(ids[i]),Is.True);Assert.That(life.Housing.Select(ids[i]),Is.True);
+                life.Housing.Move((i%2)*4,3+(i/2)*2);Assert.That(life.Housing.Place(),Is.True);
+            }
+            Assert.That(context.Save.resources.wood,Is.EqualTo(19));
+            context.SaveTo(1);context.LoadFrom(1);Assert.That(context.Save.housing.placed.Count,Is.EqualTo(4));
+            phases.OpenInventory();hud.Draw();yield return null;hud.Draw();Click("bag_tab_Furniture");hud.Draw();Click("finish_title");
+            Assert.That(life.Finishes.Previewing,Is.True);hud.Draw();Click("finish_stone");hud.Draw();Click("finish_tiles");
+            foreach(bool korean in new[]{true,false}) {context.Korean=korean;yield return CaptureExpansion("finishes-"+(korean?"ko":"en"));}
+            Click("finish_apply");Assert.That(context.Save.housing.floorFinishId,Is.EqualTo("tiles"));
+            context.SaveTo(2);context.LoadFrom(2);Assert.That(life.Finishes.WallId,Is.EqualTo("stone"));
+            phases.Set(GamePhase.Home);life.Housing.Recall(context.Save.housing.placed[0].instanceId);
+            Assert.That(life.Housing.Available("couch"),Is.EqualTo(1));
+            life.Housing.Select("couch");life.Housing.Move(0,2);life.Housing.Rotate();Assert.That(life.Housing.Place(),Is.True);
+            life.Housing.Exit();Assert.That(context.World.player.transform.position,Is.EqualTo(HousingSystem.Entrance));
+            context.World.cameraRig.enabled=false;context.World.camera.transform.position=new Vector3(20,28,27);context.World.camera.transform.LookAt(new Vector3(0,0,0));
+            yield return CaptureExpansion("village");
+        }
+        private IEnumerator CaptureExpansion(string name)
+        {
+            string output=Path.GetFullPath("Builds/VillageExpansion");Directory.CreateDirectory(output);
+            var camera=context.World.camera;var texture=new RenderTexture(1280,720,24);camera.targetTexture=texture;
+            for(int frame=0;frame<6;frame++)
+            {
+                hud.Draw(1280,720);
+                foreach(var canvas in UnityEngine.Object.FindObjectsByType<Canvas>(FindObjectsSortMode.None))
+                {canvas.renderMode=RenderMode.ScreenSpaceCamera;canvas.worldCamera=camera;canvas.planeDistance=.5f;}
+                yield return null;
+            }
+            Canvas.ForceUpdateCanvases();camera.Render();var previous=RenderTexture.active;RenderTexture.active=texture;
+            var image=new Texture2D(1280,720,TextureFormat.RGB24,false);image.ReadPixels(new Rect(0,0,1280,720),0,0);image.Apply();
+            File.WriteAllBytes(Path.Combine(output,name+".png"),image.EncodeToPNG());
+            RenderTexture.active=previous;camera.targetTexture=null;UnityEngine.Object.Destroy(image);texture.Release();UnityEngine.Object.Destroy(texture);
+        }
         [UnityTest] public IEnumerator VectorUiAndLicensedFontsRenderAtThreeAspectRatiosInBothLanguages()
         {
             string output=Path.GetFullPath("Builds/NotebookReview");Directory.CreateDirectory(output);

@@ -10,6 +10,8 @@ namespace BreathIsland
         private readonly IslandLifeWorld world;
         private readonly EquipmentView equipmentView;
         private readonly HousingView housingView;
+        private readonly InteriorFinishView finishView;
+        public InteriorFinishSystem Finishes { get; }
         public IslandLifeCatalog Catalog { get; }
         public EquipmentSystem Equipment { get; }
         public JobMasterySystem Mastery { get; }
@@ -29,6 +31,8 @@ namespace BreathIsland
             Training = new TrainingCombatSystem(context, phases, Equipment, world.TrainingTarget, Mastery, achievements);
             Land = new LandActivitySystem(context, phases, Catalog, Equipment, achievements);
             Housing = new HousingSystem(context, phases, Catalog);
+            Finishes = new InteriorFinishSystem(context, phases);
+            finishView = new InteriorFinishView(Finishes, world.Interior);
             Crafting = new FurnitureCraftingSystem(context, phases, Catalog, Housing, Equipment, achievements);
             equipmentView = new EquipmentView(Equipment, Catalog, context.World.player.transform);
             Tools = new ToolUseSystem(context, phases, Equipment, Land, Catalog);
@@ -67,7 +71,7 @@ namespace BreathIsland
         public void Dispose()
         {
             context.Loaded -= Restore; Land.Changed -= RefreshNodes;
-            equipmentView.Dispose(); housingView.Dispose(); world.Dispose();
+            equipmentView.Dispose(); housingView.Dispose(); finishView.Dispose(); Finishes.Dispose(); world.Dispose();
         }
     }
 }

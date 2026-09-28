@@ -14,6 +14,7 @@ namespace BreathIsland
             var position = new Vector3(player.x, player.y, player.z);
             if (position.y < -5f) position = Shore;
             else position.y = Mathf.Max(1.2f, position.y);
+            if (world.village != null) position = world.village.RestoreSafePosition(position);
             world.motor.Teleport(position);
         }
 

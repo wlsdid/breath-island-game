@@ -79,3 +79,10 @@
 사용자의 적용 요청에 따라 Fantasy Town Kit의 `wall-wood`, `wall-wood-window-small`, `wall-wood-doorway-square`, `wall-wood-door`, `planks` FBX 5종과 공용 colormap, License.txt를 `Art/ThirdParty/Kenney/Town`에 선별 반입했다. 파일별 원본 경로·SHA-256은 `HOUSE_ASSET_SELECTION.json`에 있다.
 
 `Resources/World/HomeInterior.prefab`은 기존 8×8 실내를 목재 마루와 창문 있는 벽으로 교체한다. 벽은 배치 영역 밖에 두고 카메라 쪽을 열어 가구 조작 시야를 확보한다. `HomeDoorway.prefab`은 기존 야외 입구 표시를 문틀·문으로 바꾼다. 집 전체 외관·지붕과 Food Kit는 적용하지 않았다. 기존 저장 위치·가구 점유 영역·출입 규칙은 그대로다. 모델은 정적 구조물이므로 캐릭터 리깅 변경은 없다.
+
+## 숲속 마을·꾸미기 확장 — 2026-09-28
+
+- 사용자 승인으로 외관·지붕 보류를 해제했다. Kenney Town의 벽, 박공 지붕, 길, 울타리, 가로등, 기둥, 나무를 선별했다. 추가 원본 경로와 해시는 `VILLAGE_ASSET_SELECTION.json`에 기록한다. Food Kit는 적용하지 않는다.
+- 기존 KayKit 가구 중 couch, cabinet_medium, shelf_A_small, table_low를 신규 가구 정의에 연결한다. 원본 FBX 변경 없이 크기·점유 영역을 정의한다.
+- ForestVillage 프리팹은 기존 시설 2동·주거 2동과 플레이어 집, 광장·길·장식을 포함한다. 기존 집 출입 좌표는 유지하며 외관을 그 뒤에 둔다.
+- 실내 마감용 반복 무늬 6종은 에디터 코드로 직접 작성한다. 원본 메시 대신 파생 메시의 UV만 실내 좌표에 맞춰 생성하여 판재·타일 무늬가 이어지게 한다. 원본 압축파일과 모델 바이트는 보존한다.

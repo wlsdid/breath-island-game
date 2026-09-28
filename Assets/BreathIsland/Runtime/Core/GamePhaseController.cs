@@ -12,6 +12,7 @@ namespace BreathIsland
         public GamePhase BeforePause { get; private set; } = GamePhase.Explore;
         public GamePhase BeforeInventory { get; private set; } = GamePhase.Explore;
         private int enteredFrame;
+        public event System.Action Changed;
         public bool FieldInputAllowed => Current == GamePhase.Explore && Time.frameCount > enteredFrame + 1;
         public void OpenInventory()
         {
@@ -31,6 +32,7 @@ namespace BreathIsland
             world.cameraRig.allowLook = next == GamePhase.Explore;
             Cursor.lockState = next == GamePhase.Explore ? CursorLockMode.Locked : CursorLockMode.None;
             Cursor.visible = next != GamePhase.Explore;
+            Changed?.Invoke();
         }
 
         public void Cancel()

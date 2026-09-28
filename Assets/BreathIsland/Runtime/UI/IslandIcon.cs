@@ -23,6 +23,8 @@ namespace BreathIsland
             else if(id.Contains("wood")) { Path(19,23,27,70,71,86,81,40,19,23); Path(27,70,81,40);Path(31,36,39,61);Path(52,42,59,55); }
             else if(id.Contains("stone")) { Path(13,28,30,71,61,85,87,57,78,19,13,28);Path(30,71,49,41,78,19);Path(49,41,87,57); }
             else if(id.Contains("herb")) {Path(44,14,52,74);Path(48,39,23,47,15,70,37,65,48,39);Path(51,58,72,66,83,88,60,81,51,58);}
+            else if(id=="couch") {Path(13,18,13,58,24,58,24,79,76,79,76,58,87,58,87,18);Path(13,35,87,35);Path(24,58,76,58);}
+            else if(id=="cabinet"||id=="shelf") {Path(20,15,20,87,80,87,80,15,20,15);Path(20,40,80,40);Path(20,64,80,64);if(id=="cabinet")Path(50,15,50,87);}
             else if(id.Contains("chair")) {Path(25,15,25,72,71,72,71,15);Path(25,42,74,42);Path(35,72,35,88,66,88,66,72);}
             else if(id.Contains("table")) {Path(12,61,86,61,76,78,24,78,12,61);Path(22,61,22,18);Path(76,61,76,18);}
             else if(id.Contains("bed")) {Path(15,18,15,66,85,66,85,18);Path(15,36,85,36);Path(15,66,15,86,45,86,45,66);}

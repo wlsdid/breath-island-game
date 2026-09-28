@@ -860,6 +860,70 @@ MonoBehaviour:
     m_Localized: Coins {0} + materials {1}
     m_Metadata:
       m_Items: []
+  - m_Id: 674598019343007744
+    m_Localized: Sofa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 674598019426893824
+    m_Localized: Cabinet
+    m_Metadata:
+      m_Items: []
+  - m_Id: 674598019426893825
+    m_Localized: Small shelf
+    m_Metadata:
+      m_Items: []
+  - m_Id: 674598019426893826
+    m_Localized: Low table
+    m_Metadata:
+      m_Items: []
+  - m_Id: 674598019426893827
+    m_Localized: Room finishes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 674598019426893828
+    m_Localized: Preview your room. Changes are saved only when applied.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 674598019426893829
+    m_Localized: Walls
+    m_Metadata:
+      m_Items: []
+  - m_Id: 674598019426893830
+    m_Localized: Floor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 674598019426893831
+    m_Localized: Apply finishes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 674598019426893832
+    m_Localized: Light plaster
+    m_Metadata:
+      m_Items: []
+  - m_Id: 674598019426893833
+    m_Localized: Dark timber
+    m_Metadata:
+      m_Items: []
+  - m_Id: 674598019426893834
+    m_Localized: Grey stone
+    m_Metadata:
+      m_Items: []
+  - m_Id: 674598019426893835
+    m_Localized: Light planks
+    m_Metadata:
+      m_Items: []
+  - m_Id: 674598019426893836
+    m_Localized: Dark planks
+    m_Metadata:
+      m_Items: []
+  - m_Id: 674598019426893837
+    m_Localized: Stone tiles
+    m_Metadata:
+      m_Items: []
+  - m_Id: 674599845119344640
+    m_Localized: Cancel preview
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -10,6 +10,7 @@ namespace BreathIsland
         public Camera camera;
         public IslandCameraRig cameraRig;
         public ThirdPersonMotor motor;
+        public VillageLayout village;
         public readonly Dictionary<NpcId, Transform> npcs = new();
         public Vector3 fishingPoint = new(0f, .2f, 24f);
     }
@@ -25,9 +26,8 @@ namespace BreathIsland
             BuildLighting(parent);
             BuildWater(parent);
             BuildIsland(parent);
-            BuildVillage(parent);
+            handles.village = Object.Instantiate(Resources.Load<GameObject>("World/ForestVillage"), parent).GetComponent<VillageLayout>();
             BuildDock(parent);
-            BuildDecor(parent);
             BuildSeaLife(parent);
             handles.player = BuildChildCharacter("Player", new Vector3(0f, 1.2f, 4f), new Color(.96f, .88f, .67f), new Color(.2f, .55f, .72f), parent);
             handles.motor = handles.player.AddComponent<ThirdPersonMotor>();
@@ -77,27 +77,9 @@ namespace BreathIsland
 
         private static void BuildIsland(Transform parent)
         {
-            Primitive("Island Rock", PrimitiveType.Cylinder, new Vector3(0f, -.65f, 0f), new Vector3(18f, 1.1f, 16f), new Color(.52f, .48f, .35f), parent);
-            Primitive("Island Grass", PrimitiveType.Cylinder, new Vector3(0f, .05f, 0f), new Vector3(17.3f, .55f, 15.3f), new Color(.38f, .68f, .36f), parent);
+            Primitive("Island Rock", PrimitiveType.Cylinder, new Vector3(0f, -.65f, -5f), new Vector3(38f, 1.1f, 32f), new Color(.52f, .48f, .35f), parent);
+            Primitive("Island Grass", PrimitiveType.Cylinder, new Vector3(0f, .05f, -5f), new Vector3(37f, .55f, 31f), new Color(.38f, .68f, .36f), parent);
             Primitive("Beach", PrimitiveType.Cylinder, new Vector3(0f, .45f, 11f), new Vector3(12f, .35f, 8f), new Color(.9f, .78f, .52f), parent);
-        }
-
-        private static void BuildVillage(Transform parent)
-        {
-            BuildHouse("Boat Workshop", new Vector3(-8f, 1.25f, 5f), new Color(.45f, .25f, .13f), new Color(.18f, .46f, .58f), parent);
-            BuildHouse("Aquarium", new Vector3(8f, 1.25f, 2f), new Color(.91f, .82f, .63f), new Color(.22f, .7f, .7f), parent);
-            BuildHouse("Village House A", new Vector3(-10f, 1.1f, -4f), new Color(.93f, .86f, .7f), new Color(.86f, .45f, .27f), parent);
-            BuildHouse("Village House B", new Vector3(5f, 1.1f, -7f), new Color(.9f, .82f, .62f), new Color(.72f, .36f, .25f), parent);
-        }
-
-        private static void BuildHouse(string name, Vector3 position, Color wall, Color roof, Transform parent)
-        {
-            var root = new GameObject(name); root.transform.SetParent(parent); root.transform.position = position;
-            Primitive("Walls", PrimitiveType.Cube, Vector3.up * 1.6f, new Vector3(5.2f, 3.2f, 4.2f), wall, root.transform, true);
-            var roofObject = Primitive("Roof", PrimitiveType.Cube, new Vector3(0f, 3.65f, 0f), new Vector3(5.8f, .55f, 4.8f), roof, root.transform, true);
-            roofObject.transform.localRotation = Quaternion.Euler(0f, 0f, 3f);
-            Primitive("Door", PrimitiveType.Cube, new Vector3(0f, 1f, -2.15f), new Vector3(1.15f, 2f, .15f), new Color(.32f, .18f, .1f), root.transform, true);
-            Primitive("Window", PrimitiveType.Cube, new Vector3(1.55f, 1.9f, -2.16f), new Vector3(1.1f, .85f, .12f), new Color(.47f, .85f, .91f), root.transform, true);
         }
 
         private static void BuildDock(Transform parent)
@@ -108,25 +90,6 @@ namespace BreathIsland
                 float z = 13f + i * 4f;
                 Primitive("Dock Post L", PrimitiveType.Cylinder, new Vector3(-2.05f, -.05f, z), new Vector3(.28f, 1.45f, .28f), new Color(.32f, .2f, .1f), parent);
                 Primitive("Dock Post R", PrimitiveType.Cylinder, new Vector3(2.05f, -.05f, z), new Vector3(.28f, 1.45f, .28f), new Color(.32f, .2f, .1f), parent);
-            }
-        }
-
-        private static void BuildDecor(Transform parent)
-        {
-            var random = new System.Random(2409);
-            for (int i = 0; i < 22; i++)
-            {
-                float angle = (float)random.NextDouble() * Mathf.PI * 2f;
-                float radius = 8f + (float)random.NextDouble() * 7f;
-                Vector3 p = new(Mathf.Cos(angle) * radius, .75f, Mathf.Sin(angle) * radius - 1f);
-                if (p.z > 7f && Mathf.Abs(p.x) < 4f) continue;
-                var trunk = Primitive("Tree Trunk", PrimitiveType.Cylinder, p, new Vector3(.35f, 1.5f, .35f), new Color(.37f, .23f, .12f), parent);
-                Primitive("Tree Crown", PrimitiveType.Sphere, p + Vector3.up * 2.1f, new Vector3(1.7f, 1.35f, 1.7f), new Color(.22f + (i % 3) * .04f, .57f, .27f), trunk.transform);
-            }
-            for (int i = 0; i < 12; i++)
-            {
-                Vector3 p = new(-13f + i * 2.1f, .75f, 8f + Mathf.Sin(i) * 1.4f);
-                Primitive("Wildflower", PrimitiveType.Sphere, p, Vector3.one * .18f, i % 2 == 0 ? new Color(1f, .86f, .52f) : new Color(1f, .74f, .78f), parent);
             }
         }
 

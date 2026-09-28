@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2face41cf6d50040adc1f6ea971bdba, type: 3}
+  m_Name: planks_light
+  m_EditorClassIdentifier: BreathIsland.Runtime::BreathIsland.FinishDefinition
+  id: planks_light
+  nameKey: finish_planks_light
+  surface: 1
+  material: {fileID: 2100000, guid: 7ac268036e6fdcc4981dba5ba4cbeaeb, type: 2}

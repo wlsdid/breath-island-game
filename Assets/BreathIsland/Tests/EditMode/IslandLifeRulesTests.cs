@@ -37,7 +37,7 @@ namespace BreathIsland.Tests
         [TearDown] public void TearDown() { UnityEngine.Object.DestroyImmediate(root); Directory.Delete(directory, true); }
         [Test] public void AuthoredAssetsAndBothLanguagesContainAllFeatureDefinitions()
         {
-            Assert.That(catalog.weapons.Length, Is.EqualTo(6)); Assert.That(catalog.furniture.Length, Is.EqualTo(4));
+            Assert.That(catalog.weapons.Length, Is.EqualTo(6)); Assert.That(catalog.furniture.Length, Is.EqualTo(8));
             foreach (var w in catalog.weapons)
             {
                 Assert.That(AssetDatabase.Contains(w), Is.True); Assert.That(AssetDatabase.Contains(w.job), Is.True);
@@ -146,7 +146,7 @@ namespace BreathIsland.Tests
             phases.Set(GamePhase.Home); Assert.That(crafting.Craft("bed"), Is.True); housing.Select("bed"); housing.Move(0, 2); housing.Place();
             context.Save.housing.inside = true; context.Save.housing.outdoorPosition = new Vector3(4, 1, 4); context.SaveTo(slot);
             context.LoadFrom(slot);
-            Assert.That(context.Save.version, Is.EqualTo(2)); Assert.That(context.Save.inventory.coins, Is.EqualTo(321)); Assert.That(context.Save.facilities.aquarium, Is.EqualTo(2));
+            Assert.That(context.Save.version, Is.EqualTo(GameSaveData.CurrentVersion)); Assert.That(context.Save.inventory.coins, Is.EqualTo(321)); Assert.That(context.Save.facilities.aquarium, Is.EqualTo(2));
             Assert.That(equipment.Job.id, Is.EqualTo("mage")); Assert.That(mastery.Hits("mage"), Is.EqualTo(1));
             Assert.That(housing.State.inside, Is.True); Assert.That(housing.State.placed.Count, Is.EqualTo(1)); Assert.That(housing.Available("bed"), Is.Zero);
         }

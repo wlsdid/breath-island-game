@@ -5,7 +5,7 @@ namespace BreathIsland
 {
     public static class SaveMigration
     {
-        // v2 only adds equipment, land resources and housing; legacy values are retained.
+        // Additive migrations preserve legacy inventory, world, equipment and furniture fields.
         public static GameSaveData Apply(GameSaveData data)
         {
             if (data == null) throw new ArgumentException("Empty save data.");
@@ -27,6 +27,8 @@ namespace BreathIsland
             data.housing ??= new HousingState();
             data.housing.placed ??= new List<PlacedFurniture>();
             data.housing.stock ??= new List<FurnitureStock>();
+            if (data.version < 3 || string.IsNullOrEmpty(data.housing.wallFinishId)) data.housing.wallFinishId = "wood_dark";
+            if (data.version < 3 || string.IsNullOrEmpty(data.housing.floorFinishId)) data.housing.floorFinishId = "planks_light";
             data.version = GameSaveData.CurrentVersion;
             return data;
         }

@@ -8,6 +8,7 @@ namespace BreathIsland
         private readonly Material groundMaterial;
         private readonly Dictionary<string, GameObject> nodes = new();
         public Transform TrainingTarget { get; }
+        public Transform Interior { get; }
         public IslandLifeWorld(Transform parent, IslandLifeCatalog catalog)
         {
             root = new GameObject("Island Life World").transform; root.SetParent(parent, false);
@@ -21,7 +22,7 @@ namespace BreathIsland
             }
             var dummy = Primitive("Training Target", new Vector3(0, 1.4f, -1), new Vector3(.7f, 1.5f, .7f));
             TrainingTarget = dummy.transform;
-            HomeInteriorView.Create(root);
+            Interior = HomeInteriorView.Create(root);
         }
         private GameObject Primitive(string name, Vector3 position, Vector3 size)
         {
