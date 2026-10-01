@@ -907,6 +907,90 @@ MonoBehaviour:
     m_Key: finish_cancel
     m_Metadata:
       m_Items: []
+  - m_Id: 675665867796594688
+    m_Key: life_furniture_chest
+    m_Metadata:
+      m_Items: []
+  - m_Id: 675665867884675072
+    m_Key: home_decorate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 675665867884675073
+    m_Key: home_walk_hint
+    m_Metadata:
+      m_Items: []
+  - m_Id: 675665867884675074
+    m_Key: home_stand_hint
+    m_Metadata:
+      m_Items: []
+  - m_Id: 675665867884675075
+    m_Key: home_exit_hint
+    m_Metadata:
+      m_Items: []
+  - m_Id: 675665867884675076
+    m_Key: home_sit_hint
+    m_Metadata:
+      m_Items: []
+  - m_Id: 675665867884675077
+    m_Key: home_sleep_hint
+    m_Metadata:
+      m_Items: []
+  - m_Id: 675665867884675078
+    m_Key: home_storage_hint
+    m_Metadata:
+      m_Items: []
+  - m_Id: 675665867884675079
+    m_Key: home_sleep_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 675665867884675080
+    m_Key: home_sleep_body
+    m_Metadata:
+      m_Items: []
+  - m_Id: 675665867884675081
+    m_Key: home_chest_not_empty
+    m_Metadata:
+      m_Items: []
+  - m_Id: 675665867884675082
+    m_Key: home_storage_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 675665867884675083
+    m_Key: home_storage_capacity
+    m_Metadata:
+      m_Items: []
+  - m_Id: 675665867884675084
+    m_Key: home_storage_help
+    m_Metadata:
+      m_Items: []
+  - m_Id: 675665867884675085
+    m_Key: home_quantity
+    m_Metadata:
+      m_Items: []
+  - m_Id: 675665867884675086
+    m_Key: home_withdraw
+    m_Metadata:
+      m_Items: []
+  - m_Id: 675665867884675087
+    m_Key: home_deposit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 675665867884675088
+    m_Key: home_transfer_one
+    m_Metadata:
+      m_Items: []
+  - m_Id: 675665867884675089
+    m_Key: home_transfer_quantity
+    m_Metadata:
+      m_Items: []
+  - m_Id: 675665867884675090
+    m_Key: home_transfer_all
+    m_Metadata:
+      m_Items: []
+  - m_Id: 675665867884675091
+    m_Key: home_storage_full
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

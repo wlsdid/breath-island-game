@@ -40,3 +40,7 @@ Unity 패키지는 `Packages/manifest.json` 및 각 패키지 라이선스를 �
 2026-09-23 후속 요청으로 FBX 5종·colormap·License.txt를 `Assets/BreathIsland/Art/ThirdParty/Kenney/Town`에 원본 바이트 그대로 반입했다. CC0 원문을 동봉했다. 파생 URP 재질과 실내·출입문 프리팹은 `Resources/World`에 작성했으며 모델 스케일·위치는 프리팹에서 조정했다. 파일별 원본 경로와 해시는 `Documentation/HOUSE_ASSET_SELECTION.json`에 기록한다. Food Kit는 여전히 미적용이다.
 
 2026-09-28 숲속 마을 확장으로 같은 CC0 팩의 벽·지붕·길·울타리·가로등·기둥·나무 FBX를 추가 선별했다(`Documentation/VILLAGE_ASSET_SELECTION.json`). 파생 마을 프리팹과 단색 URP 재질을 작성했으며, 실내 반복 무늬는 프로젝트 에디터 코드로 직접 생성했다. 실내 UV 파생 메시도 별도 에셋으로 저장하며 원본 FBX는 수정하지 않는다. 기존 KayKit 가구 4종을 추가 게임 정의에 연결했다.
+
+## 2026-10-01 보관 상자
+
+KayKit Dungeon Pack 1.0의 빈 일반 상자 본체·뚜껑 FBX 2종과 동봉 CC0 원문을 `Assets/BreathIsland/Art/ThirdParty/KayKit/Storage`에 선별했다. 출처는 사용자 제공 `design asset/KayKit Dungeon Pack 1.0.zip`, 저작자는 Kay Lousberg(www.kaylousberg.com)이다. 원본 모델·ZIP은 변경하지 않았으며 파일별 해시는 `Documentation/STORAGE_ASSET_SELECTION.json`에 기록한다. 상자 UI 아이콘과 기존 캐릭터의 앉기 자세 레이어는 프로젝트에서 직접 작성했다.

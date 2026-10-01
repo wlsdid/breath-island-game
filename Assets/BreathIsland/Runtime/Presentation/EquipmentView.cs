@@ -8,6 +8,7 @@ namespace BreathIsland
         private readonly Transform socket;
         private GameObject held;
         public GameObject Held => held;
+        public void SetVisible(bool visible) { socket.gameObject.SetActive(visible); }
         public void Swing() => socket.GetComponent<ToolSwing>().Play();
         public EquipmentView(EquipmentSystem equipment, IslandLifeCatalog catalog, Transform player)
         {

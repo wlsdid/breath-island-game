@@ -19,3 +19,6 @@ MonoBehaviour:
   height: 1.2
   woodCost: 8
   stoneCost: 0
+  interaction: 1
+  seatOffset: {x: 0, y: 0.48, z: 0}
+  seatYaw: 0

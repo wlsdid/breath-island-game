@@ -23,7 +23,8 @@ namespace BreathIsland
         {
             if (UnityEngine.InputSystem.Keyboard.current?.iKey.wasPressedThisFrame == true)
             {
-                if (phases.Current == GamePhase.Equipment) phases.CloseInventory(); else phases.OpenInventory();
+                if (phases.Current == GamePhase.HomeStorage || phases.Current == GamePhase.HomeRest) phases.Set(GamePhase.Home);
+                else if (phases.Current == GamePhase.Equipment) phases.CloseInventory(); else phases.OpenInventory();
                 return true;
             }
             if (GameInput.LanguagePressed()) { context.Korean = !context.Korean; ShowMessage(context.Text("language")); }

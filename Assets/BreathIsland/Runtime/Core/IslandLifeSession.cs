@@ -10,6 +10,7 @@ namespace BreathIsland
         private readonly IslandLifeWorld world;
         private readonly EquipmentView equipmentView;
         private readonly HousingView housingView;
+        private readonly HomeSeatedView seatedView;
         private readonly InteriorFinishView finishView;
         public InteriorFinishSystem Finishes { get; }
         public IslandLifeCatalog Catalog { get; }
@@ -20,6 +21,8 @@ namespace BreathIsland
         public HousingSystem Housing { get; }
         public FurnitureCraftingSystem Crafting { get; }
         public ToolUseSystem Tools { get; }
+        public HomeInteractionSystem Home { get; }
+        public HomeStorageSystem Storage { get; }
         public IslandLifeSession(GameContext context, GamePhaseController phases, Transform parent)
         {
             this.context = context; this.phases = phases; Catalog = IslandLifeCatalog.Load();
@@ -38,6 +41,9 @@ namespace BreathIsland
             Tools = new ToolUseSystem(context, phases, Equipment, Land, Catalog);
             Tools.Swing += equipmentView.Swing;
             housingView = new HousingView(Housing, Catalog, parent);
+            Storage = new HomeStorageSystem(context, phases, Housing, Catalog);
+            Home = new HomeInteractionSystem(context, phases, Housing, Catalog, Land, Storage);
+            seatedView=context.World.player.AddComponent<HomeSeatedView>();seatedView.Initialize(Home, equipmentView);
             var feedback = new GameObject("Weapon Feedback"); feedback.transform.SetParent(parent, false);
             var feedbackView = feedback.AddComponent<CombatFeedback>(); feedbackView.Initialize(Catalog.weaponMaterial);
             Training.Hit += feedbackView.Show;
@@ -46,8 +52,9 @@ namespace BreathIsland
             Restore();
         }
         private void RefreshNodes() => world.RefreshNodes(Land);
-        private void Restore() { Tools.Cancel(); Equipment.Restore(); Land.Restore(); Housing.Restore(); }
+        private void Restore() { StarterBedSystem.Ensure(context.Save.housing); Tools.Cancel(); Equipment.Restore(); Land.Restore(); Housing.Restore(); }
         public void Tick() { Tools.Tick(Time.deltaTime); }
+        public void TickHome() => Home.Tick();
         public bool TickExplore()
         {
             Training.Tick(Time.deltaTime);
@@ -71,7 +78,7 @@ namespace BreathIsland
         public void Dispose()
         {
             context.Loaded -= Restore; Land.Changed -= RefreshNodes;
-            equipmentView.Dispose(); housingView.Dispose(); finishView.Dispose(); Finishes.Dispose(); world.Dispose();
+            seatedView.Dispose(); Home.Dispose(); Storage.Dispose(); equipmentView.Dispose(); housingView.Dispose(); finishView.Dispose(); Finishes.Dispose(); world.Dispose();
         }
     }
 }

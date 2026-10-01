@@ -78,7 +78,8 @@ namespace BreathIsland.Tests
             context.Save.resources.wood = 3; life.Equipment.SelectTool(LifeTool.Hammer); life.Crafting.Craft("chair");
             life.Housing.Select("chair"); life.Housing.Move(3, 0); Assert.That(life.Housing.IsValid, Is.False);
             life.Housing.Move(0, 4); Assert.That(life.Housing.IsValid, Is.True);
-            phases.Cancel(); Assert.That(life.Housing.Place(), Is.False); phases.Cancel();
+            phases.Cancel(); Assert.That(life.Housing.Place(), Is.False); Assert.That(phases.Current, Is.EqualTo(GamePhase.Home));
+            phases.Cancel(); Assert.That(phases.Current, Is.EqualTo(GamePhase.Pause)); phases.Cancel();
             life.Housing.Cancel(); Assert.That(life.Housing.Available("chair"), Is.EqualTo(1));
             life.Housing.Select("chair"); life.Housing.Move(0, 4); Assert.That(life.Housing.Place(), Is.True);
             string instance = life.Housing.State.placed.Single().instanceId;

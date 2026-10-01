@@ -14,8 +14,11 @@ namespace BreathIsland
         private int enteredFrame;
         public event System.Action Changed;
         public bool FieldInputAllowed => Current == GamePhase.Explore && Time.frameCount > enteredFrame + 1;
+        public bool HomeInputAllowed => Current == GamePhase.Home && Time.frameCount > enteredFrame + 1;
+        public static bool IsHome(GamePhase phase) => phase == GamePhase.Home || phase == GamePhase.HomeDecorate || phase == GamePhase.HomeStorage || phase == GamePhase.HomeRest;
         public void OpenInventory()
         {
+            if (Current == GamePhase.HomeDecorate) Set(GamePhase.Home);
             if (Current != GamePhase.Explore && Current != GamePhase.Home) return;
             BeforeInventory = Current; Set(GamePhase.Equipment);
         }
@@ -26,9 +29,9 @@ namespace BreathIsland
             if (next == GamePhase.Pause && Current != GamePhase.Pause) BeforePause = Current;
             Current = next;
             enteredFrame = Time.frameCount;
-            world.motor.CanMove = next == GamePhase.Explore;
+            world.motor.CanMove = next == GamePhase.Explore || next == GamePhase.Home;
             world.cameraRig.firstPerson = next == GamePhase.Fishing || next == GamePhase.PredatorCombat;
-            world.cameraRig.homeView = next == GamePhase.Home || (next == GamePhase.Equipment && BeforeInventory == GamePhase.Home) || (next == GamePhase.Pause && BeforePause == GamePhase.Home);
+            world.cameraRig.homeView = IsHome(next) || (next == GamePhase.Equipment && IsHome(BeforeInventory)) || (next == GamePhase.Pause && IsHome(BeforePause));
             world.cameraRig.allowLook = next == GamePhase.Explore;
             Cursor.lockState = next == GamePhase.Explore ? CursorLockMode.Locked : CursorLockMode.None;
             Cursor.visible = next != GamePhase.Explore;
@@ -37,6 +40,7 @@ namespace BreathIsland
 
         public void Cancel()
         {
+            if (Current == GamePhase.HomeDecorate || Current == GamePhase.HomeStorage || Current == GamePhase.HomeRest) { Set(GamePhase.Home); return; }
             if (Current == GamePhase.Equipment) { CloseInventory(); return; }
             if (Current == GamePhase.Explore || Current == GamePhase.Home)
             {

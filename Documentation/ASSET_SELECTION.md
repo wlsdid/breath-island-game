@@ -86,3 +86,7 @@
 - 기존 KayKit 가구 중 couch, cabinet_medium, shelf_A_small, table_low를 신규 가구 정의에 연결한다. 원본 FBX 변경 없이 크기·점유 영역을 정의한다.
 - ForestVillage 프리팹은 기존 시설 2동·주거 2동과 플레이어 집, 광장·길·장식을 포함한다. 기존 집 출입 좌표는 유지하며 외관을 그 뒤에 둔다.
 - 실내 마감용 반복 무늬 6종은 에디터 코드로 직접 작성한다. 원본 메시 대신 파생 메시의 UV만 실내 좌표에 맞춰 생성하여 판재·타일 무늬가 이어지게 한다. 원본 압축파일과 모델 바이트는 보존한다.
+
+## 2026-10-01 실내 보관 상자
+
+KayKit Dungeon Pack 1.0의 `Models/fbx/chest_common_empty.fbx`와 `chestTop_common.fbx`를 별도 Storage 폴더로 선별했다. 내용물이 없는 본체와 뚜껑을 StorageChest 프리팹으로 조립하고 자체 목재색 URP 재질을 사용한다. 동봉 CC0 라이선스는 상업 사용을 허용한다. 원본 ZIP·FBX는 수정하지 않았다. 1×1 점유·0.85m 높이의 게임 정의와 자체 선화 아이콘을 사용한다. 상자별 16칸 보관 규칙은 Housing 기능에 있으며 모델에는 게임 규칙이 없다. 파일 경로·해시는 `STORAGE_ASSET_SELECTION.json`에 기록한다.

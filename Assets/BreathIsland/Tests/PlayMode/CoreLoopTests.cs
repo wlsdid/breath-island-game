@@ -126,7 +126,7 @@ namespace BreathIsland.Tests
                 Assert.That(context.Save, Is.SameAs(save));
                 Assert.That(fishing.ActiveFish, Is.SameAs(fish));
                 Assert.That(context.World.player.transform.position, Is.EqualTo(position));
-                Assert.That(context.World.motor.CanMove, Is.EqualTo(phase == GamePhase.Explore));
+                Assert.That(context.World.motor.CanMove, Is.EqualTo(phase == GamePhase.Explore || phase == GamePhase.Home));
                 Assert.That(context.World.cameraRig.firstPerson, Is.EqualTo(phase == GamePhase.Fishing || phase == GamePhase.PredatorCombat));
             }
             phases.Set(GamePhase.Explore); phases.Cancel();
@@ -230,7 +230,10 @@ namespace BreathIsland.Tests
                 [GamePhase.Collection] = new CollectionHud(context, phases),
                 [GamePhase.Pause] = new PauseHud(context, phases, session),
                 [GamePhase.Equipment] = new EquipmentHud(context, phases, life),
-                [GamePhase.Home] = new HousingHud(context, phases, life)
+                [GamePhase.Home] = new HousingHud(context, phases, life),
+                [GamePhase.HomeDecorate] = new HomeDecorateHud(context, phases, life),
+                [GamePhase.HomeStorage] = new HomeStorageHud(context, phases, life.Storage),
+                [GamePhase.HomeRest] = new HomeRestHud(context, phases, life.Home)
             }, new HudOverlay(context, phases, session));
             var missingLabels = new List<string>();
             foreach (bool korean in new[] { true, false })

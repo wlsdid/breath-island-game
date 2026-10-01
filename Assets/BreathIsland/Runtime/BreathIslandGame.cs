@@ -50,7 +50,10 @@ namespace BreathIsland
                 [GamePhase.Collection] = new CollectionHud(context, phases),
                 [GamePhase.Pause] = new PauseHud(context, phases, session),
                 [GamePhase.Equipment] = new EquipmentHud(context, phases, life),
-                [GamePhase.Home] = new HousingHud(context, phases, life)
+                [GamePhase.Home] = new HousingHud(context, phases, life),
+                [GamePhase.HomeDecorate] = new HomeDecorateHud(context, phases, life),
+                [GamePhase.HomeStorage] = new HomeStorageHud(context, phases, life.Storage),
+                [GamePhase.HomeRest] = new HomeRestHud(context, phases, life.Home)
             }, new HudOverlay(context, phases, session));
 
             phases.Set(context.Save.housing.inside ? GamePhase.Home : GamePhase.Explore);
@@ -66,6 +69,7 @@ namespace BreathIsland
             switch (phases.Current)
             {
                 case GamePhase.Explore: if (!life.TickExplore()) explore.Tick(); break;
+                case GamePhase.Home: life.TickHome(); break;
                 case GamePhase.Fishing: fishing.Tick(); break;
                 case GamePhase.PredatorCombat: combat.Tick(); break;
                 case GamePhase.CatchResolution: fishing.TickResolutionInput(); break;

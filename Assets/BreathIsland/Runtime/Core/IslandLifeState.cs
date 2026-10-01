@@ -47,5 +47,20 @@ namespace BreathIsland
         public Vector3 outdoorPosition;
         public List<PlacedFurniture> placed = new();
         public List<FurnitureStock> stock = new();
+        public List<ChestState> chests = new();
+        public bool starterBedGranted;
+    }
+    [Serializable]
+    public sealed class ChestState
+    {
+        public string instanceId;
+        public List<StorageSlot> slots = new();
+    }
+    [Serializable]
+    public sealed class StorageSlot
+    {
+        public string id;
+        public bool furniture;
+        public int count;
     }
 }

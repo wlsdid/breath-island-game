@@ -37,7 +37,7 @@ namespace BreathIsland.Tests
         [TearDown] public void TearDown() { UnityEngine.Object.DestroyImmediate(root); Directory.Delete(directory, true); }
         [Test] public void AuthoredAssetsAndBothLanguagesContainAllFeatureDefinitions()
         {
-            Assert.That(catalog.weapons.Length, Is.EqualTo(6)); Assert.That(catalog.furniture.Length, Is.EqualTo(8));
+            Assert.That(catalog.weapons.Length, Is.EqualTo(6)); Assert.That(catalog.furniture.Length, Is.EqualTo(9));
             foreach (var w in catalog.weapons)
             {
                 Assert.That(AssetDatabase.Contains(w), Is.True); Assert.That(AssetDatabase.Contains(w.job), Is.True);

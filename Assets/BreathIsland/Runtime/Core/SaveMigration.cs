@@ -27,6 +27,13 @@ namespace BreathIsland
             data.housing ??= new HousingState();
             data.housing.placed ??= new List<PlacedFurniture>();
             data.housing.stock ??= new List<FurnitureStock>();
+            data.housing.chests ??= new List<ChestState>();
+            foreach (var chest in data.housing.chests)
+            {
+                chest.slots ??= new List<StorageSlot>();
+                while (chest.slots.Count < 16) chest.slots.Add(new StorageSlot());
+                for (int i = 0; i < chest.slots.Count; i++) chest.slots[i] ??= new StorageSlot();
+            }
             if (data.version < 3 || string.IsNullOrEmpty(data.housing.wallFinishId)) data.housing.wallFinishId = "wood_dark";
             if (data.version < 3 || string.IsNullOrEmpty(data.housing.floorFinishId)) data.housing.floorFinishId = "planks_light";
             data.version = GameSaveData.CurrentVersion;

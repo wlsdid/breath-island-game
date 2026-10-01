@@ -87,17 +87,17 @@ namespace BreathIsland
             text.horizontalOverflow=HorizontalWrapMode.Wrap;text.verticalOverflow=VerticalWrapMode.Truncate;
             text.rectTransform.offsetMin=new Vector2(14,3);text.rectTransform.offsetMax=new Vector2(-14,-3);
         }
-        public void Button(Rect rect,string text,Action action,NotebookStyle style=NotebookStyle.Button,bool enabled=true)
+        public void Button(Rect rect,string text,Action action,NotebookStyle style=NotebookStyle.Button,bool enabled=true,bool compact=false)
         {
             var node=Node(rect,1); node.name="Action: "+text;
             var graphic=node.GetComponent<NotebookGraphic>();graphic.enabled=true;graphic.raycastTarget=true;graphic.stitched=false;graphic.waves=false;
-            graphic.buttonFace=!string.IsNullOrEmpty(text);
+            graphic.buttonFace=!compact && !string.IsNullOrEmpty(text);
             graphic.color=style==NotebookStyle.Primary?Coral:style==NotebookStyle.Selected?Sea:new Color(.88f,.88f,.76f);graphic.SetVerticesDirty();
             var button=node.GetComponent<Button>();button.enabled=true;button.targetGraphic=graphic;button.interactable=enabled;button.onClick.RemoveAllListeners();button.onClick.AddListener(()=>action());
             var colors=button.colors;colors.highlightedColor=new Color(1.08f,1.08f,1.08f);colors.selectedColor=Color.white;colors.disabledColor=new Color(.7f,.7f,.7f,.55f);button.colors=colors;
             SetLabel(node,text,style==NotebookStyle.Primary||style==NotebookStyle.Selected?NotebookStyle.Light:NotebookStyle.Center);
             var label=node.GetComponentInChildren<Text>();label.font=titleFont;label.fontSize=30;label.resizeTextMaxSize=30;label.resizeTextMinSize=20;
-            label.rectTransform.offsetMin=new Vector2(22,3);label.rectTransform.offsetMax=new Vector2(-36,-3);
+            label.rectTransform.offsetMin=new Vector2(compact?8:22,3);label.rectTransform.offsetMax=new Vector2(compact?-8:-36,-3);
         }
         public void Icon(Rect rect,string symbol,Color? color=null)
         {var node=Node(rect,3);var icon=node.GetComponentInChildren<IslandIcon>(true);icon.gameObject.SetActive(true);icon.symbol=symbol;icon.color=color??Ink;icon.SetVerticesDirty();}

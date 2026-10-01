@@ -9,6 +9,7 @@ namespace BreathIsland
         private int selected;
         private bool recipes;
         private int recipePage;
+        private int itemPage;
         public EquipmentHud(GameContext context,GamePhaseController phases,IslandLifeSession life):base(context,phases)
         {this.life=life;inventory=new InventorySystem(context,phases,life);}
         public override void Draw(float width,float height)
@@ -24,12 +25,13 @@ namespace BreathIsland
             for(int i=0;i<4;i++)
             {
                 var choice=(InventoryTab)i;
-                ui.Button(new Rect(x+40+i*181,y+132,169,52),context.Text("bag_tab_"+choice),()=>{tab=choice;selected=0;recipes=false;},tab==choice?NotebookStyle.Selected:buttonStyle);
+                ui.Button(new Rect(x+40+i*181,y+132,169,52),context.Text("bag_tab_"+choice),()=>{tab=choice;selected=0;itemPage=0;recipes=false;},tab==choice?NotebookStyle.Selected:buttonStyle);
             }
             var items=inventory.Items(tab);selected=Mathf.Clamp(selected,0,Mathf.Max(0,items.Count-1));
-            for(int i=0;i<items.Count;i++)
+            int itemPages=Mathf.Max(1,Mathf.CeilToInt(items.Count/8f));itemPage=Mathf.Clamp(itemPage,0,itemPages-1);
+            for(int i=itemPage*8;i<Mathf.Min(items.Count,(itemPage+1)*8);i++)
             {
-                int index=i;var item=items[i];float cx=x+40+(i%4)*181,cy=y+211+(i/4)*181;
+                int index=i;var item=items[i];float cx=x+40+(i%4)*181,cy=y+211+((i%8)/4)*181;
                 ui.Button(new Rect(cx,cy,165,163),"",()=>{selected=index;recipes=false;},selected==i?NotebookStyle.Selected:buttonStyle);
                 ui.Icon(new Rect(cx+40,cy+14,83,83),item.Available?item.Id:"lock",selected==i?NotebookSurface.Paper:NotebookSurface.Ink);
                 ui.Label(new Rect(cx+5,cy+101,155,35),context.Text(item.NameKey),selected==i?NotebookStyle.Light:NotebookStyle.Center);
@@ -40,7 +42,11 @@ namespace BreathIsland
             ui.Icon(new Rect(x+40,y+650,30,30),"sun");
             ui.Label(new Rect(x+75,y+642,655,40),string.Format(context.Text("bag_day"),context.Save.world.day,context.Save.player.hour),smallStyle);
             if (tab == InventoryTab.Furniture)
-                ui.Button(new Rect(x+40,y+590,720,48),context.Text("finish_title"),()=>life.Finishes.Begin(),buttonStyle,inventory.Indoors);
+            {
+                ui.Button(new Rect(x+40,y+590,160,48),context.Text("bag_previous"),()=>{itemPage--;selected=itemPage*8;},buttonStyle,itemPage>0);
+                ui.Button(new Rect(x+210,y+590,380,48),context.Text("finish_title"),()=>life.Finishes.Begin(),buttonStyle,inventory.Indoors);
+                ui.Button(new Rect(x+600,y+590,160,48),context.Text("bag_next"),()=>{itemPage++;selected=itemPage*8;},buttonStyle,itemPage+1<itemPages);
+            }
             else ui.Label(new Rect(x+40,y+587,720,55),context.Text("bag_hint"),smallStyle);
         }
         private void DrawDetail(Rect rect,InventoryItem item)

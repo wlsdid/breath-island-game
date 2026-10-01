@@ -73,7 +73,7 @@ namespace BreathIsland
         public EquipmentState equipment = new();
         public LifeResources resources = new();
         public HousingState housing = new();
-        public const int CurrentVersion = 3;
+        public const int CurrentVersion = 4;
 
         public static GameSaveData CreateDefault() => new() { savedAtUtcTicks = DateTime.UtcNow.Ticks };
     }

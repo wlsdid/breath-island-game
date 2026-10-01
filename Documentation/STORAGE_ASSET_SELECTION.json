@@ -1,0 +1,20 @@
+[
+  {
+    "sha256": "2EC3B81B9C56025773A5B13A00471C39699E01EAA457366DFE20BDB237DBEE79",
+    "entry": "Models/fbx/chest_common_empty.fbx",
+    "archive": "design asset/KayKit Dungeon Pack 1.0.zip",
+    "destination": "Assets\\BreathIsland\\Art\\ThirdParty\\KayKit\\Storage\\chest_common_empty.fbx"
+  },
+  {
+    "sha256": "2854EAE22984F240B00DB124D55061E809E85F5228A3BA42ACF4F1FB36D0D399",
+    "entry": "Models/fbx/chestTop_common.fbx",
+    "archive": "design asset/KayKit Dungeon Pack 1.0.zip",
+    "destination": "Assets\\BreathIsland\\Art\\ThirdParty\\KayKit\\Storage\\chestTop_common.fbx"
+  },
+  {
+    "sha256": "A673C10F2A586E5B4AA0BE7EE3FC9B45F77ABE65D0B8E4E5435D5F4E7CAE69F3",
+    "entry": "License.txt",
+    "archive": "design asset/KayKit Dungeon Pack 1.0.zip",
+    "destination": "Assets\\BreathIsland\\Art\\ThirdParty\\KayKit\\Storage\\License.txt"
+  }
+]

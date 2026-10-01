@@ -8,7 +8,7 @@ namespace BreathIsland
         public HudOverlay(GameContext context,GamePhaseController phases,GameSession session):base(context,phases){this.session=session;}
         public override void Draw(float width,float height)
         {
-            if(phases.Current==GamePhase.Equipment)return;
+            if(phases.Current==GamePhase.Equipment || phases.Current==GamePhase.HomeStorage)return;
             ui.Panel(new Rect(32,28,280,83));
             ui.Icon(new Rect(46,41,54,54),"sun");
             ui.Label(new Rect(108,36,180,35),string.Format(context.Text("bag_day_short"),context.Save.world.day),smallStyle);

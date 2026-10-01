@@ -54,7 +54,7 @@ namespace BreathIsland.Tests
         {
             const string legacy="{\"version\":2,\"inventory\":{\"coins\":91},\"housing\":{\"inside\":true,\"outdoorPosition\":{\"x\":4,\"y\":1,\"z\":5},\"placed\":[{\"instanceId\":\"saved-bed\",\"furnitureId\":\"bed\",\"x\":1,\"z\":3,\"turns\":1}],\"stock\":[{\"id\":\"chair\",\"count\":2}]}}";
             File.WriteAllText(saves.PathForSlot(0),legacy);var data=saves.Load(0);
-            Assert.That(data.version,Is.EqualTo(3));Assert.That(data.inventory.coins,Is.EqualTo(91));
+            Assert.That(data.version,Is.EqualTo(GameSaveData.CurrentVersion));Assert.That(data.inventory.coins,Is.EqualTo(91));
             Assert.That(data.housing.wallFinishId,Is.EqualTo("wood_dark"));Assert.That(data.housing.floorFinishId,Is.EqualTo("planks_light"));
             Assert.That(data.housing.placed.Single().instanceId,Is.EqualTo("saved-bed"));Assert.That(data.housing.stock.Single().count,Is.EqualTo(2));
             Assert.That(data.housing.outdoorPosition,Is.EqualTo(new Vector3(4,1,5)));Assert.That(File.ReadAllText(saves.PathForSlot(0)),Is.EqualTo(legacy));
