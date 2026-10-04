@@ -15,18 +15,31 @@ namespace BreathIsland.Tests
         private LandActivitySystem land;
         private ToolUseSystem tools;
         private ResourceNodeDefinition tree;
+        private IslandLifeCatalog catalog;
         [SetUp] public void Setup()
         {
             directory=Path.Combine(Path.GetTempPath(),"tool-use-"+Guid.NewGuid().ToString("N"));
             player=new GameObject("Tool test",typeof(CharacterController),typeof(ThirdPersonMotor),typeof(IslandCameraRig));
             var world=new WorldHandles{player=player,motor=player.GetComponent<ThirdPersonMotor>(),cameraRig=player.GetComponent<IslandCameraRig>()};
             context=new GameContext(GameSaveData.CreateDefault(),new SaveService(directory),world,DefinitionCatalog.CreateVerticalSlice(),_=>{});
-            phases=new GamePhaseController(world);var catalog=IslandLifeCatalog.Load();var achievements=new AchievementSystem(context,catalog);
+            phases=new GamePhaseController(world);catalog=UnityEngine.Object.Instantiate(IslandLifeCatalog.Load());
+            catalog.nodes=catalog.nodes.Select(n=>UnityEngine.Object.Instantiate(n)).ToArray();var achievements=new AchievementSystem(context,catalog);
             equipment=new EquipmentSystem(context,phases,catalog,achievements);land=new LandActivitySystem(context,phases,catalog,equipment,achievements);
             tools=new ToolUseSystem(context,phases,equipment,land,catalog);tree=catalog.nodes.First(n=>n.resource==LifeResource.Wood);
             player.transform.position=tree.position+Vector3.back;player.transform.forward=Vector3.forward;
         }
-        [TearDown] public void Cleanup(){UnityEngine.Object.DestroyImmediate(player);Directory.Delete(directory,true);}
+        [TearDown] public void Cleanup(){foreach(var node in catalog.nodes)UnityEngine.Object.DestroyImmediate(node);UnityEngine.Object.DestroyImmediate(catalog);UnityEngine.Object.DestroyImmediate(player);Directory.Delete(directory,true);}
+        [Test] public void ConfiguredHitsAwardOnlyOnCompletionAndRestoreClearsPartialWork()
+        {
+            tree.requiredHits=3;equipment.SelectTool(LifeTool.Axe);
+            tools.Use();tools.Tick(1);Assert.That(land.Progress(tree),Is.EqualTo(1f/3).Within(.001f));Assert.That(context.Save.resources.wood,Is.Zero);
+            player.transform.forward=Vector3.back;tools.Use();tools.Tick(1);Assert.That(land.Progress(tree),Is.EqualTo(1f/3).Within(.001f));
+            land.Restore();Assert.That(land.Progress(tree),Is.Zero);player.transform.forward=Vector3.forward;
+            for(int i=0;i<2;i++){tools.Use();tools.Tick(1);Assert.That(context.Save.resources.wood,Is.Zero);}
+            tools.Use();tools.Tick(1);Assert.That(context.Save.resources.wood,Is.EqualTo(tree.yield));
+            Assert.That(context.Save.resources.woodHarvests,Is.EqualTo(1));Assert.That(land.Progress(tree),Is.Zero);
+            tools.Use();tools.Tick(1);Assert.That(context.Save.resources.woodHarvests,Is.EqualTo(1));
+        }
         [Test] public void SwingAwardsOnceAtImpactAndNeverOnStart()
         {
             equipment.Equip("sword");equipment.SelectTool(LifeTool.Axe);

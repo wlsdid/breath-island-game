@@ -53,7 +53,11 @@ namespace BreathIsland
         }
         private void RefreshNodes() => world.RefreshNodes(Land);
         private void Restore() { StarterBedSystem.Ensure(context.Save.housing); Tools.Cancel(); Equipment.Restore(); Land.Restore(); Housing.Restore(); }
-        public void Tick() { Tools.Tick(Time.deltaTime); }
+        public void Tick()
+        {
+            Tools.Tick(Time.deltaTime);
+            Land.TickHeldGather(Time.deltaTime,(Keyboard.current?.eKey.isPressed??false)||(Gamepad.current?.buttonSouth.isPressed??false));
+        }
         public void TickHome() => Home.Tick();
         public bool TickExplore()
         {

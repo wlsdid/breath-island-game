@@ -14,5 +14,7 @@ namespace BreathIsland
         public GameObject model;
         public float height = 1;
         public Vector3 position;
+        [Min(1)] public int requiredHits = 1;
+        [Min(0)] public float gatherSeconds;
     }
 }

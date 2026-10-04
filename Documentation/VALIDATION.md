@@ -157,4 +157,11 @@ Play Mode HUD 테스트에는 실제 Game View가 필요하므로 `-batchmode`�
 
 미완료: 사용자가 직접 정하기로 한 채집 소요 시간/횟수, 추가 집 형태의 치수 및 선택 방식. 기본 20×20과 직사각형 정의 검사는 구현했지만 추가 집 콘텐츠가 완성된 것은 아니다. 세부 진행은 PRESENTATION_UPGRADE.md에 기록한다.
 
+### 채집 진행 구조 추가 검증
+
+- `Builds/PresentationUpgrade/gathering-rules.xml`: 관련 Edit Mode 8/8 통과. 대상별 타격 진행, 잘못된 방향, 로드 초기화, 완료 전 보상 차단과 완료 후 중복 보상 방지 포함.
+- `gathering-play.xml`: Play Mode 1/1 통과. 맨손 길게 누르기의 놓기·메뉴·거리·방향 취소, 완료 후 1회 보상과 휴식 재생을 격리 저장/복제 콘텐츠로 검증했다. 물리 키 입력이나 Windows 직접 플레이를 검증한 테스트는 아니다.
+- 변경 기능 검증 후 Windows Mono 빌드 성공(`Builds/build.log`). 전체 테스트는 앞선 기능 묶음 결과를 유지하며 이번에는 변경 관련 테스트만 실행했다.
+- 실제 채집 지점 에셋의 수치는 변경하지 않았다. 진행 막대의 Windows 화면 확인과 확정 소요 횟수·시간 적용은 미완료다.
+
 보존: 사용자 변경인 AddressableAssetSettings, LocalizationSettings, PackageManagerSettings는 이전 보관본과 해시 일치. 원본 design asset 폴더와 실제 저장은 변경하지 않았다. 신규 선별 파일 해시는 RESOURCE_ICON_SELECTION.json에 기록했다.

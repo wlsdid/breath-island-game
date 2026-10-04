@@ -1027,6 +1027,10 @@ MonoBehaviour:
     m_Localized: "Drag to move \xB7 Drop onto another item to swap"
     m_Metadata:
       m_Items: []
+  - m_Id: 676912309710307328
+    m_Localized: "Hold E \xB7 Gather {0}"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

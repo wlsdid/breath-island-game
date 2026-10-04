@@ -14,7 +14,7 @@
 - `GameState`: 기존 JSON 도메인 데이터와 순수 경제·낚시 계산. 확장 상태는 `Core/IslandLifeState`에 분리한다.
 - `Core/IslandLifeSession`: 장비·숙련도·도전과제·육지 활동·집 꾸미기 객체 연결, 탐험의 신규 입력 전달과 로드 시 표현 갱신.
 - `Equipment`: 장착, 도전과제 조건, 직업 숙련도와 훈련 대상 공격. 기존 포식자 전투는 독립적으로 유지한다.
-- `LandActivities`: 거리·도구·소진 조건, 생활 자원 지급, 휴식에 따른 날짜 전진.
+- `LandActivities`: 거리·도구·소진 조건, 생활 자원 지급, 휴식에 따른 날짜 전진. `GatheringWork`는 대상별 유효 타격 횟수와 현재 길게 누르기 시간을 임시로 관리한다. `ResourceNodeDefinition.requiredHits/gatherSeconds`로 완료 조건을 읽고 완료 시에만 기존 보상·채집 횟수·저장을 한 번 적용한다. 길게 누르기는 놓기·메뉴·거리/방향 이탈 시 취소하며, 타격 진행은 로드·휴식 때 초기화한다. 진행 중 수치는 저장하지 않는다. 실제 콘텐츠의 채집 수치는 사용자 결정 전까지 기존 1회/즉시를 유지한다.
 - `Housing`: 제작 비용, 가구 재고, 배치 영역·겹침 검사, 확정·취소·회수와 실내 출입.
 - `Presentation`: 모델 정규화·URP 재질·캐릭터 애니메이션·손 장비·채집 지점·가구 미리보기·공격 표현. 규칙은 기능 시스템에 남긴다.
 - `ModelPresentation`은 FBX 원본 축 보정 회전을 유지한다. `ToolSwing`은 Animator 이후 고정 리그 기준으로 팔 준비·타격·복귀를 표현하며, 보상은 ToolUseSystem만 처리한다.

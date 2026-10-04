@@ -1007,6 +1007,10 @@ MonoBehaviour:
     m_Key: bag_drag_help
     m_Metadata:
       m_Items: []
+  - m_Id: 676912309710307328
+    m_Key: bag_gather_hold
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
