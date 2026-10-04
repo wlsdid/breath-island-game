@@ -9,12 +9,12 @@ namespace BreathIsland
             ? definition.footprint : new Vector2Int(definition.footprint.y, definition.footprint.x);
         public static Rect Area(FurnitureDefinition definition, int x, int z, int turns)
         { var size = Size(definition, turns); return new Rect(x, z, size.x, size.y); }
-        public static bool Valid(IslandLifeCatalog catalog, FurnitureDefinition definition, int x, int z, int turns, IEnumerable<PlacedFurniture> placed)
+        public static bool Valid(IslandLifeCatalog catalog, FurnitureDefinition definition, int x, int z, int turns, IEnumerable<PlacedFurniture> placed, HomeStructureState structure=null)
         {
             if (definition == null || turns < 0 || turns > 3) return false;
             Rect area = Area(definition, x, z, turns);
             var layout = RoomLayoutDefinition.Default;
-            if (!layout.Contains(area)) return false;
+            if (!HomeFootprint.Contains(structure,area)) return false;
             // Keep the arrival area and door clear, including the player's capsule.
             if (area.Overlaps(layout.entranceClearance)) return false;
             foreach (var item in placed)

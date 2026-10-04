@@ -26,6 +26,9 @@ namespace BreathIsland
             data.resources ??= new LifeResources();
             data.resources.harvested ??= new List<NodeHarvest>();
             data.housing ??= new HousingState();
+            data.housing.structure ??= new HomeStructureState();
+            data.housing.structure.cells ??= new List<FloorCell>();
+            data.housing.structure.walls ??= new List<WallEdge>();
             data.housing.placed ??= new List<PlacedFurniture>();
             data.housing.stock ??= new List<FurnitureStock>();
             data.housing.chests ??= new List<ChestState>();

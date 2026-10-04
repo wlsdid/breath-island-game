@@ -20,3 +20,5 @@ MonoBehaviour:
   model: {fileID: 919132149155446097, guid: dc38d585caa5026479e7a86625a91690, type: 3}
   height: 0.6
   position: {x: 2, y: 0.6, z: 2}
+  requiredHits: 1
+  gatherSeconds: 3

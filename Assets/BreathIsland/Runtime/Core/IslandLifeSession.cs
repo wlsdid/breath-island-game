@@ -12,6 +12,8 @@ namespace BreathIsland
         private readonly HousingView housingView;
         private readonly HomeSeatedView seatedView;
         private readonly InteriorFinishView finishView;
+        private readonly HomeConstructionView constructionView;
+        public HomeConstructionSystem Construction {get;}
         public InteriorFinishSystem Finishes { get; }
         public IslandLifeCatalog Catalog { get; }
         public EquipmentSystem Equipment { get; }
@@ -36,6 +38,8 @@ namespace BreathIsland
             Housing = new HousingSystem(context, phases, Catalog);
             Finishes = new InteriorFinishSystem(context, phases);
             finishView = new InteriorFinishView(Finishes, world.Interior);
+            Construction=new HomeConstructionSystem(context,phases,Housing,Catalog);
+            constructionView=new HomeConstructionView(Construction,Finishes,world.Interior,context.World.cameraRig);
             Crafting = new FurnitureCraftingSystem(context, phases, Catalog, Housing, Equipment, achievements);
             equipmentView = new EquipmentView(Equipment, Catalog, context.World.player.transform);
             Tools = new ToolUseSystem(context, phases, Equipment, Land, Catalog);
@@ -81,6 +85,7 @@ namespace BreathIsland
         public void OpenEquipment() => phases.OpenInventory();
         public void Dispose()
         {
+            constructionView.Dispose();Construction.Dispose();
             context.Loaded -= Restore; Land.Changed -= RefreshNodes;
             seatedView.Dispose(); Home.Dispose(); Storage.Dispose(); equipmentView.Dispose(); housingView.Dispose(); finishView.Dispose(); Finishes.Dispose(); world.Dispose();
         }

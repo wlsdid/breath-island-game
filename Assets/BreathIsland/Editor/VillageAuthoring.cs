@@ -16,8 +16,11 @@ namespace BreathIsland.Editor
             var atlas = AssetDatabase.LoadAssetAtPath<Material>(Output + "Town.mat");
             House(root.transform,"Boat Workshop",new Vector3(-9,.6f,4),new Vector2(4,3.4f),timber,stone,roof,atlas);
             House(root.transform,"Aquarium",new Vector3(10,.6f,1.2f),new Vector2(3.4f,3.4f),stone,timber,roof,atlas);
-            House(root.transform,"Village House A",new Vector3(-9,.6f,-5.5f),new Vector2(3.4f,3),timber,stone,roof,atlas);
-            House(root.transform,"Village House B",new Vector3(5,.6f,-8),new Vector2(3.4f,3),timber,stone,roof,atlas);
+            // Distinct silhouettes remain inside the former building footprints.
+            House(root.transform,"Village House A",new Vector3(-9.7f,.6f,-5.5f),new Vector2(2,3),timber,stone,roof,atlas,2.2f);
+            House(root.transform,"Cottage Wing",new Vector3(-8,.6f,-5.05f),new Vector2(1.4f,2.1f),stone,timber,roof,atlas,1.65f);
+            House(root.transform,"Village House B",new Vector3(4.45f,.6f,-8),new Vector2(2.3f,3),stone,timber,roof,atlas,3.3f);
+            House(root.transform,"Townhouse Wing",new Vector3(6.15f,.6f,-7.5f),new Vector2(1.1f,2),timber,stone,roof,atlas,1.8f);
             House(root.transform,"Player Home",new Vector3(4,.6f,2),new Vector2(2.6f,3),timber,stone,roof,atlas);
             // The established interaction anchor remains in front of the new doorway.
             Road(root.transform,new Vector3(0,.61f,7),new Vector2(4,4),atlas);
@@ -50,20 +53,20 @@ namespace BreathIsland.Editor
         }
         private static void Road(Transform root, Vector3 p, Vector2 size, Material material)
             => HomeInteriorAuthoring.Part(root,"road",p,new Vector3(size.x,.025f,size.y),0,material);
-        private static void House(Transform parent,string name,Vector3 p,Vector2 size,Material wall,Material trim,Material roof,Material atlas)
+        private static void House(Transform parent,string name,Vector3 p,Vector2 size,Material wall,Material trim,Material roof,Material atlas,float h=2.4f)
         {
             var root=new GameObject(name);root.transform.SetParent(parent,false);
-            float h=2.4f,front=p.z+size.y/2;
+            float front=p.z+size.y/2;
             HomeInteriorAuthoring.Part(root.transform,"wall",p,new Vector3(size.x,.16f,size.y),0,trim);
             HomeInteriorAuthoring.Part(root.transform,"wall-wood",p+new Vector3(0,.16f,-size.y/2),new Vector3(size.x,h,.18f),0,wall);
             foreach(float sign in new[]{-1f,1f})
             {
                 HomeInteriorAuthoring.Part(root.transform,"wall-wood-window-small",p+new Vector3(sign*size.x/2,.16f,0),new Vector3(size.y,h,.18f),90,wall);
-                float segment=(size.x-1.1f)/2;
-                HomeInteriorAuthoring.Part(root.transform,"wall-wood",new Vector3(p.x+sign*(.55f+segment/2),p.y+.16f,front),new Vector3(segment,h,.18f),0,wall);
+                float segment=(size.x-.8f)/2;
+                HomeInteriorAuthoring.Part(root.transform,"wall-wood",new Vector3(p.x+sign*(.4f+segment/2),p.y+.16f,front),new Vector3(segment,h,.18f),0,wall);
             }
-            HomeInteriorAuthoring.Part(root.transform,"wall-wood-doorway-square",new Vector3(p.x,p.y+.16f,front),new Vector3(1.1f,h,.2f),180,trim);
-            HomeInteriorAuthoring.Part(root.transform,"wall-wood-door",new Vector3(p.x,p.y+.16f,front+.04f),new Vector3(.9f,1.9f,.12f),180,atlas);
+            HomeInteriorAuthoring.Part(root.transform,"wall-wood-doorway-square",new Vector3(p.x,p.y+.16f,front),new Vector3(.8f,h,.2f),180,trim);
+            HomeInteriorAuthoring.Part(root.transform,"wall-wood-door",new Vector3(p.x,p.y+.16f,front+.04f),new Vector3(.7f,Mathf.Min(1.9f,h-.1f),.12f),180,atlas);
             HomeInteriorAuthoring.Part(root.transform,"roof-gable",p+Vector3.up*(h+.12f),new Vector3(size.x+.5f,1.3f,size.y+.5f),0,roof);
             root.AddComponent<VillageObstacle>();var collider=root.GetComponent<BoxCollider>();
             collider.center=p+Vector3.up*(h/2);collider.size=new Vector3(size.x,h,size.y);

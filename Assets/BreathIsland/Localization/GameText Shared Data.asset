@@ -1011,6 +1011,42 @@ MonoBehaviour:
     m_Key: bag_gather_hold
     m_Metadata:
       m_Items: []
+  - m_Id: 676918809518358528
+    m_Key: build_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 676918809593856000
+    m_Key: build_floor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 676918809593856001
+    m_Key: build_wall_n
+    m_Metadata:
+      m_Items: []
+  - m_Id: 676918809593856002
+    m_Key: build_wall_e
+    m_Metadata:
+      m_Items: []
+  - m_Id: 676918809593856003
+    m_Key: build_apply
+    m_Metadata:
+      m_Items: []
+  - m_Id: 676918809593856004
+    m_Key: build_cost
+    m_Metadata:
+      m_Items: []
+  - m_Id: 676918809593856005
+    m_Key: build_help
+    m_Metadata:
+      m_Items: []
+  - m_Id: 676918809593856006
+    m_Key: build_blocked
+    m_Metadata:
+      m_Items: []
+  - m_Id: 676918809593856007
+    m_Key: build_need_wood
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

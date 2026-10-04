@@ -41,6 +41,7 @@ namespace BreathIsland
     [Serializable]
     public sealed class HousingState
     {
+        public HomeStructureState structure = new();
         public string wallFinishId = "wood_dark";
         public string floorFinishId = "planks_light";
         public bool inside;

@@ -165,3 +165,18 @@ Play Mode HUD 테스트에는 실제 Game View가 필요하므로 `-batchmode`�
 - 실제 채집 지점 에셋의 수치는 변경하지 않았다. 진행 막대의 Windows 화면 확인과 확정 소요 횟수·시간 적용은 미완료다.
 
 보존: 사용자 변경인 AddressableAssetSettings, LocalizationSettings, PackageManagerSettings는 이전 보관본과 해시 일치. 원본 design asset 폴더와 실제 저장은 변경하지 않았다. 신규 선별 파일 해시는 RESOURCE_ICON_SELECTION.json에 기록했다.
+
+
+## 2026-10-04 확정 채집·격자 건축·마을 외형
+
+이 절은 앞선 ‘채집 수치/집 형태 미정’ 기록을 대체한다. 사용자 확정값은 나무·바위 3회, 맨손 채집 3초다. 격자 편집을 요청했고 비용·최대 범위는 구현자에게 위임했다.
+
+- Edit Mode 전체 최초 94/97 통과. 기존 저장 버전 기대값 3개를 v5로 수정해 3/3 재통과(construction-migration.xml). 마지막 침대 자리 보호 추가 후 건축 묶음 13/13 통과(construction-final.xml). 98개 고유 사례에 최종 통과 결과가 있다.
+- Play Mode 전체 31/31 통과(Builds/playmode-results.xml). 후속 건축 버튼·폰트 전환 수정 이후 관련 건축/Notebook UI 6/6 통과(construction-ui-final.xml). 전체 테스트를 반복 실행하지 않았다.
+- 건축: 원본 상태 비변경 미리보기, 비용 부족·취소, 기본 바닥 철거 무보상, 유료 바닥 부분 반환, 내부 벽 비용, 범위/출입구/가구/플레이어/단절 차단, 마지막 침대 자리 보호, 네 슬롯 복원 및 v1~v4 원본 파일 비변경 검증.
+- 실제 Scene 재구성 후 확장 바닥의 충돌 높이와 칸막이 충돌을 Physics.Raycast로 확인. 한·영 1280×720/1920×1080/2560×1080 건축 화면은 Builds/ConstructionReview에 렌더링했다. 버튼의 글자와 장식 화살표 겹침을 수정했다.
+- 마을 외형은 Builds/VillageExpansion/village.png에서 확인했다. 기존 점유 범위 내 별채·높이 차이를 두었으며 기존 접근 경로 회귀 검사가 통과했다.
+- 모든 테스트는 격리 저장을 사용한다. 실제 사용자 저장과 원본 에셋은 변경하지 않았다. Windows 직접 조작·게임패드는 이번에도 미검증이며 Editor 결과와 구분한다.
+
+- 비용 비교를 매 프레임 대신 편집 명령 성공 시에만 갱신하도록 변경한 후 건축 규칙 13/13 재통과(construction-cost.xml). 최종 Windows Mono 빌드 성공(Builds/build.log: Build Finished, Result: Success).
+- 현재 도구에는 Windows 네이티브 창 조작이 제공되지 않는다. 직접 입력용 Builds/Play-Construction-QA.cmd를 준비했다. 별도 ConstructionQA-* 합성 저장(실내 시작, 나무 30개, 침대·의자)을 사용하는 실행기이며 실제 사용자 저장을 읽거나 덮어쓰지 않는다. 실행기를 만든 것을 Windows 조작 통과로 기록하지 않는다.

@@ -79,9 +79,9 @@ namespace BreathIsland
             if(rect.height<40){rect.y-=(40-rect.height)/2;rect.height=40;}
             SetLabel(Node(rect,2),text,style);
         }
-        private void SetLabel(GameObject node,string value,NotebookStyle style)
+        private void SetLabel(GameObject node,string value,NotebookStyle style,Font font=null)
         {
-            var text=node.GetComponentInChildren<Text>(true);text.gameObject.SetActive(true);text.text=value;text.font=style==NotebookStyle.Title?titleFont:bodyFont;
+            var text=node.GetComponentInChildren<Text>(true);text.gameObject.SetActive(true);text.text=value;text.font=font??(style==NotebookStyle.Title?titleFont:bodyFont);
             text.fontSize=style==NotebookStyle.Title?42:style==NotebookStyle.Small?18:22;
             text.resizeTextForBestFit=true;text.resizeTextMinSize=style==NotebookStyle.Title?24:16;text.resizeTextMaxSize=text.fontSize;
             text.color=style==NotebookStyle.Light?Paper:Ink;text.alignment=style==NotebookStyle.Center||style==NotebookStyle.Light?TextAnchor.MiddleCenter:TextAnchor.MiddleLeft;
@@ -96,7 +96,7 @@ namespace BreathIsland
             graphic.color=style==NotebookStyle.Primary?Coral:style==NotebookStyle.Selected?Sea:new Color(.88f,.88f,.76f);graphic.SetVerticesDirty();
             var button=node.GetComponent<Button>();button.enabled=true;button.targetGraphic=graphic;button.interactable=enabled;button.onClick.RemoveAllListeners();button.onClick.AddListener(()=>action());
             var colors=button.colors;colors.highlightedColor=new Color(1.08f,1.08f,1.08f);colors.selectedColor=Color.white;colors.disabledColor=new Color(.7f,.7f,.7f,.55f);button.colors=colors;
-            SetLabel(node,text,style==NotebookStyle.Primary||style==NotebookStyle.Selected?NotebookStyle.Light:NotebookStyle.Center);
+            SetLabel(node,text,style==NotebookStyle.Primary||style==NotebookStyle.Selected?NotebookStyle.Light:NotebookStyle.Center,titleFont);
             var label=node.GetComponentInChildren<Text>();label.font=titleFont;label.fontSize=30;label.resizeTextMaxSize=30;label.resizeTextMinSize=20;
             label.rectTransform.offsetMin=new Vector2(compact?8:22,3);label.rectTransform.offsetMax=new Vector2(compact?-8:-36,-3);
         }

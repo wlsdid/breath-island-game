@@ -113,10 +113,14 @@ namespace BreathIsland.Tests
             var node = catalog.nodes.First(n => n.tool == LifeTool.Axe);
             Assert.That(land.Harvest(node.id), Is.False);
             root.transform.position = node.position; Assert.That(land.Harvest(node.id), Is.False);
-            equipment.SelectTool(LifeTool.Axe); Assert.That(land.Harvest(node.id), Is.True); Assert.That(land.Harvest(node.id), Is.False);
+            equipment.SelectTool(LifeTool.Axe);
+            Assert.That(land.Harvest(node.id), Is.False); Assert.That(land.Harvest(node.id), Is.False);
+            Assert.That(land.Harvest(node.id), Is.True); Assert.That(land.Harvest(node.id), Is.False);
             context.LoadFrom(); Assert.That(land.Depleted(node.id), Is.True); Assert.That(context.Save.resources.wood, Is.EqualTo(3));
             phases.Set(GamePhase.Home); Assert.That(land.Rest(), Is.True); phases.Set(GamePhase.Explore);
-            root.transform.position = node.position; Assert.That(land.Harvest(node.id), Is.True); Assert.That(context.Save.resources.wood, Is.EqualTo(6));
+            root.transform.position = node.position;
+            Assert.That(land.Harvest(node.id), Is.False); Assert.That(land.Harvest(node.id), Is.False);
+            Assert.That(land.Harvest(node.id), Is.True); Assert.That(context.Save.resources.wood, Is.EqualTo(6));
             Assert.That(context.Save.inventory.materials, Is.EqualTo(4));
         }
         [Test] public void CraftingIsAtomicRequiresHammerAndDoesNotSpendLegacyCurrency()

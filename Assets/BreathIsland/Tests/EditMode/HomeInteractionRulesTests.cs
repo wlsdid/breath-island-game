@@ -78,7 +78,7 @@ namespace BreathIsland.Tests
         {
             string json="{\"version\":"+version+",\"inventory\":{\"coins\":123},\"housing\":{\"wallFinishId\":\"stone\",\"floorFinishId\":\"tiles\",\"placed\":[{\"instanceId\":\"old\",\"furnitureId\":\"chair\",\"x\":1,\"z\":3,\"turns\":2}]}}";
             File.WriteAllText(saves.PathForSlot(0),json);var loaded=saves.Load(0);
-            Assert.That(loaded.version,Is.EqualTo(4));Assert.That(loaded.inventory.coins,Is.EqualTo(123));Assert.That(loaded.housing.chests,Is.Empty);
+            Assert.That(loaded.version,Is.EqualTo(GameSaveData.CurrentVersion));Assert.That(loaded.inventory.coins,Is.EqualTo(123));Assert.That(loaded.housing.chests,Is.Empty);
             Assert.That(loaded.housing.placed.Single().turns,Is.EqualTo(2));Assert.That(loaded.housing.wallFinishId,Is.EqualTo(version==3?"stone":"wood_dark"));
             Assert.That(File.ReadAllText(saves.PathForSlot(0)),Is.EqualTo(json));
         }

@@ -1031,6 +1031,43 @@ MonoBehaviour:
     m_Localized: "Hold E \xB7 Gather {0}"
     m_Metadata:
       m_Items: []
+  - m_Id: 676918809518358528
+    m_Localized: Remodel home
+    m_Metadata:
+      m_Items: []
+  - m_Id: 676918809593856000
+    m_Localized: Floor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 676918809593856001
+    m_Localized: North wall
+    m_Metadata:
+      m_Items: []
+  - m_Id: 676918809593856002
+    m_Localized: East wall
+    m_Metadata:
+      m_Items: []
+  - m_Id: 676918809593856003
+    m_Localized: Apply changes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 676918809593856004
+    m_Localized: "Wood cost {0} \xB7 Owned {1}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 676918809593856005
+    m_Localized: "Up to 32\xD732 \xB7 Click to add/remove\nFloor: 2 wood \xB7 Wall:
+      1\nKeep the entrance and furniture clear."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 676918809593856006
+    m_Localized: Keep the entrance, furniture and player clear, with connected paths.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 676918809593856007
+    m_Localized: Not enough wood for these changes.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

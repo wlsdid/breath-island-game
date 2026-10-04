@@ -38,6 +38,7 @@ namespace BreathIsland.Tests
             foreach (var node in life.Catalog.nodes.Where(n => n.resource == LifeResource.Wood))
             {
                 context.World.motor.Teleport(node.position + Vector3.up * .2f); life.Equipment.SelectTool(LifeTool.Axe);
+                Assert.That(life.Land.Harvest(node.id), Is.False); Assert.That(life.Land.Harvest(node.id), Is.False);
                 Assert.That(life.Land.Harvest(node.id), Is.True); Assert.That(life.Land.Harvest(node.id), Is.False);
             }
             var outdoor = HousingSystem.Entrance + Vector3.up * .5f; context.World.motor.Teleport(outdoor);
@@ -90,10 +91,14 @@ namespace BreathIsland.Tests
         [UnityTest] public IEnumerator RestRegrowsSavedNodesAndCannotRunDuringCombat()
         {
             var node = life.Catalog.nodes.First(n => n.resource == LifeResource.Herb);
-            context.World.motor.Teleport(node.position); life.Land.Harvest(node.id); context.LoadFrom(); Assert.That(life.Land.Depleted(node.id), Is.True);
+            context.World.motor.Teleport(node.position);
+            yield return null; yield return null;
+            Assert.That(life.Land.TickHeldGather(3,true),Is.True); context.LoadFrom(); Assert.That(life.Land.Depleted(node.id), Is.True);
             phases.Set(GamePhase.PredatorCombat); Assert.That(life.Land.Rest(), Is.False); Assert.That(context.Save.world.day, Is.EqualTo(1));
             phases.Set(GamePhase.Explore); context.World.motor.Teleport(HousingSystem.Entrance); life.Housing.Enter(); Assert.That(life.Land.Rest(), Is.True);
-            life.Housing.Exit(); context.World.motor.Teleport(node.position); Assert.That(life.Land.Harvest(node.id), Is.True);
+            life.Housing.Exit(); context.World.motor.Teleport(node.position);
+            yield return null; yield return null;
+            Assert.That(life.Land.TickHeldGather(3,true), Is.True);
             Assert.That(context.Save.resources.herbs, Is.EqualTo(4)); yield return null;
         }
         [UnityTest] public IEnumerator ImportedCharacterAndBothLocalizedScreensRender()

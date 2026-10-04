@@ -31,7 +31,7 @@ namespace BreathIsland.Tests
         [TearDown] public void Cleanup(){foreach(var node in catalog.nodes)UnityEngine.Object.DestroyImmediate(node);UnityEngine.Object.DestroyImmediate(catalog);UnityEngine.Object.DestroyImmediate(player);Directory.Delete(directory,true);}
         [Test] public void ConfiguredHitsAwardOnlyOnCompletionAndRestoreClearsPartialWork()
         {
-            tree.requiredHits=3;equipment.SelectTool(LifeTool.Axe);
+            Assert.That(tree.requiredHits,Is.EqualTo(3));equipment.SelectTool(LifeTool.Axe);
             tools.Use();tools.Tick(1);Assert.That(land.Progress(tree),Is.EqualTo(1f/3).Within(.001f));Assert.That(context.Save.resources.wood,Is.Zero);
             player.transform.forward=Vector3.back;tools.Use();tools.Tick(1);Assert.That(land.Progress(tree),Is.EqualTo(1f/3).Within(.001f));
             land.Restore();Assert.That(land.Progress(tree),Is.Zero);player.transform.forward=Vector3.forward;
@@ -44,7 +44,9 @@ namespace BreathIsland.Tests
         {
             equipment.Equip("sword");equipment.SelectTool(LifeTool.Axe);
             Assert.That(tools.Use(),Is.True);Assert.That(context.Save.resources.wood,Is.Zero);
-            Assert.That(tools.Use(),Is.False);tools.Tick(.26f);Assert.That(context.Save.resources.wood,Is.EqualTo(3));
+            Assert.That(tools.Use(),Is.False);tools.Tick(.26f);Assert.That(context.Save.resources.wood,Is.Zero);
+            tools.Tick(1);tools.Use();tools.Tick(1);Assert.That(context.Save.resources.wood,Is.Zero);
+            tools.Use();tools.Tick(.26f);Assert.That(context.Save.resources.wood,Is.EqualTo(3));
             tools.Tick(1);tools.Use();tools.Tick(1);Assert.That(context.Save.resources.wood,Is.EqualTo(3));
             Assert.That(equipment.Job.id,Is.EqualTo("warrior"));Assert.That(equipment.Tool,Is.EqualTo(LifeTool.Axe));
         }

@@ -50,3 +50,8 @@ KayKit Dungeon Pack 1.0의 빈 일반 상자 본체·뚜껑 FBX 2종과 동봉 C
 기존 KayKit 도구·무기·가구·자연 모델을 프로젝트의 `InventoryIconAuthoring`으로 렌더링하여 투명 PNG 아이콘을 작성했다. 원본 메시와 텍스처는 변경하지 않았다. 별도 외부 UI 그래픽을 사용하지 않는다.
 
 자원 아이콘용으로 사용자 제공 `KayKit_ResourceBits_1.0_FREE.zip`에서 Wood_Log_A, Stone_Chunks_Small FBX 두 개, resource_bits_texture.png와 License.txt만 선별했다. 동봉 라이선스는 Kay Lousberg의 CC0이며 상업 이용을 허용한다. 경로·SHA-256은 `Documentation/RESOURCE_ICON_SELECTION.json`에 기록한다. 재질은 아이콘 작성 중에만 사용하고 새 자원 종류·보상·게임 규칙은 추가하지 않는다.
+
+
+## 2026-10-04 격자 건축·마을 형태
+
+기존 Kenney Fantasy Town Kit의 CC0 wall-wood·지붕·문 부품을 재사용했다. BuildWall은 원본 모델의 파생 프리팹이고 BuildFloor는 자체 기본 메시를 사용한다. 마을 주택 두 동은 기존 점유 범위 안에서 별채와 높이가 다른 몸체로 다시 조립했다. 신규 다운로드·원본 모델 변경은 없다. 기존 HOUSE_ASSET_SELECTION.json과 VILLAGE_ASSET_SELECTION.json의 출처·해시가 적용된다.

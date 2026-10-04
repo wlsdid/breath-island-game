@@ -109,6 +109,7 @@ namespace BreathIsland
         public bool firstPerson;
         public bool homeView;
         public bool homeOverview;
+        public HomeStructureState homeStructure;
         public bool allowLook = true;
         private float yaw = 20f;
         private float pitch = 20f;
@@ -119,7 +120,7 @@ namespace BreathIsland
             if (target == null) return;
             if (homeView)
             {
-                InteriorCameraFraming.Pose(RoomLayoutDefinition.Default,target.position,homeOverview,out var position,out var focus);
+                InteriorCameraFraming.Pose(RoomLayoutDefinition.Default,target.position,homeOverview,out var position,out var focus,homeStructure);
                 transform.position = position;
                 transform.LookAt(focus);
                 velocity = Vector3.zero;

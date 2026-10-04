@@ -11,10 +11,10 @@ namespace BreathIsland
             var area = FurniturePlacement.Area(definition, x, z, turns);
             return p.y > -1 && p.y < 3 && new Rect(area.x - .38f, area.y - .38f, area.width + .76f, area.height + .76f).Contains(new Vector2(p.x,p.z));
         }
-        public static bool Clear(Vector3 position, IEnumerable<PlacedFurniture> placed, IslandLifeCatalog catalog)
+        public static bool Clear(Vector3 position, IEnumerable<PlacedFurniture> placed, IslandLifeCatalog catalog,HomeStructureState structure=null)
         {
             var p = position - HousingSystem.InteriorOrigin;
-            if (!RoomLayoutDefinition.Default.Contains(new Rect(p.x-.4f,p.z-.4f,.8f,.8f)) || p.y < -.5f || p.y > 2) return false;
+            if (!HomeFootprint.Contains(structure,new Rect(p.x-.4f,p.z-.4f,.8f,.8f)) || p.y < -.5f || p.y > 2) return false;
             foreach (var item in placed)
             {
                 var definition = catalog.Furniture(item.furnitureId);
@@ -22,15 +22,15 @@ namespace BreathIsland
             }
             return true;
         }
-        public static Vector3 Safe(Vector3 desired, IEnumerable<PlacedFurniture> placed, IslandLifeCatalog catalog)
+        public static Vector3 Safe(Vector3 desired, IEnumerable<PlacedFurniture> placed, IslandLifeCatalog catalog,HomeStructureState structure=null)
         {
-            if (Clear(desired,placed,catalog)) return desired;
+            if (Clear(desired,placed,catalog,structure)) return desired;
             for (float radius=.6f; radius<=2.4f; radius+=.6f)
                 for (int n=0;n<8;n++)
                 {
                     var p=desired+Quaternion.Euler(0,n*45,0)*Vector3.forward*radius;
                     p.y=HousingSystem.InteriorOrigin.y+.05f;
-                    if(Clear(p,placed,catalog)) return p;
+                    if(Clear(p,placed,catalog,structure)) return p;
                 }
             return Arrival;
         }

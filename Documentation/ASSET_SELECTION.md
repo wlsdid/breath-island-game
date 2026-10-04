@@ -94,3 +94,8 @@ KayKit Dungeon Pack 1.0의 `Models/fbx/chest_common_empty.fbx`와 `chestTop_comm
 ## 2026-10-04 아이콘 표현
 
 기존 도구 3종·무기 6종·가구 9종의 실제 모델과 게임 재질로 아이콘을 렌더링했다. Resource Bits의 Wood_Log_A·Stone_Chunks_Small, 공용 텍스처와 CC0 문서를 선별하여 나무·돌 아이콘에 사용한다. 약초는 기존 Bush 모델에서 렌더링한다. 새 자원 콘텐츠나 보상은 없다. 파생 PNG는 Resources/UI/ItemIcons, 작성 명령은 InventoryIconAuthoring.Build이며 원본 ZIP·FBX는 보존한다. 세부 출처·해시는 RESOURCE_ICON_SELECTION.json에 있다.
+
+
+## 2026-10-04 격자 건축·마을 형태
+
+기존 Kenney Fantasy Town Kit의 CC0 wall-wood·지붕·문 부품을 재사용했다. BuildWall은 원본 모델의 파생 프리팹이고 BuildFloor는 자체 기본 메시를 사용한다. 마을 주택 두 동은 기존 점유 범위 안에서 별채와 높이가 다른 몸체로 다시 조립했다. 신규 다운로드·원본 모델 변경은 없다. 기존 HOUSE_ASSET_SELECTION.json과 VILLAGE_ASSET_SELECTION.json의 출처·해시가 적용된다.

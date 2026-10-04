@@ -21,7 +21,7 @@ namespace BreathIsland
         public int Turns { get; private set; }
         public bool CanEnter => phases.Current == GamePhase.Explore && Vector3.Distance(context.World.player.transform.position, Entrance) < 2.5f;
         private bool Editable => phases.Current == GamePhase.Home || phases.Current == GamePhase.HomeDecorate;
-        public bool IsValid => Selection != null && FurniturePlacement.Valid(catalog, Selection, X, Z, Turns, State.placed)
+        public bool IsValid => Selection != null && FurniturePlacement.Valid(catalog, Selection, X, Z, Turns, State.placed,State.structure)
             && !HomeNavigation.OverlapsPlayer(Selection, X, Z, Turns, context.World.player.transform.position);
         public int Available(string id) => State.stock.FirstOrDefault(s => s.id == id)?.count ?? 0;
         public bool Enter()
@@ -42,7 +42,7 @@ namespace BreathIsland
         public void Restore()
         {
             Selection = null;
-            if (State.inside) context.World.motor.Teleport(HomeNavigation.Safe(context.World.player.transform.position, State.placed, catalog));
+            if (State.inside) context.World.motor.Teleport(HomeNavigation.Safe(context.World.player.transform.position, State.placed, catalog,State.structure));
             Changed?.Invoke();
         }
         public bool Select(string id)

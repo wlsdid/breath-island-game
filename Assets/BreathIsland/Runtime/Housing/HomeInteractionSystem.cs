@@ -83,14 +83,14 @@ namespace BreathIsland
             var item=housing.State.placed.FirstOrDefault(p=>p.instanceId==restingBed);
             if(item==null || catalog.Furniture(item.furnitureId)?.interaction!=FurnitureInteraction.Bed)return false;
             restingBed=null;phases.Set(GamePhase.Home);
-            context.World.motor.Teleport(HomeNavigation.Safe(context.World.player.transform.position,housing.State.placed,catalog));
+            context.World.motor.Teleport(HomeNavigation.Safe(context.World.player.transform.position,housing.State.placed,catalog,housing.State.structure));
             return land.Rest();
         }
         public void Stand()
         {
             if(!Seated)return;
             Seated=false;
-            context.World.motor.Teleport(HomeNavigation.Safe(beforeSeat,housing.State.placed,catalog));
+            context.World.motor.Teleport(HomeNavigation.Safe(beforeSeat,housing.State.placed,catalog,housing.State.structure));
             context.World.motor.CanMove=phases.Current==GamePhase.Home;
             SeatChanged?.Invoke(false,Vector3.zero,Quaternion.identity);
         }
