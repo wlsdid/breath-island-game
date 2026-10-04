@@ -19,7 +19,7 @@ namespace BreathIsland
                 var nearby = relationships.NearbyNpc();
                 if (nearby.HasValue) { relationships.Open(nearby.Value); return; }
             }
-            if (GameInput.PrimaryPressed() && Vector3.Distance(context.World.player.transform.position, context.World.fishingPoint) < 7.5f) fishing.Start();
+            if (GameInput.FishingPressed() && Vector3.Distance(context.World.player.transform.position, context.World.fishingPoint) < 7.5f) fishing.Start();
         }
     }
 }

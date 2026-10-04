@@ -4,7 +4,7 @@ namespace BreathIsland
 {
     public static class FurniturePlacement
     {
-        public const int RoomSize = 8;
+        public static int RoomSize => RoomLayoutDefinition.Default.width;
         public static Vector2Int Size(FurnitureDefinition definition, int turns) => (turns & 1) == 0
             ? definition.footprint : new Vector2Int(definition.footprint.y, definition.footprint.x);
         public static Rect Area(FurnitureDefinition definition, int x, int z, int turns)
@@ -13,9 +13,10 @@ namespace BreathIsland
         {
             if (definition == null || turns < 0 || turns > 3) return false;
             Rect area = Area(definition, x, z, turns);
-            if (area.xMin < 0 || area.yMin < 0 || area.xMax > RoomSize || area.yMax > RoomSize) return false;
+            var layout = RoomLayoutDefinition.Default;
+            if (!layout.Contains(area)) return false;
             // Keep the arrival area and door clear, including the player's capsule.
-            if (area.Overlaps(new Rect(3, 0, 2, 2))) return false;
+            if (area.Overlaps(layout.entranceClearance)) return false;
             foreach (var item in placed)
             {
                 var other = catalog.Furniture(item.furnitureId);

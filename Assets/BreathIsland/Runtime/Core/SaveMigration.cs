@@ -18,6 +18,7 @@ namespace BreathIsland
             data.world ??= new WorldState();
             data.inventory.discoveredFish ??= new List<string>();
             data.inventory.displayedFish ??= new List<string>();
+            data.inventory.slotOrder ??= new List<string>();
             data.equipment ??= new EquipmentState();
             data.equipment.weaponId ??= "";
             data.equipment.mastery ??= new List<JobMastery>();

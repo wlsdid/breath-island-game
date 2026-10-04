@@ -1,12 +1,14 @@
 using System.Collections.Generic;
 namespace BreathIsland
 {
-    public enum InventoryTab { Tools, Weapons, Resources, Furniture }
+    public enum InventoryTab { Tools, Weapons, Resources, Furniture, All }
     public sealed class InventoryItem
     {
         public string Id, NameKey, DetailKey;
         public int Count;
         public bool Available=true, Selected;
+        public InventoryTab Tab;
+        public string Key => Tab + ":" + Id;
     }
     // Inventory is a projection of existing save state, not a second item database.
     public sealed class InventorySystem
@@ -20,6 +22,11 @@ namespace BreathIsland
         public List<InventoryItem> Items(InventoryTab tab)
         {
             var items=new List<InventoryItem>();
+            if(tab==InventoryTab.All)
+            {
+                for(int i=0;i<4;i++)items.AddRange(Items((InventoryTab)i));
+                return items;
+            }
             if(tab==InventoryTab.Tools)
                 foreach(LifeTool tool in System.Enum.GetValues(typeof(LifeTool)))
                     if(tool!=LifeTool.None) items.Add(new InventoryItem{Id=tool.ToString(),NameKey="life_tool_"+tool,DetailKey="bag_tool_detail",Count=1,Selected=life.Equipment.Tool==tool});
@@ -33,6 +40,7 @@ namespace BreathIsland
             }
             if(tab==InventoryTab.Furniture)
                 foreach(var f in life.Catalog.furniture)items.Add(new InventoryItem{Id=f.id,NameKey=f.nameKey,Count=life.Housing.Available(f.id),Available=life.Housing.Available(f.id)>0,DetailKey="bag_furniture_detail"});
+            foreach(var item in items)item.Tab=tab;
             return items;
         }
         public bool Hold(InventoryTab tab,string id)

@@ -25,7 +25,9 @@ namespace BreathIsland
                     for (int i = 0; i < slots.Length; i++) slots[i] = material;
                     renderer.sharedMaterials = slots;
                 }
-                var localBounds = renderer.localBounds;
+                // Skinned renderer bounds cover every imported animation pose and can extend
+                // below the soles. Fit the visible geometry instead of its culling envelope.
+                var localBounds = VisibleBounds(renderer);
                 Matrix4x4 matrix = root.transform.worldToLocalMatrix * renderer.localToWorldMatrix;
                 for (int corner = 0; corner < 8; corner++)
                 {
@@ -43,6 +45,16 @@ namespace BreathIsland
                 model.transform.localPosition = heldItem ? Vector3.zero : new Vector3(-localCenter.x, -localCenter.y + bounds.size.y / 2, -localCenter.z) * scale;
             }
             return root;
+        }
+        private static Bounds VisibleBounds(Renderer renderer)
+        {
+            if (renderer is not SkinnedMeshRenderer skin) return renderer.localBounds;
+            var mesh = new Mesh();
+            skin.BakeMesh(mesh);
+            mesh.RecalculateBounds();
+            var bounds = mesh.bounds;
+            if (Application.isPlaying) Object.Destroy(mesh); else Object.DestroyImmediate(mesh);
+            return bounds;
         }
     }
 }

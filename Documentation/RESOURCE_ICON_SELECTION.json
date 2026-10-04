@@ -1,0 +1,26 @@
+[
+  {
+    "archive": "design asset/KayKit_ResourceBits_1.0_FREE.zip",
+    "entry": "KayKit_ResourceBits_1.0_FREE/Assets/fbx/Wood_Log_A.fbx",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/KayKit/Resources/Wood_Log_A.fbx",
+    "sha256": "E2C971BA930A2F65B3FDCC26A6FB3C549E9FAFFBE1379A68593E2DB5FCC29AAE"
+  },
+  {
+    "archive": "design asset/KayKit_ResourceBits_1.0_FREE.zip",
+    "entry": "KayKit_ResourceBits_1.0_FREE/Assets/fbx/Stone_Chunks_Small.fbx",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/KayKit/Resources/Stone_Chunks_Small.fbx",
+    "sha256": "FFB1B52BA918617D6BDE4B824000791C01768CE7CA09F51F2D99EAB167B19D25"
+  },
+  {
+    "archive": "design asset/KayKit_ResourceBits_1.0_FREE.zip",
+    "entry": "KayKit_ResourceBits_1.0_FREE/Assets/fbx/resource_bits_texture.png",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/KayKit/Resources/resource_bits_texture.png",
+    "sha256": "62A252ABA7BC9382EFFE48D93B976605D8FA70A3A40AF7FC52362F5CA89C135B"
+  },
+  {
+    "archive": "design asset/KayKit_ResourceBits_1.0_FREE.zip",
+    "entry": "KayKit_ResourceBits_1.0_FREE/License.txt",
+    "destination": "Assets/BreathIsland/Art/ThirdParty/KayKit/Resources/License.txt",
+    "sha256": "CFEDA9F60F4C03BB8B342AB4448C944EA5DCCC84CD697B4B8EAEDCDAA46FCC34"
+  }
+]

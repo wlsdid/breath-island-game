@@ -28,7 +28,7 @@ namespace BreathIsland
         {
             if (!CanEnter) return false;
             State.outdoorPosition = context.World.player.transform.position; State.inside = true;
-            context.World.motor.Teleport(InteriorOrigin + new Vector3(4, .1f, 1));
+            context.World.motor.Teleport(HomeNavigation.Arrival);
             phases.Set(GamePhase.Home); Cancel(); context.SaveTo(); return true;
         }
         public void Exit()

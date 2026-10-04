@@ -4,7 +4,7 @@ namespace BreathIsland
 {
     public static class HomeNavigation
     {
-        public static Vector3 Arrival => HousingSystem.InteriorOrigin + new Vector3(4, .05f, 1);
+        public static Vector3 Arrival => HousingSystem.InteriorOrigin + new Vector3(RoomLayoutDefinition.Default.arrival.x, .05f, RoomLayoutDefinition.Default.arrival.y);
         public static bool OverlapsPlayer(FurnitureDefinition definition, int x, int z, int turns, Vector3 position)
         {
             var p = position - HousingSystem.InteriorOrigin;
@@ -14,7 +14,7 @@ namespace BreathIsland
         public static bool Clear(Vector3 position, IEnumerable<PlacedFurniture> placed, IslandLifeCatalog catalog)
         {
             var p = position - HousingSystem.InteriorOrigin;
-            if (p.x < .4f || p.x > 7.6f || p.z < .4f || p.z > 7.6f || p.y < -.5f || p.y > 2) return false;
+            if (!RoomLayoutDefinition.Default.Contains(new Rect(p.x-.4f,p.z-.4f,.8f,.8f)) || p.y < -.5f || p.y > 2) return false;
             foreach (var item in placed)
             {
                 var definition = catalog.Furniture(item.furnitureId);

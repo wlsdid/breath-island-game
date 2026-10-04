@@ -933,7 +933,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 675665867884675073
-    m_Localized: "WASD to walk \xB7 Face furniture and press E"
+    m_Localized: "WASD to walk \xB7 Space to jump \xB7 Face furniture and press E"
     m_Metadata:
       m_Items: []
   - m_Id: 675665867884675074
@@ -1007,6 +1007,24 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 675665867884675091
     m_Localized: No items or free space available for this transfer.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 676905372583149568
+    m_Localized: Satchel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 676905372654452736
+    m_Localized: Sort by kind
+    m_Metadata:
+      m_Items: []
+  - m_Id: 676905372654452737
+    m_Localized: 'An empty pocket
+
+      Drag an item here.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 676905372654452738
+    m_Localized: "Drag to move \xB7 Drop onto another item to swap"
     m_Metadata:
       m_Items: []
   references:

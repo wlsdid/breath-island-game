@@ -137,3 +137,24 @@ Play Mode HUD 테스트에는 실제 Game View가 필요하므로 `-batchmode`�
 미검증: Windows 실행 파일에서 이동·착석·보관 이전의 직접 입력, 정상 종료 저장 및 재실행 복원, 실제 게임패드 조작. 이 항목들은 Editor Play Mode 통과와 구분한다. 숨긴 창의 종료 요청은 정상 종료로 이어지지 않았으므로 저장 성공으로 기록하지 않았다.
 
 보존: 기존 Addressables·LocalizationSettings·PackageManagerSettings 변경은 작업 시작 시 사본과 동일한지 해시로 확인하고 커밋에서 제외한다. `design asset/` 원본은 보존하며 이번에 선별한 상자 FBX 두 개와 라이선스만 포함한다.
+
+## 2026-10-04 접지·점프·실내 확장·가방 정리
+
+환경: Windows / Unity 6000.5.4f1 / Mono. 새 이동 속도는 2.86m/s, 기본 집은 20×20. 기존 저장 좌표·수량·아이템 ID를 유지하고 inventory.slotOrder만 선택적으로 추가했다. 실제 사용자 저장은 사용하지 않았다.
+
+| 항목 | 결과 |
+|---|---|
+| 전체 Edit Mode | 81/81 통과 (`Builds/editmode-results.xml`). 기존 경제·저장·시설 규칙과 신규 실내/가방 규칙 포함. |
+| 전체 Play Mode | 최초 전체 실행 28/29 통과 (`Builds/playmode-results.xml`). 단독 실행에서 통과했던 가상 마우스 드래그 1개가 전체 실행에서 실패. UI 입력을 테스트 전용 Mouse 장치로 제한하고 프레임 전달·화면 갱신을 보강한 뒤 해당 UI 묶음 5/5 통과 (`Builds/PresentationUpgrade/inventory-suite.xml`). 게임 규칙은 이 수정에서 변경하지 않음. 29개 고유 사례 모두 최종 통과 결과가 있으며 전체 반복 실행은 하지 않았다. |
+| 접지·점프 | 실제 스킨 메시 발바닥과 바닥 간격, 55% 이동 속도, 점프·착지·공중 재점프 방지·메뉴 입력 차단을 Play Mode에서 확인. |
+| 실내 | 기존 좌표 보존, 확대된 방 끝쪽 가구 배치·저장·복원, 이동·벽·출입, 평상시 추적/꾸미기 전체 시점 확인. 문틀 가림과 바닥 반복 틈을 실제 렌더링 후 수정. |
+| 가방 | 실제 Input System 가상 Mouse 이벤트로 빈칸 이동·자리 교환, 네 저장 슬롯 복원, 수량 보존, 닫기 취소, 기존 도구 선택 확인. v1~v4 누락 slotOrder와 기존 수량 호환 검증. |
+| UI·아이콘 | 모델 기반 PNG 21종, 한·영 1280×720·1920×1080·2560×1080 렌더링 확인. 수량 라벨을 분리하고 무기 아이콘 방향/여백을 조정. `Builds/NotebookReview`, `Builds/VillageExpansion`, `Builds/HomeInteraction/expanded-*.png`. |
+| Windows 빌드 | `Builds/build.log`: Build Finished, Result: Success. Windows Mono 122.3 MB. 현재 실행 파일에 위 변경 반영. |
+| Windows 실행 | `BREATH_ISLAND_SAVE_ROOT`를 `Builds/PresentationUpgrade/WindowsQA-*` 합성 저장 경로로 지정해 실행. player.log에서 Exception/Error/MissingReference/NullReference 없음. 화면 도구가 대상 창 정보와 다른 화면을 반환하여 어떤 UI 입력도 보내지 않았다. 이번에 시작한 실행 파일 프로세스만 경로/PID를 확인해 종료했다. |
+
+미검증: Windows 실행 파일 직접 이동·점프·드래그·종료 저장·재실행 복원, 실물 게임패드. 실제 화면 대신 Editor 결과를 Windows 통과로 기록하지 않는다. 이번 프로세스 종료는 정상 종료 저장의 근거가 아니다.
+
+미완료: 사용자가 직접 정하기로 한 채집 소요 시간/횟수, 추가 집 형태의 치수 및 선택 방식. 기본 20×20과 직사각형 정의 검사는 구현했지만 추가 집 콘텐츠가 완성된 것은 아니다. 세부 진행은 PRESENTATION_UPGRADE.md에 기록한다.
+
+보존: 사용자 변경인 AddressableAssetSettings, LocalizationSettings, PackageManagerSettings는 이전 보관본과 해시 일치. 원본 design asset 폴더와 실제 저장은 변경하지 않았다. 신규 선별 파일 해시는 RESOURCE_ICON_SELECTION.json에 기록했다.

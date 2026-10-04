@@ -62,10 +62,10 @@ namespace BreathIsland.Tests
             Assert.That(context.World.player.transform.position,Is.EqualTo(before));
             phases.CloseInventory();Assert.That(phases.HomeInputAllowed,Is.False);Assert.That(context.World.motor.CanMove,Is.True);
             InputSystem.QueueStateEvent(keyboard,new KeyboardState());InputSystem.Update();
-            Face(4,7);InputSystem.QueueStateEvent(keyboard,new KeyboardState(Key.W));InputSystem.Update();
+            Face(4,RoomLayoutDefinition.Default.depth-1);InputSystem.QueueStateEvent(keyboard,new KeyboardState(Key.W));InputSystem.Update();
             for(int i=0;i<25;i++)yield return null;
             InputSystem.QueueStateEvent(keyboard,new KeyboardState());InputSystem.Update();
-            Assert.That(context.World.player.transform.position.z-HousingSystem.InteriorOrigin.z,Is.LessThan(8));
+            Assert.That(context.World.player.transform.position.z-HousingSystem.InteriorOrigin.z,Is.LessThan(RoomLayoutDefinition.Default.depth));
             life.Home.Decorate();Assert.That(context.World.motor.CanMove,Is.False);
             phases.Cancel();Assert.That(phases.Current,Is.EqualTo(GamePhase.Home));
             Face(4,1);context.World.player.transform.rotation=Quaternion.Euler(0,180,0);Assert.That(life.Home.Use(),Is.True);
@@ -125,6 +125,20 @@ namespace BreathIsland.Tests
             yield return null;Face(6.5f,1.8f);Assert.That(life.Home.Use(),Is.True);Assert.That(life.Storage.Withdraw(0,99),Is.EqualTo(99));
             Assert.That(context.Save.resources.wood,Is.EqualTo(179));Assert.That(context.Save.resources.woodHarvests,Is.Zero);
             LogAssert.NoUnexpectedReceived();
+        }
+        [UnityTest] public IEnumerator ExpandedRoomKeepsFurnitureAtFarEdgeAndFramesWalkingAndDecorating()
+        {
+            Face(4,1);Place("bed",0,4);Place("chair",6,3);Place("couch",15,14);
+            yield return Capture("expanded-arrival",1280,720);
+            Face(16,12);context.SaveTo(1);new GameSession(context,phases).Load(1);
+            Assert.That(context.Save.housing.placed.Single(p=>p.furnitureId=="couch").x,Is.EqualTo(15));
+            Assert.That(context.World.player.transform.position.x,Is.EqualTo(HousingSystem.InteriorOrigin.x+16).Within(.01f));
+            yield return Capture("expanded-far",1280,720);
+            Assert.That(context.World.cameraRig.homeOverview,Is.False);
+            life.Housing.Stock("table").count=1;life.Housing.Select("table");life.Housing.Move(18,18);
+            Assert.That(life.Housing.IsValid,Is.True);Assert.That(context.World.cameraRig.homeOverview,Is.True);
+            yield return Capture("expanded-decorate",1280,720);
+            Assert.That(life.Housing.Place(),Is.True);
         }
         private IEnumerator Capture(string name,int width,int height)
         {

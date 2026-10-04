@@ -24,6 +24,7 @@ namespace BreathIsland
         public List<string> discoveredFish = new();
         public List<string> displayedFish = new();
         public int totalCatchCount;
+        public List<string> slotOrder = new();
     }
 
     [Serializable]
@@ -120,4 +121,3 @@ namespace BreathIsland
         public static void Ease(ref float tension) => tension = Mathf.Max(12f, tension - 19f);
     }
 }
-

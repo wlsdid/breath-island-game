@@ -19,17 +19,19 @@ namespace BreathIsland.Editor
                 {
                     string path = directory + "surface_" + index++ + ".asset";
                     var mesh = AssetDatabase.LoadAssetAtPath<Mesh>(path);
-                    if (mesh == null)
+                    var authored = Object.Instantiate(filter.sharedMesh); authored.name = part.name + " Finish UV";
                     {
-                        mesh = Object.Instantiate(filter.sharedMesh); mesh.name = part.name + " Finish UV";
-                        var vertices = mesh.vertices; var uv = new Vector2[vertices.Length];
+                        var vertices = authored.vertices; var uv = new Vector2[vertices.Length];
                         for (int i = 0; i < vertices.Length; i++)
                         {
                             var p = root.transform.InverseTransformPoint(filter.transform.TransformPoint(vertices[i]));
-                            uv[i] = wall ? new Vector2(part.localPosition.z > 8 ? p.x : p.z, p.y) * .5f : new Vector2(p.x,p.z) * .5f;
+                            bool side = Mathf.Abs(Vector3.Dot(part.forward, Vector3.right)) > .5f;
+                            uv[i] = wall ? new Vector2(side ? p.z : p.x, p.y) * .5f : new Vector2(p.x,p.z) * .5f;
                         }
-                        mesh.uv = uv; AssetDatabase.CreateAsset(mesh,path);
+                        authored.uv = uv;
                     }
+                    if (mesh == null) { mesh = authored; AssetDatabase.CreateAsset(mesh,path); }
+                    else { EditorUtility.CopySerialized(authored,mesh); Object.DestroyImmediate(authored); EditorUtility.SetDirty(mesh); }
                     filter.sharedMesh = mesh;
                 }
             }

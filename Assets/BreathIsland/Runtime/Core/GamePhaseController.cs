@@ -29,9 +29,11 @@ namespace BreathIsland
             if (next == GamePhase.Pause && Current != GamePhase.Pause) BeforePause = Current;
             Current = next;
             enteredFrame = Time.frameCount;
+            world.motor.BlockActions();
             world.motor.CanMove = next == GamePhase.Explore || next == GamePhase.Home;
             world.cameraRig.firstPerson = next == GamePhase.Fishing || next == GamePhase.PredatorCombat;
             world.cameraRig.homeView = IsHome(next) || (next == GamePhase.Equipment && IsHome(BeforeInventory)) || (next == GamePhase.Pause && IsHome(BeforePause));
+            world.cameraRig.homeOverview = next == GamePhase.HomeDecorate || next == GamePhase.Equipment;
             world.cameraRig.allowLook = next == GamePhase.Explore;
             Cursor.lockState = next == GamePhase.Explore ? CursorLockMode.Locked : CursorLockMode.None;
             Cursor.visible = next != GamePhase.Explore;

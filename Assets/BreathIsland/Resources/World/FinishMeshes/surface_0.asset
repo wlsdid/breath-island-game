@@ -6,7 +6,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: surface_0
+  m_Name: planks Finish UV
   serializedVersion: 12
   m_SubMeshes:
   - serializedVersion: 2

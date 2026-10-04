@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 namespace BreathIsland
 {
     [RequireComponent(typeof(CanvasRenderer))]
@@ -7,9 +8,29 @@ namespace BreathIsland
     {
         public string symbol;
         private VertexHelper vertices;
+        private static readonly Dictionary<string,Texture2D> Textures=new();
+        private Texture2D ItemTexture
+        {
+            get
+            {
+                if(string.IsNullOrEmpty(symbol))return null;
+                if(!Textures.TryGetValue(symbol,out var texture)){texture=Resources.Load<Texture2D>("UI/ItemIcons/"+symbol);Textures[symbol]=texture;}
+                return texture;
+            }
+        }
+        public override Texture mainTexture=>ItemTexture!=null?ItemTexture:base.mainTexture;
         protected override void OnPopulateMesh(VertexHelper mesh)
         {
             mesh.Clear(); vertices = mesh;
+            if(ItemTexture!=null)
+            {
+                var rect=rectTransform.rect;var tint=new Color(1,1,1,color.a);
+                mesh.AddVert(new Vector2(rect.xMin,rect.yMin),tint,new Vector2(0,0));
+                mesh.AddVert(new Vector2(rect.xMin,rect.yMax),tint,new Vector2(0,1));
+                mesh.AddVert(new Vector2(rect.xMax,rect.yMax),tint,new Vector2(1,1));
+                mesh.AddVert(new Vector2(rect.xMax,rect.yMin),tint,new Vector2(1,0));
+                mesh.AddTriangle(0,1,2);mesh.AddTriangle(0,2,3);return;
+            }
             string id = symbol ?? "bag";
             if(id=="reticle"){Circle(50,50,14);return;}
             if(id=="heart") {Path(50,17,15,51,15,71,29,84,44,80,50,71,56,80,71,84,85,71,85,51,50,17);return;}

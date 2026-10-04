@@ -60,6 +60,7 @@ namespace BreathIsland
             used++;node.SetActive(true);
             var transform=(RectTransform)node.transform;transform.anchorMin=transform.anchorMax=new Vector2(0,1);transform.pivot=new Vector2(0,1);transform.anchoredPosition=new Vector2(rect.x,-rect.y);transform.sizeDelta=rect.size;
             node.name="Element";
+            node.GetComponent<InventorySlotDrag>()?.Unbind();
             node.GetComponent<NotebookGraphic>().enabled=kind==0||kind==1;node.GetComponent<Button>().enabled=kind==1;
             node.GetComponent<NotebookButtonMotion>().enabled=kind==1;
             node.GetComponent<NotebookGraphic>().buttonFace=false;
@@ -100,7 +101,22 @@ namespace BreathIsland
             label.rectTransform.offsetMin=new Vector2(compact?8:22,3);label.rectTransform.offsetMax=new Vector2(compact?-8:-36,-3);
         }
         public void Icon(Rect rect,string symbol,Color? color=null)
-        {var node=Node(rect,3);var icon=node.GetComponentInChildren<IslandIcon>(true);icon.gameObject.SetActive(true);icon.symbol=symbol;icon.color=color??Ink;icon.SetVerticesDirty();}
+        {var node=Node(rect,3);var icon=node.GetComponentInChildren<IslandIcon>(true);icon.gameObject.SetActive(true);icon.symbol=symbol;icon.color=color??Ink;icon.SetVerticesDirty();icon.SetMaterialDirty();}
+        public void InventorySlot(Rect rect,InventoryDragState drag,int index,InventoryItem item,Action select,Action<int,int,string> move,bool selected)
+        {
+            Button(rect,"",select,selected?NotebookStyle.Selected:NotebookStyle.Button,true,true);
+            var node=nodes[used-1];node.name="Inventory slot "+index;
+            var handler=node.GetComponent<InventorySlotDrag>()??node.AddComponent<InventorySlotDrag>();
+            handler.Bind(drag,index,item,move);
+        }
+        public void Quantity(Rect rect,int count)
+        {
+            Panel(rect);
+            var node=Node(rect,2);SetLabel(node,count.ToString(),NotebookStyle.Center);
+            var text=node.GetComponentInChildren<Text>();text.font=titleFont;text.fontSize=26;
+            text.resizeTextMaxSize=26;text.resizeTextMinSize=14;
+            text.rectTransform.offsetMin=new Vector2(3,0);text.rectTransform.offsetMax=new Vector2(-3,0);
+        }
         public void Meter(Rect rect,string label,float percent,Color color,NotebookStyle labelStyle=NotebookStyle.Small)
         { Label(new Rect(rect.x,rect.y-30,rect.width,28),label,labelStyle);Panel(rect);var node=Node(new Rect(rect.x+3,rect.y+3,Mathf.Max(1,(rect.width-6)*Mathf.Clamp01(percent/100)),rect.height-6));var g=node.GetComponent<NotebookGraphic>();g.enabled=true;g.color=color;g.raycastTarget=false;g.stitched=g.waves=false;g.SetVerticesDirty(); }
         public void Dispose(){Hide();UnityEngine.Object.Destroy(root);if(--instances==0&&ownedEvents!=null){UnityEngine.Object.Destroy(ownedEvents);ownedEvents=null;}}

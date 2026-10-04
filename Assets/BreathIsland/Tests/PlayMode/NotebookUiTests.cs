@@ -8,6 +8,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.TestTools;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.LowLevel;
 namespace BreathIsland.Tests
 {
     public sealed class NotebookUiTests
@@ -83,6 +85,59 @@ namespace BreathIsland.Tests
             life.Housing.Exit();Assert.That(context.World.player.transform.position,Is.EqualTo(HousingSystem.Entrance));
             context.World.cameraRig.enabled=false;context.World.camera.transform.position=new Vector3(20,28,27);context.World.camera.transform.LookAt(new Vector3(0,0,0));
             yield return CaptureExpansion("village");
+        }
+        [UnityTest] public IEnumerator SatchelMouseDragSwapsPersistsAndClosingCancelsWithoutItemLoss()
+        {
+            context.Save.resources.wood=987;phases.OpenInventory();hud.Draw();yield return null;hud.Draw();
+            var projection=new InventorySystem(context,phases,life);var layout=new InventoryLayoutSystem(context,phases,projection);
+            var original=layout.Slots().Where(i=>i!=null).ToDictionary(i=>i.Key,i=>i.Count);
+            string first=layout.Slots()[0].Key,second=layout.Slots()[1].Key;
+            var mouse=InputSystem.AddDevice<Mouse>();
+            // UI actions normally accept every connected pointer. Restrict this integration
+            // test to its virtual device so hardware motion / earlier test devices cannot steal it.
+            foreach(var module in UnityEngine.Object.FindObjectsByType<UnityEngine.InputSystem.UI.InputSystemUIInputModule>(FindObjectsSortMode.None))
+                module.actionsAsset.devices=new InputDevice[]{mouse};
+            yield return null;
+            try
+            {
+                yield return Drag(0,23,mouse);
+                Assert.That(layout.Slots()[23]?.Key,Is.EqualTo(first));Assert.That(layout.Slots()[0],Is.Null);
+                yield return Drag(23,1,mouse);
+                Assert.That(layout.Slots()[1]?.Key,Is.EqualTo(first));Assert.That(layout.Slots()[23]?.Key,Is.EqualTo(second));
+                foreach(int slot in new[]{-1,0,1,2})
+                {context.SaveTo(slot);context.LoadFrom(slot);Assert.That(layout.Slots()[1]?.Key,Is.EqualTo(first));Assert.That(layout.Slots()[23]?.Key,Is.EqualTo(second));}
+                Assert.That(layout.Slots().Where(i=>i!=null).ToDictionary(i=>i.Key,i=>i.Count),Is.EquivalentTo(original));
+                foreach(bool ko in new[]{true,false}){context.Korean=ko;yield return CaptureExpansion("satchel-drag-"+(ko?"ko":"en"));}
+                Assert.That(layout.Sort(),Is.True);Assert.That(layout.Slots().Where(i=>i!=null).ToDictionary(i=>i.Key,i=>i.Count),Is.EquivalentTo(original));
+                hud.Draw();yield return null;
+                var source=Slot(0);var data=new PointerEventData(EventSystem.current){position=ScreenCenter(source),button=PointerEventData.InputButton.Left};
+                ExecuteEvents.Execute(source,data,ExecuteEvents.beginDragHandler);Assert.That(GameObject.Find("Dragged item"),Is.Not.Null);
+                phases.CloseInventory();hud.Draw();yield return null;
+                Assert.That(GameObject.Find("Dragged item"),Is.Null);Assert.That(layout.Move(0,1),Is.False);
+                Assert.That(layout.Slots().Where(i=>i!=null).ToDictionary(i=>i.Key,i=>i.Count),Is.EquivalentTo(original));
+            }
+            finally{InputSystem.RemoveDevice(mouse);}
+        }
+        private static GameObject Slot(int index)=>UnityEngine.Object.FindObjectsByType<InventorySlotDrag>(FindObjectsSortMode.None).Single(s=>s.gameObject.activeInHierarchy && s.name=="Inventory slot "+index).gameObject;
+        private static Vector2 ScreenCenter(GameObject obj)
+        {
+            var rect=(RectTransform)obj.transform;var canvas=obj.GetComponentInParent<Canvas>();
+            return RectTransformUtility.WorldToScreenPoint(canvas.renderMode==RenderMode.ScreenSpaceOverlay?null:canvas.worldCamera,rect.TransformPoint(rect.rect.center));
+        }
+        private IEnumerator Drag(int from,int to,Mouse mouse)
+        {
+            hud.Draw();yield return null;Canvas.ForceUpdateCanvases();
+            var start=ScreenCenter(Slot(from));var end=ScreenCenter(Slot(to));
+            yield return MouseFrame(mouse,start,0);
+            yield return MouseFrame(mouse,start,1);
+            yield return MouseFrame(mouse,start+Vector2.right*24,1);
+            yield return MouseFrame(mouse,end,1);
+            yield return MouseFrame(mouse,end,0);
+        }
+        private IEnumerator MouseFrame(Mouse mouse,Vector2 point,ushort buttons)
+        {
+            InputSystem.QueueStateEvent(mouse,new MouseState{position=point,buttons=buttons});
+            yield return null;hud.Draw();yield return null;
         }
         private IEnumerator CaptureExpansion(string name)
         {

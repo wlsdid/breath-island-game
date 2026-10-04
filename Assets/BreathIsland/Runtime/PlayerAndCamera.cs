@@ -30,6 +30,8 @@ namespace BreathIsland
 
         public static bool InteractPressed() =>
             (Keyboard.current?.eKey.wasPressedThisFrame ?? false) || (Gamepad.current?.buttonSouth.wasPressedThisFrame ?? false);
+        public static bool JumpPressed() => (Keyboard.current?.spaceKey.wasPressedThisFrame ?? false) || (Gamepad.current?.buttonNorth.wasPressedThisFrame ?? false);
+        public static bool FishingPressed() => (Keyboard.current?.fKey.wasPressedThisFrame ?? false) || (Gamepad.current?.buttonSouth.wasPressedThisFrame ?? false);
         public static bool PrimaryPressed() =>
             (Keyboard.current?.spaceKey.wasPressedThisFrame ?? false) || (Keyboard.current?.fKey.wasPressedThisFrame ?? false) || (Gamepad.current?.buttonSouth.wasPressedThisFrame ?? false);
         public static bool EasePressed() => (Keyboard.current?.sKey.wasPressedThisFrame ?? false) || (Gamepad.current?.buttonEast.wasPressedThisFrame ?? false);
@@ -51,15 +53,21 @@ namespace BreathIsland
         }
     }
 
+    [DefaultExecutionOrder(50)]
     [RequireComponent(typeof(CharacterController))]
     public sealed class ThirdPersonMotor : MonoBehaviour
     {
-        public float speed = 5.2f;
+        public float speed = 2.86f;
         public float turnSpeed = 12f;
         private CharacterController controller;
         private Transform cameraTransform;
         private float verticalVelocity;
+        private int actionBlockedUntil;
+        public float jumpHeight = .8f;
+        public bool Grounded => controller != null && controller.isGrounded;
+        public float VerticalVelocity => verticalVelocity;
         public bool CanMove { get; set; } = true;
+        public void BlockActions() => actionBlockedUntil = Time.frameCount + 2;
 
         private void Awake() => controller = GetComponent<CharacterController>();
         public void SetCamera(Transform target) => cameraTransform = target;
@@ -71,6 +79,7 @@ namespace BreathIsland
             controller.enabled = false;
             transform.position = position;
             verticalVelocity = 0f;
+            BlockActions();
             controller.enabled = wasEnabled;
         }
 
@@ -85,8 +94,12 @@ namespace BreathIsland
             {
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(desired), turnSpeed * Time.deltaTime);
             }
-            verticalVelocity = controller.isGrounded ? -1f : verticalVelocity + Physics.gravity.y * Time.deltaTime;
-            controller.Move((desired * speed + Vector3.up * verticalVelocity) * Time.deltaTime);
+            if (controller.isGrounded && verticalVelocity < 0) verticalVelocity = -1f;
+            if (Time.frameCount > actionBlockedUntil && controller.isGrounded && GameInput.JumpPressed())
+                verticalVelocity = Mathf.Sqrt(2f * Mathf.Abs(Physics.gravity.y) * jumpHeight);
+            verticalVelocity += Physics.gravity.y * Time.deltaTime;
+            var collision = controller.Move((desired * speed + Vector3.up * verticalVelocity) * Time.deltaTime);
+            if ((collision & CollisionFlags.Above) != 0 && verticalVelocity > 0) verticalVelocity = 0;
         }
     }
 
@@ -95,6 +108,7 @@ namespace BreathIsland
         public Transform target;
         public bool firstPerson;
         public bool homeView;
+        public bool homeOverview;
         public bool allowLook = true;
         private float yaw = 20f;
         private float pitch = 20f;
@@ -105,8 +119,9 @@ namespace BreathIsland
             if (target == null) return;
             if (homeView)
             {
-                transform.position = HousingSystem.InteriorOrigin + new Vector3(4, 13, -3);
-                transform.LookAt(HousingSystem.InteriorOrigin + new Vector3(4, 0, 4));
+                InteriorCameraFraming.Pose(RoomLayoutDefinition.Default,target.position,homeOverview,out var position,out var focus);
+                transform.position = position;
+                transform.LookAt(focus);
                 velocity = Vector3.zero;
                 return;
             }

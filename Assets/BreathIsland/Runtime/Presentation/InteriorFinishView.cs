@@ -17,11 +17,12 @@ namespace BreathIsland
         {
             var wall = system.Resolve(system.WallId, FinishSurface.Wall).material;
             var floor = system.Resolve(system.FloorId, FinishSurface.Floor).material;
-            bool tiles = system.FloorId == "tiles";
-            if (subfloor != null) subfloor.localPosition = subfloorPosition + (tiles ? Vector3.up * .03f : Vector3.zero);
+            // Continuous authored finish avoids hundreds of overlapping thin slats and
+            // tiny colormap details shimmering when the larger room is seen at an angle.
+            if (subfloor != null) subfloor.localPosition = subfloorPosition + Vector3.up * .03f;
             foreach (Transform part in room)
             {
-                if (part.name == "planks") part.gameObject.SetActive(!tiles);
+                if (part.name == "planks") part.gameObject.SetActive(false);
                 Material material = part.name.StartsWith("wall-") ? wall : part.name == "planks" || part.name == "Subfloor" ? floor : null;
                 if (material == null) continue;
                 foreach (var renderer in part.GetComponentsInChildren<Renderer>())

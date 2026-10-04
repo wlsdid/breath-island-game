@@ -5,6 +5,7 @@ namespace BreathIsland
     {
         private Animator animator;
         private Vector3 previous;
+        private ThirdPersonMotor motor;
         public void Initialize(IslandLifeCatalog catalog)
         {
             foreach (Transform child in transform) if (child.name == "Hero Visual") { child.gameObject.SetActive(false); Destroy(child.gameObject); }
@@ -15,11 +16,16 @@ namespace BreathIsland
             animator.avatar = catalog.characterAvatar;
             animator.runtimeAnimatorController = catalog.animator; animator.applyRootMotion = false;
             previous = transform.position;
+            motor = GetComponent<ThirdPersonMotor>();
         }
         private void LateUpdate()
         {
             if (animator != null && animator.runtimeAnimatorController != null)
-                animator.SetFloat("Speed", Vector3.Distance(previous, transform.position) / Mathf.Max(Time.deltaTime, .001f));
+            {
+                animator.SetFloat("Speed", Vector3.ProjectOnPlane(transform.position - previous, Vector3.up).magnitude / Mathf.Max(Time.deltaTime, .001f));
+                animator.SetBool("Airborne", motor != null && motor.CanMove && !motor.Grounded);
+                animator.SetFloat("VerticalSpeed", motor != null ? motor.VerticalVelocity : 0);
+            }
             previous = transform.position;
         }
     }

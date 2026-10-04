@@ -964,8 +964,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 675665867884675073
-    m_Localized: "WASD \uC774\uB3D9 \xB7 \uAC00\uAD6C\uB97C \uBC14\uB77C\uBCF4\uACE0
-      E\uB85C \uC0AC\uC6A9"
+    m_Localized: "WASD \uC774\uB3D9 \xB7 Space \uC810\uD504 \xB7 \uAC00\uAD6C\uB97C
+      \uBC14\uB77C\uBCF4\uACE0 E\uB85C \uC0AC\uC6A9"
     m_Metadata:
       m_Items: []
   - m_Id: 675665867884675074
@@ -1042,6 +1042,23 @@ MonoBehaviour:
   - m_Id: 675665867884675091
     m_Localized: "\uC62E\uAE38 \uC218 \uC788\uB294 \uBB3C\uAC74\uC774\uB098 \uBE48
       \uACF5\uAC04\uC774 \uC5C6\uC5B4\uC694."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 676905372583149568
+    m_Localized: "\uAC00\uBC29"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 676905372654452736
+    m_Localized: "\uC885\uB958\uBCC4\uB85C \uC815\uB9AC"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 676905372654452737
+    m_Localized: "\uBE48 \uC790\uB9AC\n\uBB3C\uAC74\uC744 \uB04C\uC5B4\uB2E4 \uB193\uC544\uBCF4\uC138\uC694."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 676905372654452738
+    m_Localized: "\uB04C\uC5B4\uC11C \uC774\uB3D9 \xB7 \uB2E4\uB978 \uBB3C\uAC74
+      \uC704\uC5D0 \uB193\uC73C\uBA74 \uC790\uB9AC \uAD50\uD658"
     m_Metadata:
       m_Items: []
   references:

@@ -130,7 +130,7 @@ namespace BreathIsland.Tests
         [Test] public void PlacementRejectsBoundsOverlapDoorAndCannotDuplicateFurniture()
         {
             phases.Set(GamePhase.Home); housing.Stock("bed").count = 2; housing.Select("bed");
-            housing.Move(7, 7); Assert.That(housing.Place(), Is.False);
+            housing.Move(RoomLayoutDefinition.Default.width-1, RoomLayoutDefinition.Default.depth-1); Assert.That(housing.Place(), Is.False);
             housing.Move(3, 0); Assert.That(housing.Place(), Is.False);
             housing.Move(0, 2); housing.Rotate(); Assert.That(housing.Place(), Is.True); Assert.That(housing.Place(), Is.False);
             Assert.That(housing.State.placed[0].turns, Is.EqualTo(1));

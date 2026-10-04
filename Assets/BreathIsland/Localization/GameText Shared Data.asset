@@ -991,6 +991,22 @@ MonoBehaviour:
     m_Key: home_storage_full
     m_Metadata:
       m_Items: []
+  - m_Id: 676905372583149568
+    m_Key: bag_tab_All
+    m_Metadata:
+      m_Items: []
+  - m_Id: 676905372654452736
+    m_Key: bag_sort
+    m_Metadata:
+      m_Items: []
+  - m_Id: 676905372654452737
+    m_Key: bag_empty_slot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 676905372654452738
+    m_Key: bag_drag_help
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

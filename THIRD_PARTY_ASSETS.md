@@ -44,3 +44,9 @@ Unity 패키지는 `Packages/manifest.json` 및 각 패키지 라이선스를 �
 ## 2026-10-01 보관 상자
 
 KayKit Dungeon Pack 1.0의 빈 일반 상자 본체·뚜껑 FBX 2종과 동봉 CC0 원문을 `Assets/BreathIsland/Art/ThirdParty/KayKit/Storage`에 선별했다. 출처는 사용자 제공 `design asset/KayKit Dungeon Pack 1.0.zip`, 저작자는 Kay Lousberg(www.kaylousberg.com)이다. 원본 모델·ZIP은 변경하지 않았으며 파일별 해시는 `Documentation/STORAGE_ASSET_SELECTION.json`에 기록한다. 상자 UI 아이콘과 기존 캐릭터의 앉기 자세 레이어는 프로젝트에서 직접 작성했다.
+
+## 2026-10-04 모델 기반 인벤토리 아이콘
+
+기존 KayKit 도구·무기·가구·자연 모델을 프로젝트의 `InventoryIconAuthoring`으로 렌더링하여 투명 PNG 아이콘을 작성했다. 원본 메시와 텍스처는 변경하지 않았다. 별도 외부 UI 그래픽을 사용하지 않는다.
+
+자원 아이콘용으로 사용자 제공 `KayKit_ResourceBits_1.0_FREE.zip`에서 Wood_Log_A, Stone_Chunks_Small FBX 두 개, resource_bits_texture.png와 License.txt만 선별했다. 동봉 라이선스는 Kay Lousberg의 CC0이며 상업 이용을 허용한다. 경로·SHA-256은 `Documentation/RESOURCE_ICON_SELECTION.json`에 기록한다. 재질은 아이콘 작성 중에만 사용하고 새 자원 종류·보상·게임 규칙은 추가하지 않는다.

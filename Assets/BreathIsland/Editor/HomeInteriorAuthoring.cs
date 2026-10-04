@@ -20,16 +20,21 @@ namespace BreathIsland.Editor
                 AssetDatabase.CreateAsset(material, Output + "Town.mat");
             }
             var root = new GameObject("Home Interior");
-            for (int x = 0; x < 4; x++) for (int z = 0; z < 4; z++)
+            var layout = RoomLayoutDefinition.Default;
+            int width = layout.width, depth = layout.depth;
+            for (int x = 0; x < width / 2; x++) for (int z = 0; z < depth / 2; z++)
                 Part(root.transform, "planks", new Vector3(1 + x * 2, -.08f, 1 + z * 2), new Vector3(2, .08f, 2), 0, material);
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < width / 2; i++)
             {
-                Part(root.transform, i == 1 || i == 2 ? "wall-wood-window-small" : "wall-wood", new Vector3(1 + i * 2, 0, 8.1f), new Vector3(2, 1.8f, .2f), 0, material);
+                Part(root.transform, i % 3 == 1 ? "wall-wood-window-small" : "wall-wood", new Vector3(1 + i * 2, 0, depth+.1f), new Vector3(2, 2.7f, .2f), 0, material);
+            }
+            for (int i = 0; i < depth / 2; i++)
+            {
                 Part(root.transform, "wall-wood", new Vector3(-.1f, 0, 1 + i * 2), new Vector3(2, .85f, .2f), 90, material);
-                Part(root.transform, "wall-wood", new Vector3(8.1f, 0, 1 + i * 2), new Vector3(2, .85f, .2f), 90, material);
+                Part(root.transform, "wall-wood", new Vector3(width+.1f, 0, 1 + i * 2), new Vector3(2, .85f, .2f), 90, material);
             }
             var floor = new GameObject("Floor Collision"); floor.transform.SetParent(root.transform, false);
-            var box = floor.AddComponent<BoxCollider>(); box.center = new Vector3(4, -.15f, 4); box.size = new Vector3(8, .3f, 8);
+            var box = floor.AddComponent<BoxCollider>(); box.center = new Vector3(width/2f, -.15f, depth/2f); box.size = new Vector3(width, .3f, depth);
             var backingMaterial = AssetDatabase.LoadAssetAtPath<Material>(Output + "FloorBacking.mat");
             if (backingMaterial == null)
             {
@@ -38,16 +43,28 @@ namespace BreathIsland.Editor
                 AssetDatabase.CreateAsset(backingMaterial, Output + "FloorBacking.mat");
             }
             var backing = GameObject.CreatePrimitive(PrimitiveType.Cube); backing.name = "Subfloor";
-            backing.transform.SetParent(root.transform, false); backing.transform.localPosition = new Vector3(4, -.17f, 4);
-            backing.transform.localScale = new Vector3(8, .28f, 8);
+            backing.transform.SetParent(root.transform, false); backing.transform.localPosition = new Vector3(width/2f, -.17f, depth/2f);
+            backing.transform.localScale = new Vector3(width, .28f, depth);
             Object.DestroyImmediate(backing.GetComponent<Collider>());
             backing.GetComponent<Renderer>().sharedMaterial = backingMaterial;
+            Boundary(root.transform, new Vector3(-.15f, 1.5f, depth/2f), new Vector3(.3f,3,depth+.6f));
+            Boundary(root.transform, new Vector3(width+.15f, 1.5f, depth/2f), new Vector3(.3f,3,depth+.6f));
+            Boundary(root.transform, new Vector3(width/2f, 1.5f, depth+.15f), new Vector3(width,3,.3f));
+            Boundary(root.transform, new Vector3(width/2f, 1.5f, -.15f), new Vector3(width,3,.3f));
+            // A visible threshold keeps the existing saved arrival coordinates readable.
+            var threshold=Part(root.transform, "planks", new Vector3(layout.arrival.x, .01f, .05f), new Vector3(1.8f, .04f, .3f), 0, material);
+            threshold.name="Entrance Threshold";
             PrefabUtility.SaveAsPrefabAsset(root, Output + "HomeInterior.prefab"); Object.DestroyImmediate(root);
             root = new GameObject("Home Doorway");
             Part(root.transform, "wall-wood-doorway-square", Vector3.zero, new Vector3(1.6f, 2, .25f), 0, material);
             Part(root.transform, "wall-wood-door", new Vector3(0, .02f, .02f), new Vector3(.95f, 1.7f, .12f), 0, material);
             PrefabUtility.SaveAsPrefabAsset(root, Output + "HomeDoorway.prefab"); Object.DestroyImmediate(root);
             AssetDatabase.SaveAssets();
+        }
+        private static void Boundary(Transform parent, Vector3 center, Vector3 size)
+        {
+            var obj = new GameObject("Walking bounds"); obj.transform.SetParent(parent,false);
+            var collider = obj.AddComponent<BoxCollider>(); collider.center = center; collider.size = size;
         }
         public static Transform Part(Transform parent, string name, Vector3 position, Vector3 size, float yaw, Material material)
         {

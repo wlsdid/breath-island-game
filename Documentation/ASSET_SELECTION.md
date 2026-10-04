@@ -90,3 +90,7 @@
 ## 2026-10-01 실내 보관 상자
 
 KayKit Dungeon Pack 1.0의 `Models/fbx/chest_common_empty.fbx`와 `chestTop_common.fbx`를 별도 Storage 폴더로 선별했다. 내용물이 없는 본체와 뚜껑을 StorageChest 프리팹으로 조립하고 자체 목재색 URP 재질을 사용한다. 동봉 CC0 라이선스는 상업 사용을 허용한다. 원본 ZIP·FBX는 수정하지 않았다. 1×1 점유·0.85m 높이의 게임 정의와 자체 선화 아이콘을 사용한다. 상자별 16칸 보관 규칙은 Housing 기능에 있으며 모델에는 게임 규칙이 없다. 파일 경로·해시는 `STORAGE_ASSET_SELECTION.json`에 기록한다.
+
+## 2026-10-04 아이콘 표현
+
+기존 도구 3종·무기 6종·가구 9종의 실제 모델과 게임 재질로 아이콘을 렌더링했다. Resource Bits의 Wood_Log_A·Stone_Chunks_Small, 공용 텍스처와 CC0 문서를 선별하여 나무·돌 아이콘에 사용한다. 약초는 기존 Bush 모델에서 렌더링한다. 새 자원 콘텐츠나 보상은 없다. 파생 PNG는 Resources/UI/ItemIcons, 작성 명령은 InventoryIconAuthoring.Build이며 원본 ZIP·FBX는 보존한다. 세부 출처·해시는 RESOURCE_ICON_SELECTION.json에 있다.
