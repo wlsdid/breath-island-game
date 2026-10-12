@@ -49,7 +49,7 @@
     "height": 720,
     "fps": 30,
     "audio": "None",
-    "sha256": "94BBE947A477AAA3B4560C9EBD3CA686456089F1F6E08CDD627D583833A8A8E0",
+    "sha256": "E0168A5B3BFD3A8F6CE092D2B1B879D1F72674C114670A37C2285DF9AC80EEE2",
     "sources": [
       {
         "endSeconds": 270,
@@ -69,5 +69,5 @@
   },
   "images": "Editor Play Mode, synthetic save, authored capture camera",
   "saves": "Synthetic fixtures; real user saves not accessed",
-  "notion": "Not modified in this follow-up at user request; Claude handoff stored in Documentation/Portfolio/CLAUDE_HANDOFF.md"
+  "notion": "Project page updated by Claude on 2026-10-12 with the indoor video"
 }

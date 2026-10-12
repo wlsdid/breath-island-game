@@ -22,11 +22,11 @@ Unity 6 / URP / C# / Windows. 현재 단계는 플레이 가능한 프로토타�
 
 이미지: 2026-10-12 Unity Editor Play Mode, 합성 시연 저장, 1920×1080. 마을·채집·낚시는 촬영 카메라 구도를 사용했다. Windows 입력 검증과 구분한다.
 
-## 본인 기여와 AI 활용
+## 역할
 
-본인 역할은 게임 규칙과 범위 결정, UI·공간 디자인 방향 설정, 직접 플레이 검수다. 생활 도구와 무기 직업 분리, 가방 중심 조작, 기본 침대 지급, 이동 속도·채집 횟수·실내 크기 등의 조건을 정했다. 화면 시안을 검토하고 접지·나무 방향·도끼 자세와 동작의 문제를 구체적으로 전달했다.
+역할은 게임 규칙과 범위 결정, UI·공간 디자인 방향 설정, 직접 플레이 검수다. 생활 도구와 무기 직업 분리, 가방 중심 조작, 기본 침대 지급, 이동 속도·채집 횟수·실내 크기 등의 조건을 정했다. 화면 시안을 검토하고 접지·나무 방향·도끼 자세와 동작의 문제를 구체적으로 전달했다.
 
-코드 작성·리팩터링·자동 검사와 문서 정리에는 Codex 등 AI 도구를 활용했다. 전체 코드를 직접 작성한 프로젝트로 소개하지 않는다. 아래 구조 설명은 구현 근거를 정리한 내용이며, 설명을 읽었다는 사실만으로 기술 숙련을 입증하지 않는다.
+구현은 Codex · Claude를 활용했다.
 
 ## 문제 해결 1 — 위치와 자세를 나누어 검수
 
@@ -36,9 +36,9 @@ Unity 6 / URP / C# / Windows. 현재 단계는 플레이 가능한 프로토타�
 
 **구현:** 지형의 기본 CapsuleCollider를 표시 표면에 맞는 MeshCollider로 교체했다. FBX 원본 축 보정을 보존하고, 스킨 메시의 실제 형상으로 발 위치를 맞췄다. 손·팔 기준 회전을 사용해 도구 동작의 누적 회전을 막았다.
 
-**근거:** `1860d8a`, `6c062a6`; [ModelPresentation](../Assets/BreathIsland/Runtime/Presentation/ModelPresentation.cs), [ToolSwing](../Assets/BreathIsland/Runtime/Presentation/ToolSwing.cs), [CharacterLocomotionTests](../Assets/BreathIsland/Tests/PlayMode/CharacterLocomotionTests.cs), [WorldMovementTests](../Assets/BreathIsland/Tests/PlayMode/WorldMovementTests.cs). 이전 사용자 확인과 최신 실행 파일 확인은 [검증 기록](VALIDATION.md)에서 구분한다. 수정 전 영상을 새로 만든 재현 화면으로 대체하지 않는다.
+**근거:** `1860d8a`, `6c062a6`; [ModelPresentation](../Assets/BreathIsland/Runtime/Presentation/ModelPresentation.cs), [ToolSwing](../Assets/BreathIsland/Runtime/Presentation/ToolSwing.cs), [CharacterLocomotionTests](../Assets/BreathIsland/Tests/PlayMode/CharacterLocomotionTests.cs), [WorldMovementTests](../Assets/BreathIsland/Tests/PlayMode/WorldMovementTests.cs).
 
-포트폴리오 검증 중 Windows 낚시 화면에서 머리·몸체가 1인칭 카메라를 가리는 현상도 발견했다. FirstPersonBodyView로 플레이어 몸체 표현만 숨기고 탐험 복귀 시 원래 표시 상태를 복원한다. 이동·충돌과 NPC 표현을 끄지 않는 회귀 검사를 추가했다.
+시연 준비 중 Windows 낚시 화면에서 머리·몸체가 1인칭 카메라를 가리는 현상도 발견했다. FirstPersonBodyView로 플레이어 몸체 표현만 숨기고 탐험 복귀 시 원래 표시 상태를 복원한다. 이동·충돌과 NPC 표현을 끄지 않는 회귀 검사를 추가했다.
 
 ## 문제 해결 2 — 가방에서 시작하는 조작
 
@@ -75,10 +75,10 @@ flowchart TD
 
 UI는 저장 수량을 직접 변경하지 않는다. 콘텐츠는 실제 ScriptableObject, 문구는 한국어·영어 Localization 테이블을 사용한다. 모델은 KayKit·Kenney, 서체는 Gaegu·Gowun Dodum을 사용했다. [외부 에셋과 라이선스](../THIRD_PARTY_ASSETS.md)를 별도로 기록했다.
 
-## 실행·시연과 현재 한계
+## 실행·시연
 
-[실내 실제 플레이 영상](Portfolio/Video/breath-island-indoor-demo.mp4)은 Windows 실행 화면으로 제작·배치·회전·집 편집·저장 복원을 보여준다(3분 56초). 합성 시연 저장과 별도 촬영 구간을 영상에 명시했다. 바다·채집 영상은 사용자 요청으로 제외했다. 본인 역할은 기획·디자인 판단·직접 플레이 검수이며 코드 구현과 자동 검증·영상 편집에는 AI를 활용했다.
+[실내 실제 플레이 영상](Portfolio/Video/breath-island-indoor-demo.mp4)은 Windows 실행 화면으로 제작·배치·회전·집 편집·저장 복원을 보여준다(3분 56초). 시연용 저장 데이터를 사용했고, 마지막 구간은 게임을 다시 켜고 불러온 화면이다.
 
-[시연 가이드](Portfolio/DEMO.md)와 [최신 검증 기록](VALIDATION.md)을 함께 제공한다. 촬영용 저장은 자원·배치 가구가 준비된 합성 데이터이며 일반 새 게임을 의미하지 않는다. 테스트, Editor 렌더링, Windows 직접 입력은 서로 다른 근거다.
+[시연 가이드](Portfolio/DEMO.md)와 [최신 검증 기록](VALIDATION.md)을 함께 제공한다.
 
 Steam 연동, 장시간 플레이 완성도, 저사양 성능 목표와 실제 게임패드는 완료 항목이 아니다. 출시 수준의 완성도는 장기 목표이며 본 포트폴리오의 시연 완료와 구분한다.

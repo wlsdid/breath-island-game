@@ -42,11 +42,10 @@ def main():
                           ",".join(text(line, y, size, font) for line, y, size, font in lines), name)
 
         parts = [card("intro", 12, [
-            ("숨결섬 · 실내 생활 시연", 170, 60, TITLE),
+            ("숨결섬 실내 생활 시연", 170, 60, TITLE),
             ("가방 → 제작 → 배치·회전 → 집 편집 → 저장 복원", 290, 28, FONT),
-            ("본인 역할: 기획 · 디자인 판단 · 직접 플레이 검수", 370, 26, FONT),
-            ("AI 지원: 코드 구현 · 자동 검증 · 문서·영상 정리", 415, 26, FONT),
-            ("Windows 실제 실행 / 별도 시연 저장 / 대기 구간 생략", 500, 25, FONT),
+            ("기획 · UI 디자인 · 플레이 테스트", 390, 26, FONT),
+            ("Windows 실행 화면 · 시연용 저장 데이터", 470, 25, FONT),
         ])]
         framing = "scale=1152:648,pad=1280:720:64:0:color=0x183F43,setsar=1"
         labels = [
@@ -60,15 +59,14 @@ def main():
         parts.append(encode(["-ss", "80", "-i", home, "-t", "190"], ",".join(filters), "home"))
         parts.append(card("transition", 5, [
             ("재실행 후 저장 복원", 270, 54, TITLE),
-            ("별도로 촬영한 구간 · 연속 플레이가 아닙니다", 370, 27, FONT),
+            ("게임을 다시 켜고 슬롯 1 불러오기", 370, 27, FONT),
         ]))
         parts.append(encode(["-i", restore, "-t", "19"], framing + "," + text("재실행된 실내 · 슬롯 1 불러오기 → 이동 / 의자와 벽 유지", 675, 23), "restore"))
         parts.append(card("outro", 10, [
-            ("검증 범위와 남은 한계", 180, 54, TITLE),
-            ("제작 · 회전 배치 · 집 편집 취소/적용 · 저장 복원", 290, 28, FONT),
-            ("Edit Mode 98/98 · Play Mode 32/32 + 후속 회귀 11/11", 360, 25, FONT),
-            ("Windows Mono 빌드 성공 · 실물 게임패드 미검증", 405, 25, FONT),
-            ("바다·채집 영상은 이번 편집에서 제외 · 자세한 근거는 VALIDATION.md", 500, 24, FONT),
+            ("숨결섬", 200, 60, TITLE),
+            ("제작 · 회전 배치 · 집 편집 취소/적용 · 저장 복원", 310, 28, FONT),
+            ("Edit Mode 98 · Play Mode 32 테스트 통과 · Windows 빌드", 380, 25, FONT),
+            ("github.com/wlsdid/breath-island-game", 470, 24, FONT),
         ]))
         concat = folder / "concat.txt"
         concat.write_text("\n".join(f"file '{p.as_posix()}'" for p in parts), encoding="utf-8")

@@ -222,4 +222,4 @@ Play Mode HUD 테스트에는 실제 Game View가 필요하므로 `-batchmode`�
 
 도구 한계: 자동화 키와 필드 클릭이 게임 입력에 반영되지 않아 직접 입력을 요청했다. GDI 방식의 초기 영상은 첫 화면만 반복해 최종 편집에서 제외했다. 물리 Escape로 화면 자동화가 중단되어 추가 직접 검증은 하지 않았다. **최신 Windows 전체 핵심 루프, 모든 언어·해상도, 수동 슬롯 2/3 직접 조작, 실물 게임패드는 미검증**이다. 네 저장 슬롯 및 v1~v4 호환성은 앞선 자동 테스트 결과와 구분한다.
 
-최종 영상: [실내 실제 플레이](Portfolio/Video/breath-island-indoor-demo.mp4). Notion용 변경 근거는 [Claude 전달 자료](Portfolio/CLAUDE_HANDOFF.md)에만 기록했다.
+최종 영상: [실내 실제 플레이](Portfolio/Video/breath-island-indoor-demo.mp4).
