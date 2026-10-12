@@ -41,8 +41,33 @@
     "result": "Succeeded",
     "exeSha256": "E8BB8F9DFE2A039CE0B2123DA1B65F48FE68FF838147361B468A559F43A27A66"
   },
-  "nativeInput": "User confirmed F opens fishing. Found first-person body clipping; fix passed regression and rebuild. User stopped computer use with Escape before native recheck.",
-  "video": "Incomplete: user stopped computer use; raw recordings are not a finished demo",
+  "nativeInput": "Windows first-person clipping fix visually confirmed. User performed fishing and harvesting; UI sale/crafting/rotated placement/construction cancellation and commit confirmed with isolated saves. Restarted player restored the room; separate footage shows slot 1 load and movement. Latest full loop, all locales/resolutions, manual slots 2/3 and physical gamepad remain unverified.",
+  "video": {
+    "path": "Documentation/Portfolio/Video/breath-island-indoor-demo.mp4",
+    "durationSeconds": 236,
+    "width": 1280,
+    "height": 720,
+    "fps": 30,
+    "audio": "None",
+    "sha256": "94BBE947A477AAA3B4560C9EBD3CA686456089F1F6E08CDD627D583833A8A8E0",
+    "sources": [
+      {
+        "endSeconds": 270,
+        "sha256": "8D690CAB4D187E3237FC97D19E163CDBF46A14CBCBDE9F450B0535D99113F262",
+        "startSeconds": 80,
+        "path": "Builds/Portfolio/windows-home-gamebar.mp4"
+      },
+      {
+        "endSeconds": 19,
+        "sha256": "5A905E660897F08EACE88A987112623AC180829BB427BBC7D07BD3B57C0A9DE3",
+        "startSeconds": 0,
+        "path": "Builds/Portfolio/windows-home-restore.mp4"
+      }
+    ],
+    "validation": "Full decode passed; contact sheets and title/transition frames reviewed",
+    "scope": "Indoor Windows gameplay. Sea and harvesting footage excluded by user request. Prepared save and separate restart footage disclosed."
+  },
   "images": "Editor Play Mode, synthetic save, authored capture camera",
-  "saves": "Synthetic fixtures; real user saves not accessed"
+  "saves": "Synthetic fixtures; real user saves not accessed",
+  "notion": "Not modified in this follow-up at user request; Claude handoff stored in Documentation/Portfolio/CLAUDE_HANDOFF.md"
 }
