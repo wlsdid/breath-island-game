@@ -41,6 +41,7 @@ namespace BreathIsland
                 ui.Button(new Rect(x+27,590,151,46),context.Text("life_rotate"),()=>housing.Rotate());
                 ui.Button(new Rect(x+189,590,151,46),context.Text("life_cancel"),()=>housing.Cancel());
                 ui.Button(new Rect(x+27,650,313,54),context.Text("life_place"),()=>housing.Place(),primaryButtonStyle,housing.IsValid);
+                ui.Label(new Rect(x+20,707,335,43),context.Text(housing.IsValid?"place_ready":"place_blocked"),smallStyle);
             }
             else
             {

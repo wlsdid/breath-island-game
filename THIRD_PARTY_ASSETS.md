@@ -1,5 +1,11 @@
 # Third-party asset register
 
+## 포트폴리오 표시 정리 — 2026-10-12
+
+새 게임 아트·폰트 반입 없음. 기존 Kenney road 모델에 프로젝트 작성 VillagePath URP 재질을 적용했다. 모델·충돌·배치 좌표는 유지한다. 대표 화면에는 아래 등록된 KayKit·Kenney 모델과 Gaegu·Gowun Dodum 서체가 포함된다. UI 색·문양과 레이아웃 작성, 기존 팩의 모델 제작 기여를 구분한다.
+
+녹화용 imageio-ffmpeg 0.6.0/FFmpeg 도구는 Git 제외 Builds/Portfolio/Tools에만 설치했다. 게임 실행 파일이나 소스 에셋에 포함하지 않으며 제3자 실행 도구 자체를 재배포하지 않는다.
+
 Unity 패키지는 `Packages/manifest.json` 및 각 패키지 라이선스를 따른다. 아래 아트는 사용자가 제공한 `design asset/` 압축파일에서 선별했다. 원본 압축파일은 수정하지 않았다.
 
 외부 에셋을 추가할 때 아래 항목을 반드시 기록합니다.

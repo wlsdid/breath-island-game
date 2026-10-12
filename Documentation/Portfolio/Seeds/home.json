@@ -1,0 +1,145 @@
+{
+    "version": 5,
+    "savedAtUtcTicks": 639273795609407648,
+    "player": {
+        "x": 45.0,
+        "y": 1.100000023841858,
+        "z": 2.0,
+        "hour": 9,
+        "boatUnlocked": false,
+        "endingSeen": false
+    },
+    "inventory": {
+        "coins": 72,
+        "materials": 4,
+        "bait": 8,
+        "discoveredFish": [],
+        "displayedFish": [],
+        "totalCatchCount": 0,
+        "slotOrder": []
+    },
+    "relationships": {
+        "nari": 0.0,
+        "maru": 0.0
+    },
+    "facilities": {
+        "boatyard": 0,
+        "aquarium": 0
+    },
+    "world": {
+        "weather": "Clear",
+        "day": 1,
+        "coralRouteUnlocked": false
+    },
+    "equipment": {
+        "weaponId": "",
+        "tool": 0,
+        "mastery": [],
+        "achievements": []
+    },
+    "resources": {
+        "wood": 30,
+        "stone": 8,
+        "herbs": 2,
+        "totalWood": 0,
+        "totalStone": 0,
+        "totalHerbs": 0,
+        "craftedFurniture": 0,
+        "woodHarvests": 0,
+        "stoneHarvests": 0,
+        "herbHarvests": 0,
+        "harvested": []
+    },
+    "housing": {
+        "structure": {
+            "customized": false,
+            "cells": [],
+            "walls": []
+        },
+        "wallFinishId": "wood_dark",
+        "floorFinishId": "planks_light",
+        "inside": true,
+        "outdoorPosition": {
+            "x": 4.0,
+            "y": 0.6499999761581421,
+            "z": 4.0
+        },
+        "placed": [
+            {
+                "instanceId": "portfolio-bed",
+                "furnitureId": "bed",
+                "x": 1,
+                "z": 5,
+                "turns": 0
+            },
+            {
+                "instanceId": "portfolio-cabinet",
+                "furnitureId": "cabinet",
+                "x": 1,
+                "z": 10,
+                "turns": 0
+            },
+            {
+                "instanceId": "portfolio-shelf",
+                "furnitureId": "shelf",
+                "x": 5,
+                "z": 10,
+                "turns": 0
+            },
+            {
+                "instanceId": "portfolio-couch",
+                "furnitureId": "couch",
+                "x": 7,
+                "z": 7,
+                "turns": 0
+            },
+            {
+                "instanceId": "portfolio-table_low",
+                "furnitureId": "table_low",
+                "x": 7,
+                "z": 5,
+                "turns": 0
+            },
+            {
+                "instanceId": "portfolio-lamp",
+                "furnitureId": "lamp",
+                "x": 11,
+                "z": 7,
+                "turns": 0
+            },
+            {
+                "instanceId": "portfolio-table",
+                "furnitureId": "table",
+                "x": 4,
+                "z": 4,
+                "turns": 0
+            },
+            {
+                "instanceId": "portfolio-chair",
+                "furnitureId": "chair",
+                "x": 4,
+                "z": 6,
+                "turns": 0
+            },
+            {
+                "instanceId": "portfolio-chest",
+                "furnitureId": "chest",
+                "x": 1,
+                "z": 3,
+                "turns": 0
+            }
+        ],
+        "stock": [
+            {
+                "id": "chair",
+                "count": 1
+            },
+            {
+                "id": "lamp",
+                "count": 1
+            }
+        ],
+        "chests": [],
+        "starterBedGranted": true
+    }
+}

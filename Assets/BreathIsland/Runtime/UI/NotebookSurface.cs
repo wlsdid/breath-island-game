@@ -10,7 +10,7 @@ namespace BreathIsland
     // Retained uGUI nodes are reconciled in place, never rebuilt per frame.
     public sealed class NotebookSurface : IDisposable
     {
-        public static readonly Color Ink = new(.12f,.27f,.28f), Paper = new(.98f,.95f,.86f), Sea = new(.25f,.57f,.56f), Coral = new(.80f,.34f,.25f);
+        public static readonly Color Ink = new(.12f,.27f,.28f), Paper = new(.98f,.95f,.86f), Sea = new(.16f,.43f,.44f), Coral = new(.70f,.26f,.18f);
         private readonly GameObject root;
         private readonly RectTransform content;
         private readonly List<GameObject> nodes = new();
@@ -82,8 +82,8 @@ namespace BreathIsland
         private void SetLabel(GameObject node,string value,NotebookStyle style,Font font=null)
         {
             var text=node.GetComponentInChildren<Text>(true);text.gameObject.SetActive(true);text.text=value;text.font=font??(style==NotebookStyle.Title?titleFont:bodyFont);
-            text.fontSize=style==NotebookStyle.Title?42:style==NotebookStyle.Small?18:22;
-            text.resizeTextForBestFit=true;text.resizeTextMinSize=style==NotebookStyle.Title?24:16;text.resizeTextMaxSize=text.fontSize;
+            text.fontSize=style==NotebookStyle.Title?42:style==NotebookStyle.Small?22:24;
+            text.resizeTextForBestFit=true;text.resizeTextMinSize=style==NotebookStyle.Title?26:20;text.resizeTextMaxSize=text.fontSize;
             text.color=style==NotebookStyle.Light?Paper:Ink;text.alignment=style==NotebookStyle.Center||style==NotebookStyle.Light?TextAnchor.MiddleCenter:TextAnchor.MiddleLeft;
             text.horizontalOverflow=HorizontalWrapMode.Wrap;text.verticalOverflow=VerticalWrapMode.Truncate;
             text.rectTransform.offsetMin=new Vector2(14,3);text.rectTransform.offsetMax=new Vector2(-14,-3);

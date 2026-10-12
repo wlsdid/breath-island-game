@@ -14,9 +14,12 @@ namespace BreathIsland
             else if(life?.Land.Nearby!=null)
             {
                 var node=life.Land.Nearby;
-                prompt=life.Land.Depleted(node.id)?context.Text("life_depleted"):string.Format(context.Text(node.tool==LifeTool.None?(node.gatherSeconds>0?"bag_gather_hold":"bag_gather_hint"):"bag_tool_hint"),context.Text(node.nameKey),context.Text("life_tool_"+node.tool));
-                if(!life.Land.Depleted(node.id) && life.Land.Progress(node)>0)
-                    ui.Meter(new Rect(width/2-180,height-57,360,10),"",life.Land.Progress(node)*100,NotebookSurface.Sea);
+                prompt=GatheringHint.Text(context,life,node);
+                if(!life.Land.Depleted(node.id))
+                {
+                    ui.Panel(new Rect(width/2-220,height-74,440,58));
+                    ui.Meter(new Rect(width/2-180,height-37,360,10),GatheringHint.Progress(context,life.Land,node),life.Land.Progress(node)*100,NotebookSurface.Sea);
+                }
             }
             else if(relationships.NearbyNpc().HasValue)prompt=context.Text("bag_talk_hint");
             else if(Vector3.Distance(context.World.player.transform.position,context.World.fishingPoint)<7.5f)prompt=context.Text("bag_fish_hint");

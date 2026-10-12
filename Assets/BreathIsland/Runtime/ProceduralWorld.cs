@@ -31,6 +31,7 @@ namespace BreathIsland
             BuildSeaLife(parent);
             handles.player = BuildChildCharacter("Player", new Vector3(0f, 1.2f, 4f), new Color(.96f, .88f, .67f), new Color(.2f, .55f, .72f), parent);
             handles.motor = handles.player.AddComponent<ThirdPersonMotor>();
+            handles.player.AddComponent<FirstPersonBodyView>();
             var cameraObject = new GameObject("Gameplay Camera", typeof(Camera), typeof(AudioListener), typeof(IslandCameraRig));
             cameraObject.transform.SetParent(parent);
             handles.camera = cameraObject.GetComponent<Camera>();

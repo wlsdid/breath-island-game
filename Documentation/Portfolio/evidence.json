@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-12",
+  "unity": "6000.5.4f1",
+  "platform": "Windows x64 Mono",
+  "tests": [
+    {
+      "path": "Builds/editmode-results.xml",
+      "result": "Passed",
+      "total": 98,
+      "failed": 0,
+      "passed": 98,
+      "sha256": "E1FE8A0806CD8955BF93674A9481E554BD19239DF3D212099B3BB0A9C47D9344"
+    },
+    {
+      "path": "Builds/playmode-results.xml",
+      "result": "Passed",
+      "total": 32,
+      "failed": 0,
+      "passed": 32,
+      "sha256": "319C45430069494D6D93511982722F45364DAB5373D3EAD7522BE08965EACE8C"
+    },
+    {
+      "path": "Builds/Portfolio/final-ui.xml",
+      "result": "Passed",
+      "total": 7,
+      "failed": 0,
+      "passed": 7,
+      "sha256": "5A224DE8BBDCA62A3472EEED3EE96D5BA4045FAA9A4E09D65FA36B367612E427"
+    },
+    {
+      "path": "Builds/Portfolio/camera-regression.xml",
+      "failed": 0,
+      "total": 11,
+      "passed": 11,
+      "result": "Passed",
+      "sha256": "28D98C8F8B100B4329A6EFF0C9C3A8B9A980995ABC15D43CF63B71631035F65A"
+    }
+  ],
+  "build": {
+    "logSha256": "492BE6140C3F3804CFAAE110DB2D61E564E4F6F04D0B091DE378B02CD86E20D7",
+    "result": "Succeeded",
+    "exeSha256": "E8BB8F9DFE2A039CE0B2123DA1B65F48FE68FF838147361B468A559F43A27A66"
+  },
+  "nativeInput": "User confirmed F opens fishing. Found first-person body clipping; fix passed regression and rebuild. User stopped computer use with Escape before native recheck.",
+  "video": "Incomplete: user stopped computer use; raw recordings are not a finished demo",
+  "images": "Editor Play Mode, synthetic save, authored capture camera",
+  "saves": "Synthetic fixtures; real user saves not accessed"
+}

@@ -25,6 +25,7 @@ namespace BreathIsland
             ui.Label(new Rect(left+20,597,335,52),string.Format(context.Text("build_cost"),system.WoodCost,context.Save.resources.wood),NotebookStyle.Small);
             ui.Button(new Rect(left+24,662,155,50),context.Text("build_apply"),()=>system.Apply(),NotebookStyle.Primary,context.Save.resources.wood>=system.WoodCost);
             ui.Button(new Rect(left+195,662,155,50),context.Text("life_cancel"),()=>system.Cancel());
+            ui.Label(new Rect(left+20,715,335,40),context.Text(context.Save.resources.wood>=system.WoodCost?"build_preview_only":"build_need_wood"),NotebookStyle.Small);
         }
     }
 }

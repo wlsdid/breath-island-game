@@ -1,5 +1,9 @@
 # 숨결섬 (가제)
 
+[포트폴리오 소개·문제 해결 사례](Documentation/PORTFOLIO.md) · [격리 시연 실행](Documentation/Portfolio/DEMO.md)
+
+기획·디자인 방향·직접 플레이 검수와 AI 지원 구현을 구분해 기록한 프로젝트입니다. 현재는 개선 중인 프로토타입입니다.
+
 Unity 6000.5.4f1 기반 3D 섬 생활 게임 프로젝트입니다. 기존 바다 버티컬 슬라이스에 육지 채집, 무기별 직업·숙련도, 도전과제, 가구 제작·집 꾸미기를 연결합니다. 콘텐츠 에셋·Localization·화면 모듈 구조로 분리되어 있습니다.
 
 테스트·Windows 빌드·실행 화면 검증 결과는 [Documentation/VALIDATION.md](Documentation/VALIDATION.md)를 참고하세요.
@@ -45,7 +49,7 @@ MSVC C++ Build Tools와 Windows SDK가 설치된 출시 환경에서는 다음 �
 
 ## UI
 
-생활 수첩·여행 가방 컨셉의 자체 uGUI입니다. 개구 제목·버튼 서체와 고운돋움 본문, 직접 그린 아이콘·박음질·종이 라벨을 사용합니다. 전체 화면은 공통 디자인을 공유하며 자세한 기준은 [UI_DESIGN.md](Documentation/UI_DESIGN.md)에 기록합니다.
+생활 수첩·여행 가방 컨셉의 자체 uGUI입니다. 개구 제목·버튼 서체와 고운돋움 본문, 자체 선화와 제공 모델에서 렌더한 아이콘·박음질·종이 라벨을 사용합니다. 전체 화면은 공통 디자인을 공유하며 자세한 기준은 [UI_DESIGN.md](Documentation/UI_DESIGN.md)에 기록합니다.
 
 ## 코드 구조
 

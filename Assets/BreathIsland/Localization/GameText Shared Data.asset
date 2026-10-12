@@ -1047,6 +1047,30 @@ MonoBehaviour:
     m_Key: build_need_wood
     m_Metadata:
       m_Items: []
+  - m_Id: 679698259171557376
+    m_Key: gather_face_target
+    m_Metadata:
+      m_Items: []
+  - m_Id: 679698259280609280
+    m_Key: gather_hits
+    m_Metadata:
+      m_Items: []
+  - m_Id: 679698259280609281
+    m_Key: gather_seconds
+    m_Metadata:
+      m_Items: []
+  - m_Id: 679698259280609282
+    m_Key: place_ready
+    m_Metadata:
+      m_Items: []
+  - m_Id: 679698259280609283
+    m_Key: place_blocked
+    m_Metadata:
+      m_Items: []
+  - m_Id: 679698259280609284
+    m_Key: build_preview_only
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

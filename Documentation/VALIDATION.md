@@ -180,3 +180,26 @@ Play Mode HUD 테스트에는 실제 Game View가 필요하므로 `-batchmode`�
 
 - 비용 비교를 매 프레임 대신 편집 명령 성공 시에만 갱신하도록 변경한 후 건축 규칙 13/13 재통과(construction-cost.xml). 최종 Windows Mono 빌드 성공(Builds/build.log: Build Finished, Result: Success).
 - 현재 도구에는 Windows 네이티브 창 조작이 제공되지 않는다. 직접 입력용 Builds/Play-Construction-QA.cmd를 준비했다. 별도 ConstructionQA-* 합성 저장(실내 시작, 나무 30개, 침대·의자)을 사용하는 실행기이며 실제 사용자 저장을 읽거나 덮어쓰지 않는다. 실행기를 만든 것을 Windows 조작 통과로 기록하지 않는다.
+## 2026-10-12 포트폴리오 보완 — 현재 결과
+
+환경: Windows, Unity 6000.5.4f1, Windows Standalone x64 Mono. 아래 결과는 이번 실행이며 과거 기록과 구분한다.
+
+| 검증 | 결과와 근거 |
+|---|---|
+| 전체 Edit Mode | 98/98 통과. Builds/editmode-results.xml |
+| 전체 Play Mode | 32/32 통과. Builds/playmode-results.xml |
+| 화면 수정 후 관련 재검증 | 7/7 통과. Builds/Portfolio/final-ui.xml. 전체 실행 후 채집 안내 배경·건축 설명 길이·길 재질·촬영 구도를 보완하여 관련 화면만 재실행했다. |
+| 최종 Windows Mono | 성공. Builds/build.log의 Build Finished, Result: Success, 122.3 MB. |
+| 시연 저장 | village/sea/home/gather 합성 JSON. 각 배치 유효성과 자동 1개·수동 3개 복원 검사 통과. 기존 v1~v4 호환 검사는 전체 Edit Mode에 포함. |
+| 신규 안내 | 전방 이탈·잘못된 도구·1/3 진행 시 무보상·3회 완료 보상·소진 상태를 검사. UI는 상태를 읽기만 한다. |
+| 화면 | 기존 한·영 1280×720/1920×1080/2560×1080 가방·건축 렌더를 생성. 안내 설명 잘림과 배경 대비를 수정했다. 대표 6장은 1920×1080 Editor Play Mode와 촬영 구도로 생성했다. |
+| Windows 실행 | Play-Portfolio.ps1 -Scene sea로 격리 실행. 부두·캐릭터·HUD 표시를 확인했다. 자동화 F가 반영되지 않아 직접 입력 확인을 요청했다. 입력·전체 시연 통과로 처리하지 않는다. |
+| 보존 | 실제 사용자 저장을 사용하지 않음. 기존 Addressables·LocalizationSettings·PackageManagerSettings는 작업 전 해시와 동일. 원본 design asset 보존. |
+
+후속 사용자 확인: 실제 F 입력으로 Windows 낚시 준비 진입 확인. 이 화면에서 플레이어 머리·몸체의 카메라 관통을 발견했다. FirstPersonBodyView를 추가하고 카메라 전환·기존 핵심 루프·포트폴리오 화면 회귀 11/11 통과(Builds/Portfolio/camera-regression.xml). 1개 신규 테스트를 포함하므로 전체 Play Mode 32개 + 신규 1개에 통과 결과가 있으며 33개 전체를 한 번에 재실행한 것은 아니다. 검증용 프로세스는 정상 종료되었고 격리 자동 저장의 갱신을 확인했다.
+
+가림 수정 후 Windows Mono 재빌드 성공. 같은 격리 저장으로 재실행했으나 사용자의 물리 Escape 입력으로 화면 자동화가 중단되었다. 즉시 추가 앱 입력을 중단하고 녹화를 종료했다. 수정된 Windows 1인칭 화면과 완성 영상은 미검증·미완료로 남긴다.
+
+**남은 항목:** 최신 Windows 직접 이동·포획·채집·제작·배치·집 편집·종료 후 복원, 실물 게임패드, 최종 3~5분 플레이 영상. 실행 화면 녹화 준비나 대기 화면 녹화는 완성된 플레이 영상이 아니다. 시연 빌드와 설명·이미지는 준비했지만 포트폴리오 완료 조건 전체를 충족한 상태는 아니다.
+
+실행기는 매번 Builds/Portfolio/Sessions 아래 새로운 경로를 만들며 같은 세션의 Resume.cmd로 재실행한다. 원본 로그·테스트 XML은 Builds에, 결과 요약과 해시는 Documentation/Portfolio/evidence.json에 기록한다.
