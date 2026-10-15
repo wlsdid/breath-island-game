@@ -10,6 +10,7 @@ namespace BreathIsland
         private WorldHandles world;
         private GameObject rig, fish;
         private FishingRodView rod;
+        private FishingWaterEffects waterEffects;
         private LineRenderer line, ripple;
         private Transform bobber;
         private float clock, castTime, gestureTime, gesture, bend, reelAngle;
@@ -27,6 +28,7 @@ namespace BreathIsland
             ripple = rig.transform.Find("Ripple").GetComponent<LineRenderer>();
             bobber = rig.transform.Find("Bobber");
             fish = rig.transform.Find("Fish").gameObject;
+            waterEffects = rig.AddComponent<FishingWaterEffects>();
             fishing.PresentAction += OnAction;
             phases.Changed += OnPhaseChanged;
             rig.SetActive(false);
@@ -42,6 +44,7 @@ namespace BreathIsland
             if (action == FishingVisualAction.Cast)
             {
                 castTime = 0; castStart = rod.Tip;
+                waterEffects.ResetCast();
             }
             else { gesture = action == FishingVisualAction.Ease ? -1 : action == FishingVisualAction.Hook ? 1.5f : 1; gestureTime = 0; }
         }
@@ -80,8 +83,9 @@ namespace BreathIsland
             float pulse = gestureTime < .55f ? Mathf.Sin(gestureTime / .55f * Mathf.PI) * gesture : 0;
             float cast = waiting && castTime < FishingPose.CastDuration ? Mathf.Sin(castTime / FishingPose.CastDuration * Mathf.PI * 2) : 0;
             bend = Mathf.MoveTowards(bend, hooked ? fishing.Tension : 0, dt * 110);
+            float pull = hooked ? Mathf.Sin(clock * 1.8f) * Mathf.Clamp01(bend / 100) : 0;
             rod.transform.SetPositionAndRotation(camera.TransformPoint(new Vector3(.42f, -.19f + pulse * .035f, .95f - pulse * .12f)),
-                camera.rotation * Quaternion.Euler(-21 - pulse * 14 - cast * 32 + (hooked ? Mathf.Sin(clock * 5) * bend * .025f : 0), -12, -6));
+                camera.rotation * Quaternion.Euler(-21 - pulse * 14 - cast * 32 + (hooked ? Mathf.Sin(clock * 5) * bend * .025f : 0), -12 + pull * 10, -6 - pull * 6));
             if (pulse > 0) reelAngle += dt * pulse * 850;
             rod.Pose(bend, reelAngle);
             bool deployed = waiting || biting || hooked;
@@ -95,7 +99,9 @@ namespace BreathIsland
             fishPosition.y=OceanSurface.Height(fishPosition,Time.time)-.6f+jump*1.45f;
             float jumpPitch=jump>0 ? -Mathf.Cos(Mathf.Repeat(clock,4.8f)/.95f*Mathf.PI)*40 : 0;
             fish.transform.position=fishPosition;
-            fish.transform.rotation=Quaternion.Slerp(fish.transform.rotation,Quaternion.Euler(jumpPitch,hooked ? (Mathf.Cos(clock*1.8f)>0 ? 90 : -90) : 180,8*Mathf.Sin(clock*6)),dt*8);
+            Vector3 heading=hooked ? right*Mathf.Cos(clock*1.8f)-forward*.25f : -forward;
+            fish.transform.rotation=Quaternion.Slerp(fish.transform.rotation,Quaternion.LookRotation(heading)*Quaternion.Euler(jumpPitch,0,8*Mathf.Sin(clock*6)),dt*8);
+            waterEffects.Sample(fishing.Stage,castTime,endpoint,fishPosition,dt);
             for (int i = 0; i < line.positionCount; i++) line.SetPosition(i, FishingPose.LinePoint(rod.Tip, endpoint, i / (line.positionCount - 1f), bend));
             float radius = .25f + Mathf.Repeat(clock * (biting ? 2.8f : .7f), 1) * .8f;
             for (int i = 0; i < ripple.positionCount; i++)

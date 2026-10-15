@@ -144,7 +144,7 @@ namespace BreathIsland
             string[] names = { "BI_Fish_Glimmer", "BI_Fish_Cloud", "BI_Fish_Coral", "BI_Fish_MoonRay", "BI_Fish_Pearl" };
             for (int i = 0; i < names.Length; i++)
             {
-                GameObject source = Resources.Load<GameObject>($"Generated/{names[i]}");
+                GameObject source = Resources.Load<GameObject>($"World/Fish/{names[i]}");
                 if (source == null) continue;
                 GameObject creature = Object.Instantiate(source, parent);
                 creature.name = $"Ambient {names[i]}";

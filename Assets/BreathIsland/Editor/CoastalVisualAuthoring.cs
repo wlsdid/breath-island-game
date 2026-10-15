@@ -57,7 +57,7 @@ namespace BreathIsland.Editor
                 catchView.models=new GameObject[sources.Length];
                 for(int i=0;i<sources.Length;i++)
                 {
-                    var model=Object.Instantiate(Resources.Load<GameObject>("Generated/"+sources[i]),fish.transform);
+                    var model=Object.Instantiate(Resources.Load<GameObject>("World/Fish/"+sources[i]),fish.transform);
                     foreach(var collider in model.GetComponentsInChildren<Collider>())Object.DestroyImmediate(collider);
                     model.transform.localScale=Vector3.one*(i==5?.48f:.65f);
                     catchView.models[i]=model;model.SetActive(false);

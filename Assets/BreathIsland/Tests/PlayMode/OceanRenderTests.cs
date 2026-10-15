@@ -47,7 +47,9 @@ namespace BreathIsland.Tests
                 fishing.Tick(3);yield return new WaitForSeconds(.25f);yield return new WaitForEndOfFrame();
                 Assert.That(bobber.position.y,Is.LessThan(OceanSurface.Height(bobber.position,Time.time)-.12f));
                 Capture(world.camera,"Bite-submerged");
-                fishing.Hook();yield return new WaitForSeconds(1.3f);yield return new WaitForEndOfFrame();
+                fishing.Hook();yield return new WaitForSeconds(.35f);yield return new WaitForEndOfFrame();
+                Capture(world.camera,"Jump-splash");
+                yield return new WaitForSeconds(.95f);yield return new WaitForEndOfFrame();
                 var caught=root.transform.Find("FishingRig(Clone)/Fish");
                 Assert.That(caught.gameObject.activeSelf,Is.True);Assert.That(caught.position.y,Is.LessThan(OceanSurface.Height(caught.position,Time.time)));
                 Capture(world.camera,"Hooked-underwater");

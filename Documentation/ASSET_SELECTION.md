@@ -117,3 +117,7 @@ KayKit Dungeon Pack 1.0의 `Models/fbx/chest_common_empty.fbx`와 `chestTop_comm
 ## 2026-10-15 수면 표현
 
 OceanWater 셰이더, OceanSurface 파도 메시와 해저 재질은 프로젝트 코드로 작성했다. 기존 Generated 물고기를 수중 이동에 재사용하며 신규 외부 파일·텍스처·다운로드는 없다. 기존 모델의 출처 기록과 design asset 원본을 유지한다.
+
+### 2026-10-15 물고기·물보라 보완
+
+기존 자체 생성 Generated 어류 6종의 FBX는 보존하고 World/Fish에 파생 프리팹과 URP 재질을 작성했다. 원본 생성 스크립트의 어종별 색 구분을 참고해 몸통·배·눈을 분리했다. 꼬리·지느러미 동작과 물방울·파문은 프로젝트 코드로 작성하며 새 외부 에셋은 없다.

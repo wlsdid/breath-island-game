@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-15",
+  "unity": "6000.5.4f1",
+  "edit": "111/111",
+  "play": "39/39",
+  "build": "Windows Mono success",
+  "player": "Isolated 15s startup; no errors in log; hidden process stopped after close request failed",
+  "manualPlay": "unverified",
+  "settingsPreserved": true,
+  "images": "Editor Play Mode",
+  "hashes": [
+    {
+      "Algorithm": "SHA256",
+      "Hash": "D56DCEA8F0B8C687E07137B4234823E900CCD2E3C2501211F94EECD8E3AF9954",
+      "Path": "C:\\Users\\JinYang\\Documents\\Codex\\2026-09-09\\x20-3d-3d-stylized-anime-child\\work\\breath-island-game\\Builds\\editmode-results.xml"
+    },
+    {
+      "Algorithm": "SHA256",
+      "Hash": "DFEC94F8EC3922EA8A6C50465892116EFA19EAAED8996E7087B4F82268005234",
+      "Path": "C:\\Users\\JinYang\\Documents\\Codex\\2026-09-09\\x20-3d-3d-stylized-anime-child\\work\\breath-island-game\\Builds\\playmode-results.xml"
+    },
+    {
+      "Algorithm": "SHA256",
+      "Hash": "D2F51EE13B81A529ADFF750FD44C2CA164C0EAA83204AE2401AD1543A51E3382",
+      "Path": "C:\\Users\\JinYang\\Documents\\Codex\\2026-09-09\\x20-3d-3d-stylized-anime-child\\work\\breath-island-game\\Builds\\build.log"
+    },
+    {
+      "Algorithm": "SHA256",
+      "Hash": "DEFF8F61172296918D3C3FD50A83DD8B58AA0D460F5FA744BBB054032D2C28DD",
+      "Path": "C:\\Users\\JinYang\\Documents\\Codex\\2026-09-09\\x20-3d-3d-stylized-anime-child\\work\\breath-island-game\\Builds\\FishingPolish\\player.log"
+    },
+    {
+      "Algorithm": "SHA256",
+      "Hash": "E8BB8F9DFE2A039CE0B2123DA1B65F48FE68FF838147361B468A559F43A27A66",
+      "Path": "C:\\Users\\JinYang\\Documents\\Codex\\2026-09-09\\x20-3d-3d-stylized-anime-child\\work\\breath-island-game\\Builds\\Windows\\BreathIsland.exe"
+    }
+  ]
+}
