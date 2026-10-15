@@ -7,6 +7,7 @@ namespace BreathIsland
     {
         public MeshFilter shaft;
         public Transform reelHandle;
+        public Transform reelingHand;
         public Transform[] guides;
         public LineRenderer thread;
         private Mesh mesh;
@@ -47,6 +48,8 @@ namespace BreathIsland
             thread.SetPosition(0, transform.TransformPoint(new Vector3(0, -.16f, -.1f)));
             for (int i = 0; i < guides.Length; i++) thread.SetPosition(i + 1, guides[i].position);
             reelHandle.localRotation = Quaternion.Euler(reelAngle, 0, 0);
+            // Follow the crank orbit without rolling the wrist through a full turn.
+            if(reelingHand!=null)reelingHand.rotation=transform.rotation;
             Tip = transform.TransformPoint(FishingPose.RodPoint(1, tension));
         }
         private void OnDestroy() { if (mesh != null) Destroy(mesh); }

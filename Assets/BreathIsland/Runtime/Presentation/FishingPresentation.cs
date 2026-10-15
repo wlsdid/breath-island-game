@@ -84,7 +84,7 @@ namespace BreathIsland
             float cast = waiting && castTime < FishingPose.CastDuration ? Mathf.Sin(castTime / FishingPose.CastDuration * Mathf.PI * 2) : 0;
             bend = Mathf.MoveTowards(bend, hooked ? fishing.Tension : 0, dt * 110);
             float pull = hooked ? Mathf.Sin(clock * 1.8f) * Mathf.Clamp01(bend / 100) : 0;
-            rod.transform.SetPositionAndRotation(camera.TransformPoint(new Vector3(.42f, -.19f + pulse * .035f, .95f - pulse * .12f)),
+            rod.transform.SetPositionAndRotation(camera.TransformPoint(new Vector3(.38f, .08f + pulse * .035f, 1.05f - pulse * .12f)),
                 camera.rotation * Quaternion.Euler(-21 - pulse * 14 - cast * 32 + (hooked ? Mathf.Sin(clock * 5) * bend * .025f : 0), -12 + pull * 10, -6 - pull * 6));
             if (pulse > 0) reelAngle += dt * pulse * 850;
             rod.Pose(bend, reelAngle);

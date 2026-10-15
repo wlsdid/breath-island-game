@@ -20,6 +20,7 @@ namespace BreathIsland.Editor
             var lineMat = Material("Line", new Color(.9f,.94f,.83f), true);
             var coral = Material("Float", new Color(.91f,.29f,.17f));
             var hand = Material("Hand", new Color(.85f,.60f,.39f));
+            var sleeve = Material("FishingSleeve", new Color(.08f,.27f,.29f));
             var root = new GameObject("FishingRig");
             try
             {
@@ -34,8 +35,8 @@ namespace BreathIsland.Editor
                 Part(crank.transform,"Crank",PrimitiveType.Cube,new Vector3(0,0,-.08f),new Vector3(.025f,.025f,.16f),Quaternion.identity,metal);
                 Part(crank.transform,"Crank grip",PrimitiveType.Sphere,new Vector3(-.025f,0,-.16f),new Vector3(.065f,.05f,.05f),Quaternion.identity,wood);
                 view.reelHandle=crank.transform;
-                Part(rod.transform,"Right mitten",PrimitiveType.Capsule,new Vector3(.025f,0,-.21f),new Vector3(.12f,.085f,.12f),Quaternion.Euler(0,0,80),hand);
-                Part(crank.transform,"Left mitten",PrimitiveType.Sphere,new Vector3(-.07f,0,-.16f),new Vector3(.13f,.10f,.15f),Quaternion.identity,hand);
+                FishingHandAuthoring.Build(rod.transform,"Right hand",new Vector3(.015f,0,-.21f),hand,sleeve);
+                view.reelingHand=FishingHandAuthoring.Build(crank.transform,"Left hand",new Vector3(-.07f,0,-.16f),hand,sleeve);
                 view.guides=new Transform[6];
                 for(int i=0;i<6;i++)
                 {

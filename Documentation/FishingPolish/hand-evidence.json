@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-15",
+  "edit": "111/111",
+  "play": "39/39",
+  "build": "Windows Mono success",
+  "handsManual": "pending",
+  "image": "Editor HUD capture",
+  "hashes": [
+    {
+      "Algorithm": "SHA256",
+      "Hash": "E571B21D188094E2F5D83B78CDD8C8C56476536B6AB460F86B565251D57F6FAB",
+      "Path": "C:\\Users\\JinYang\\Documents\\Codex\\2026-09-09\\x20-3d-3d-stylized-anime-child\\work\\breath-island-game\\Builds\\editmode-results.xml"
+    },
+    {
+      "Algorithm": "SHA256",
+      "Hash": "B948D2EA28FEA6700B6BE92D0CEC474991740B343A9937EBA5EFC46AF753408F",
+      "Path": "C:\\Users\\JinYang\\Documents\\Codex\\2026-09-09\\x20-3d-3d-stylized-anime-child\\work\\breath-island-game\\Builds\\playmode-results.xml"
+    },
+    {
+      "Algorithm": "SHA256",
+      "Hash": "4764C364DD87DABEC352799C870AA64EFDEDFC055D48363D171FF45C30BB3BEF",
+      "Path": "C:\\Users\\JinYang\\Documents\\Codex\\2026-09-09\\x20-3d-3d-stylized-anime-child\\work\\breath-island-game\\Builds\\build.log"
+    }
+  ]
+}

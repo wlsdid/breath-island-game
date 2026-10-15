@@ -25,6 +25,7 @@ namespace BreathIsland.Tests
                 var anchor=world.player.transform.position;
                 fishing.Start();yield return new WaitForSeconds(.5f);
                 Assert.That(view.Visible,Is.True);
+                AssertHandsVisible(world.camera,root);
                 int bait=context.Save.inventory.bait;
                 fishing.Cast();yield return new WaitForSeconds(1);
                 Assert.That(context.Save.inventory.bait,Is.EqualTo(bait-1));
@@ -47,6 +48,7 @@ namespace BreathIsland.Tests
                 }
                 finally{biteHud.Dispose();}
                 fishing.Hook();yield return new WaitForSeconds(.45f);
+                AssertHandsVisible(world.camera,root);
                 var rod=root.GetComponentInChildren<FishingRodView>();
                 var line=root.transform.Find("FishingRig(Clone)/Line").GetComponent<LineRenderer>();
                 Assert.That(Vector3.Distance(line.GetPosition(0),rod.Tip),Is.LessThan(.001f));
@@ -82,6 +84,23 @@ namespace BreathIsland.Tests
             }
             finally {life.Dispose();UnityEngine.Object.Destroy(root);if(Directory.Exists(folder))Directory.Delete(folder,true);Cursor.lockState=CursorLockMode.None;}
             yield return null;
+        }
+        private static void AssertHandsVisible(Camera camera,GameObject root)
+        {
+            var rod=root.GetComponentInChildren<FishingRodView>();
+            foreach(var name in new[]{"Right hand/Palm","Reel crank/Left hand/Palm"})
+            {
+                var palm=rod.transform.Find(name).GetComponent<Renderer>();
+                Assert.That(palm.enabled&&!palm.forceRenderingOff,Is.True);
+                var point=camera.WorldToViewportPoint(palm.bounds.center);
+                Assert.That(point.z,Is.GreaterThan(camera.nearClipPlane));
+                Assert.That(point.x,Is.InRange(.05f,.95f));Assert.That(point.y,Is.InRange(.08f,.92f));
+                float scale=Mathf.Min(Screen.width/1600f,Screen.height/900f);
+                float width=Screen.width/scale,height=Screen.height/scale;
+                var panel=new Rect(width/2-275,height-290,550,245);
+                Assert.That(panel.Contains(new Vector2(point.x*width,(1-point.y)*height)),Is.False,"Palm must not be hidden behind the fishing HUD");
+            }
+            Assert.That(Quaternion.Angle(rod.transform.rotation,rod.reelingHand.rotation),Is.LessThan(.01f),"Crank must not roll the wrist");
         }
         private static IEnumerator Capture(Camera camera,string name)
         {
