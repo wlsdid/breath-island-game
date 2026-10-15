@@ -9,7 +9,7 @@ namespace BreathIsland
         private readonly Transform target;
         private readonly JobMasterySystem mastery;
         private readonly AchievementSystem achievements;
-        private float basicCooldown, skillCooldown;
+        private float basicCooldown, skillCooldown, recovery;
         public int Health { get; private set; } = 100;
         public float SkillCooldown => skillCooldown;
         public Vector3 TargetPosition => target.position;
@@ -19,6 +19,7 @@ namespace BreathIsland
         { this.context = context; this.phases = phases; this.equipment = equipment; this.target = target; this.mastery = mastery; this.achievements = achievements; }
         public void Tick(float dt)
         {
+            if (Health < 100) { recovery -= Mathf.Max(0, dt); if (recovery <= 0) Health = 100; }
             basicCooldown = Mathf.Max(0, basicCooldown - dt);
             skillCooldown = Mathf.Max(0, skillCooldown - dt);
         }
@@ -38,10 +39,10 @@ namespace BreathIsland
             var direction = Vector3.ProjectOnPlane(target.position - origin, Vector3.up);
             if (direction.sqrMagnitude > .01f) context.World.player.transform.rotation = Quaternion.LookRotation(direction);
             int damage = skill ? mastery.SkillDamage(weapon.job.id, action) : action.damage;
-            Health = Mathf.Max(0, Health - damage);
+            Health = Mathf.Max(0, Health - damage); recovery = 3;
             mastery.RecordHit(weapon.job.id);
-            Hit?.Invoke(origin + Vector3.up, target.position + Vector3.up, action.effectColor);
-            Presented?.Invoke(weapon, skill, target.position + Vector3.up);
+            Hit?.Invoke(origin + Vector3.up, target.position, action.effectColor);
+            Presented?.Invoke(weapon, skill, target.position);
             context.Message(string.Format(context.Text("life_hit"), context.Text(action.nameKey), damage, Health));
             achievements.Evaluate(); context.SaveTo();
             return true;

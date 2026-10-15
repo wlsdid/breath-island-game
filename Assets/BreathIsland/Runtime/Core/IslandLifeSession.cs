@@ -9,6 +9,7 @@ namespace BreathIsland
         private readonly GamePhaseController phases;
         private readonly IslandLifeWorld world;
         private readonly EquipmentView equipmentView;
+        private readonly JobAppearanceView appearance;
         private readonly HousingView housingView;
         private readonly HomeSeatedView seatedView;
         private readonly InteriorFinishView finishView;
@@ -42,6 +43,7 @@ namespace BreathIsland
             constructionView=new HomeConstructionView(Construction,Finishes,world.Interior,context.World.cameraRig);
             Crafting = new FurnitureCraftingSystem(context, phases, Catalog, Housing, Equipment, achievements);
             equipmentView = new EquipmentView(Equipment, Catalog, context.World.player.transform);
+            appearance = new JobAppearanceView(Equipment, context.World.player.transform);
             Tools = new ToolUseSystem(context, phases, Equipment, Land, Catalog);
             Tools.Swing += equipmentView.Swing;
             housingView = new HousingView(Housing, Catalog, parent);
@@ -89,7 +91,7 @@ namespace BreathIsland
             Training.Presented -= equipmentView.Attack;
             constructionView.Dispose();Construction.Dispose();
             context.Loaded -= Restore; Land.Changed -= RefreshNodes;
-            seatedView.Dispose(); Home.Dispose(); Storage.Dispose(); equipmentView.Dispose(); housingView.Dispose(); finishView.Dispose(); Finishes.Dispose(); world.Dispose();
+            seatedView.Dispose(); Home.Dispose(); Storage.Dispose(); appearance.Dispose(); equipmentView.Dispose(); housingView.Dispose(); finishView.Dispose(); Finishes.Dispose(); world.Dispose();
         }
     }
 }

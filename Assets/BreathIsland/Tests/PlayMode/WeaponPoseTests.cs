@@ -49,6 +49,13 @@ namespace BreathIsland.Tests
                         Capture(world.camera,id+"-draw");
                         yield return new WaitForSeconds(.06f);
                         Assert.That(bowView.Released,Is.True);
+                        Capture(world.camera,id+"-flight");
+                        Assert.That(Vector3.Dot(bowView.ShotDirection,world.player.transform.forward),Is.GreaterThan(.8f));
+                        var arrow=Resources.Load<GameObject>("World/Weapons/Arrow");
+                        var mesh=arrow.GetComponentInChildren<MeshFilter>();
+                        var size=mesh.sharedMesh.bounds.size;
+                        Assert.That(size.z,Is.GreaterThan(Mathf.Max(size.x,size.y)));
+                        Assert.That(Vector3.Dot(mesh.transform.forward,Vector3.forward),Is.GreaterThan(.99f));
                     }
                     yield return new WaitForSeconds(.55f);
                     Capture(world.camera,id+"-carry");

@@ -329,3 +329,11 @@ Play Mode HUD 테스트에는 실제 Game View가 필요하므로 `-batchmode`�
 - 실제 사용자 저장 대신 기존 테스트의 임시 경로를 사용했다. 기존 설정 변경 3개는 작업 전 SHA256과 일치하며 커밋에서 제외한다. 원본 팩은 보존한다.
 
 검증 이미지: `SkillVfx/sword_special-skill.png`, `SkillVfx/bow_special-skill.png`, `SkillVfx/staff_special-skill.png`. Editor 카메라 렌더이며 Windows 직접 조작 영상은 아니다. 촬영 각도 보정 후 WeaponPoseTests 재실행 1/1 통과(`Builds/skill-vfx-review.xml`).
+
+## 2026-10-15 직업 외형·화살·허수아비
+
+- Unity 6000.5.4f1, Windows, URP. 전체 Edit Mode 115/115, Play Mode 45/45 통과. Windows Mono 빌드 성공(`Builds/build.log`).
+- 검사: 검/활/지팡이 스킨 변경 시 같은 손 뼈 유지, 스킨 뼈 참조, 도구 선택 시 직업 보존, 마지막 피격 기준 3초 회복, 연속 타격 타이머 재설정, 체력 0에서 자동 회복. 기존 무기 표현 테스트에서 화살 모델의 Z축과 전방 발사 방향을 검사한다.
+- 실제 Editor 렌더에서 기사·레인저·마법사와 허수아비를 확인했다. Windows 실행 파일에서의 직접 조작·동작 감각은 미검증이다.
+- 기존 피해·쿨다운·직업 숙련도·해금 조건·저장 형식은 유지한다. 검증 저장은 임시 격리 경로를 사용한다.
+추가 무기 표현 테스트 1/1 통과(`Builds/training-review.xml`). 직업 외형·허수아비·발사 순간 Editor 렌더는 `Documentation/TrainingPresentation/`에 보관한다.

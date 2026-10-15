@@ -20,7 +20,8 @@ namespace BreathIsland
                 if (node.tool != LifeTool.None) { var collider = obj.AddComponent<CapsuleCollider>(); collider.radius = .35f; collider.height = node.height; collider.center = Vector3.up * node.height / 2; }
                 nodes.Add(node.id, obj);
             }
-            var dummy = Primitive("Training Target", new Vector3(0, 1.4f, -1), new Vector3(.7f, 1.5f, .7f));
+            var dummy = Object.Instantiate(Resources.Load<GameObject>("World/TrainingDummy"), root);
+            dummy.transform.position = new Vector3(0, 1.4f, -1);
             TrainingTarget = dummy.transform;
             Interior = HomeInteriorView.Create(root);
         }

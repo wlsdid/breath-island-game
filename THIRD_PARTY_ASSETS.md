@@ -97,3 +97,7 @@ Kay Lousberg의 KayKit Forest Nature Pack 1.0에서 Grass_1_A_Color1.fbx·Grass_
 - 포함된 `LICENSE & CREDITS.txt`는 전체 팩을 CC0로 명시한다. Brackeys 재패키징, predrawn 원저자 CodeManu (https://codemanu.itch.io/vfx-free-pack). 원문 라이선스를 함께 보관한다.
 - 검: big_hit, 활: star_explosion, 지팡이: electric_ring. PNG를 수정하지 않고 URP용 플립북 셰이더·재질·프리팹으로 재생한다.
 - `design asset/tornado vfx.zip`은 Godot 프로젝트다. 출처 https://soygus.itch.io/tornado-vfx-godot 에서 개인·상업 프로젝트 사용과 수정을 허용하며 재배포·재판매·재패키징은 금지한다(2026-10-15 확인). 이번에는 이식하지 않았으며 공개 저장소에 원본을 포함하지 않는다.
+
+## 2026-10-15 직업 외형
+
+사용자 제공 KayKit_Adventurers_2.0_FREE.zip의 Characters/fbx에서 Knight.fbx, Mage.fbx와 knight_texture.png, mage_texture.png만 추가 선별했다. 기존 Character/License.txt의 CC0 조건을 따른다. 원본 ZIP은 보존한다. 훈련 허수아비는 기본 형상을 조합해 프로젝트에서 작성했으며 외부 모형을 사용하지 않았다.

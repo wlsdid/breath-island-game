@@ -136,3 +136,7 @@ OceanWater 셰이더, OceanSurface 파도 메시와 해저 재질은 프로젝�
 ## 2026-10-15 특수 무기 VFX 선별
 
 Brackeys VFX bundle의 CC0 predrawn 세 장을 선택했다. big_hit은 6×5 중 빈 첫 프레임을 제외한 11프레임, star_explosion은 파일명과 달리 실제 7×6 배열의 29프레임, electric_ring은 6×5의 29프레임을 재생한다. 효과는 대상 위치에서 0.8초 동안 카메라를 향하며 일반 무기에는 표시하지 않는다. 원본 PNG·ZIP은 변형하지 않았다. tornado vfx는 출처 https://soygus.itch.io/tornado-vfx-godot 에서 사용·수정 허용과 에셋 재배포 금지를 확인했다. Godot→Unity 이식과 제한 에셋 배포 분리는 이번 적용에서 제외했다.
+
+## 2026-10-15 직업 외형·허수아비
+
+Adventurers 2.0의 Knight/Mage와 각 텍스처를 선별했다. 기존 Ranger와 같은 뼈 이름을 확인하고 스킨만 교체해 손 소켓과 애니메이션을 유지한다. 훈련 허수아비는 짚 머리·모자·목재 지지대·천 몸통·표적 패치로 만든 작성된 프리팹이다. 원본 에셋 수정 없음.

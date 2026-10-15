@@ -32,6 +32,31 @@ namespace BreathIsland.Tests
             life.Dispose(); UnityEngine.Object.Destroy(root); yield return null;
             Directory.Delete(directory, true);
         }
+        [UnityTest] public IEnumerator TrainingRecoversThreeSecondsAfterLastHitAndOutfitsKeepRig()
+        {
+            context.World.motor.enabled=false;
+            context.World.motor.Teleport(life.Training.TargetPosition-Vector3.forward*2);
+            var hand=context.World.player.GetComponentsInChildren<Transform>().First(t=>t.name=="handslot.r");
+            foreach(var id in new[]{"sword","bow","staff"})
+            {
+                life.Equipment.Equip(id); yield return null;
+                Assert.That(context.World.player.GetComponentsInChildren<Transform>().First(t=>t.name=="handslot.r"),Is.SameAs(hand));
+                var visible=context.World.player.GetComponentsInChildren<SkinnedMeshRenderer>().Where(r=>r.enabled).ToArray();
+                Assert.That(visible.Length,Is.GreaterThan(0));
+                Assert.That(visible.All(r=>r.bones.All(b=>b!=null)),Is.True);
+                if(id=="sword" || id=="staff") Assert.That(visible.Any(r=>r.transform.parent.name==(id=="sword"?"warrior outfit":"mage outfit")),Is.True);
+                life.Equipment.SelectTool(LifeTool.Axe);
+                Assert.That(life.Equipment.Job.id,Is.EqualTo(id=="sword"?"warrior":id=="bow"?"ranger":"mage"));
+            }
+            life.Equipment.Equip("sword");
+            Assert.That(life.Training.Attack(false),Is.True);
+            life.Training.Tick(2.9f); Assert.That(life.Training.Health,Is.LessThan(100));
+            Assert.That(life.Training.Attack(false),Is.True);
+            life.Training.Tick(.2f); Assert.That(life.Training.Health,Is.LessThan(100));
+            life.Training.Tick(2.81f); Assert.That(life.Training.Health,Is.EqualTo(100));
+            for(int i=0;i<20 && life.Training.Health>0;i++){life.Training.Tick(.51f);life.Training.Attack(false);}
+            Assert.That(life.Training.Health,Is.Zero);life.Training.Tick(3);Assert.That(life.Training.Health,Is.EqualTo(100));
+        }
         [UnityTest] public IEnumerator HarvestCraftPlaceReloadAndReturnKeepInventoryJobAndOutdoorPosition()
         {
             life.Equipment.Equip("sword");
