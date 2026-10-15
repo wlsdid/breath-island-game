@@ -29,7 +29,24 @@ namespace BreathIsland.Tests
                 fishing.Cast();yield return new WaitForSeconds(1);
                 Assert.That(context.Save.inventory.bait,Is.EqualTo(bait-1));
                 Assert.That(fishing.Stage,Is.EqualTo(FishingStage.Waiting));
-                fishing.Tick(3);yield return new WaitForSeconds(.45f);
+                fishing.Tick(3);
+                Assert.That(fishing.Stage,Is.EqualTo(FishingStage.Bite));
+                yield return new WaitForSeconds(.25f);
+                Assert.That(root.transform.Find("FishingRig(Clone)/Bobber").gameObject.activeSelf,Is.True);
+                var biteHud=new FishingHud(context,phases,fishing);
+                try
+                {
+                    float scale=Mathf.Min(Screen.width/1600f,Screen.height/900f);
+                    biteHud.Render(Screen.width/scale,Screen.height/scale);
+                    yield return new WaitForSeconds(.2f);
+                    biteHud.Render(Screen.width/scale,Screen.height/scale);Canvas.ForceUpdateCanvases();
+                    yield return new WaitForEndOfFrame();
+                    Directory.CreateDirectory("Builds/BiteReview");
+                    var image=ScreenCapture.CaptureScreenshotAsTexture();
+                    File.WriteAllBytes("Builds/BiteReview/Bite-Hud.png",image.EncodeToPNG());UnityEngine.Object.Destroy(image);
+                }
+                finally{biteHud.Dispose();}
+                fishing.Hook();yield return new WaitForSeconds(.45f);
                 var rod=root.GetComponentInChildren<FishingRodView>();
                 var line=root.transform.Find("FishingRig(Clone)/Line").GetComponent<LineRenderer>();
                 Assert.That(Vector3.Distance(line.GetPosition(0),rod.Tip),Is.LessThan(.001f));
@@ -53,7 +70,7 @@ namespace BreathIsland.Tests
                 phases.Cancel();yield return new WaitForEndOfFrame();Assert.That(view.Visible,Is.True);
                 fishing.Tick(100);yield return new WaitForEndOfFrame();
                 Assert.That(fishing.Stage,Is.EqualTo(FishingStage.Failed));Assert.That(line.enabled,Is.False);
-                fishing.Retry();fishing.Cast();fishing.Tick(3);
+                fishing.Retry();fishing.Cast();fishing.Tick(3);fishing.Hook();
                 for(int i=0;i<8;i++){fishing.Ease();fishing.Reel();}
                 yield return null;Assert.That(phases.Current,Is.EqualTo(GamePhase.CatchResolution));Assert.That(view.Visible,Is.False);
                 Assert.That(world.player.transform.position,Is.EqualTo(anchor));

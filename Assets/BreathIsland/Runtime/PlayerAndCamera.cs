@@ -35,6 +35,11 @@ namespace BreathIsland
         public static bool PrimaryPressed() =>
             (Keyboard.current?.spaceKey.wasPressedThisFrame ?? false) || (Keyboard.current?.fKey.wasPressedThisFrame ?? false) || (Gamepad.current?.buttonSouth.wasPressedThisFrame ?? false);
         public static bool EasePressed() => (Keyboard.current?.sKey.wasPressedThisFrame ?? false) || (Gamepad.current?.buttonEast.wasPressedThisFrame ?? false);
+        // UI handles its own click on release; do not let mouse-down rebuild that button
+        // into a reel button before the same click is released.
+        public static bool HookPressed() => ((Mouse.current?.leftButton.wasPressedThisFrame ?? false)
+            && !(UnityEngine.EventSystems.EventSystem.current?.IsPointerOverGameObject() ?? false))
+            || (Keyboard.current?.spaceKey.wasPressedThisFrame ?? false) || (Gamepad.current?.buttonSouth.wasPressedThisFrame ?? false);
         public static bool CancelPressed() => (Keyboard.current?.escapeKey.wasPressedThisFrame ?? false) || (Gamepad.current?.startButton.wasPressedThisFrame ?? false);
         public static bool FacilityPressed() => Keyboard.current?.mKey.wasPressedThisFrame ?? false;
         public static bool CollectionPressed() => Keyboard.current?.tabKey.wasPressedThisFrame ?? false;

@@ -23,6 +23,15 @@ namespace BreathIsland
                 ui.Label(new Rect(panel.x + 25, panel.y + 52, 500, 42), context.Text("ui_waiting_for_a_bite"), titleStyle);
                 ui.Label(new Rect(panel.x + 25, panel.y + 105, 500, 50), context.Text("ui_watch_the_movement_of_the_water"), centeredStyle);
             }
+            else if (fishing.Stage == FishingStage.Bite)
+            {
+                ui.Label(new Rect(panel.x + 25, panel.y + 18, 500, 42), context.Text("fishing_bite_now"), titleStyle);
+                ui.Label(new Rect(panel.x + 25, panel.y + 58, 500, 40), context.Text("fishing_hook_hint"), centeredStyle);
+                DrawMeter(new Rect(panel.x + 28, panel.y + 122, 494, 25),
+                    string.Format(context.Text("fishing_bite_time"), fishing.ReactionRemaining),
+                    100 * fishing.ReactionRemaining / FishingSystem.ReactionWindow, new Color(.95f, .5f, .3f));
+                ui.Button(new Rect(panel.x + 135, panel.y + 166, 280, 56), context.Text("fishing_hook_action"), () => fishing.Hook(), primaryButtonStyle);
+            }
             else if (fishing.Stage == FishingStage.Hooked)
             {
                 ui.Label(new Rect(panel.x + 25, panel.y + 18, 500, 34), fishing.ActiveFish.LocalizedName(ko), titleStyle);
@@ -33,7 +42,7 @@ namespace BreathIsland
             }
             else
             {
-                ui.Label(new Rect(panel.x + 25, panel.y + 35, 500, 42), context.Text("ui_the_line_snapped"), titleStyle);
+                ui.Label(new Rect(panel.x + 25, panel.y + 35, 500, 42), context.Text(fishing.MissedBite ? "fishing_bite_missed" : "ui_the_line_snapped"), titleStyle);
                 ui.Label(new Rect(panel.x + 25, panel.y + 91, 500, 48), context.Text("ui_it_is_okay_you_only_lost_one_bait"), centeredStyle);
                 ui.Button(new Rect(panel.x + 135, panel.y + 157, 280, 52), context.Text("ui_try_again"), () => fishing.Retry(), primaryButtonStyle);
             }

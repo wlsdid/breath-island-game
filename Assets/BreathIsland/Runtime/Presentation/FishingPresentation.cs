@@ -43,7 +43,7 @@ namespace BreathIsland
             {
                 castTime = 0; castStart = rod.Tip;
             }
-            else { gesture = action == FishingVisualAction.Reel ? 1 : -1; gestureTime = 0; }
+            else { gesture = action == FishingVisualAction.Ease ? -1 : action == FishingVisualAction.Hook ? 1.5f : 1; gestureTime = 0; }
         }
 
         private void LateUpdate()
@@ -62,6 +62,7 @@ namespace BreathIsland
             clock += dt; castTime += dt; gestureTime += dt;
             bool hooked = fishing.Stage == FishingStage.Hooked;
             bool waiting = fishing.Stage == FishingStage.Waiting;
+            bool biting = fishing.Stage == FishingStage.Bite;
             if (hooked && previousStage != FishingStage.Hooked) clock = 0;
             previousStage = fishing.Stage;
             var camera = world.camera.transform;
@@ -73,6 +74,7 @@ namespace BreathIsland
             float jump = hooked ? FishingPose.JumpHeight(clock) : 0;
             Vector3 endpoint = waterTarget + right * (hooked ? Mathf.Sin(clock * 1.8f) * 1.3f : 0) + Vector3.up * jump;
             endpoint.y += Mathf.Sin(clock * 3.5f) * .035f;
+            if (biting) endpoint += right * (Mathf.Sin(clock * 19) * .09f) + Vector3.down * (.08f + .07f * Mathf.Sin(clock * 15));
             if (waiting && castTime < FishingPose.CastDuration)
                 endpoint = FishingPose.CastPoint(castStart, waterTarget, castTime / FishingPose.CastDuration);
             float pulse = gestureTime < .55f ? Mathf.Sin(gestureTime / .55f * Mathf.PI) * gesture : 0;
@@ -82,14 +84,15 @@ namespace BreathIsland
                 camera.rotation * Quaternion.Euler(-21 - pulse * 14 - cast * 32 + (hooked ? Mathf.Sin(clock * 5) * bend * .025f : 0), -12, -6));
             if (pulse > 0) reelAngle += dt * pulse * 850;
             rod.Pose(bend, reelAngle);
-            bool deployed = waiting || hooked;
+            bool deployed = waiting || biting || hooked;
             line.enabled = deployed; bobber.gameObject.SetActive(deployed); ripple.enabled = deployed;
             fish.SetActive(hooked && jump > .03f);
             if (hooked) fish.GetComponent<FishingCatchView>().Show(fishing.ActiveFish.id);
             bobber.position = endpoint;
+            bobber.rotation = biting ? Quaternion.Euler(0, 0, Mathf.Sin(clock * 17) * 24) : Quaternion.identity;
             fish.transform.SetPositionAndRotation(endpoint + Vector3.down * .12f, Quaternion.Euler(-Mathf.Cos(clock / .95f * Mathf.PI) * 45, clock * 90, 15));
             for (int i = 0; i < line.positionCount; i++) line.SetPosition(i, FishingPose.LinePoint(rod.Tip, endpoint, i / (line.positionCount - 1f), bend));
-            float radius = .25f + Mathf.Repeat(clock * .7f, 1) * .8f;
+            float radius = .25f + Mathf.Repeat(clock * (biting ? 2.8f : .7f), 1) * .8f;
             for (int i = 0; i < ripple.positionCount; i++)
             {
                 float angle = i * Mathf.PI * 2 / (ripple.positionCount - 1);

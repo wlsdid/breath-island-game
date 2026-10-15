@@ -3,8 +3,8 @@ using UnityEngine;
 
 namespace BreathIsland
 {
-    public enum FishingStage { Ready, Waiting, Hooked, Failed }
-    public enum FishingVisualAction { Cast, Reel, Ease }
+    public enum FishingStage { Ready, Waiting, Hooked, Failed, Bite }
+    public enum FishingVisualAction { Cast, Reel, Ease, Hook }
 
     public sealed class FishingSystem
     {
@@ -12,6 +12,9 @@ namespace BreathIsland
         private readonly GamePhaseController phases;
         private readonly System.Action beginPredatorCombat;
         private float biteTimer;
+        public const float ReactionWindow = 3f;
+        public float ReactionRemaining { get; private set; }
+        public bool MissedBite { get; private set; }
 
         public FishingSystem(GameContext context, GamePhaseController phases, System.Action beginPredatorCombat)
         {
@@ -31,6 +34,9 @@ namespace BreathIsland
             if (phases.Current != GamePhase.Explore) return;
             if (context.Save.inventory.bait <= 0) { context.Message(context.Text("no_bait")); return; }
             Stage = FishingStage.Ready;
+            ActiveFish = null;
+            ReactionRemaining = 0;
+            MissedBite = false;
             Progress = 0f;
             Tension = 32f;
             phases.Set(GamePhase.Fishing);
@@ -45,7 +51,19 @@ namespace BreathIsland
             else if (Stage == FishingStage.Waiting)
             {
                 biteTimer -= deltaTime;
-                if (biteTimer <= 0f) HookFish();
+                if (biteTimer <= 0f) BeginBite();
+            }
+            else if (Stage == FishingStage.Bite)
+            {
+                ReactionRemaining = Mathf.Max(0, ReactionRemaining - Mathf.Max(0, deltaTime));
+                if (ReactionRemaining <= 0)
+                {
+                    Stage = FishingStage.Failed;
+                    MissedBite = true;
+                    ActiveFish = null;
+                    context.Message(context.Text("fishing_bite_missed"));
+                }
+                else if (GameInput.HookPressed()) Hook();
             }
             else if (Stage == FishingStage.Hooked)
             {
@@ -62,7 +80,7 @@ namespace BreathIsland
             else if (Stage == FishingStage.Failed && GameInput.PrimaryPressed()) Stage = FishingStage.Ready;
         }
 
-        public void Retry() { if (Stage == FishingStage.Failed) Stage = FishingStage.Ready; }
+        public void Retry() { if (phases.Current == GamePhase.Fishing && Stage == FishingStage.Failed) Stage = FishingStage.Ready; }
 
         public void Cast()
         {
@@ -71,6 +89,10 @@ namespace BreathIsland
             context.Save.inventory.bait--;
             context.Save.player.hour = (context.Save.player.hour + 1) % 24;
             Stage = FishingStage.Waiting;
+            ActiveFish = null;
+            Progress = 0;
+            MissedBite = false;
+            ReactionRemaining = 0;
             biteTimer = Random.Range(1.2f, 2.2f);
             PresentAction?.Invoke(FishingVisualAction.Cast);
         }
@@ -121,7 +143,7 @@ namespace BreathIsland
             else if (GameInput.PadEastPressed()) Resolve(CatchDisposition.Material);
         }
 
-        private void HookFish()
+        private void BeginBite()
         {
             bool predator = PredatorDue;
             var pool = context.Content.Fish.Where(definition => !definition.IsPredator && IsAvailable(definition, context.Save.player.hour)).ToList();
@@ -133,9 +155,19 @@ namespace BreathIsland
                 return;
             }
             ActiveFish = predator ? context.Content.Fish.First(definition => definition.IsPredator) : pool[Random.Range(0, pool.Count)];
+            Stage = FishingStage.Bite;
+            ReactionRemaining = ReactionWindow;
+            context.Message(context.Text("fishing_bite_now"));
+        }
+
+        public void Hook()
+        {
+            if (phases.Current != GamePhase.Fishing || Stage != FishingStage.Bite || ReactionRemaining <= 0) return;
             Stage = FishingStage.Hooked;
+            ReactionRemaining = 0;
             Progress = 8f;
             Tension = 34f;
+            PresentAction?.Invoke(FishingVisualAction.Hook);
             context.Message(string.Format(context.Text("hooked"), ActiveFish.LocalizedName(context.Korean)));
         }
 

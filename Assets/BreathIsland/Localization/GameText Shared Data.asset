@@ -11,7 +11,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
   m_Name: GameText Shared Data
-  m_EditorClassIdentifier:
+  m_EditorClassIdentifier: 
   m_TableCollectionName: GameText
   m_TableCollectionNameGuidString: 23936318f4c6497ab4d2094eeb83e7f6
   m_Entries:
@@ -1069,6 +1069,26 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 679698259280609284
     m_Key: build_preview_only
+    m_Metadata:
+      m_Items: []
+  - m_Id: 680760707500687360
+    m_Key: fishing_bite_now
+    m_Metadata:
+      m_Items: []
+  - m_Id: 680760707592962048
+    m_Key: fishing_hook_hint
+    m_Metadata:
+      m_Items: []
+  - m_Id: 680760707592962049
+    m_Key: fishing_bite_time
+    m_Metadata:
+      m_Items: []
+  - m_Id: 680760707592962050
+    m_Key: fishing_hook_action
+    m_Metadata:
+      m_Items: []
+  - m_Id: 680760707592962051
+    m_Key: fishing_bite_missed
     m_Metadata:
       m_Items: []
   m_Metadata:

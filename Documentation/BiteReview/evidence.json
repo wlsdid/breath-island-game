@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-15",
+  "unity": "6000.5.4f1",
+  "tests": [
+    {
+      "path": "Builds/editmode-results.xml",
+      "sha256": "D95341D80E15B5E0D4E94D41244E93EB755D3F8E3B467857924FC0866F5ED2E8",
+      "result": "Passed",
+      "total": 108,
+      "passed": 108,
+      "failed": 0
+    },
+    {
+      "path": "Builds/playmode-results.xml",
+      "sha256": "2BF6063E2352C46E3C9D081025BD337175A0B2083CCC573F8E1A7BB8068E809D",
+      "result": "Passed",
+      "total": 36,
+      "passed": 36,
+      "failed": 0
+    }
+  ],
+  "windowsMono": {
+    "result": "Success",
+    "log": "Builds/build.log",
+    "sha256": "16637F56F215D37DF87E9EE5C58CD2EF86BF7BB011582C52AABEC16A68349B3C"
+  },
+  "nativeWindowsPlay": "Not performed",
+  "input": "Virtual keyboard fresh Space and held Space; virtual mouse left button",
+  "image": "Actual Editor Game View capture, not Windows executable",
+  "userSettingsPreserved": [
+    {
+      "file": "AddressableAssetSettings.asset",
+      "unchanged": true
+    },
+    {
+      "file": "LocalizationSettings.asset",
+      "unchanged": true
+    },
+    {
+      "file": "PackageManagerSettings.asset",
+      "unchanged": true
+    }
+  ]
+}

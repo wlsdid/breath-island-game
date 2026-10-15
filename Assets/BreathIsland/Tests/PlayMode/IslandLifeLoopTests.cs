@@ -171,6 +171,12 @@ namespace BreathIsland.Tests
             var camera = context.World.camera;
             context.World.cameraRig.enabled = false;
             context.World.motor.Teleport(new Vector3(0, .68f, 4));
+            // This test samples fixed arm poses. Finish ground settling and its short
+            // landing scale animation before freezing locomotion presentation.
+            for (int frame = 0; frame < 60 && !context.World.motor.Grounded; frame++) yield return null;
+            Assert.That(context.World.motor.Grounded, Is.True);
+            yield return new WaitForSeconds(.3f);
+            player.GetComponent<CharacterPresentation>().enabled = false;
             camera.transform.position = player.position + new Vector3(3, 2, 3);
             camera.transform.LookAt(player.position + Vector3.up);
             swing.enabled = false;

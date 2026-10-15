@@ -6,6 +6,8 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.Localization.Settings;
 using UnityEngine.TestTools;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.LowLevel;
 
 namespace BreathIsland.Tests
 {
@@ -56,8 +58,35 @@ namespace BreathIsland.Tests
         private void Catch()
         {
             fishing.Start(); fishing.Cast(); fishing.Tick(3f);
+            Assert.That(fishing.Stage, Is.EqualTo(FishingStage.Bite)); fishing.Hook();
             Assert.That(fishing.Stage, Is.EqualTo(FishingStage.Hooked));
             for (int i = 0; i < 8; i++) { fishing.Ease(); fishing.Reel(); }
+        }
+
+        [UnityTest]
+        public IEnumerator BiteRequiresFreshSpaceOrMousePressRatherThanHeldInput()
+        {
+            var keyboard=InputSystem.AddDevice<Keyboard>();
+            var mouse=InputSystem.AddDevice<Mouse>();
+            try
+            {
+                fishing.Start();fishing.Cast();
+                InputSystem.QueueStateEvent(keyboard,new KeyboardState(Key.Space));InputSystem.Update();
+                fishing.Tick(3);Assert.That(fishing.Stage,Is.EqualTo(FishingStage.Bite));
+                InputSystem.QueueStateEvent(keyboard,new KeyboardState(Key.Space));InputSystem.Update();
+                fishing.Tick(.1f);Assert.That(fishing.Stage,Is.EqualTo(FishingStage.Bite),"A held cast button must not auto-hook");
+                InputSystem.QueueStateEvent(keyboard,new KeyboardState());InputSystem.Update();
+                InputSystem.QueueStateEvent(keyboard,new KeyboardState(Key.Space));InputSystem.Update();
+                fishing.Tick(.01f);Assert.That(fishing.Stage,Is.EqualTo(FishingStage.Hooked));
+                Assert.That(fishing.Progress,Is.EqualTo(8),"Hooking must not reel in the same update");
+                InputSystem.QueueStateEvent(keyboard,new KeyboardState());InputSystem.Update();
+                phases.Set(GamePhase.Explore);fishing.Start();fishing.Cast();fishing.Tick(3);
+                InputSystem.QueueStateEvent(mouse,new MouseState().WithButton(MouseButton.Left));InputSystem.Update();
+                fishing.Tick(.01f);Assert.That(fishing.Stage,Is.EqualTo(FishingStage.Hooked));
+                Assert.That(fishing.Progress,Is.EqualTo(8));
+            }
+            finally{InputSystem.RemoveDevice(keyboard);InputSystem.RemoveDevice(mouse);}
+            yield return null;
         }
 
         [UnityTest]
@@ -171,7 +200,7 @@ namespace BreathIsland.Tests
         public IEnumerator LineFailureConsumesOnlyCastBaitAndAllowsRetry()
         {
             int bait = context.Save.inventory.bait;
-            fishing.Start(); fishing.Cast(); fishing.Tick(3); fishing.Tick(100);
+            fishing.Start(); fishing.Cast(); fishing.Tick(3); fishing.Hook(); fishing.Tick(100);
             Assert.That(fishing.Stage, Is.EqualTo(FishingStage.Failed));
             Assert.That(context.Save.inventory.bait, Is.EqualTo(bait - 1));
             Assert.That(context.Save.inventory.coins, Is.EqualTo(72));

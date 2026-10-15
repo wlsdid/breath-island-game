@@ -11,7 +11,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
   m_Name: GameText_en
-  m_EditorClassIdentifier:
+  m_EditorClassIdentifier: 
   m_LocaleId:
     m_Code: en
   m_SharedData: {fileID: 11400000, guid: 23936318f4c6497ab4d2094eeb83e7f6, type: 2}
@@ -1090,6 +1090,26 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 679698259280609284
     m_Localized: "Preview \xB7 Apply to save"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 680760707500687360
+    m_Localized: A bite! Set the hook
+    m_Metadata:
+      m_Items: []
+  - m_Id: 680760707592962048
+    m_Localized: Left click / Space / Pad A to hook
+    m_Metadata:
+      m_Items: []
+  - m_Id: 680760707592962049
+    m_Localized: 'Time left: {0:0.0}s'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 680760707592962050
+    m_Localized: Set the hook
+    m_Metadata:
+      m_Items: []
+  - m_Id: 680760707592962051
+    m_Localized: The fish got away
     m_Metadata:
       m_Items: []
   references:
