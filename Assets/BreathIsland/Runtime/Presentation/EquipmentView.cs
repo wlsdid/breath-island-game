@@ -10,6 +10,7 @@ namespace BreathIsland
         public GameObject Held => held;
         public void SetVisible(bool visible) { socket.gameObject.SetActive(visible); }
         public void Swing() => socket.GetComponent<ToolSwing>().Play();
+        public void Attack(Vector3 origin,Vector3 target,Color color)=>socket.GetComponent<WeaponActionView>().Play();
         public EquipmentView(EquipmentSystem equipment, IslandLifeCatalog catalog, Transform player)
         {
             this.equipment = equipment; this.catalog = catalog;
@@ -22,11 +23,13 @@ namespace BreathIsland
             else anchor.transform.localPosition = new Vector3(.5f, .85f, .25f);
             socket = anchor.transform;
             anchor.AddComponent<ToolSwing>().Initialize(player);
+            anchor.AddComponent<WeaponActionView>().Initialize(player);
             equipment.Changed += Refresh; Refresh();
         }
         private void Refresh()
         {
             socket.GetComponent<ToolSwing>().SetHeldTool(equipment.Tool != LifeTool.None);
+            socket.GetComponent<WeaponActionView>().Configure(equipment.Tool==LifeTool.None?equipment.Job?.id:null);
             if (held != null) { held.SetActive(false); Object.Destroy(held); }
             GameObject source = equipment.Tool switch
             {

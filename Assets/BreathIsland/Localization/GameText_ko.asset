@@ -184,7 +184,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 41
-    m_Localized: "S  \uC904 \uB290\uC2A8\uD558\uAC8C"
+    m_Localized: "Q \xB7 \uC904 \uB290\uC2A8\uD558\uAC8C"
     m_Metadata:
       m_Items: []
   - m_Id: 42
@@ -1146,6 +1146,11 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 680760707592962051
     m_Localized: "\uC785\uC9C8\uC744 \uB193\uCCE4\uC5B4\uC694"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 680889321575628800
+    m_Localized: "WASD \uBD80\uB450 \uC774\uB3D9 \xB7 \uC6B0\uD074\uB9AD \uC720\uC9C0
+      \uC2DC\uC810 \uC774\uB3D9 \xB7 Q \uC904 \uD480\uAE30"
     m_Metadata:
       m_Items: []
   references:

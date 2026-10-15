@@ -34,7 +34,7 @@ namespace BreathIsland
         public static bool FishingPressed() => (Keyboard.current?.fKey.wasPressedThisFrame ?? false) || (Gamepad.current?.buttonSouth.wasPressedThisFrame ?? false);
         public static bool PrimaryPressed() =>
             (Keyboard.current?.spaceKey.wasPressedThisFrame ?? false) || (Keyboard.current?.fKey.wasPressedThisFrame ?? false) || (Gamepad.current?.buttonSouth.wasPressedThisFrame ?? false);
-        public static bool EasePressed() => (Keyboard.current?.sKey.wasPressedThisFrame ?? false) || (Gamepad.current?.buttonEast.wasPressedThisFrame ?? false);
+        public static bool EasePressed() => (Keyboard.current?.qKey.wasPressedThisFrame ?? false) || (Gamepad.current?.buttonEast.wasPressedThisFrame ?? false);
         // UI handles its own click on release; do not let mouse-down rebuild that button
         // into a reel button before the same click is released.
         public static bool HookPressed() => ((Mouse.current?.leftButton.wasPressedThisFrame ?? false)
@@ -72,6 +72,7 @@ namespace BreathIsland
         public bool Grounded => controller != null && controller.isGrounded;
         public float VerticalVelocity => verticalVelocity;
         public bool CanMove { get; set; } = true;
+        public bool FishingMovement { get; set; }
         public void BlockActions() => actionBlockedUntil = Time.frameCount + 2;
 
         private void Awake() => controller = GetComponent<CharacterController>();
@@ -100,10 +101,12 @@ namespace BreathIsland
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(desired), turnSpeed * Time.deltaTime);
             }
             if (controller.isGrounded && verticalVelocity < 0) verticalVelocity = -1f;
-            if (Time.frameCount > actionBlockedUntil && controller.isGrounded && GameInput.JumpPressed())
+            if (!FishingMovement && Time.frameCount > actionBlockedUntil && controller.isGrounded && GameInput.JumpPressed())
                 verticalVelocity = Mathf.Sqrt(2f * Mathf.Abs(Physics.gravity.y) * jumpHeight);
             verticalVelocity += Physics.gravity.y * Time.deltaTime;
-            var collision = controller.Move((desired * speed + Vector3.up * verticalVelocity) * Time.deltaTime);
+            var step=(desired * speed + Vector3.up * verticalVelocity) * Time.deltaTime;
+            if(FishingMovement)step=DockMovement.ConstrainStep(transform.position,step);
+            var collision = controller.Move(step);
             if ((collision & CollisionFlags.Above) != 0 && verticalVelocity > 0) verticalVelocity = 0;
         }
     }
@@ -120,6 +123,8 @@ namespace BreathIsland
         private float yaw = 20f;
         private float pitch = 20f;
         private Vector3 velocity;
+        private float fishingYaw, fishingPitch=12;
+        public void ResetFishingLook(){fishingYaw=0;fishingPitch=12;}
 
         private void LateUpdate()
         {
@@ -133,11 +138,15 @@ namespace BreathIsland
                 return;
             }
             Vector2 look = allowLook ? GameInput.Look : Vector2.zero;
-            yaw += look.x;
-            pitch = Mathf.Clamp(pitch - look.y, -8f, 55f);
+            if(fishingView)
+            {
+                if(Mouse.current?.rightButton.isPressed==true || (Gamepad.current?.rightStick.ReadValue().sqrMagnitude??0)>.01f)
+                {fishingYaw=Mathf.Clamp(fishingYaw+look.x,-75,75);fishingPitch=Mathf.Clamp(fishingPitch-look.y,-20,55);}
+            }
+            else {yaw += look.x;pitch = Mathf.Clamp(pitch - look.y, -8f, 55f);}
             Quaternion rotation = Quaternion.Euler(pitch, yaw, 0f);
             // Keep exploration yaw intact while framing the water and rod during fishing.
-            if (fishingView) rotation = Quaternion.Euler(12f, 0f, 0f);
+            if (fishingView) rotation = Quaternion.Euler(fishingPitch, fishingYaw, 0f);
             Vector3 desired;
             if (firstPerson)
             {

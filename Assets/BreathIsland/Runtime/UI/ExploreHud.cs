@@ -23,7 +23,7 @@ namespace BreathIsland
             }
             else if(relationships.NearbyNpc().HasValue)prompt=context.Text("bag_talk_hint");
             else if(Vector3.Distance(context.World.player.transform.position,context.World.fishingPoint)<7.5f)prompt=context.Text("bag_fish_hint");
-            if(!string.IsNullOrEmpty(prompt))ui.Panel(new Rect(width/2-310,height-134,620,62),prompt);
+            if(!string.IsNullOrEmpty(prompt))ui.Panel(new Rect(width/2-310,height-190,620,62),prompt);
             ui.Icon(new Rect(width/2-6,height/2-6,12,12),"reticle",NotebookSurface.Paper);
             if(life!=null && Vector3.Distance(context.World.player.transform.position,life.Training.TargetPosition)<5)
             {

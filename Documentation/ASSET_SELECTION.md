@@ -121,3 +121,9 @@ OceanWater 셰이더, OceanSurface 파도 메시와 해저 재질은 프로젝�
 ### 2026-10-15 물고기·물보라 보완
 
 기존 자체 생성 Generated 어류 6종의 FBX는 보존하고 World/Fish에 파생 프리팹과 URP 재질을 작성했다. 원본 생성 스크립트의 어종별 색 구분을 참고해 몸통·배·눈을 분리했다. 꼬리·지느러미 동작과 물방울·파문은 프로젝트 코드로 작성하며 새 외부 에셋은 없다.
+
+## 2026-10-15 잔디·낚시 손 재선별
+
+- 제공된 KayKit_Forest_Nature_Pack_1.0_FREE.zip의 Assets/fbx/Grass_1_A_Color1.fbx와 Grass_1_B_Color1.fbx만 추가 선별했다. 기존 forest_texture.png와 Nature/License.txt(CC0, Kay Lousberg)를 재사용한다. 원본 ZIP은 보존한다.
+- 낚시 손은 기존 CC0 KayKit Adventurers Ranger_ArmLeft/Right 메시에서 손·아래팔 삼각형을 추출한 파생 메시다. 기존 ranger_texture.png를 사용하며 원본 Ranger.fbx는 변경하지 않는다.
+- Ground 셰이더·집 벽 뒷면·박공 끝면은 프로젝트 코드로 작성했다. 새 외부 다운로드는 없다. Universal Animation Library의 CC0 라이선스는 확인했지만 기존 Generic 리그와 다른 애니메이션을 이번에 직접 적용하지 않았다.

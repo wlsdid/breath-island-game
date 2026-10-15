@@ -121,7 +121,7 @@ namespace BreathIsland.Editor
             var clips = new[] { "Rig_Medium_General", "Rig_Medium_MovementBasic" }.SelectMany(id => AssetDatabase.LoadAllAssetsAtPath(Art + "Character/" + id + ".fbx").OfType<AnimationClip>()).Where(c => !c.name.StartsWith("__preview__")).ToArray();
             Debug.Log("Imported animation clips: " + string.Join(", ", clips.Select(c => c.name)));
             var idle = clips.First(c => c.name.IndexOf("Idle", StringComparison.OrdinalIgnoreCase) >= 0);
-            var walk = clips.First(c => c.name.IndexOf("Walk", StringComparison.OrdinalIgnoreCase) >= 0);
+            var walk = clips.First(c => c.name == "Walking_A");
             var controller = AnimatorController.CreateAnimatorControllerAtPath(path); controller.AddParameter("Speed", AnimatorControllerParameterType.Float);
             var machine = controller.layers[0].stateMachine; var idleState = machine.AddState("Idle"); idleState.motion = idle;
             var walkState = machine.AddState("Walk"); walkState.motion = walk;

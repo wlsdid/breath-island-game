@@ -9,6 +9,7 @@ namespace BreathIsland
         {
             EnsureStyles();
             bool ko = context.Korean;
+            ui.Panel(new Rect(width/2-350,height-40,700,34),context.Text("fishing_move_hint"));
             ui.Panel(new Rect(24, 105, 210, 48), context.Text("ui_first_person_sunny_shore"), DarkBox());
             Rect panel = new(width / 2f - 275f, height - 290f, 550f, 245f);
             ui.Panel(panel, string.Empty, panelStyle);

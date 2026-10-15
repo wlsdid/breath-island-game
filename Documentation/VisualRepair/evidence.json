@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-15",
+  "unity": "6000.5.4f1",
+  "editMode": "115/115 Passed",
+  "playMode": "41/41 Passed",
+  "windowsMono": "Success",
+  "capture": "Editor Play Mode; not Windows manual validation",
+  "userSettingsHashesPreserved": true,
+  "files": [
+    {
+      "Path": "C:\\Users\\JinYang\\Documents\\Codex\\2026-09-09\\x20-3d-3d-stylized-anime-child\\work\\breath-island-game\\Builds\\editmode-results.xml",
+      "Hash": "293D2981D746970EDB427141BA67AC9FED5F8AF57A4C179CBDD611A09048532F"
+    },
+    {
+      "Path": "C:\\Users\\JinYang\\Documents\\Codex\\2026-09-09\\x20-3d-3d-stylized-anime-child\\work\\breath-island-game\\Builds\\playmode-results.xml",
+      "Hash": "FC6E7191123FCE52124EEC74DEC3F4A8B4A8FCAA6AD911580D2B0A73359CD9F5"
+    },
+    {
+      "Path": "C:\\Users\\JinYang\\Documents\\Codex\\2026-09-09\\x20-3d-3d-stylized-anime-child\\work\\breath-island-game\\Builds\\build.log",
+      "Hash": "5AE46A029A56A7393B4563C3C2453BBC56CC6B3CD77A3E7934E7DF936C67689C"
+    }
+  ]
+}

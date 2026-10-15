@@ -79,3 +79,9 @@ OceanWater 셰이더와 OceanSurface 메시·해저 재질은 자체 작성 코�
 낚시 후속 표현은 기존 자체 생성 물고기 FBX 6종을 파생 프리팹으로 재사용했다. 새 색상 재질·꼬리 동작·물방울·파문은 프로젝트 코드로 작성했으며 외부 다운로드나 원본 변경은 없다.
 
 낚시 손은 외부 모델 추가 없이 자체 기본 메시로 손바닥·엄지·접힌 손가락·청록 소매를 구성했다. FishingHandAuthoring으로 파생 프리팹을 작성하며 원본 캐릭터·에셋은 보존한다.
+
+### 2026-10-15 잔디와 실제 캐릭터 손
+
+Kay Lousberg의 KayKit Forest Nature Pack 1.0에서 Grass_1_A_Color1.fbx·Grass_1_B_Color1.fbx를 추가 선별했다. 제공된 ZIP의 Assets/fbx 경로가 출처이며 동봉 CC0 라이선스는 상업 이용·수정·배포를 허용한다. 기존 forest_texture.png 및 Nature/License.txt를 재사용한다.
+
+낚시 손 파생 메시는 기존 KayKit Adventurers Ranger의 팔/손과 텍스처에서 작성했다(CC0). 원본 FBX·텍스처는 보존한다. 집의 보강 메시와 지면 셰이더는 자체 코드이며 추가 구매·다운로드는 없다.

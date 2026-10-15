@@ -17,6 +17,8 @@ namespace BreathIsland
         private FishingStage previousStage;
         private bool wasVisible;
         private Vector3 castStart, waterTarget;
+        private Vector3 castTarget, castForward=Vector3.forward;
+        private bool released;
         public bool Visible => rig != null && rig.activeSelf;
 
         public void Initialize(WorldHandles handles, FishingSystem system, GamePhaseController controller)
@@ -44,6 +46,10 @@ namespace BreathIsland
             if (action == FishingVisualAction.Cast)
             {
                 castTime = 0; castStart = rod.Tip;
+                released=false;
+                castForward=Vector3.ProjectOnPlane(world.camera.transform.forward,Vector3.up).normalized;
+                castTarget=world.player.transform.position+castForward*10;
+                castTarget.z=Mathf.Max(28,castTarget.z);
                 waterEffects.ResetCast();
             }
             else { gesture = action == FishingVisualAction.Ease ? -1 : action == FishingVisualAction.Hook ? 1.5f : 1; gestureTime = 0; }
@@ -69,25 +75,31 @@ namespace BreathIsland
             if ((hooked || biting) && previousStage != fishing.Stage) clock = 0;
             previousStage = fishing.Stage;
             var camera = world.camera.transform;
-            Vector3 forward = Vector3.ProjectOnPlane(camera.forward, Vector3.up).normalized;
+            Vector3 forward = castForward;
             Vector3 right = Vector3.Cross(Vector3.up, forward);
             Vector3 origin = world.player.transform.position;
-            waterTarget = origin + forward * Mathf.Lerp(10, 4, hooked ? fishing.Progress / 100 : 0);
+            var nearTarget=origin+forward*4;nearTarget.z=Mathf.Max(26.3f,nearTarget.z);
+            waterTarget = Vector3.Lerp(castTarget,nearTarget,hooked ? fishing.Progress/100 : 0);
             waterTarget.y = OceanSurface.Height(waterTarget, Time.time) + .035f;
             float jump = hooked ? FishingPose.JumpHeight(clock) : 0;
             Vector3 endpoint = waterTarget + right * (hooked ? Mathf.Sin(clock * 1.8f) * 1.3f : 0);
             if (biting) endpoint += right * (Mathf.Sin(clock * 19) * .09f);
             endpoint.y = OceanSurface.FloatHeight(endpoint,Time.time,biting,clock);
             if (waiting && castTime < FishingPose.CastDuration)
-                endpoint = FishingPose.CastPoint(castStart, waterTarget, castTime / FishingPose.CastDuration);
+                endpoint = FishingPose.CastPoint(castStart, waterTarget, Mathf.InverseLerp(.28f,FishingPose.CastDuration,castTime));
             float pulse = gestureTime < .55f ? Mathf.Sin(gestureTime / .55f * Mathf.PI) * gesture : 0;
-            float cast = waiting && castTime < FishingPose.CastDuration ? Mathf.Sin(castTime / FishingPose.CastDuration * Mathf.PI * 2) : 0;
+            float cast = waiting ? FishingPose.CastSwing(castTime) : 0;
             bend = Mathf.MoveTowards(bend, hooked ? fishing.Tension : 0, dt * 110);
             float pull = hooked ? Mathf.Sin(clock * 1.8f) * Mathf.Clamp01(bend / 100) : 0;
             rod.transform.SetPositionAndRotation(camera.TransformPoint(new Vector3(.38f, .08f + pulse * .035f, 1.05f - pulse * .12f)),
                 camera.rotation * Quaternion.Euler(-21 - pulse * 14 - cast * 32 + (hooked ? Mathf.Sin(clock * 5) * bend * .025f : 0), -12 + pull * 10, -6 - pull * 6));
             if (pulse > 0) reelAngle += dt * pulse * 850;
             rod.Pose(bend, reelAngle);
+            if(waiting && !released)
+            {
+                castStart=rod.Tip;endpoint=castStart;
+                if(castTime>=.28f)released=true;
+            }
             bool deployed = waiting || biting || hooked;
             line.enabled = deployed; bobber.gameObject.SetActive(deployed); ripple.enabled = deployed;
             fish.SetActive(hooked || biting);

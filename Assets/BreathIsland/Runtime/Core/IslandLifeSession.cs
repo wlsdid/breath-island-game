@@ -51,6 +51,7 @@ namespace BreathIsland
             var feedback = new GameObject("Weapon Feedback"); feedback.transform.SetParent(parent, false);
             var feedbackView = feedback.AddComponent<CombatFeedback>(); feedbackView.Initialize(Catalog.weaponMaterial);
             Training.Hit += feedbackView.Show;
+            Training.Hit += equipmentView.Attack;
             Land.Changed += RefreshNodes;
             context.Loaded += Restore;
             Restore();
@@ -85,6 +86,7 @@ namespace BreathIsland
         public void OpenEquipment() => phases.OpenInventory();
         public void Dispose()
         {
+            Training.Hit -= equipmentView.Attack;
             constructionView.Dispose();Construction.Dispose();
             context.Loaded -= Restore; Land.Changed -= RefreshNodes;
             seatedView.Dispose(); Home.Dispose(); Storage.Dispose(); equipmentView.Dispose(); housingView.Dispose(); finishView.Dispose(); Finishes.Dispose(); world.Dispose();

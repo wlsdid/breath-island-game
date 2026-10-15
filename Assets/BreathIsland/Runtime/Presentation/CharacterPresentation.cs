@@ -13,7 +13,7 @@ namespace BreathIsland
         public void Initialize(IslandLifeCatalog catalog)
         {
             foreach (Transform child in transform) if (child.name == "Hero Visual") { child.gameObject.SetActive(false); Destroy(child.gameObject); }
-            var visual = ModelPresentation.Create(catalog.characterModel, transform, catalog.characterMaterial, 1.7f);
+            var visual = ModelPresentation.Create(catalog.characterModel, transform, catalog.characterMaterial, 1.45f);
             visual.name = "Hero Visual";
             body = visual.transform; bodyScale = body.localScale;
             animator = visual.GetComponentInChildren<Animator>();

@@ -6,6 +6,12 @@ namespace BreathIsland
     public static class FishingPose
     {
         public const float CastDuration = .9f;
+        public static float CastSwing(float seconds)
+        {
+            if(seconds<.2f)return -Mathf.SmoothStep(0,1,seconds/.2f)*1.25f;
+            if(seconds<.34f)return Mathf.Lerp(-1.25f,1.6f,Mathf.SmoothStep(0,1,(seconds-.2f)/.14f));
+            return Mathf.Lerp(1.6f,0,Mathf.SmoothStep(0,1,(seconds-.34f)/.56f));
+        }
         public static Vector3 RodPoint(float along, float tension)
         {
             float t = Mathf.Clamp01(along);

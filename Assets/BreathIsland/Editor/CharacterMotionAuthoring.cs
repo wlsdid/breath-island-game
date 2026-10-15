@@ -20,6 +20,7 @@ namespace BreathIsland.Editor
             var land = State(machine, "Jump Land", clips.First(c => c.name == "Jump_Land"));
             var idle = machine.states.First(s => s.state.name == "Idle").state;
             var walk = machine.states.First(s => s.state.name == "Walk").state;
+            walk.motion=clips.First(c=>c.name=="Walking_A");
             foreach (var source in new[] { idle, walk })
             {
                 Transition(source, start, false, "Airborne", AnimatorConditionMode.If);

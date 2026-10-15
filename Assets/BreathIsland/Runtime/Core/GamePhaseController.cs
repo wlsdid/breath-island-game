@@ -26,17 +26,19 @@ namespace BreathIsland
 
         public void Set(GamePhase next)
         {
+            if(next==GamePhase.Fishing && Current!=GamePhase.Pause && Current!=GamePhase.Fishing)world.cameraRig.ResetFishingLook();
             if (next == GamePhase.Pause && Current != GamePhase.Pause) BeforePause = Current;
             Current = next;
             enteredFrame = Time.frameCount;
             world.motor.BlockActions();
-            world.motor.CanMove = next == GamePhase.Explore || next == GamePhase.Home;
+            world.motor.CanMove = next == GamePhase.Explore || next == GamePhase.Home || next == GamePhase.Fishing;
+            world.motor.FishingMovement = next == GamePhase.Fishing;
             world.cameraRig.firstPerson = next == GamePhase.Fishing || next == GamePhase.PredatorCombat;
             world.cameraRig.fishingView = next == GamePhase.Fishing;
             world.player.GetComponent<FirstPersonBodyView>()?.SetFirstPerson(world.cameraRig.firstPerson);
             world.cameraRig.homeView = IsHome(next) || (next == GamePhase.Equipment && IsHome(BeforeInventory)) || (next == GamePhase.Pause && IsHome(BeforePause));
             world.cameraRig.homeOverview = next == GamePhase.HomeDecorate || next == GamePhase.Equipment;
-            world.cameraRig.allowLook = next == GamePhase.Explore;
+            world.cameraRig.allowLook = next == GamePhase.Explore || next == GamePhase.Fishing;
             Cursor.lockState = next == GamePhase.Explore ? CursorLockMode.Locked : CursorLockMode.None;
             Cursor.visible = next != GamePhase.Explore;
             Changed?.Invoke();

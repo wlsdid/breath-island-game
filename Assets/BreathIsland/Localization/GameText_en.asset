@@ -182,7 +182,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 41
-    m_Localized: S  EASE LINE
+    m_Localized: "Q \xB7 Ease line"
     m_Metadata:
       m_Items: []
   - m_Id: 42
@@ -1110,6 +1110,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 680760707592962051
     m_Localized: The fish got away
+    m_Metadata:
+      m_Items: []
+  - m_Id: 680889321575628800
+    m_Localized: "WASD move on pier \xB7 Hold RMB to look \xB7 Q ease line"
     m_Metadata:
       m_Items: []
   references:

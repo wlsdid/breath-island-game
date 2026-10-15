@@ -15,8 +15,8 @@ namespace BreathIsland.Editor
             Directory.CreateDirectory(World + "Npcs");
             AssetDatabase.Refresh();
             var catalog = IslandLifeCatalog.Load();
-            Npc("Nari", "Rogue", "rogue_texture", 1.65f, 150, catalog);
-            Npc("Maru", "Mage", "mage_texture", 1.8f, 220, catalog);
+            Npc("Nari", "Rogue", "rogue_texture", 1.42f, 150, catalog);
+            Npc("Maru", "Mage", "mage_texture", 1.55f, 220, catalog);
             var root = PrefabUtility.LoadPrefabContents(World + "ForestVillage.prefab");
             try
             {

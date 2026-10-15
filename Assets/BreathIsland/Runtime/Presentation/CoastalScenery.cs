@@ -16,7 +16,7 @@ namespace BreathIsland
             // Existing island radius is 19 x 16; all added surfaces are non-colliding.
             Ring("Grass fringe",new Vector3(0,.603f,-5),18.15f,15.15f,.36f,edge,false);
             Ring("Sand fringe",new Vector3(0,.802f,11),5.65f,3.65f,.30f,sand,false);
-            Tufts(Material(new Color(.28f,.49f,.23f)),Material(new Color(.51f,.66f,.31f)));
+            transform.parent.gameObject.AddComponent<GroundCover>();
         }
         private Material Material(Color color)
         {
@@ -45,29 +45,6 @@ namespace BreathIsland
             for(int i=0;i<colors.Length;i++)colors[i]=new Color(1,1,1,broken?.65f:(i%2==0?.60f:0));
             mesh.colors=colors;
             return result;
-        }
-        private void Tufts(Material dark,Material light)
-        {
-            for(int variant=0;variant<2;variant++)
-            {
-                var vertices=new List<Vector3>();var triangles=new List<int>();
-                for(int i=0;i<100;i++)
-                {
-                    float a=(i*.618034f+variant*.31f)*Mathf.PI*2;
-                    float radius=.82f+(i%7)*.018f;
-                    Vector3 pos=new Vector3(Mathf.Cos(a)*18*radius,.608f,-5+Mathf.Sin(a)*15*radius);
-                    if(pos.z>7 && Mathf.Abs(pos.x)<8)continue;
-                    for(int blade=0;blade<3;blade++)
-                    {
-                        float angle=a+blade*2.1f;
-                        Vector3 across=new Vector3(Mathf.Cos(angle),0,Mathf.Sin(angle))*.07f;
-                        Vector3 top=pos+Vector3.up*(.18f+(i%4)*.04f)+across;
-                        int n=vertices.Count;vertices.Add(pos-across);vertices.Add(pos+across);vertices.Add(top);
-                        triangles.AddRange(new[]{n,n+2,n+1,n,n+1,n+2});
-                    }
-                }
-                MeshObject("Coastal grass "+variant,Vector3.zero,vertices,triangles,variant==0?dark:light);
-            }
         }
         private Transform MeshObject(string name,Vector3 position,List<Vector3> vertices,List<int> indices,Material material)
         {

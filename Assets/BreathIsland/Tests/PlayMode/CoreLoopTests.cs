@@ -155,7 +155,7 @@ namespace BreathIsland.Tests
                 Assert.That(context.Save, Is.SameAs(save));
                 Assert.That(fishing.ActiveFish, Is.SameAs(fish));
                 Assert.That(context.World.player.transform.position, Is.EqualTo(position));
-                Assert.That(context.World.motor.CanMove, Is.EqualTo(phase == GamePhase.Explore || phase == GamePhase.Home));
+                Assert.That(context.World.motor.CanMove, Is.EqualTo(phase == GamePhase.Explore || phase == GamePhase.Home || phase == GamePhase.Fishing));
                 Assert.That(context.World.cameraRig.firstPerson, Is.EqualTo(phase == GamePhase.Fishing || phase == GamePhase.PredatorCombat));
             }
             phases.Set(GamePhase.Explore); phases.Cancel();

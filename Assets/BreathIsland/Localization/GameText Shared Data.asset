@@ -1091,6 +1091,10 @@ MonoBehaviour:
     m_Key: fishing_bite_missed
     m_Metadata:
       m_Items: []
+  - m_Id: 680889321575628800
+    m_Key: fishing_move_hint
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
