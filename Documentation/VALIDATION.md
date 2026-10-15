@@ -337,3 +337,12 @@ Play Mode HUD 테스트에는 실제 Game View가 필요하므로 `-batchmode`�
 - 실제 Editor 렌더에서 기사·레인저·마법사와 허수아비를 확인했다. Windows 실행 파일에서의 직접 조작·동작 감각은 미검증이다.
 - 기존 피해·쿨다운·직업 숙련도·해금 조건·저장 형식은 유지한다. 검증 저장은 임시 격리 경로를 사용한다.
 추가 무기 표현 테스트 1/1 통과(`Builds/training-review.xml`). 직업 외형·허수아비·발사 순간 Editor 렌더는 `Documentation/TrainingPresentation/`에 보관한다.
+
+## 2026-10-15 궁수 전용 외형
+
+- Unity 6000.5.4f1 / Windows / URP. Edit Mode 115/115, Play Mode 47/47 통과.
+- 기본 외형과 활 스킨 메시 구분, 일반·특수 활 적용, 도구 사용 및 Restore 시 외형 유지, 해제 시 원본 스킨 복원, 기존 손 뼈 유지, 활 장착 저장으로 시작한 뒤 재장착하는 흐름을 검사했다.
+- 최초 신규 테스트가 활 자체의 SkinnedMeshRenderer를 캐릭터 외형으로 집계해 실패했다. 손 장비를 검사 대상에서 제외하고, 실제 외형 관리 코드도 손 장비 참조를 보관하지 않도록 수정한 후 전체 테스트를 다시 통과했다.
+- Editor 렌더: `ArcherAppearance/bow-carry.png`, `bow-draw.png`, `bow_special-carry.png`. 후드·마스크·망토 외형을 확인했다. Windows 직접 조작과 동작 감각은 별도 미검증이다.
+- 실제 사용자 저장 및 원본 팩은 보존하고 임시 테스트 저장을 사용했다.
+- 수정본 Windows Mono 빌드 성공(`Builds/build.log`).

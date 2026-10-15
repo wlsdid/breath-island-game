@@ -32,6 +32,39 @@ namespace BreathIsland.Tests
             life.Dispose(); UnityEngine.Object.Destroy(root); yield return null;
             Directory.Delete(directory, true);
         }
+        [UnityTest] public IEnumerator BowOutfitDiffersFromUnarmedAndRestoresWithoutChangingRig()
+        {
+            life.Equipment.Equip(""); yield return null;
+            var player=context.World.player;
+            var original=player.GetComponentsInChildren<SkinnedMeshRenderer>().Where(r=>r.enabled && r.GetComponentInParent<ToolSwing>()==null).Select(r=>r.sharedMesh).ToArray();
+            var hand=player.GetComponentsInChildren<Transform>().First(t=>t.name=="handslot.r");
+            context.Save.equipment.achievements.Add("training");
+            foreach(var id in new[]{"bow","bow_special"})
+            {
+                Assert.That(life.Equipment.Equip(id),Is.True);yield return null;
+                var skins=player.GetComponentsInChildren<SkinnedMeshRenderer>().Where(r=>r.enabled && r.GetComponentInParent<ToolSwing>()==null).ToArray();
+                Assert.That(skins.Length,Is.GreaterThan(0));
+                Assert.That(skins.All(r=>r.transform.parent.name=="ranger outfit"),Is.True,string.Join(",",skins.Select(r=>r.name+" parent="+r.transform.parent.name)));
+                Assert.That(skins.Any(r=>!original.Contains(r.sharedMesh)),Is.True);
+                Assert.That(player.GetComponentsInChildren<Transform>().First(t=>t.name=="handslot.r"),Is.SameAs(hand));
+                life.Equipment.SelectTool(LifeTool.Axe);yield return null;
+                Assert.That(skins.All(r=>r.gameObject.activeInHierarchy && r.enabled),Is.True);
+                life.Equipment.Restore(); yield return null;
+                Assert.That(skins.All(r=>r.gameObject.activeInHierarchy && r.enabled),Is.True);
+                life.Equipment.Equip("");yield return null;
+                var restored=player.GetComponentsInChildren<SkinnedMeshRenderer>().Where(r=>r.enabled && r.GetComponentInParent<ToolSwing>()==null).Select(r=>r.sharedMesh).ToArray();
+                CollectionAssert.AreEquivalent(original,restored);
+            }
+        }
+        [UnityTest] public IEnumerator SavedBowOutfitSurvivesEquipmentReplacement()
+        {
+            life.Dispose(); yield return null;
+            context.Save.equipment.weaponId="bow";context.Save.equipment.tool=LifeTool.None;
+            life=new IslandLifeSession(context,phases,root.transform);yield return null;
+            Assert.That(life.Equipment.Equip("staff"),Is.True);yield return null;
+            Assert.That(life.Equipment.Equip("bow"),Is.True);yield return null;
+            Assert.That(context.World.player.GetComponentsInChildren<SkinnedMeshRenderer>().Any(r=>r.enabled && r.transform.parent.name=="ranger outfit"),Is.True);
+        }
         [UnityTest] public IEnumerator TrainingRecoversThreeSecondsAfterLastHitAndOutfitsKeepRig()
         {
             context.World.motor.enabled=false;
@@ -41,7 +74,7 @@ namespace BreathIsland.Tests
             {
                 life.Equipment.Equip(id); yield return null;
                 Assert.That(context.World.player.GetComponentsInChildren<Transform>().First(t=>t.name=="handslot.r"),Is.SameAs(hand));
-                var visible=context.World.player.GetComponentsInChildren<SkinnedMeshRenderer>().Where(r=>r.enabled).ToArray();
+                var visible=context.World.player.GetComponentsInChildren<SkinnedMeshRenderer>().Where(r=>r.enabled && r.GetComponentInParent<ToolSwing>()==null).ToArray();
                 Assert.That(visible.Length,Is.GreaterThan(0));
                 Assert.That(visible.All(r=>r.bones.All(b=>b!=null)),Is.True);
                 if(id=="sword" || id=="staff") Assert.That(visible.Any(r=>r.transform.parent.name==(id=="sword"?"warrior outfit":"mage outfit")),Is.True);

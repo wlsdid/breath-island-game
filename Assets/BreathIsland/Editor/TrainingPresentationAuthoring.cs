@@ -12,12 +12,17 @@ namespace BreathIsland.Editor
         {
             Directory.CreateDirectory(Folder); AssetDatabase.Refresh();
             Outfit("warrior", "Knight", "knight_texture"); Outfit("mage", "Mage", "mage_texture");
+            Outfit("ranger", "Rogue_Hooded", "rogue_texture");
             Dummy();
             string arrowPath = "Assets/BreathIsland/Resources/World/Weapons/Arrow.prefab";
             var arrow = PrefabUtility.LoadPrefabContents(arrowPath);
             try { arrow.transform.GetChild(0).localRotation = Quaternion.identity; PrefabUtility.SaveAsPrefabAsset(arrow, arrowPath); }
             finally { PrefabUtility.UnloadPrefabContents(arrow); }
             AssetDatabase.SaveAssets();
+        }
+        public static void BuildArcher()
+        {
+            AssetDatabase.Refresh(); Outfit("ranger", "Rogue_Hooded", "rogue_texture"); AssetDatabase.SaveAssets();
         }
         static void Outfit(string id, string model, string texture)
         {

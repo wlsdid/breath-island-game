@@ -140,3 +140,7 @@ Brackeys VFX bundle의 CC0 predrawn 세 장을 선택했다. big_hit은 6×5 중
 ## 2026-10-15 직업 외형·허수아비
 
 Adventurers 2.0의 Knight/Mage와 각 텍스처를 선별했다. 기존 Ranger와 같은 뼈 이름을 확인하고 스킨만 교체해 손 소켓과 애니메이션을 유지한다. 훈련 허수아비는 짚 머리·모자·목재 지지대·천 몸통·표적 패치로 만든 작성된 프리팹이다. 원본 에셋 수정 없음.
+
+## 궁수 외형 추가 선별
+
+KayKit_Adventurers_2.0_FREE.zip의 Characters/fbx/Rogue_Hooded.fbx와 rogue_texture.png를 선별했다. 기본 Ranger와 활 직업을 구분하기 위한 후드형 스킨이며 같은 뼈 이름 검사를 통과했다. 원본 ZIP은 보존한다. 라이선스는 기존 Character/License.txt의 CC0이다.

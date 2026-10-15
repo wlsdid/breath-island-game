@@ -15,9 +15,10 @@ namespace BreathIsland
         {
             this.equipment = equipment;
             var visual = player.GetComponentsInChildren<Transform>().First(t => t.name == "Hero Visual" && t.gameObject.activeSelf);
-            original = visual.GetComponentsInChildren<SkinnedMeshRenderer>();
+            original = visual.GetComponentsInChildren<SkinnedMeshRenderer>()
+                .Where(r => r.GetComponentInParent<ToolSwing>() == null).ToArray();
             var bones = visual.GetComponentsInChildren<Transform>().GroupBy(t => t.name).ToDictionary(g => g.Key, g => g.First());
-            foreach (var job in new[] { "warrior", "mage" })
+            foreach (var job in new[] { "warrior", "ranger", "mage" })
             {
                 var prefab = Resources.Load<GameObject>("World/JobAppearances/" + job);
                 var group = new GameObject(job + " outfit"); group.transform.SetParent(original[0].transform.parent, false);
@@ -39,7 +40,7 @@ namespace BreathIsland
         }
         private void Refresh()
         {
-            CurrentJob = equipment.Job?.id ?? "ranger";
+            CurrentJob = equipment.Job?.id ?? "";
             bool custom = variants.ContainsKey(CurrentJob);
             foreach (var skin in original) skin.enabled = !custom;
             foreach (var pair in variants) pair.Value.SetActive(pair.Key == CurrentJob);
