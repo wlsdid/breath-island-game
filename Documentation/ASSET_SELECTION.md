@@ -113,3 +113,7 @@ KayKit Dungeon Pack 1.0의 `Models/fbx/chest_common_empty.fbx`와 `chestTop_comm
 - 제공된 KayKit Adventurers 2.0 FREE의 Rogue, Mage FBX와 각각의 텍스처, CC0 License.txt를 Villagers 폴더에 선별했다. 원본 ZIP과 기존 Ranger는 변경하지 않았다. 원본 경로·SHA-256은 NPC_ASSET_SELECTION.json에 있다.
 - 기존 Nari/Maru의 도형 외형을 각각 Rogue/Mage 파생 프리팹으로 교체한다. 신규 NPC·직업·대사·일정은 추가하지 않는다. 기존 Medium Generic Avatar와 Idle 컨트롤러를 재사용한다.
 - 마을은 기존 건물·길을 보존하면서 자체 기본 메시로 창틀·회벽 패널·청록 차양·벤치·굴뚝·광장 가장자리를 작성하고, 기존 KayKit Bush로 화단을 구성한다. 화단은 채집 대상과 분리된 장식이다. 추가 다운로드는 없다.
+
+## 2026-10-15 수면 표현
+
+OceanWater 셰이더, OceanSurface 파도 메시와 해저 재질은 프로젝트 코드로 작성했다. 기존 Generated 물고기를 수중 이동에 재사용하며 신규 외부 파일·텍스처·다운로드는 없다. 기존 모델의 출처 기록과 design asset 원본을 유지한다.

@@ -9,22 +9,14 @@ namespace BreathIsland
     {
         private readonly List<Mesh> meshes = new();
         private readonly List<Material> materials = new();
-        private Transform foam;
-        private readonly List<Transform> waveBands = new();
         private void Awake()
         {
-            var shallow=Material(new Color(.18f,.67f,.68f));
             var sand=Material(new Color(.73f,.70f,.43f));
             var edge=Material(new Color(.35f,.55f,.27f));
-            var white=Material(new Color(.66f,.88f,.80f));
             // Existing island radius is 19 x 16; all added surfaces are non-colliding.
-            Ring("Shallow coastal shelf",new Vector3(0,-.68f,-5),19,16,3.5f,shallow,false);
-            Ring("Beach shallows",new Vector3(0,-.665f,11),6,4,2.5f,shallow,false);
             Ring("Grass fringe",new Vector3(0,.603f,-5),18.15f,15.15f,.36f,edge,false);
             Ring("Sand fringe",new Vector3(0,.802f,11),5.65f,3.65f,.30f,sand,false);
-            foam=Ring("Broken shore foam",new Vector3(0,-.645f,-5),19.5f,16.5f,.09f,white,true);
             Tufts(Material(new Color(.28f,.49f,.23f)),Material(new Color(.51f,.66f,.31f)));
-            WaterHighlights(Material(new Color(.19f,.64f,.72f)));
         }
         private Material Material(Color color)
         {
@@ -84,28 +76,6 @@ namespace BreathIsland
             var go=new GameObject(name,typeof(MeshFilter),typeof(MeshRenderer));go.transform.SetParent(transform,false);go.transform.localPosition=position;
             go.GetComponent<MeshFilter>().sharedMesh=mesh;var renderer=go.GetComponent<MeshRenderer>();renderer.sharedMaterial=material;renderer.shadowCastingMode=ShadowCastingMode.Off;
             return go.transform;
-        }
-        private void WaterHighlights(Material material)
-        {
-            for(int band=0;band<3;band++)
-            {
-                var vertices=new List<Vector3>();var triangles=new List<int>();
-                for(int i=0;i<65;i++)
-                {
-                    float x=Mathf.Sin(i*13.17f+band*7)*55, z=26+(i*7.37f+band*13)%90;
-                    float length=.4f+(i%6)*.23f;
-                    int n=vertices.Count;
-                    vertices.Add(new Vector3(x,-.685f,z));vertices.Add(new Vector3(x+length,-.685f,z+.07f));
-                    vertices.Add(new Vector3(x+length*1.4f,-.685f,z));vertices.Add(new Vector3(x+length*.35f,-.685f,z-.04f));
-                    triangles.AddRange(new[]{n,n+1,n+2,n,n+2,n+3});
-                }
-                waveBands.Add(MeshObject("Sea highlights "+band,Vector3.zero,vertices,triangles,material));
-            }
-        }
-        private void Update()
-        {
-            if(foam!=null)foam.localScale=Vector3.one*(1+Mathf.Sin(Time.time*.65f)*.012f);
-            for(int i=0;i<waveBands.Count;i++)waveBands[i].localPosition=new Vector3(Mathf.Sin(Time.time*.3f+i)*.3f,0,Mathf.Cos(Time.time*.4f+i)*.25f);
         }
         private void OnDestroy(){foreach(var mesh in meshes)Destroy(mesh);foreach(var mat in materials)Destroy(mat);}
     }

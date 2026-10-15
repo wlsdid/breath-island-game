@@ -71,3 +71,7 @@ KayKit Dungeon Pack 1.0의 빈 일반 상자 본체·뚜껑 FBX 2종과 동봉 C
 사용자 제공 KayKit_Adventurers_2.0_FREE.zip에서 Rogue.fbx, Mage.fbx, rogue_texture.png, mage_texture.png와 License.txt를 선별했다. 제작자는 Kay Lousberg(www.kaylousberg.com), 동봉 라이선스는 CC0이며 상업 이용·수정·재배포를 허용한다. 원본 바이트는 유지하며 Assets/BreathIsland/Art/ThirdParty/KayKit/Villagers에 둔다. 파일 해시는 Documentation/NPC_ASSET_SELECTION.json에 기록한다. 기존 Medium Generic 리그·애니메이션을 재사용한다.
 
 창틀·차양·벤치·굴뚝 등 마을 추가 구조는 기본 메시로 작성한 파생 프리팹이며 화단 식물은 이미 선별된 KayKit Forest Nature Bush를 재사용한다. 기존 Kenney 건물·원본 에셋은 보존한다.
+
+### 수면 표현 추가
+
+OceanWater 셰이더와 OceanSurface 메시·해저 재질은 자체 작성 코드이며 외부 그래픽 파일을 반입하지 않았다. 수중 물고기는 앞서 사용한 Generated 모델을 재사용한다. 원본 에셋과 기존 라이선스 상태는 유지한다.

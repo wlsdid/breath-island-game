@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-15",
+  "unity": "6000.5.4f1",
+  "editPassed": "110",
+  "playPassed": "37",
+  "build": "Windows Mono succeeded",
+  "windowsManual": "unverified",
+  "settingsPreserved": true,
+  "images": "Editor Play Mode camera renders",
+  "testHashes": [
+    {
+      "Algorithm": "SHA256",
+      "Hash": "CBA0321C50BC3DEFD85347D88A18793C796E88F6A8FDBFB9BF0301FAD2F02BFC",
+      "Path": "C:\\Users\\JinYang\\Documents\\Codex\\2026-09-09\\x20-3d-3d-stylized-anime-child\\work\\breath-island-game\\Builds\\editmode-results.xml"
+    },
+    {
+      "Algorithm": "SHA256",
+      "Hash": "6C4BC82E01C3846C9B66C910A91A581151BC5D060BEF2A29DCA96CF111266270",
+      "Path": "C:\\Users\\JinYang\\Documents\\Codex\\2026-09-09\\x20-3d-3d-stylized-anime-child\\work\\breath-island-game\\Builds\\playmode-results.xml"
+    }
+  ],
+  "buildLogHash": "CA47C4F1D5457640B8B9E62024249FB2906F7D506E0B477CAA827824A7F5DA27",
+  "executableHash": "E8BB8F9DFE2A039CE0B2123DA1B65F48FE68FF838147361B468A559F43A27A66"
+}

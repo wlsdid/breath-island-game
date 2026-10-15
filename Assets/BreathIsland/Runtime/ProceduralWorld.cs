@@ -36,6 +36,9 @@ namespace BreathIsland
             var cameraObject = new GameObject("Gameplay Camera", typeof(Camera), typeof(AudioListener), typeof(IslandCameraRig));
             cameraObject.transform.SetParent(parent);
             handles.camera = cameraObject.GetComponent<Camera>();
+            var cameraData = cameraObject.AddComponent<UnityEngine.Rendering.Universal.UniversalAdditionalCameraData>();
+            cameraData.requiresDepthTexture = true;
+            cameraData.requiresColorTexture = true;
             handles.camera.fieldOfView = 55f;
             handles.camera.nearClipPlane = .08f;
             handles.camera.farClipPlane = 230f;
@@ -89,8 +92,8 @@ namespace BreathIsland
 
         private static void BuildWater(Transform parent)
         {
-            var water = Primitive("Calm Sea", PrimitiveType.Plane, new Vector3(0f, -.7f, 32f), new Vector3(100f, 1f, 100f), new Color(.07f, .58f, .72f), parent);
-            Object.Destroy(water.GetComponent<Collider>());
+            var water = new GameObject("Living sea"); water.transform.SetParent(parent, false);
+            water.AddComponent<OceanSurface>();
         }
 
         private static void BuildIsland(Transform parent)
@@ -146,7 +149,7 @@ namespace BreathIsland
                 GameObject creature = Object.Instantiate(source, parent);
                 creature.name = $"Ambient {names[i]}";
                 creature.transform.position = new Vector3(-5f + i * 2.8f, -1.45f - (i % 2) * .25f, 27f + (i % 3) * 2.5f);
-                creature.transform.localScale = Vector3.one * (1f + i * .06f);
+                creature.transform.localScale = Vector3.one * (.55f + i * .025f);
                 creature.AddComponent<AmbientFishMotion>().phase = i * 1.13f;
                 foreach (Collider collider in creature.GetComponentsInChildren<Collider>()) Object.Destroy(collider);
             }
@@ -188,8 +191,10 @@ namespace BreathIsland
         private void Update()
         {
             float time = Time.time * .45f + phase;
-            transform.position = origin + new Vector3(Mathf.Sin(time) * 2.2f, Mathf.Sin(time * 1.7f) * .16f, Mathf.Cos(time) * .75f);
-            transform.rotation = Quaternion.Euler(0f, -Mathf.Cos(time) * 45f, 0f);
+            var position = origin + new Vector3(Mathf.Sin(time) * 3.2f, 0, Mathf.Cos(time) * 1.3f);
+            position.y = OceanSurface.Height(position,Time.time) - .85f - .15f * Mathf.Sin(time*1.7f);
+            transform.position = position;
+            transform.rotation = Quaternion.LookRotation(new Vector3(Mathf.Cos(time)*3.2f,0,-Mathf.Sin(time)*1.3f));
         }
     }
 }

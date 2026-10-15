@@ -63,18 +63,18 @@ namespace BreathIsland
             bool hooked = fishing.Stage == FishingStage.Hooked;
             bool waiting = fishing.Stage == FishingStage.Waiting;
             bool biting = fishing.Stage == FishingStage.Bite;
-            if (hooked && previousStage != FishingStage.Hooked) clock = 0;
+            if ((hooked || biting) && previousStage != fishing.Stage) clock = 0;
             previousStage = fishing.Stage;
             var camera = world.camera.transform;
             Vector3 forward = Vector3.ProjectOnPlane(camera.forward, Vector3.up).normalized;
             Vector3 right = Vector3.Cross(Vector3.up, forward);
             Vector3 origin = world.player.transform.position;
             waterTarget = origin + forward * Mathf.Lerp(10, 4, hooked ? fishing.Progress / 100 : 0);
-            waterTarget.y = -.62f;
+            waterTarget.y = OceanSurface.Height(waterTarget, Time.time) + .035f;
             float jump = hooked ? FishingPose.JumpHeight(clock) : 0;
-            Vector3 endpoint = waterTarget + right * (hooked ? Mathf.Sin(clock * 1.8f) * 1.3f : 0) + Vector3.up * jump;
-            endpoint.y += Mathf.Sin(clock * 3.5f) * .035f;
-            if (biting) endpoint += right * (Mathf.Sin(clock * 19) * .09f) + Vector3.down * (.08f + .07f * Mathf.Sin(clock * 15));
+            Vector3 endpoint = waterTarget + right * (hooked ? Mathf.Sin(clock * 1.8f) * 1.3f : 0);
+            if (biting) endpoint += right * (Mathf.Sin(clock * 19) * .09f);
+            endpoint.y = OceanSurface.FloatHeight(endpoint,Time.time,biting,clock);
             if (waiting && castTime < FishingPose.CastDuration)
                 endpoint = FishingPose.CastPoint(castStart, waterTarget, castTime / FishingPose.CastDuration);
             float pulse = gestureTime < .55f ? Mathf.Sin(gestureTime / .55f * Mathf.PI) * gesture : 0;
@@ -86,17 +86,24 @@ namespace BreathIsland
             rod.Pose(bend, reelAngle);
             bool deployed = waiting || biting || hooked;
             line.enabled = deployed; bobber.gameObject.SetActive(deployed); ripple.enabled = deployed;
-            fish.SetActive(hooked && jump > .03f);
-            if (hooked) fish.GetComponent<FishingCatchView>().Show(fishing.ActiveFish.id);
+            fish.SetActive(hooked || biting);
+            if (hooked || biting) fish.GetComponent<FishingCatchView>().Show(fishing.ActiveFish.id);
             bobber.position = endpoint;
-            bobber.rotation = biting ? Quaternion.Euler(0, 0, Mathf.Sin(clock * 17) * 24) : Quaternion.identity;
-            fish.transform.SetPositionAndRotation(endpoint + Vector3.down * .12f, Quaternion.Euler(-Mathf.Cos(clock / .95f * Mathf.PI) * 45, clock * 90, 15));
+            bobber.rotation = Quaternion.FromToRotation(Vector3.up,OceanSurface.Normal(endpoint,Time.time))
+                * (biting ? Quaternion.Euler(0, 0, Mathf.Sin(clock * 17) * 24) : Quaternion.identity);
+            Vector3 fishPosition=endpoint+forward*(biting ? (1-Mathf.Clamp01(clock/.6f))*2 : 0);
+            fishPosition.y=OceanSurface.Height(fishPosition,Time.time)-.6f+jump*1.45f;
+            float jumpPitch=jump>0 ? -Mathf.Cos(Mathf.Repeat(clock,4.8f)/.95f*Mathf.PI)*40 : 0;
+            fish.transform.position=fishPosition;
+            fish.transform.rotation=Quaternion.Slerp(fish.transform.rotation,Quaternion.Euler(jumpPitch,hooked ? (Mathf.Cos(clock*1.8f)>0 ? 90 : -90) : 180,8*Mathf.Sin(clock*6)),dt*8);
             for (int i = 0; i < line.positionCount; i++) line.SetPosition(i, FishingPose.LinePoint(rod.Tip, endpoint, i / (line.positionCount - 1f), bend));
             float radius = .25f + Mathf.Repeat(clock * (biting ? 2.8f : .7f), 1) * .8f;
             for (int i = 0; i < ripple.positionCount; i++)
             {
                 float angle = i * Mathf.PI * 2 / (ripple.positionCount - 1);
-                ripple.SetPosition(i, new Vector3(endpoint.x + Mathf.Cos(angle) * radius, -.59f, endpoint.z + Mathf.Sin(angle) * radius));
+                var point=new Vector3(endpoint.x + Mathf.Cos(angle) * radius,0,endpoint.z + Mathf.Sin(angle) * radius);
+                point.y=OceanSurface.Height(point,Time.time)+.015f;
+                ripple.SetPosition(i,point);
             }
             ripple.enabled = deployed && !(waiting && castTime < FishingPose.CastDuration);
         }

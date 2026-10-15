@@ -252,3 +252,13 @@ Play Mode HUD 테스트에는 실제 Game View가 필요하므로 `-batchmode`�
 - 기존 저장 형식·대사·호감도·출입·채집 좌표·건물 충돌체는 변경하지 않았다. 추가 화단·벤치 등은 상호작용 없는 장식이다. 이번 Windows 직접 대화·동선 조작은 미검증이다.
 - 2026-10-12 포트폴리오 영상·이미지는 당시 버전의 기록으로 보존한다. Notion은 수정하지 않는다.
 - Windows Mono 빌드 성공(Builds/build.log: Build Finished, Result: Success). 촬영용 플레이어만 숨긴 후 표현 검사 1/1 재통과(Builds/VillagePolish/presentation-final.xml). 게임 코드 변경 없이 촬영 구도를 정리했다. 검토 이미지 사본은 Documentation/VillagePolish에 보관한다. 사용자 설정 변경 3개와 선별 원본 에셋의 SHA-256 보존을 확인했다.
+
+## 2026-10-15 움직이는 수면·찌·수중 물고기
+
+- Unity 6000.5.4f1, Windows Editor, URP. 새 수면 재질 작성 성공. 첫 가져오기에서 URP 어셈블리 참조 누락을 수정했다.
+- 첫 화면 검사는 셰이더 비동기 컴파일 중의 청록색 FallbackLoading 화면을 읽어 실패했다. 셰이더에 editor_sync_compilation을 적용한 뒤 실제 렌더링 회귀 1/1 통과했다. 이를 물 투명도 성공으로 오인하지 않고 실제 결과를 재검사했다.
+- 전체 Edit Mode **110/110**, Play Mode **37/37** 통과. 기존 저장 호환·네 슬롯·핵심 루프 검사와 신규 파도 높이/법선·찌 높이·수중 렌더 검사를 포함한다. 원본 결과는 Builds/editmode-results.xml, Builds/playmode-results.xml이다.
+- 실제 카메라 렌더에서 물고기 표시 전후 픽셀 차이를 검사해 수면 아래 물고기가 가려지지 않는지 확인했다. 파도 높이 추적·입질 시 12cm 이상 잠김·걸린 물고기의 수중 위치도 검사했다. 검토 이미지 4장은 Documentation/OceanReview에 보관한다. Editor 촬영 구도이며 Windows 직접 조작 기록은 아니다.
+- 시각 표현만 변경했다. 기존 입질 후 3초 챔질·어종 선택·장력·보상·저장 형식은 유지한다. 사용자 저장은 테스트에 사용하지 않고 임시 저장 경로를 사용했다. 기존 설정 변경 3개의 SHA-256 일치를 확인했다.
+- 미검증: 최종 Windows 실행 파일에서 직접 낚시 조작, 장시간 성능, 다른 GPU에서 반사·굴절 품질. 수면은 파도/굴절 표현이며 유체 시뮬레이션·수영·물고기 생태 규칙은 추가하지 않았다.
+- Windows Mono 빌드 성공(Builds/build.log: Build Finished, Result: Success). 최종 실행 파일은 Builds/Windows/BreathIsland.exe다. 직접 조작 통과를 뜻하지 않는다.
