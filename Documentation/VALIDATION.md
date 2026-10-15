@@ -1,5 +1,15 @@
 # 검증 기록
 
+## 해안·낚시 표현 — 2026-10-15
+
+- `Build-BreathIsland.ps1` 종료 코드 0. **Windows x64 Mono 빌드 성공**: `Builds/Windows/BreathIsland.exe`, `Builds/build.log`의 `Build Finished, Result: Success.` 확인. 최종 로그에 C#·셰이더 컴파일 오류 없음. 기존 사용자 설정 3개는 작업 전 SHA-256과 동일하고 원본 에셋은 변경하지 않았다. 근거 파일 해시는 `Documentation/CoastalReview/evidence.json`에 기록한다.
+- 환경: Windows, Unity 6000.5.4f1, 기존 URP와 Input System. 전체 Edit Mode **104/104**, Play Mode **35/35** 통과(실패·건너뜀 0). XML은 `Builds/editmode-results.xml`, `Builds/playmode-results.xml`이다.
+- 새 검사는 낚싯대 휨의 고정 손잡이·장력 제한, 캐스팅/줄 끝점, 느슨한 줄의 처짐, 프리팹 참조와 무충돌체를 확인한다. Play Mode에서 실제 월드·기존 기능 시스템을 구성해 캐스팅 비용, 감기/풀기, 일시정지 중 명령 차단, 재개, 줄 끊김/재시도, 포획 화면 전환, 플레이어 위치 보존과 장식 무충돌체를 확인했다.
+- 기존 전체 검사에는 v1 등 저장 호환성·자동 1개/수동 3개 슬롯, 포식자 승리·패배, 육지 채집·집 꾸미기, 한·영 화면 렌더링이 포함된다. 실제 사용자 저장은 사용하지 않았으며 새 낚시 테스트도 임시 경로를 사용한다.
+- `Documentation/CoastalReview/Fishing.png`, `Coast.png`는 **Editor Play Mode, 1600×900 RenderTexture**다. `Fishing-Hud.png`는 Editor Game View의 실제 화면 크기에서 캡처한 낚시 UI 동시 표시 자료다. Windows 실행 파일 캡처로 간주하지 않는다.
+- 초기 표현 테스트의 프레임 시점·정리 순서를 수정했고, 실제 화면을 보고 손잡이 위치와 얕은 물의 경계를 조정했다. 컴파일 중 확인한 테스트 코드의 Dispose 사용 오류는 수정 후 전체 검사를 통과했다.
+- Windows 직접 조작, 실물 게임패드, 낚시 모션의 체감 검수는 이번 작업에서 수행하지 않았다. 물고기 도약·파문은 시각 효과이며 물리 시뮬레이션이나 새 낚시 판정이 아니다. 새 UI 문구·저장 버전·게임 경제 변경은 없다.
+
 ## 집 꾸미기·숲속 마을 확장 — 2026-09-28
 
 - Unity 6000.5.4f1, Windows 환경. 기능별 구현·렌더링 확인 후 전체 테스트를 한 차례 실행했다. Edit Mode **54/54**, Play Mode **22/22** 통과, 실패·건너뜀 0.

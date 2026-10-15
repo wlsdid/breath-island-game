@@ -107,6 +107,7 @@ namespace BreathIsland
     {
         public Transform target;
         public bool firstPerson;
+        public bool fishingView;
         public bool homeView;
         public bool homeOverview;
         public HomeStructureState homeStructure;
@@ -130,6 +131,8 @@ namespace BreathIsland
             yaw += look.x;
             pitch = Mathf.Clamp(pitch - look.y, -8f, 55f);
             Quaternion rotation = Quaternion.Euler(pitch, yaw, 0f);
+            // Keep exploration yaw intact while framing the water and rod during fishing.
+            if (fishingView) rotation = Quaternion.Euler(12f, 0f, 0f);
             Vector3 desired;
             if (firstPerson)
             {

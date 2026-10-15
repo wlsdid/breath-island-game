@@ -34,6 +34,7 @@ namespace BreathIsland
             phases = new GamePhaseController(world);
             combat = new PredatorCombatSystem(context, phases);
             fishing = new FishingSystem(context, phases, combat.Begin);
+            gameObject.AddComponent<FishingPresentation>().Initialize(world, fishing, phases);
             relationships = new RelationshipSystem(context, phases);
             facilities = new FacilitySystem(context);
             session = new GameSession(context, phases);

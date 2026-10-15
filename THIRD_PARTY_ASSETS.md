@@ -64,6 +64,10 @@ KayKit Dungeon Pack 1.0의 빈 일반 상자 본체·뚜껑 FBX 2종과 동봉 C
 
 ## 2026-10-15 기존 NPC 외형 보완
 
+### 같은 날 추가한 해안·낚시 표현
+
+낚싯대·릴·가이드·단순화한 손, 해안 메시와 CoastalBlend 셰이더는 프로젝트 코드로 작성했다. 외부 UI 이미지나 새 모델은 반입하지 않았다. 물고기 도약에는 기존 Generated 폴더의 어류 5종·포식자 1종을 재사용한다. 기존 에셋의 출처·라이선스 상태를 그대로 유지하며 사용자 제공 원본 ZIP·FBX를 변경하지 않는다.
+
 사용자 제공 KayKit_Adventurers_2.0_FREE.zip에서 Rogue.fbx, Mage.fbx, rogue_texture.png, mage_texture.png와 License.txt를 선별했다. 제작자는 Kay Lousberg(www.kaylousberg.com), 동봉 라이선스는 CC0이며 상업 이용·수정·재배포를 허용한다. 원본 바이트는 유지하며 Assets/BreathIsland/Art/ThirdParty/KayKit/Villagers에 둔다. 파일 해시는 Documentation/NPC_ASSET_SELECTION.json에 기록한다. 기존 Medium Generic 리그·애니메이션을 재사용한다.
 
 창틀·차양·벤치·굴뚝 등 마을 추가 구조는 기본 메시로 작성한 파생 프리팹이며 화단 식물은 이미 선별된 KayKit Forest Nature Bush를 재사용한다. 기존 Kenney 건물·원본 에셋은 보존한다.

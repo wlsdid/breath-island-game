@@ -32,6 +32,7 @@ namespace BreathIsland
             world.motor.BlockActions();
             world.motor.CanMove = next == GamePhase.Explore || next == GamePhase.Home;
             world.cameraRig.firstPerson = next == GamePhase.Fishing || next == GamePhase.PredatorCombat;
+            world.cameraRig.fishingView = next == GamePhase.Fishing;
             world.player.GetComponent<FirstPersonBodyView>()?.SetFirstPerson(world.cameraRig.firstPerson);
             world.cameraRig.homeView = IsHome(next) || (next == GamePhase.Equipment && IsHome(BeforeInventory)) || (next == GamePhase.Pause && IsHome(BeforePause));
             world.cameraRig.homeOverview = next == GamePhase.HomeDecorate || next == GamePhase.Equipment;

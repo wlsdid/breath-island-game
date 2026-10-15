@@ -4,6 +4,7 @@ using UnityEngine;
 namespace BreathIsland
 {
     public enum FishingStage { Ready, Waiting, Hooked, Failed }
+    public enum FishingVisualAction { Cast, Reel, Ease }
 
     public sealed class FishingSystem
     {
@@ -23,6 +24,7 @@ namespace BreathIsland
         public FishDefinition ActiveFish { get; private set; }
         public float Progress { get; private set; }
         public float Tension { get; private set; }
+        public event System.Action<FishingVisualAction> PresentAction;
 
         public void Start()
         {
@@ -70,6 +72,7 @@ namespace BreathIsland
             context.Save.player.hour = (context.Save.player.hour + 1) % 24;
             Stage = FishingStage.Waiting;
             biteTimer = Random.Range(1.2f, 2.2f);
+            PresentAction?.Invoke(FishingVisualAction.Cast);
         }
 
         public void Reel()
@@ -80,6 +83,7 @@ namespace BreathIsland
             FishingMath.Reel(ref progress, ref tension);
             Progress = progress;
             Tension = tension;
+            PresentAction?.Invoke(FishingVisualAction.Reel);
             if (Progress < 99.9f) return;
             if (ActiveFish.IsPredator) beginPredatorCombat();
             else phases.Set(GamePhase.CatchResolution);
@@ -87,9 +91,11 @@ namespace BreathIsland
 
         public void Ease()
         {
+            if (phases.Current != GamePhase.Fishing || Stage != FishingStage.Hooked) return;
             float tension = Tension;
             FishingMath.Ease(ref tension);
             Tension = tension;
+            PresentAction?.Invoke(FishingVisualAction.Ease);
         }
 
         public void Resolve(CatchDisposition disposition)

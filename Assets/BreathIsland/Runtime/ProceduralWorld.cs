@@ -26,6 +26,7 @@ namespace BreathIsland
             BuildLighting(parent);
             BuildWater(parent);
             BuildIsland(parent);
+            var coast = new GameObject("Coastal scenery"); coast.transform.SetParent(parent, false); coast.AddComponent<CoastalScenery>();
             handles.village = Object.Instantiate(Resources.Load<GameObject>("World/ForestVillage"), parent).GetComponent<VillageLayout>();
             BuildDock(parent);
             BuildSeaLife(parent);
@@ -65,9 +66,9 @@ namespace BreathIsland
         private static void ConfigureEnvironment()
         {
             RenderSettings.ambientMode = AmbientMode.Trilight;
-            RenderSettings.ambientSkyColor = new Color(.55f, .77f, .83f);
-            RenderSettings.ambientEquatorColor = new Color(.42f, .62f, .62f);
-            RenderSettings.ambientGroundColor = new Color(.2f, .35f, .34f);
+            RenderSettings.ambientSkyColor = new Color(.62f, .76f, .84f);
+            RenderSettings.ambientEquatorColor = new Color(.44f, .53f, .51f);
+            RenderSettings.ambientGroundColor = new Color(.24f, .28f, .23f);
             RenderSettings.fog = true;
             RenderSettings.fogMode = FogMode.Linear;
             RenderSettings.fogColor = new Color(.63f, .83f, .85f);
@@ -83,11 +84,12 @@ namespace BreathIsland
             sun.transform.rotation = Quaternion.Euler(48f, -35f, 0f);
             var light = sun.GetComponent<Light>();
             light.type = LightType.Directional; light.intensity = 1.15f; light.color = new Color(1f, .89f, .7f); light.shadows = LightShadows.Soft;
+            light.shadowStrength = .72f; light.shadowBias = .035f; light.shadowNormalBias = .18f;
         }
 
         private static void BuildWater(Transform parent)
         {
-            var water = Primitive("Calm Sea", PrimitiveType.Plane, new Vector3(0f, -.7f, 32f), new Vector3(22f, 1f, 22f), new Color(.07f, .58f, .72f), parent);
+            var water = Primitive("Calm Sea", PrimitiveType.Plane, new Vector3(0f, -.7f, 32f), new Vector3(100f, 1f, 100f), new Color(.07f, .58f, .72f), parent);
             Object.Destroy(water.GetComponent<Collider>());
         }
 

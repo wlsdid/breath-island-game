@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-15",
+  "unity": "6000.5.4f1",
+  "tests": [
+    {
+      "path": "Builds/editmode-results.xml",
+      "sha256": "4141C49224EB4B70C86C579D2B6F1CDDF5C6871CF98F8D505B923CBD109F4D9B",
+      "result": "Passed",
+      "total": 104,
+      "passed": 104,
+      "failed": 0
+    },
+    {
+      "path": "Builds/playmode-results.xml",
+      "sha256": "58A5D24CA0B8759178C4A7C843A61AC8178B778387A49B3C117F40F551B92F45",
+      "result": "Passed",
+      "total": 35,
+      "passed": 35,
+      "failed": 0
+    }
+  ],
+  "windowsMono": {
+    "result": "Success",
+    "log": "Builds/build.log",
+    "sha256": "3172451B90C2B32FC8A17ABB59B6067933A199AA35843F646824DAD9346FA2E2"
+  },
+  "nativeWindowsPlay": "Not performed",
+  "images": "Editor Play Mode: 1600x900 RenderTexture for Fishing and Coast; actual Editor Game View for Fishing-Hud",
+  "userSettings": [
+    {
+      "file": "AddressableAssetSettings.asset",
+      "unchanged": true
+    },
+    {
+      "file": "LocalizationSettings.asset",
+      "unchanged": true
+    },
+    {
+      "file": "PackageManagerSettings.asset",
+      "unchanged": true
+    }
+  ]
+}
