@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-15",
+  "unity": "6000.5.4f1",
+  "tests": [
+    {
+      "path": "Builds/editmode-results.xml",
+      "sha256": "3BECCBA8A05BC91630685B0DAE3C43E3F53F52AFA4832227E9D39E670B81E3EE",
+      "result": "Passed",
+      "passed": 101,
+      "total": 101
+    },
+    {
+      "path": "Builds/VillagePolish/playmode-final.xml",
+      "sha256": "E3879273C65F929FB5326CA84CBD5B52873A798B79A89FA9F90D02DDB991C0AE",
+      "result": "Passed",
+      "passed": 34,
+      "total": 34
+    },
+    {
+      "path": "Builds/VillagePolish/presentation-final.xml",
+      "sha256": "5B777D9481C762D586B74F4331F6A9B1F69349697BFA4789C6DB8D28832593B6",
+      "result": "Passed",
+      "passed": 1,
+      "total": 1
+    }
+  ],
+  "build": {
+    "log": "Builds/build.log",
+    "result": "Success",
+    "sha256": "1519D2D5D470A8DF151E6E49FF05DDD0F7E9A393AAB19763F46637D15384CC57"
+  },
+  "nativeWindowsPlay": "Not performed",
+  "images": "Editor Play Mode, authored capture camera, player hidden for NPC review",
+  "userSettingsPreserved": true
+}

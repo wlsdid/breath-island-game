@@ -42,9 +42,24 @@ namespace BreathIsland
             handles.cameraRig = cameraObject.GetComponent<IslandCameraRig>();
             handles.cameraRig.target = handles.player.transform;
             handles.motor.SetCamera(cameraObject.transform);
-            handles.npcs[NpcId.Nari] = BuildChildCharacter("Nari", new Vector3(-7f, 1.2f, 9f), new Color(.92f, .72f, .48f), new Color(.14f, .53f, .52f), parent).transform;
-            handles.npcs[NpcId.Maru] = BuildChildCharacter("Maru", new Vector3(8f, 1.2f, 6f), new Color(.78f, .9f, .7f), new Color(.94f, .63f, .35f), parent).transform;
+            handles.npcs[NpcId.Nari] = BuildNpc("Nari", new Vector3(-7f, 1.2f, 9f), parent, handles.player.transform);
+            handles.npcs[NpcId.Maru] = BuildNpc("Maru", new Vector3(8f, 1.2f, 6f), parent, handles.player.transform);
             return handles;
+        }
+
+        private static Transform BuildNpc(string name, Vector3 anchor, Transform parent, Transform player)
+        {
+            var prefab = Resources.Load<GameObject>("World/Npcs/" + name);
+            // Keep older checkouts playable until the explicit editor authoring has run.
+            if (prefab == null)
+                return BuildChildCharacter(name, anchor,
+                    name == "Nari" ? new Color(.92f,.72f,.48f) : new Color(.78f,.9f,.7f),
+                    name == "Nari" ? new Color(.14f,.53f,.52f) : new Color(.94f,.63f,.35f), parent).transform;
+            var instance = Object.Instantiate(prefab, parent);
+            instance.name = name;
+            instance.transform.position = anchor;
+            instance.GetComponent<NpcPresentation>().Initialize(player);
+            return instance.transform;
         }
 
         private static void ConfigureEnvironment()

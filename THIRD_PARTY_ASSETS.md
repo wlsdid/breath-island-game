@@ -61,3 +61,9 @@ KayKit Dungeon Pack 1.0의 빈 일반 상자 본체·뚜껑 FBX 2종과 동봉 C
 ## 2026-10-04 격자 건축·마을 형태
 
 기존 Kenney Fantasy Town Kit의 CC0 wall-wood·지붕·문 부품을 재사용했다. BuildWall은 원본 모델의 파생 프리팹이고 BuildFloor는 자체 기본 메시를 사용한다. 마을 주택 두 동은 기존 점유 범위 안에서 별채와 높이가 다른 몸체로 다시 조립했다. 신규 다운로드·원본 모델 변경은 없다. 기존 HOUSE_ASSET_SELECTION.json과 VILLAGE_ASSET_SELECTION.json의 출처·해시가 적용된다.
+
+## 2026-10-15 기존 NPC 외형 보완
+
+사용자 제공 KayKit_Adventurers_2.0_FREE.zip에서 Rogue.fbx, Mage.fbx, rogue_texture.png, mage_texture.png와 License.txt를 선별했다. 제작자는 Kay Lousberg(www.kaylousberg.com), 동봉 라이선스는 CC0이며 상업 이용·수정·재배포를 허용한다. 원본 바이트는 유지하며 Assets/BreathIsland/Art/ThirdParty/KayKit/Villagers에 둔다. 파일 해시는 Documentation/NPC_ASSET_SELECTION.json에 기록한다. 기존 Medium Generic 리그·애니메이션을 재사용한다.
+
+창틀·차양·벤치·굴뚝 등 마을 추가 구조는 기본 메시로 작성한 파생 프리팹이며 화단 식물은 이미 선별된 KayKit Forest Nature Bush를 재사용한다. 기존 Kenney 건물·원본 에셋은 보존한다.

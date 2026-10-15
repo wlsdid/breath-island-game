@@ -1,0 +1,27 @@
+[
+  {
+    "source": "KayKit_Adventurers_2.0_FREE/Characters/fbx/Rogue.fbx",
+    "path": "Assets\\BreathIsland\\Art\\ThirdParty\\KayKit\\Villagers\\Rogue.fbx",
+    "sha256": "CAC991031020E199290C1352739886947F618821CF9F0FDEB6DC6A9F46EE7D80"
+  },
+  {
+    "source": "KayKit_Adventurers_2.0_FREE/Characters/fbx/Mage.fbx",
+    "path": "Assets\\BreathIsland\\Art\\ThirdParty\\KayKit\\Villagers\\Mage.fbx",
+    "sha256": "F766CCBCDC332209ABF5A7BE56AF4FFC65DDA8ABDB29DB5496CC619FED44AC87"
+  },
+  {
+    "source": "KayKit_Adventurers_2.0_FREE/Characters/fbx/rogue_texture.png",
+    "path": "Assets\\BreathIsland\\Art\\ThirdParty\\KayKit\\Villagers\\rogue_texture.png",
+    "sha256": "2E2FC741E20E7E2C85B176C8143B49B769BCA0D2ED1A1CFC1807A758A0E4D3E1"
+  },
+  {
+    "source": "KayKit_Adventurers_2.0_FREE/Characters/fbx/mage_texture.png",
+    "path": "Assets\\BreathIsland\\Art\\ThirdParty\\KayKit\\Villagers\\mage_texture.png",
+    "sha256": "9EF9672E93B231FC4E0E19238EDFAE3BE22513AAF634DF1898F45842CE6E4B5F"
+  },
+  {
+    "source": "KayKit_Adventurers_2.0_FREE/License.txt",
+    "path": "Assets\\BreathIsland\\Art\\ThirdParty\\KayKit\\Villagers\\License.txt",
+    "sha256": "D4ADC31660D1DB22EB60EBA648E01DB41577548F6FA1A3576CB4A6283DAE0A58"
+  }
+]

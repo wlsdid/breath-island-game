@@ -223,3 +223,13 @@ Play Mode HUD 테스트에는 실제 Game View가 필요하므로 `-batchmode`�
 도구 한계: 자동화 키와 필드 클릭이 게임 입력에 반영되지 않아 직접 입력을 요청했다. GDI 방식의 초기 영상은 첫 화면만 반복해 최종 편집에서 제외했다. 물리 Escape로 화면 자동화가 중단되어 추가 직접 검증은 하지 않았다. **최신 Windows 전체 핵심 루프, 모든 언어·해상도, 수동 슬롯 2/3 직접 조작, 실물 게임패드는 미검증**이다. 네 저장 슬롯 및 v1~v4 호환성은 앞선 자동 테스트 결과와 구분한다.
 
 최종 영상: [실내 실제 플레이](Portfolio/Video/breath-island-indoor-demo.mp4).
+
+## 2026-10-15 NPC·마을 표현 보완
+
+- Unity 6000.5.4f1. 첫 실행은 라이선스 오류(198)로 종료되어 사용자가 Hub 라이선스를 복구한 뒤 프리팹 작성 성공(0).
+- Edit Mode 전체 101/101 통과(Builds/editmode-results.xml). 신규 3개 사례는 NPC의 실제 모델·텍스처·Generic Avatar·본 참조·루트모션 비활성, 발 높이, 장식 충돌체 없음과 기존 안전 지점을 검사한다.
+- Play Mode 최초 30/34 통과. 실패 4개는 기존 실내/야외 이동·키보드 메뉴·가방 드래그 입력 검사다. PlayModeInputEnvironment에서 InputSettings를 테스트용으로 복제하고 Editor 포커스와 무관하게 가상 입력을 처리한 후 전체 34/34 통과(Builds/VillagePolish/playmode-final.xml). 테스트 종료 시 원래 설정과 runInBackground를 복원한다. 게임의 입력 설정 에셋이나 Windows 동작을 바꾼 것은 아니다.
+- NPC 시선 반응 중 앵커 불변·대기 애니메이션 진행 확인. Editor Play Mode 렌더는 Builds/VillagePolish/Nari.png, Maru.png, Village.png. 촬영 카메라를 사용하는 표현 확인이며 Windows 직접 입력 검증을 뜻하지 않는다.
+- 기존 저장 형식·대사·호감도·출입·채집 좌표·건물 충돌체는 변경하지 않았다. 추가 화단·벤치 등은 상호작용 없는 장식이다. 이번 Windows 직접 대화·동선 조작은 미검증이다.
+- 2026-10-12 포트폴리오 영상·이미지는 당시 버전의 기록으로 보존한다. Notion은 수정하지 않는다.
+- Windows Mono 빌드 성공(Builds/build.log: Build Finished, Result: Success). 촬영용 플레이어만 숨긴 후 표현 검사 1/1 재통과(Builds/VillagePolish/presentation-final.xml). 게임 코드 변경 없이 촬영 구도를 정리했다. 검토 이미지 사본은 Documentation/VillagePolish에 보관한다. 사용자 설정 변경 3개와 선별 원본 에셋의 SHA-256 보존을 확인했다.
