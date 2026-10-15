@@ -41,13 +41,27 @@ namespace BreathIsland.Tests
                 foreach (var v in mesh.vertices) minimum = Mathf.Min(minimum, renderer.transform.TransformPoint(v).y);
                 Object.Destroy(mesh);
             }
-            Assert.That(minimum, Is.InRange(-.04f, .10f), "Visible soles, not animation bounds, must touch the floor.");
+            Assert.That(minimum, Is.InRange(-.05f, .04f), "Visible soles, not animation bounds, must touch the floor.");
             Assert.That(motor.speed, Is.EqualTo(5.2f * .55f).Within(.001f));
             var start = player.transform.position; float duration=0;
             Keys(Key.W);
             while(duration < .5f) { yield return null; duration += Time.deltaTime; }
             Keys();
             Assert.That(player.transform.position.z-start.z, Is.EqualTo(motor.speed * duration).Within(.15f));
+        }
+        [UnityTest] public IEnumerator HeldMovementContinuesAnimatingAfterMultipleCycles()
+        {
+            Keys(Key.W);
+            yield return new WaitForSeconds(2.5f);
+            var animator = player.GetComponentInChildren<Animator>();
+            var state = animator.GetCurrentAnimatorStateInfo(0);
+            Assert.That(state.IsName("Walk"), Is.True);
+            Assert.That(state.loop, Is.True, "Walking must loop while movement is held.");
+            var foot = System.Array.Find(player.GetComponentsInChildren<Transform>(), t => t.name == "foot.r");
+            var before = foot.localRotation;
+            yield return new WaitForSeconds(.17f);
+            Assert.That(Quaternion.Angle(before, foot.localRotation), Is.GreaterThan(1));
+            Keys();
         }
         [UnityTest] public IEnumerator JumpLandsAndMenuBlocksRepeatedOrClosingInput()
         {

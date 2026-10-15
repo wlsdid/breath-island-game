@@ -36,7 +36,7 @@ namespace BreathIsland
                     if (first) { bounds = new Bounds(point, Vector3.zero); first = false; } else bounds.Encapsulate(point);
                 }
             }
-            if (!first && bounds.size.y > .001f)
+            if (!first && (heldItem ? Mathf.Max(bounds.size.x, bounds.size.y, bounds.size.z) : bounds.size.y) > .000001f)
             {
                 float extent = heldItem ? Mathf.Max(bounds.size.x, bounds.size.y, bounds.size.z) : bounds.size.y;
                 float scale = height / extent;

@@ -85,3 +85,5 @@ OceanWater 셰이더와 OceanSurface 메시·해저 재질은 자체 작성 코�
 Kay Lousberg의 KayKit Forest Nature Pack 1.0에서 Grass_1_A_Color1.fbx·Grass_1_B_Color1.fbx를 추가 선별했다. 제공된 ZIP의 Assets/fbx 경로가 출처이며 동봉 CC0 라이선스는 상업 이용·수정·배포를 허용한다. 기존 forest_texture.png 및 Nature/License.txt를 재사용한다.
 
 낚시 손 파생 메시는 기존 KayKit Adventurers Ranger의 팔/손과 텍스처에서 작성했다(CC0). 원본 FBX·텍스처는 보존한다. 집의 보강 메시와 지면 셰이더는 자체 코드이며 추가 구매·다운로드는 없다.
+
+2026-10-15: 기존 CC0 KayKit 캐릭터 애니메이션의 WalkingLoop·IdleLoop·AirLoop 파생 .anim 에셋을 추가했다. 원본 FBX는 변경하지 않았으며 출처와 라이선스는 기존 KayKit Adventurers 기록을 따른다.

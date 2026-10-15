@@ -1,5 +1,5 @@
 [CmdletBinding()]
-param([ValidateSet('village','sea','home','gather')][string]$Scene='village', [switch]$PrepareOnly)
+param([ValidateSet('village','sea','home','gather')][string]$Scene='village', [switch]$PrepareOnly, [switch]$UnlockedWeapons)
 $ErrorActionPreference='Stop'
 $executable=Join-Path $PSScriptRoot 'Builds/Windows/BreathIsland.exe'
 $seeds=Join-Path $PSScriptRoot 'Documentation/Portfolio/Seeds'
@@ -10,6 +10,18 @@ New-Item -ItemType Directory -Path $sessionRoot -Force | Out-Null
 Copy-Item -LiteralPath (Join-Path $seeds ($Scene+'.json')) -Destination (Join-Path $sessionRoot 'autosave.json')
 $scenes=@('sea','gather','home')
 for($i=0;$i -lt 3;$i++) { Copy-Item -LiteralPath (Join-Path $seeds ($scenes[$i]+'.json')) -Destination (Join-Path $sessionRoot ('save_'+$i+'.json')) }
+# This option affects only the newly copied demo session, never the seed or user saves.
+if ($UnlockedWeapons) {
+    foreach ($file in Get-ChildItem -LiteralPath $sessionRoot -Filter '*.json') {
+        $save=Get-Content -LiteralPath $file.FullName -Raw | ConvertFrom-Json
+        $save.equipment.achievements=@('craft','training','gather')
+        $save.equipment.mastery=@(@{jobId='warrior';hits=30})
+        $save.resources.craftedFurniture=3
+        $save.resources.woodHarvests=3; $save.resources.stoneHarvests=3; $save.resources.herbHarvests=3
+        $save | ConvertTo-Json -Depth 32 | Set-Content -LiteralPath $file.FullName -Encoding utf8
+    }
+    Write-Output 'Demo only: special sword, bow and staff unlocked.'
+}
 $exeRelative='../../../Windows/BreathIsland.exe'
 $resume=@"
 @echo off

@@ -39,7 +39,13 @@ namespace BreathIsland
                 _ => equipment.Weapon?.model
             };
             held = source == null ? null : ModelPresentation.Create(source, socket,
-                equipment.Tool == LifeTool.None ? catalog.weaponMaterial : catalog.toolMaterial, .85f, true);
+                equipment.Tool == LifeTool.None ? catalog.weaponMaterial : catalog.toolMaterial, equipment.Tool == LifeTool.None ? 1.05f : .85f, true);
+            if (held != null)
+            {
+                var scale = socket.lossyScale;
+                held.transform.localScale = new Vector3(1 / scale.x, 1 / scale.y, 1 / scale.z);
+                if (equipment.Tool == LifeTool.None && equipment.Job?.id == "ranger") held.transform.localRotation = Quaternion.Euler(0, 0, 90);
+            }
         }
         public void Dispose() { equipment.Changed -= Refresh; if (socket != null) Object.Destroy(socket.gameObject); }
     }

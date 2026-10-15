@@ -13,7 +13,7 @@ namespace BreathIsland
         public void Initialize(IslandLifeCatalog catalog)
         {
             foreach (Transform child in transform) if (child.name == "Hero Visual") { child.gameObject.SetActive(false); Destroy(child.gameObject); }
-            var visual = ModelPresentation.Create(catalog.characterModel, transform, catalog.characterMaterial, 1.45f);
+            var visual = ModelPresentation.Create(catalog.characterModel, transform, catalog.characterMaterial, 1.30f);
             visual.name = "Hero Visual";
             body = visual.transform; bodyScale = body.localScale;
             animator = visual.GetComponentInChildren<Animator>();
@@ -22,6 +22,7 @@ namespace BreathIsland
             animator.runtimeAnimatorController = catalog.animator; animator.applyRootMotion = false;
             previous = transform.position;
             motor = GetComponent<ThirdPersonMotor>();
+            body.localPosition = Vector3.down * .07f; // Match the controller contact margin without changing collision or saves.
         }
         private void LateUpdate()
         {

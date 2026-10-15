@@ -21,7 +21,8 @@ namespace BreathIsland.Tests
                 var standing=life.Training.TargetPosition-Vector3.forward*2;standing.y=.62f;world.motor.Teleport(standing);world.player.transform.rotation=Quaternion.identity;
                 yield return new WaitForSeconds(.6f);
                 var upper=world.player.GetComponentsInChildren<Transform>().First(t=>t.name=="upperarm.r");
-                foreach(var id in new[]{"sword","bow","staff"})
+                context.Save.equipment.achievements.AddRange(new[]{"craft","training","gather"});
+                foreach(var id in new[]{"sword","bow","staff","sword_special","bow_special","staff_special"})
                 {
                     Assert.That(life.Equipment.Equip(id),Is.True);life.Training.ResetTarget();life.Training.Tick(10);
                     yield return new WaitForSeconds(.7f);var rest=upper.rotation;
@@ -30,7 +31,15 @@ namespace BreathIsland.Tests
                     Assert.That(Quaternion.Angle(rest,upper.rotation),Is.GreaterThan(10),id);
                     Assert.That(life.Equipment.Job,Is.SameAs(life.Equipment.Weapon.job));
                     world.camera.transform.position=world.player.transform.position+new Vector3(2,1.4f,3);world.camera.transform.LookAt(world.player.transform.position+Vector3.up*.8f);
-                    Capture(world.camera,id);
+                                        Capture(world.camera,id);
+                    var socket = world.player.GetComponentsInChildren<Transform>().First(t=>t.name=="Held Item Socket");
+                                        var meshes = socket.GetComponentsInChildren<Renderer>();
+                    var bounds = meshes[0].bounds; foreach(var mesh in meshes) bounds.Encapsulate(mesh.bounds);
+                    Assert.That(Mathf.Max(bounds.size.x,bounds.size.y,bounds.size.z),Is.InRange(.8f,1.5f),id+" world size");
+                    Assert.That(Vector3.Distance(bounds.center,socket.position),Is.LessThan(.65f),id+" grip");
+                    Assert.That(root.GetComponentsInChildren<CombatFeedback>().SelectMany(f=>f.GetComponents<LineRenderer>()),Is.Empty);
+                    yield return new WaitForSeconds(.55f);
+                    Capture(world.camera,id+"-carry");
                 }
             }
             finally{life.Dispose();UnityEngine.Object.Destroy(root);if(Directory.Exists(folder))Directory.Delete(folder,true);Cursor.lockState=CursorLockMode.None;}

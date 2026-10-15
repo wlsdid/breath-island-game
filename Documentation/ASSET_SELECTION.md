@@ -127,3 +127,5 @@ OceanWater 셰이더, OceanSurface 파도 메시와 해저 재질은 프로젝�
 - 제공된 KayKit_Forest_Nature_Pack_1.0_FREE.zip의 Assets/fbx/Grass_1_A_Color1.fbx와 Grass_1_B_Color1.fbx만 추가 선별했다. 기존 forest_texture.png와 Nature/License.txt(CC0, Kay Lousberg)를 재사용한다. 원본 ZIP은 보존한다.
 - 낚시 손은 기존 CC0 KayKit Adventurers Ranger_ArmLeft/Right 메시에서 손·아래팔 삼각형을 추출한 파생 메시다. 기존 ranger_texture.png를 사용하며 원본 Ranger.fbx는 변경하지 않는다.
 - Ground 셰이더·집 벽 뒷면·박공 끝면은 프로젝트 코드로 작성했다. 새 외부 다운로드는 없다. Universal Animation Library의 CC0 라이선스는 확인했지만 기존 Generic 리그와 다른 애니메이션을 이번에 직접 적용하지 않았다.
+
+2026-10-15 연속 이동 수정: 기존 KayKit Rig_Medium_MovementBasic/General에서 WalkingLoop·IdleLoop·AirLoop 파생 AnimationClip을 작성했다. 원본 FBX와 가져오기 설정은 보존하고 파생 클립의 반복 재생만 명시했다. 추가 다운로드나 외부 애니메이션은 사용하지 않았다.

@@ -35,7 +35,7 @@ namespace BreathIsland
             float shoulder = Pose(seconds, -12, -160, -48);
             float elbow = Pose(seconds, -35, -155, -70);
             float blade = Pose(seconds, 0, -20, 78);
-            float outward = Pose(seconds, .08f, .4f, .12f);
+            float outward = Pose(seconds, .65f, .55f, .45f);
             // Start from a fixed rig basis so repeated poses do not accumulate arm twist.
             if (upper != null) upper.rotation = player.rotation * upperBasis;
             if (lower != null) lower.rotation = player.rotation * lowerBasis;

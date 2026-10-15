@@ -20,7 +20,9 @@ namespace BreathIsland.Editor
             var land = State(machine, "Jump Land", clips.First(c => c.name == "Jump_Land"));
             var idle = machine.states.First(s => s.state.name == "Idle").state;
             var walk = machine.states.First(s => s.state.name == "Walk").state;
-            walk.motion=clips.First(c=>c.name=="Walking_A");
+            walk.motion=Loop(clips.First(c=>c.name=="Walking_A"), "WalkingLoop");
+            idle.motion=Loop((AnimationClip)idle.motion, "IdleLoop");
+            air.motion=Loop((AnimationClip)air.motion, "AirLoop");
             foreach (var source in new[] { idle, walk })
             {
                 Transition(source, start, false, "Airborne", AnimatorConditionMode.If);
@@ -33,6 +35,16 @@ namespace BreathIsland.Editor
             Transition(land, idle, true);
             EditorUtility.SetDirty(controller);
             AssetDatabase.SaveAssets();
+        }
+        private static AnimationClip Loop(AnimationClip source, string name)
+        {
+            string path = "Assets/BreathIsland/Resources/Content/Life/" + name + ".anim";
+            var clip = AssetDatabase.LoadAssetAtPath<AnimationClip>(path);
+            if (clip == null) { clip = Object.Instantiate(source); AssetDatabase.CreateAsset(clip, path); }
+            var settings = AnimationUtility.GetAnimationClipSettings(clip);
+            settings.loopTime = true; settings.loopBlend = true;
+            AnimationUtility.SetAnimationClipSettings(clip, settings);
+            EditorUtility.SetDirty(clip); return clip;
         }
         private static void Parameter(AnimatorController controller, string name, AnimatorControllerParameterType type)
         { if (!controller.parameters.Any(p => p.name == name)) controller.AddParameter(name, type); }
