@@ -132,3 +132,7 @@ OceanWater 셰이더, OceanSurface 파도 메시와 해저 재질은 프로젝�
 
 2026-10-15 무기 식별: 제공된 KayKit_FantasyWeaponsBits_1.0_FREE.zip의 Assets/fbx(unity)/sword_E.fbx, bow_A.fbx, bow_B.fbx, staff_B.fbx, arrow_A.fbx만 추가 선별했다. 기존 Weapons/License.txt의 CC0와 weapons_bits_texture.png를 사용한다. 원본 ZIP·기존 모델은 보존했다. 일반 활은 정적 줄 없는 모델로 바꾸고 자체 동적 줄을 연결했다. 신규 외부 다운로드 없음.
 - 무기 아이콘 6개만 새 모델로 재렌더링했다. 특수 무기는 파생 재질 색을 유지하며 기존 도구·자원·가구 아이콘은 재생성하지 않았다.
+
+## 2026-10-15 특수 무기 VFX 선별
+
+Brackeys VFX bundle의 CC0 predrawn 세 장을 선택했다. big_hit은 6×5 중 빈 첫 프레임을 제외한 11프레임, star_explosion은 파일명과 달리 실제 7×6 배열의 29프레임, electric_ring은 6×5의 29프레임을 재생한다. 효과는 대상 위치에서 0.8초 동안 카메라를 향하며 일반 무기에는 표시하지 않는다. 원본 PNG·ZIP은 변형하지 않았다. tornado vfx는 출처 https://soygus.itch.io/tornado-vfx-godot 에서 사용·수정 허용과 에셋 재배포 금지를 확인했다. Godot→Unity 이식과 제한 에셋 배포 분리는 이번 적용에서 제외했다.

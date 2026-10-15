@@ -318,3 +318,14 @@ Play Mode HUD 테스트에는 실제 Game View가 필요하므로 `-batchmode`�
 - 최종 Edit Mode 115/115, Play Mode 42/42 통과. 낚시 마우스 이동·Alt 해제/시점 차단, 무기 6종의 모델 크기·손 부착·특수 모델 구별·스킬 효과 활성, 활 당김 시간표/발사, 도구 3종 크기·바깥쪽 운반 각도를 포함한다.
 - Documentation/WeaponIdentity는 Editor 실제 렌더 기록이다. 새 외형·효과와 운반 자세를 확인했으며 Windows 직접 조작, 모든 각도의 관통, 연속 발사 체감·자연스러움은 사용자 확인 전이다. 이전 사용자 확인을 이번 수정본의 통과로 재사용하지 않는다.
 - 최종 Windows Mono 빌드 성공(Builds/build.log). 수정본을 별도의 특수 무기 해금 시연 저장으로 실행한다. 실제 사용자 저장·원본 팩·기존 설정 변경 3개는 보존하며, Notion은 수정하지 않았다.
+
+## 2026-10-15 제공 VFX 적용
+
+- 환경: Windows, Unity 6000.5.4f1, URP, Windows Standalone Mono.
+- 전체 Edit Mode 115/115, Play Mode 44/44 통과. `Builds/editmode-results.xml`, `Builds/playmode-results.xml`.
+- Windows Mono 빌드 성공: `Builds/build.log`, `Builds/Windows/BreathIsland.exe`.
+- 새 검증: 세 프리팹의 텍스처 참조·프레임 범위, 재생·수명 종료·재사용·소유자 비활성 중단, 프레임 행 이동. 기존 WeaponPoseTests가 일반/특수 무기 공격 및 직업 유지와 효과 표시를 검증한다.
+- Editor 실제 렌더에서 세 효과를 확인한다. Windows 최종 실행 파일의 직접 스킬 조작과 주관적 연출 품질은 이번 자동 검증에 포함하지 않는다.
+- 실제 사용자 저장 대신 기존 테스트의 임시 경로를 사용했다. 기존 설정 변경 3개는 작업 전 SHA256과 일치하며 커밋에서 제외한다. 원본 팩은 보존한다.
+
+검증 이미지: `SkillVfx/sword_special-skill.png`, `SkillVfx/bow_special-skill.png`, `SkillVfx/staff_special-skill.png`. Editor 카메라 렌더이며 Windows 직접 조작 영상은 아니다. 촬영 각도 보정 후 WeaponPoseTests 재실행 1/1 통과(`Builds/skill-vfx-review.xml`).

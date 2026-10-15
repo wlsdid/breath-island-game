@@ -59,6 +59,8 @@ namespace BreathIsland.Tests
                         Assert.That(life.Training.Attack(true),Is.True);
                         yield return new WaitForSeconds(id=="bow_special"?.74f:.2f);
                         Assert.That(socket.GetComponentsInChildren<WeaponSkillView>().Any(v=>v.Active),Is.True,id+" visible skill");
+                        world.camera.transform.position=life.Training.TargetPosition+new Vector3(3,3,6);
+                        world.camera.transform.LookAt(life.Training.TargetPosition+Vector3.up*.5f);
                         Capture(world.camera,id+"-skill");
                     }
                 }
