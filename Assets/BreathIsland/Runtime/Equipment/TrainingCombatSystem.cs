@@ -14,6 +14,7 @@ namespace BreathIsland
         public float SkillCooldown => skillCooldown;
         public Vector3 TargetPosition => target.position;
         public event System.Action<Vector3, Vector3, Color> Hit;
+        public event System.Action<WeaponDefinition, bool, Vector3> Presented;
         public TrainingCombatSystem(GameContext context, GamePhaseController phases, EquipmentSystem equipment, Transform target, JobMasterySystem mastery, AchievementSystem achievements)
         { this.context = context; this.phases = phases; this.equipment = equipment; this.target = target; this.mastery = mastery; this.achievements = achievements; }
         public void Tick(float dt)
@@ -40,6 +41,7 @@ namespace BreathIsland
             Health = Mathf.Max(0, Health - damage);
             mastery.RecordHit(weapon.job.id);
             Hit?.Invoke(origin + Vector3.up, target.position + Vector3.up, action.effectColor);
+            Presented?.Invoke(weapon, skill, target.position + Vector3.up);
             context.Message(string.Format(context.Text("life_hit"), context.Text(action.nameKey), damage, Health));
             achievements.Evaluate(); context.SaveTo();
             return true;

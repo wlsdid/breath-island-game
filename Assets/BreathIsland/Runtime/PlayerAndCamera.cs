@@ -5,6 +5,7 @@ namespace BreathIsland
 {
     public static class GameInput
     {
+        public static bool FishingUiHeld => (Keyboard.current?.leftAltKey.isPressed ?? false) || (Keyboard.current?.rightAltKey.isPressed ?? false);
         public static Vector2 Move
         {
             get
@@ -38,7 +39,7 @@ namespace BreathIsland
         // UI handles its own click on release; do not let mouse-down rebuild that button
         // into a reel button before the same click is released.
         public static bool HookPressed() => ((Mouse.current?.leftButton.wasPressedThisFrame ?? false)
-            && !(UnityEngine.EventSystems.EventSystem.current?.IsPointerOverGameObject() ?? false))
+            && !FishingUiHeld && !(UnityEngine.EventSystems.EventSystem.current?.IsPointerOverGameObject() ?? false))
             || (Keyboard.current?.spaceKey.wasPressedThisFrame ?? false) || (Gamepad.current?.buttonSouth.wasPressedThisFrame ?? false);
         public static bool CancelPressed() => (Keyboard.current?.escapeKey.wasPressedThisFrame ?? false) || (Gamepad.current?.startButton.wasPressedThisFrame ?? false);
         public static bool FacilityPressed() => Keyboard.current?.mKey.wasPressedThisFrame ?? false;
@@ -140,7 +141,9 @@ namespace BreathIsland
             Vector2 look = allowLook ? GameInput.Look : Vector2.zero;
             if(fishingView)
             {
-                if(Mouse.current?.rightButton.isPressed==true || (Gamepad.current?.rightStick.ReadValue().sqrMagnitude??0)>.01f)
+                Cursor.lockState = allowLook && !GameInput.FishingUiHeld ? CursorLockMode.Locked : CursorLockMode.None;
+                Cursor.visible = GameInput.FishingUiHeld;
+                if(allowLook && !GameInput.FishingUiHeld)
                 {fishingYaw=Mathf.Clamp(fishingYaw+look.x,-75,75);fishingPitch=Mathf.Clamp(fishingPitch-look.y,-20,55);}
             }
             else {yaw += look.x;pitch = Mathf.Clamp(pitch - look.y, -8f, 55f);}

@@ -87,3 +87,5 @@ Kay Lousberg의 KayKit Forest Nature Pack 1.0에서 Grass_1_A_Color1.fbx·Grass_
 낚시 손 파생 메시는 기존 KayKit Adventurers Ranger의 팔/손과 텍스처에서 작성했다(CC0). 원본 FBX·텍스처는 보존한다. 집의 보강 메시와 지면 셰이더는 자체 코드이며 추가 구매·다운로드는 없다.
 
 2026-10-15: 기존 CC0 KayKit 캐릭터 애니메이션의 WalkingLoop·IdleLoop·AirLoop 파생 .anim 에셋을 추가했다. 원본 FBX는 변경하지 않았으며 출처와 라이선스는 기존 KayKit Adventurers 기록을 따른다.
+
+2026-10-15 KayKit Fantasy Weapons Bits 1.0 (Kay Lousberg, CC0): 제공된 팩의 Unity용 sword_E, bow_A, bow_B, staff_B, arrow_A를 추가 사용한다. Resources/World/Weapons의 파생 프리팹·색 재질과 자체 줄·스킬 표현을 연결한다. 원본과 기존 라이선스 파일은 보존한다.

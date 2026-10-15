@@ -10,7 +10,13 @@ namespace BreathIsland
         public GameObject Held => held;
         public void SetVisible(bool visible) { socket.gameObject.SetActive(visible); }
         public void Swing() => socket.GetComponent<ToolSwing>().Play();
-        public void Attack(Vector3 origin,Vector3 target,Color color)=>socket.GetComponent<WeaponActionView>().Play();
+        public void Attack(WeaponDefinition weapon, bool skill, Vector3 target)
+        {
+            socket.GetComponent<WeaponActionView>().Play();
+            var bow = held == null ? null : held.GetComponent<BowShotView>();
+            if (bow != null) bow.Play(target, skill, weapon.skill != null ? weapon.skill.effectColor : Color.white);
+            else if (skill) socket.GetComponent<WeaponSkillView>().Play(weapon.job.id, target, weapon.skill.effectColor);
+        }
         public EquipmentView(EquipmentSystem equipment, IslandLifeCatalog catalog, Transform player)
         {
             this.equipment = equipment; this.catalog = catalog;
@@ -24,6 +30,7 @@ namespace BreathIsland
             socket = anchor.transform;
             anchor.AddComponent<ToolSwing>().Initialize(player);
             anchor.AddComponent<WeaponActionView>().Initialize(player);
+            anchor.AddComponent<WeaponSkillView>();
             equipment.Changed += Refresh; Refresh();
         }
         private void Refresh()
@@ -39,12 +46,13 @@ namespace BreathIsland
                 _ => equipment.Weapon?.model
             };
             held = source == null ? null : ModelPresentation.Create(source, socket,
-                equipment.Tool == LifeTool.None ? catalog.weaponMaterial : catalog.toolMaterial, equipment.Tool == LifeTool.None ? 1.05f : .85f, true);
+                equipment.Tool == LifeTool.None ? (equipment.Weapon?.skill != null ? null : catalog.weaponMaterial) : catalog.toolMaterial, equipment.Tool == LifeTool.None ? 1.05f : .58f, true);
             if (held != null)
             {
                 var scale = socket.lossyScale;
                 held.transform.localScale = new Vector3(1 / scale.x, 1 / scale.y, 1 / scale.z);
-                if (equipment.Tool == LifeTool.None && equipment.Job?.id == "ranger") held.transform.localRotation = Quaternion.Euler(0, 0, 90);
+                if (equipment.Tool == LifeTool.None && equipment.Job?.id == "warrior") held.transform.localRotation = Quaternion.Euler(0, 90, 0);
+                if (equipment.Tool == LifeTool.None && equipment.Job?.id == "ranger") held.AddComponent<BowShotView>().Initialize(socket.GetComponent<WeaponActionView>().Owner, socket.GetComponent<WeaponActionView>());
             }
         }
         public void Dispose() { equipment.Changed -= Refresh; if (socket != null) Object.Destroy(socket.gameObject); }

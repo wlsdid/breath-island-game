@@ -17,5 +17,5 @@ MonoBehaviour:
   job: {fileID: 11400000, guid: a43b92402bf64454691088332d0e8926, type: 2}
   basicAttack: {fileID: 11400000, guid: 0745b6f4ceff6bb49a5f497751cf5930, type: 2}
   skill: {fileID: 11400000, guid: f1fb03601c24e124aaca95bb9b7748ba, type: 2}
-  model: {fileID: 919132149155446097, guid: df2b1a12c7335a344a430cec7e6f989c, type: 3}
+  model: {fileID: 5130516034065237627, guid: b06b7da85073df14fa7198fd2ea4891b, type: 3}
   achievementId: craft

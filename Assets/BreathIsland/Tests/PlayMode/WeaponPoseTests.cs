@@ -31,15 +31,45 @@ namespace BreathIsland.Tests
                     Assert.That(Quaternion.Angle(rest,upper.rotation),Is.GreaterThan(10),id);
                     Assert.That(life.Equipment.Job,Is.SameAs(life.Equipment.Weapon.job));
                     world.camera.transform.position=world.player.transform.position+new Vector3(2,1.4f,3);world.camera.transform.LookAt(world.player.transform.position+Vector3.up*.8f);
-                                        Capture(world.camera,id);
+                    Capture(world.camera,id);
                     var socket = world.player.GetComponentsInChildren<Transform>().First(t=>t.name=="Held Item Socket");
-                                        var meshes = socket.GetComponentsInChildren<Renderer>();
-                    var bounds = meshes[0].bounds; foreach(var mesh in meshes) bounds.Encapsulate(mesh.bounds);
+                    var meshes = socket.GetComponentsInChildren<Renderer>().Where(r=>r is not LineRenderer).ToArray();
+                    var bounds = ModelPresentation.WorldVisibleBounds(meshes[0]); foreach(var mesh in meshes) bounds.Encapsulate(ModelPresentation.WorldVisibleBounds(mesh));
                     Assert.That(Mathf.Max(bounds.size.x,bounds.size.y,bounds.size.z),Is.InRange(.8f,1.5f),id+" world size");
+                    var bowString=socket.GetComponentInChildren<BowShotView>()?.GetComponent<LineRenderer>();
+                    if(bowString!=null)Assert.That(Vector3.Distance(bowString.GetPosition(0),bowString.GetPosition(2)),Is.LessThan(1.15f),"bow string length");
                     Assert.That(Vector3.Distance(bounds.center,socket.position),Is.LessThan(.65f),id+" grip");
                     Assert.That(root.GetComponentsInChildren<CombatFeedback>().SelectMany(f=>f.GetComponents<LineRenderer>()),Is.Empty);
+                    var bowView=socket.GetComponentInChildren<BowShotView>();
+                    if(bowView!=null)
+                    {
+                        yield return new WaitForSeconds(.12f);
+                        Assert.That(WeaponActionView.DrawAt(.27f),Is.EqualTo(1));
+                        Assert.That(WeaponActionView.DrawAt(.36f),Is.EqualTo(0));
+                        Capture(world.camera,id+"-draw");
+                        yield return new WaitForSeconds(.06f);
+                        Assert.That(bowView.Released,Is.True);
+                    }
                     yield return new WaitForSeconds(.55f);
                     Capture(world.camera,id+"-carry");
+                    if(id.EndsWith("_special"))
+                    {
+                        Assert.That(life.Equipment.Weapon.model,Is.Not.SameAs(life.Catalog.Weapon(id.Replace("_special","")).model));
+                        life.Training.ResetTarget();life.Training.Tick(10);
+                        Assert.That(life.Training.Attack(true),Is.True);
+                        yield return new WaitForSeconds(id=="bow_special"?.74f:.2f);
+                        Assert.That(socket.GetComponentsInChildren<WeaponSkillView>().Any(v=>v.Active),Is.True,id+" visible skill");
+                        Capture(world.camera,id+"-skill");
+                    }
+                }
+                foreach(var tool in new[]{LifeTool.Axe,LifeTool.Pickaxe,LifeTool.Hammer})
+                {
+                    Assert.That(life.Equipment.SelectTool(tool),Is.True);yield return new WaitForSeconds(.6f);
+                    var socket=world.player.GetComponentsInChildren<Transform>().First(t=>t.name=="Held Item Socket");
+                    var meshes=socket.GetComponentsInChildren<Renderer>().Where(r=>r is not LineRenderer).ToArray();var bounds=ModelPresentation.WorldVisibleBounds(meshes[0]);
+                    foreach(var mesh in meshes)bounds.Encapsulate(ModelPresentation.WorldVisibleBounds(mesh));
+                    Assert.That(Mathf.Max(bounds.size.x,bounds.size.y,bounds.size.z),Is.InRange(.4f,.7f),tool.ToString());
+                    Capture(world.camera,tool.ToString()+"-carry");
                 }
             }
             finally{life.Dispose();UnityEngine.Object.Destroy(root);if(Directory.Exists(folder))Directory.Delete(folder,true);Cursor.lockState=CursorLockMode.None;}

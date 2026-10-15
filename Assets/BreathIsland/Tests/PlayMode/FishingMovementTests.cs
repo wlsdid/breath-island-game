@@ -27,9 +27,16 @@ namespace BreathIsland.Tests
                 InputSystem.QueueStateEvent(keyboard,new KeyboardState());yield return null;
                 Assert.That(world.player.transform.position.z,Is.InRange(23.5f,24.46f));Assert.That(world.motor.VerticalVelocity,Is.LessThanOrEqualTo(0));
                 var rotation=world.camera.transform.rotation;
-                InputSystem.QueueStateEvent(mouse,new MouseState{buttons=2,delta=new Vector2(120,20)});yield return null;yield return new WaitForEndOfFrame();
+                InputSystem.QueueStateEvent(mouse,new MouseState{delta=new Vector2(120,20)});yield return null;yield return new WaitForEndOfFrame();
                 Assert.That(Quaternion.Angle(rotation,world.camera.transform.rotation),Is.GreaterThan(1));
                 Assert.That(Vector2.Distance(new Vector2(anchor.x,anchor.z),new Vector2(bobber.position.x,bobber.position.z)),Is.LessThan(.02f));
+                Assert.That(Cursor.lockState,Is.EqualTo(CursorLockMode.Locked));
+                InputSystem.QueueStateEvent(keyboard,new KeyboardState(Key.LeftAlt));yield return null;yield return new WaitForEndOfFrame();
+                Assert.That(Cursor.lockState,Is.EqualTo(CursorLockMode.None));
+                rotation=world.camera.transform.rotation;
+                InputSystem.QueueStateEvent(mouse,new MouseState{delta=new Vector2(120,20)});yield return null;yield return new WaitForEndOfFrame();
+                Assert.That(Quaternion.Angle(rotation,world.camera.transform.rotation),Is.LessThan(.01f));
+                InputSystem.QueueStateEvent(keyboard,new KeyboardState());
                 InputSystem.QueueStateEvent(mouse,new MouseState());
                 phases.Set(GamePhase.Pause);var position=world.player.transform.position;
                 InputSystem.QueueStateEvent(keyboard,new KeyboardState(Key.A));yield return new WaitForSeconds(.2f);

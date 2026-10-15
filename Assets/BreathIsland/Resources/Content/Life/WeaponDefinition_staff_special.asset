@@ -17,5 +17,5 @@ MonoBehaviour:
   job: {fileID: 11400000, guid: b95c77d154a254b4ea16e2058a25e2cc, type: 2}
   basicAttack: {fileID: 11400000, guid: 00eb49b6afd7b3e48b764ec567e641f8, type: 2}
   skill: {fileID: 11400000, guid: bc22f79397b1f8b47bdc006674ca32e2, type: 2}
-  model: {fileID: 919132149155446097, guid: b65c42d27ce91e44087f1ccee55438e5, type: 3}
+  model: {fileID: 1203883246040159662, guid: 6af4b1841efe8ba4baac92cc314610d7, type: 3}
   achievementId: gather

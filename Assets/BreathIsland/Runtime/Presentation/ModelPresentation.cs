@@ -46,6 +46,15 @@ namespace BreathIsland
             }
             return root;
         }
+        public static Bounds WorldVisibleBounds(Renderer renderer)
+        {
+            var local = VisibleBounds(renderer);
+            var world = new Bounds(renderer.transform.TransformPoint(local.center), Vector3.zero);
+            for (int i = 0; i < 8; i++)
+                world.Encapsulate(renderer.transform.TransformPoint(local.center + Vector3.Scale(local.extents,
+                    new Vector3((i & 1) == 0 ? -1 : 1, (i & 2) == 0 ? -1 : 1, (i & 4) == 0 ? -1 : 1))));
+            return world;
+        }
         private static Bounds VisibleBounds(Renderer renderer)
         {
             if (renderer is not SkinnedMeshRenderer skin) return renderer.localBounds;

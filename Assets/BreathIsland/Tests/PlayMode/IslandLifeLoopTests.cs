@@ -182,7 +182,8 @@ namespace BreathIsland.Tests
             swing.enabled = false;
             player.GetComponentInChildren<Animator>().enabled = false;
             swing.ApplyPose(.5f); Vector3 restingHand = player.InverseTransformPoint(hand.position); Quaternion restingArm = upper.rotation;
-            Assert.That(Vector3.Dot(swing.transform.up, player.up), Is.GreaterThan(.99f), "Carried shaft must point up.");
+            Assert.That(Vector3.Angle(swing.transform.up, player.up), Is.EqualTo(25).Within(.1f), "Carried tool tilts 25 degrees away from the torso.");
+            Assert.That(Vector3.Dot(swing.transform.up, player.right), Is.GreaterThan(.4f), "The carry tilt must point outward, not into the torso.");
             yield return null; CaptureTool(camera, "carry");
             swing.ApplyPose(.16f);
             Assert.That(Vector3.Distance(restingHand, player.InverseTransformPoint(hand.position)), Is.GreaterThan(.4f), "The arm must wind up, not just rotate a prop.");

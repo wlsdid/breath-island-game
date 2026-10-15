@@ -35,14 +35,14 @@ namespace BreathIsland
             float shoulder = Pose(seconds, -12, -160, -48);
             float elbow = Pose(seconds, -35, -155, -70);
             float blade = Pose(seconds, 0, -20, 78);
-            float outward = Pose(seconds, .65f, .55f, .45f);
+            float outward = Pose(seconds, .9f, .55f, .45f);
             // Start from a fixed rig basis so repeated poses do not accumulate arm twist.
             if (upper != null) upper.rotation = player.rotation * upperBasis;
             if (lower != null) lower.rotation = player.rotation * lowerBasis;
             Aim(upper, lower, player.rotation * (Quaternion.Euler(shoulder, 0, 0) * Vector3.down + Vector3.right * outward));
-            Aim(lower, wrist, player.rotation * (Quaternion.Euler(elbow, 0, 0) * Vector3.down));
+            Aim(lower, wrist, player.rotation * (Quaternion.Euler(elbow, 0, 0) * Vector3.down + Vector3.right * .4f));
             // Corrected KayKit tools have a Y shaft and an X cutting edge.
-            transform.rotation = player.rotation * Quaternion.Euler(blade, 0, 0) * Quaternion.Euler(0, -90, 0);
+            transform.rotation = player.rotation * Quaternion.Euler(blade, 0, Pose(seconds, -25, 0, 10)) * Quaternion.Euler(0, -90, 0);
         }
         private static void Aim(Transform bone, Transform child, Vector3 direction)
         {

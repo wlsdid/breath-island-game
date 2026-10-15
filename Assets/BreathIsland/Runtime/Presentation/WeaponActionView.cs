@@ -10,6 +10,9 @@ namespace BreathIsland
         private Quaternion upperRest, lowerRest, leftUpperRest, leftLowerRest;
         private string job;
         private float time = 1;
+        public Transform Owner => player;
+        public float DrawFraction => job == "ranger" ? DrawAt(time) : 0;
+        public static float DrawAt(float elapsed) => elapsed < .10f ? 0 : elapsed < .25f ? Mathf.SmoothStep(0,1,(elapsed-.10f)/.15f) : elapsed < .30f ? 1 : elapsed < .35f ? 1-Mathf.SmoothStep(0,1,(elapsed-.30f)/.05f) : 0;
         public void Initialize(Transform owner)
         {
             player = owner; var bones = owner.GetComponentsInChildren<Transform>();
@@ -32,15 +35,15 @@ namespace BreathIsland
             float pitch = 12;
             if (job == "ranger")
             {
-                shoulder = Vector3.Lerp(shoulder, new Vector3(.6f, -.1f, 1), pose);
-                forearm = Vector3.Lerp(forearm, new Vector3(0, .05f, 1), pose);
+                float aim = time < .10f ? Mathf.SmoothStep(0,1,time/.10f) : 1-Mathf.SmoothStep(0,1,(time-.36f)/.14f);
+                shoulder = Vector3.Lerp(shoulder, new Vector3(.4f, -.1f, 1), aim);
+                forearm = Vector3.Lerp(forearm, new Vector3(0, .05f, 1), aim);
                 if (leftUpper != null && leftLower != null)
                 {
                     leftUpper.rotation = player.rotation * leftUpperRest; leftLower.rotation = player.rotation * leftLowerRest;
-                    Aim(leftUpper, leftLower, player.rotation * Vector3.Lerp(new Vector3(-.4f, -1, 0), new Vector3(-.4f, 0, 1), pose));
-                    Aim(leftLower, leftWrist, player.rotation * Vector3.Lerp(Vector3.down, new Vector3(.6f, 0, -.8f), pose));
-                }
-                pitch = 0;
+                    Aim(leftUpper, leftLower, player.rotation * Vector3.Lerp(new Vector3(-.4f,-1,0),new Vector3(-.25f,-.1f,.8f),aim));
+                    Aim(leftLower, leftWrist, player.rotation * Vector3.Lerp(Vector3.down,new Vector3(.6f,.1f,Mathf.Lerp(.9f,-.8f,DrawFraction)),aim));
+                }                pitch = 0;
             }
             else
             {

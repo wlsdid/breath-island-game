@@ -1113,7 +1113,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 680889321575628800
-    m_Localized: "WASD move on pier \xB7 Hold RMB to look \xB7 Q ease line"
+    m_Localized: "WASD move \xB7 Mouse look \xB7 Hold Alt for buttons \xB7 Q ease
+      line"
     m_Metadata:
       m_Items: []
   references:

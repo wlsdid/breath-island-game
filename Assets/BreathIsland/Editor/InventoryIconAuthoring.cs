@@ -27,10 +27,24 @@ namespace BreathIsland.Editor
             }
             AssetDatabase.SaveAssets();
         }
+        public static void BuildWeapons()
+        {
+            var catalog=IslandLifeCatalog.Load();
+            foreach(var weapon in catalog.weapons)
+            {
+                Render(weapon.id,weapon.model,weapon.skill==null?catalog.weaponMaterial:null,true);
+                string path=Output+weapon.id+".png";AssetDatabase.ImportAsset(path);
+                var importer=(TextureImporter)AssetImporter.GetAtPath(path);
+                importer.textureType=TextureImporterType.Sprite;importer.alphaIsTransparency=true;
+                importer.mipmapEnabled=false;importer.textureCompression=TextureImporterCompression.Uncompressed;
+                importer.maxTextureSize=256;importer.SaveAndReimport();
+            }
+            AssetDatabase.SaveAssets();
+        }
         private static Bounds BoundsOf(GameObject model)
         {
             var bounds=new Bounds();bool first=true;
-            foreach(var r in model.GetComponentsInChildren<Renderer>()){if(first){bounds=r.bounds;first=false;}else bounds.Encapsulate(r.bounds);}
+            foreach(var r in model.GetComponentsInChildren<Renderer>()){if(first){bounds=ModelPresentation.WorldVisibleBounds(r);first=false;}else bounds.Encapsulate(ModelPresentation.WorldVisibleBounds(r));}
             return bounds;
         }
         private static void Render(string id,GameObject source,Material material,bool upright=false)

@@ -1149,8 +1149,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 680889321575628800
-    m_Localized: "WASD \uBD80\uB450 \uC774\uB3D9 \xB7 \uC6B0\uD074\uB9AD \uC720\uC9C0
-      \uC2DC\uC810 \uC774\uB3D9 \xB7 Q \uC904 \uD480\uAE30"
+    m_Localized: "WASD \uBD80\uB450 \uC774\uB3D9 \xB7 \uB9C8\uC6B0\uC2A4 \uC2DC\uC810
+      \xB7 Alt \uC720\uC9C0 \uBC84\uD2BC \uC870\uC791 \xB7 Q \uC904 \uD480\uAE30"
     m_Metadata:
       m_Items: []
   references:

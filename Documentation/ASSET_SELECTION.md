@@ -129,3 +129,6 @@ OceanWater 셰이더, OceanSurface 파도 메시와 해저 재질은 프로젝�
 - Ground 셰이더·집 벽 뒷면·박공 끝면은 프로젝트 코드로 작성했다. 새 외부 다운로드는 없다. Universal Animation Library의 CC0 라이선스는 확인했지만 기존 Generic 리그와 다른 애니메이션을 이번에 직접 적용하지 않았다.
 
 2026-10-15 연속 이동 수정: 기존 KayKit Rig_Medium_MovementBasic/General에서 WalkingLoop·IdleLoop·AirLoop 파생 AnimationClip을 작성했다. 원본 FBX와 가져오기 설정은 보존하고 파생 클립의 반복 재생만 명시했다. 추가 다운로드나 외부 애니메이션은 사용하지 않았다.
+
+2026-10-15 무기 식별: 제공된 KayKit_FantasyWeaponsBits_1.0_FREE.zip의 Assets/fbx(unity)/sword_E.fbx, bow_A.fbx, bow_B.fbx, staff_B.fbx, arrow_A.fbx만 추가 선별했다. 기존 Weapons/License.txt의 CC0와 weapons_bits_texture.png를 사용한다. 원본 ZIP·기존 모델은 보존했다. 일반 활은 정적 줄 없는 모델로 바꾸고 자체 동적 줄을 연결했다. 신규 외부 다운로드 없음.
+- 무기 아이콘 6개만 새 모델로 재렌더링했다. 특수 무기는 파생 재질 색을 유지하며 기존 도구·자원·가구 아이콘은 재생성하지 않았다.
