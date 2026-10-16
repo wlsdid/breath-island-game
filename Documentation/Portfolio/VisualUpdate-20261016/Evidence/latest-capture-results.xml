@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="1" result="Passed" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-16 06:21:04Z" end-time="2026-10-16 06:21:56Z" duration="51.9755305">
+  <test-suite type="TestSuite" id="1076" name="Breath Island" fullname="Breath Island" runstate="Runnable" testcasecount="48" result="Passed" start-time="2026-10-16 06:21:04Z" end-time="2026-10-16 06:21:56Z" duration="51.975531" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <test-suite type="Assembly" id="1070" name="BreathIsland.PlayModeTests.dll" fullname="C:/Users/JinYang/Documents/Codex/2026-09-09/x20-3d-3d-stylized-anime-child/work/breath-island-game/Library/ScriptAssemblies/BreathIsland.PlayModeTests.dll" runstate="Runnable" testcasecount="48" result="Passed" start-time="2026-10-16 06:21:04Z" end-time="2026-10-16 06:21:56Z" duration="51.960258" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="7496" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <test-suite type="TestSuite" id="1071" name="BreathIsland" fullname="BreathIsland" runstate="Runnable" testcasecount="48" result="Passed" start-time="2026-10-16 06:21:04Z" end-time="2026-10-16 06:21:56Z" duration="51.954972" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="SetUpFixture" id="1054" name="Tests" fullname="BreathIsland.Tests.PlayModeInputEnvironment" classname="BreathIsland.Tests.PlayModeInputEnvironment" runstate="Runnable" testcasecount="48" result="Passed" start-time="2026-10-16 06:21:04Z" end-time="2026-10-16 06:21:56Z" duration="51.948935" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestFixture" id="1055" name="PortfolioMovieCapture" fullname="BreathIsland.Tests.PortfolioMovieCapture" classname="BreathIsland.Tests.PortfolioMovieCapture" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-16 06:21:04Z" end-time="2026-10-16 06:21:56Z" duration="51.934643" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1056" name="CaptureLatestVisuals" fullname="BreathIsland.Tests.PortfolioMovieCapture.CaptureLatestVisuals" methodname="CaptureLatestVisuals" classname="BreathIsland.Tests.PortfolioMovieCapture" runstate="Explicit" seed="847211222" result="Passed" start-time="2026-10-16 06:21:04Z" end-time="2026-10-16 06:21:56Z" duration="51.917763" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="_SKIPREASON" value="Offline portfolio capture; requires the local FFmpeg executable" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[Saving results to: C:/Users/JinYang/AppData/LocalLow/Breath Island Studio/Breath Island\TestResults.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

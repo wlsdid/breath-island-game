@@ -42,7 +42,7 @@
 
 ## 검증 자료의 해석
 
-Evidence/editmode-results.xml, playmode-results.xml은 2026-10-15 최종 실행의 사본이다. evidence.json에는 이 자료 조사 시점의 SHA256과 수량을 기록한다. 자동 테스트 162개는 프로젝트 전체 테스트 수이며 이번 비주얼 기능만의 신규 테스트 수가 아니다. 이번에는 게임을 재실행하거나 테스트·빌드를 다시 하지 않았다.
+Evidence/editmode-results.xml, playmode-results.xml은 2026-10-15 최종 실행의 사본이다. evidence.json에는 이 자료 조사 시점의 SHA256과 수량을 기록한다. 자동 테스트 162개는 프로젝트 전체 테스트 수이며 이번 비주얼 기능만의 신규 테스트 수가 아니다. 이후 이번 자료 촬영을 위해 Editor Play Mode의 촬영 전용 테스트 1개를 별도로 실행했다. `05_NEW_CAPTURE.md`와 `Evidence/latest-capture-results.xml`을 확인한다. 전체 회귀 테스트와 Windows 빌드는 이번 촬영 작업에서 다시 수행하지 않았다.
 
 Evidence/build-success.txt는 기존 빌드 로그의 성공 부분 발췌다. 원본 전체 로그·실행 파일의 해시는 evidence.json에 있다. 코드 사본은 ec53ea9 기준이고 게임 실행용 묶음이 아니다.
 

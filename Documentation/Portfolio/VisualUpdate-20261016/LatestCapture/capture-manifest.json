@@ -1,0 +1,139 @@
+{
+  "date": "2026-10-16",
+  "game_commit": "ec53ea90d303f1f75a79000e850f6233420d86b2",
+  "capture": "Unity 6000.5.4f1 Editor Play Mode; scripted camera and commands; real animated runtime rendering",
+  "manual_windows_gameplay": false,
+  "audio": false,
+  "video": {
+    "file": "breath-island-visual-update.mp4",
+    "width": 1280,
+    "height": 720,
+    "fps": 30,
+    "seconds": 45
+  },
+  "stills": {
+    "width": 1920,
+    "height": 1080,
+    "postprocessing": "none"
+  },
+  "fixture": "Prepared village seed; temporary save root; unlocked special weapons; fixed-step 30fps; no player saves",
+  "shots": [
+    {
+      "file": "01-village",
+      "caption": "마을 · 지면과 건물, 해안으로 이어지는 풍경",
+      "seconds": 7
+    },
+    {
+      "file": "02-coast",
+      "caption": "바다 · 움직이는 수면과 빛, 해안 표현",
+      "seconds": 6
+    },
+    {
+      "file": "03-fishing",
+      "caption": "낚시 · 캐스팅 → 입질 → 챔질 → 감기",
+      "seconds": 11
+    },
+    {
+      "file": "sword_special",
+      "caption": "검 · 기사 외형과 특수 무기 스킬",
+      "seconds": 7
+    },
+    {
+      "file": "bow_special",
+      "caption": "활 · 궁수 외형, 당기기와 발사, 특수 스킬",
+      "seconds": 7
+    },
+    {
+      "file": "staff_special",
+      "caption": "지팡이 · 마법사 외형과 특수 무기 스킬",
+      "seconds": 7
+    }
+  ],
+  "files": [
+    {
+      "file": "01-village.png",
+      "bytes": 1275655,
+      "sha256": "7dea8d8ffef519f6631dbd19adcce61d8a01481f27cd5c8030997fb19059b3d9"
+    },
+    {
+      "file": "02-coast.png",
+      "bytes": 1055075,
+      "sha256": "f8ebdfd7053e2c4c431cf7fa8abf79da94b438ab7c4b9fbd34aa1133125eb033"
+    },
+    {
+      "file": "03-cast.png",
+      "bytes": 1095613,
+      "sha256": "415d389ce96f753eb16888f9c3948da30f3a6ef1e91a7e71450add38681e3898"
+    },
+    {
+      "file": "04-fishing.png",
+      "bytes": 1014357,
+      "sha256": "9b973e240b11d9481850de151ec9a09ed714ac23e0e8b98dae4d80b3efdf8532"
+    },
+    {
+      "file": "bow_special-outfit.png",
+      "bytes": 1218148,
+      "sha256": "32bb9b3ab41a01bae26e8c14af2a11c1ed7184158482af312f95196f2f41c0bd"
+    },
+    {
+      "file": "bow_special-skill.png",
+      "bytes": 1318664,
+      "sha256": "3ed11be4a2944467b0160daed5ff514b74bfcc791183b14f537db93b473e3d3c"
+    },
+    {
+      "file": "breath-island-visual-update.mp4",
+      "bytes": 9092325,
+      "sha256": "767476ccb57cfaf516fdbc315cf9945387279a855dee0623d3ee0737272c199d"
+    },
+    {
+      "file": "Clips/01-village.mp4",
+      "bytes": 2277417,
+      "sha256": "6c28d1384dc644b92e28f2a7f85aa375a47f96f73f311b8e22c77b123bde9d48"
+    },
+    {
+      "file": "Clips/02-coast.mp4",
+      "bytes": 2031562,
+      "sha256": "cd9cbc1a3e5ab268f7e33e10610121a9b9e7081c9daf272dbd986ae801bf223a"
+    },
+    {
+      "file": "Clips/03-fishing.mp4",
+      "bytes": 3877268,
+      "sha256": "be973f575b7edb6e46de1a3c9577857241dd4c3b516a12604fc8fd8839f85dcc"
+    },
+    {
+      "file": "Clips/bow_special.mp4",
+      "bytes": 738014,
+      "sha256": "1cecc6cf40d91e5a4206970545dce399cb441c76a7a9bcae0cb3cec89050a4fd"
+    },
+    {
+      "file": "Clips/staff_special.mp4",
+      "bytes": 1036491,
+      "sha256": "3482d1289b92462c7f38dad1a473a459689b1bdb4bfcc832ea1c4b7c3c2630d5"
+    },
+    {
+      "file": "Clips/sword_special.mp4",
+      "bytes": 793339,
+      "sha256": "0d53203f0390bb1dc00686fdb6d370b44a803b63ca4cec9771c34eb510bf8891"
+    },
+    {
+      "file": "staff_special-outfit.png",
+      "bytes": 1218929,
+      "sha256": "20b4fedba6bf3cc5213f41d76c4ea1a00a0bcdd2826d48a9b805d6d4f28346a1"
+    },
+    {
+      "file": "staff_special-skill.png",
+      "bytes": 1322314,
+      "sha256": "f97792c4238a83ce9ecd6edca1292ad91a2f3e5ede9316f53d31229869bd40cb"
+    },
+    {
+      "file": "sword_special-outfit.png",
+      "bytes": 1224427,
+      "sha256": "aecf794e1e5961b0cfa43eb7474ea22f36f339c6c8f32658972395935d1bda65"
+    },
+    {
+      "file": "sword_special-skill.png",
+      "bytes": 1347142,
+      "sha256": "0a2ce7a1aa92c6a92869663ad23b5a0c1fa94e7cca0739f4b112ed810d3fe41c"
+    }
+  ]
+}

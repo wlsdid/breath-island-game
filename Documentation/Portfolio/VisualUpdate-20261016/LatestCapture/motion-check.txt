@@ -1,0 +1,4 @@
+Full video decode: passed
+Sampled every 0.5 seconds: 90
+Distinct sampled frames: 90
+This checks frame changes, not gameplay correctness.

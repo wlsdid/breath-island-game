@@ -33,8 +33,24 @@
     "operation": "read only; no edits"
   },
   "userConfirmation": "Archer appearance only; user said 확인 완료 after ec53ea9 demo",
-  "imageCount": 17,
-  "newTestsRunThisTask": false,
+  "imageCount": 27,
+  "newTestsRunThisTask": true,
   "newWindowsCaptureThisTask": false,
-  "remotePublicationVerified": false
+  "remotePublicationVerified": false,
+  "historicalImageCount": 17,
+  "newCaptureImageCount": 10,
+  "newCaptureTest": {
+    "file": "Evidence/latest-capture-results.xml",
+    "result": "Passed",
+    "total": 1,
+    "failed": 0,
+    "scope": "Explicit offline Editor presentation capture, not full regression"
+  },
+  "newMedia": {
+    "manifest": "LatestCapture/capture-manifest.json",
+    "videoSeconds": 45,
+    "videoFps": 30,
+    "editorScripted": true,
+    "manualWindowsGameplay": false
+  }
 }
