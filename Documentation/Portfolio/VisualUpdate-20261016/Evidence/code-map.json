@@ -1,0 +1,74 @@
+[
+  {
+    "copy": "Code/BowShotView.cs",
+    "source": "Assets/BreathIsland/Runtime/Presentation/BowShotView.cs",
+    "sha256": "C2B11606E9FB8684EC1561C8B057C9C3F2C66BB941751183C408D2BEAC42DB8A",
+    "matchesSource": true
+  },
+  {
+    "copy": "Code/FishingPresentation.cs",
+    "source": "Assets/BreathIsland/Runtime/Presentation/FishingPresentation.cs",
+    "sha256": "6A7C7A580DE83FFC65FBABCACFF42C1E2F8F5BB136141DA7FF985082BE5ED327",
+    "matchesSource": true
+  },
+  {
+    "copy": "Code/FishingRodView.cs",
+    "source": "Assets/BreathIsland/Runtime/Presentation/FishingRodView.cs",
+    "sha256": "B6FB8F7BDAD7603DCEAF0427F6A34B3FF905F0B612A85C4D89435133FCE27710",
+    "matchesSource": true
+  },
+  {
+    "copy": "Code/IslandLifeLoopTests.cs",
+    "source": "Assets/BreathIsland/Tests/PlayMode/IslandLifeLoopTests.cs",
+    "sha256": "6E7E1FEB69F3B3D43CD8E9DE9A30B548F5DDAFE7D8D620F7696611E727A79C5D",
+    "matchesSource": true
+  },
+  {
+    "copy": "Code/JobAppearanceView.cs",
+    "source": "Assets/BreathIsland/Runtime/Presentation/JobAppearanceView.cs",
+    "sha256": "661599BFCEBF038530893A7F9CBD4BB8E1448BAA742CA4D0D0E60F2AB5263BEA",
+    "matchesSource": true
+  },
+  {
+    "copy": "Code/NpcPresentation.cs",
+    "source": "Assets/BreathIsland/Runtime/Presentation/NpcPresentation.cs",
+    "sha256": "06B079FECA4DE0FF06B816CA9EC497DE0B207579CC9EC5F7A8EE6045FEAB9885",
+    "matchesSource": true
+  },
+  {
+    "copy": "Code/OceanSurface.cs",
+    "source": "Assets/BreathIsland/Runtime/Presentation/OceanSurface.cs",
+    "sha256": "98F433E84D0E5811B05BAEB6A559BF5C908B16FEE1C0E5EC3D1C9094004C58C2",
+    "matchesSource": true
+  },
+  {
+    "copy": "Code/OceanWater.shader",
+    "source": "Assets/BreathIsland/Runtime/Presentation/OceanWater.shader",
+    "sha256": "25C0A390FB48CAFEF07E686A33EB8D24C3DA0A771D49BDBC2DA3751F864AA1B3",
+    "matchesSource": true
+  },
+  {
+    "copy": "Code/SkillFlipbook.cs",
+    "source": "Assets/BreathIsland/Runtime/Presentation/SkillFlipbook.cs",
+    "sha256": "14D2B3B9FF758C9560A9A41054774416034DBDFCC16FE6C001EEC311D2D1C519",
+    "matchesSource": true
+  },
+  {
+    "copy": "Code/TrainingCombatSystem.cs",
+    "source": "Assets/BreathIsland/Runtime/Equipment/TrainingCombatSystem.cs",
+    "sha256": "880CD559033C859C9EE8FB68F0DF295EB1ACC2FC09062078CEEDA5A4B7F799DD",
+    "matchesSource": true
+  },
+  {
+    "copy": "Code/TrainingPresentationAuthoring.cs",
+    "source": "Assets/BreathIsland/Editor/TrainingPresentationAuthoring.cs",
+    "sha256": "B5C48E95E77B59B5488009895D2CAE0C77E260D1B3D0758A2E2F14359DF0C981",
+    "matchesSource": true
+  },
+  {
+    "copy": "Code/WeaponSkillView.cs",
+    "source": "Assets/BreathIsland/Runtime/Presentation/WeaponSkillView.cs",
+    "sha256": "CC2FA263CAA603545D29E19F82650381C108A11D44F45E5D8ECB3FBD0DF4364B",
+    "matchesSource": true
+  }
+]

@@ -1,0 +1,16 @@
+ec53ea9 2026-10-15T23:39:48+09:00 fix: distinguish equipped archer outfit from default character
+5222f51 2026-10-15T23:28:00+09:00 feat: add job outfits and regenerating training scarecrow
+a0ddc79 2026-10-15T22:46:05+09:00 feat: add authored flipbook effects for special weapons
+36178e1 2026-10-15T22:27:09+09:00 fix: refine weapon poses effects and fishing look controls
+174771c 2026-10-15T21:48:22+09:00 fix: loop locomotion and correct held equipment presentation
+5dc5dfd 2026-10-15T21:29:33+09:00 feat: refine island movement scenery and fishing controls
+206db3f 2026-10-15T20:58:48+09:00 fix: make fishing hands visible above controls
+8b3f9ed 2026-10-15T20:30:19+09:00 feat: polish fish appearance and fishing water contact effects
+b6a4884 2026-10-15T13:05:10+09:00 feat: add refractive ocean and water-relative fishing visuals
+e3b4aaf 2026-10-15T12:48:52+09:00 feat: require timed hook response to fishing bites
+572fe2b 2026-10-15T12:37:40+09:00 feat: animate fishing rod and refine coastal presentation
+d2aec1d 2026-10-15T11:40:06+09:00 feat: refine village facades and add animated NPC presentation
+26336b1 2026-10-12T22:49:53+09:00 docs: tidy portfolio wording and re-render indoor demo captions
+c28e033 2026-10-12T22:35:32+09:00 docs: finish indoor portfolio demo and record Windows validation
+ffa3922 2026-10-12T14:41:55+09:00 feat: polish portfolio demo UI and document evidence
+b5c4f92 2026-10-04T22:34:32+09:00 feat: add grid home remodeling and timed gathering

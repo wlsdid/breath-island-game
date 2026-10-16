@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="47" result="Passed" total="47" passed="47" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-15 14:36:44Z" end-time="2026-10-15 14:37:56Z" duration="71.8799032">
+  <test-suite type="TestSuite" id="1074" name="Breath Island" fullname="Breath Island" runstate="Runnable" testcasecount="47" result="Passed" start-time="2026-10-15 14:36:44Z" end-time="2026-10-15 14:37:56Z" duration="71.879903" total="47" passed="47" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <test-suite type="Assembly" id="1068" name="BreathIsland.PlayModeTests.dll" fullname="C:/Users/JinYang/Documents/Codex/2026-09-09/x20-3d-3d-stylized-anime-child/work/breath-island-game/Library/ScriptAssemblies/BreathIsland.PlayModeTests.dll" runstate="Runnable" testcasecount="47" result="Passed" start-time="2026-10-15 14:36:44Z" end-time="2026-10-15 14:37:56Z" duration="71.868377" total="47" passed="47" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="28080" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <test-suite type="TestSuite" id="1069" name="BreathIsland" fullname="BreathIsland" runstate="Runnable" testcasecount="47" result="Passed" start-time="2026-10-15 14:36:44Z" end-time="2026-10-15 14:37:56Z" duration="71.864947" total="47" passed="47" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="SetUpFixture" id="1054" name="Tests" fullname="BreathIsland.Tests.PlayModeInputEnvironment" classname="BreathIsland.Tests.PlayModeInputEnvironment" runstate="Runnable" testcasecount="47" result="Passed" start-time="2026-10-15 14:36:44Z" end-time="2026-10-15 14:37:56Z" duration="71.861588" total="47" passed="47" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestFixture" id="1001" name="CharacterLocomotionTests" fullname="BreathIsland.Tests.CharacterLocomotionTests" classname="BreathIsland.Tests.CharacterLocomotionTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-10-15 14:36:44Z" end-time="2026-10-15 14:36:52Z" duration="7.032605" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1003" name="HeldMovementContinuesAnimatingAfterMultipleCycles" fullname="BreathIsland.Tests.CharacterLocomotionTests.HeldMovementContinuesAnimatingAfterMultipleCycles" methodname="HeldMovementContinuesAnimatingAfterMultipleCycles" classname="BreathIsland.Tests.CharacterLocomotionTests" runstate="Runnable" seed="1255120861" result="Passed" start-time="2026-10-15 14:36:44Z" end-time="2026-10-15 14:36:48Z" duration="3.294614" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1004" name="JumpLandsAndMenuBlocksRepeatedOrClosingInput" fullname="BreathIsland.Tests.CharacterLocomotionTests.JumpLandsAndMenuBlocksRepeatedOrClosingInput" methodname="JumpLandsAndMenuBlocksRepeatedOrClosingInput" classname="BreathIsland.Tests.CharacterLocomotionTests" runstate="Runnable" seed="368042121" result="Passed" start-time="2026-10-15 14:36:48Z" end-time="2026-10-15 14:36:50Z" duration="2.614800" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1002" name="VisibleSolesMeetFloorAndWalkingUsesApprovedSpeed" fullname="BreathIsland.Tests.CharacterLocomotionTests.VisibleSolesMeetFloorAndWalkingUsesApprovedSpeed" methodname="VisibleSolesMeetFloorAndWalkingUsesApprovedSpeed" classname="BreathIsland.Tests.CharacterLocomotionTests" runstate="Runnable" seed="1249989239" result="Passed" start-time="2026-10-15 14:36:50Z" end-time="2026-10-15 14:36:52Z" duration="1.111490" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1005" name="CoreLoopTests" fullname="BreathIsland.Tests.CoreLoopTests" classname="BreathIsland.Tests.CoreLoopTests" runstate="Runnable" testcasecount="10" result="Passed" start-time="2026-10-15 14:36:52Z" end-time="2026-10-15 14:36:58Z" duration="6.376836" total="10" passed="10" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1006" name="BiteRequiresFreshSpaceOrMousePressRatherThanHeldInput" fullname="BreathIsland.Tests.CoreLoopTests.BiteRequiresFreshSpaceOrMousePressRatherThanHeldInput" methodname="BiteRequiresFreshSpaceOrMousePressRatherThanHeldInput" classname="BreathIsland.Tests.CoreLoopTests" runstate="Runnable" seed="1875210467" result="Passed" start-time="2026-10-15 14:36:52Z" end-time="2026-10-15 14:36:52Z" duration="0.241219" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1007" name="CatchFacilityNpcLoopPersistsProgressAndPosition" fullname="BreathIsland.Tests.CoreLoopTests.CatchFacilityNpcLoopPersistsProgressAndPosition" methodname="CatchFacilityNpcLoopPersistsProgressAndPosition" classname="BreathIsland.Tests.CoreLoopTests" runstate="Runnable" seed="1963185237" result="Passed" start-time="2026-10-15 14:36:52Z" end-time="2026-10-15 14:36:52Z" duration="0.071395" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1015" name="EveryHudScreenRendersInBothLocales" fullname="BreathIsland.Tests.CoreLoopTests.EveryHudScreenRendersInBothLocales" methodname="EveryHudScreenRendersInBothLocales" classname="BreathIsland.Tests.CoreLoopTests" runstate="Runnable" seed="2073489501" result="Passed" start-time="2026-10-15 14:36:52Z" end-time="2026-10-15 14:36:58Z" duration="5.907237" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1014" name="FallenPositionRecoveryPreservesProgressAndValidCoordinates" fullname="BreathIsland.Tests.CoreLoopTests.FallenPositionRecoveryPreservesProgressAndValidCoordinates" methodname="FallenPositionRecoveryPreservesProgressAndValidCoordinates" classname="BreathIsland.Tests.CoreLoopTests" runstate="Runnable" seed="1731685944" result="Passed" start-time="2026-10-15 14:36:58Z" end-time="2026-10-15 14:36:58Z" duration="0.014297" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1012" name="LineFailureConsumesOnlyCastBaitAndAllowsRetry" fullname="BreathIsland.Tests.CoreLoopTests.LineFailureConsumesOnlyCastBaitAndAllowsRetry" methodname="LineFailureConsumesOnlyCastBaitAndAllowsRetry" classname="BreathIsland.Tests.CoreLoopTests" runstate="Runnable" seed="940713724" result="Passed" start-time="2026-10-15 14:36:58Z" end-time="2026-10-15 14:36:58Z" duration="0.021484" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1010" name="LocalizedRuntimeQueriesSwitchBothLanguages" fullname="BreathIsland.Tests.CoreLoopTests.LocalizedRuntimeQueriesSwitchBothLanguages" methodname="LocalizedRuntimeQueriesSwitchBothLanguages" classname="BreathIsland.Tests.CoreLoopTests" runstate="Runnable" seed="355133625" result="Passed" start-time="2026-10-15 14:36:58Z" end-time="2026-10-15 14:36:58Z" duration="0.026917" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1013" name="NightCastHandlesEmptyPoolWithoutChangingSpawnHoursOrCost" fullname="BreathIsland.Tests.CoreLoopTests.NightCastHandlesEmptyPoolWithoutChangingSpawnHoursOrCost" methodname="NightCastHandlesEmptyPoolWithoutChangingSpawnHoursOrCost" classname="BreathIsland.Tests.CoreLoopTests" runstate="Runnable" seed="949771190" result="Passed" start-time="2026-10-15 14:36:58Z" end-time="2026-10-15 14:36:58Z" duration="0.015094" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1009" name="PauseAndAllScreensPreserveSessionReferences" fullname="BreathIsland.Tests.CoreLoopTests.PauseAndAllScreensPreserveSessionReferences" methodname="PauseAndAllScreensPreserveSessionReferences" classname="BreathIsland.Tests.CoreLoopTests" runstate="Runnable" seed="1636451497" result="Passed" start-time="2026-10-15 14:36:58Z" end-time="2026-10-15 14:36:58Z" duration="0.015690" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1008" name="PredatorVictoryKeepsTargetAndDefeatReturnsToShore" fullname="BreathIsland.Tests.CoreLoopTests.PredatorVictoryKeepsTargetAndDefeatReturnsToShore" methodname="PredatorVictoryKeepsTargetAndDefeatReturnsToShore" classname="BreathIsland.Tests.CoreLoopTests" runstate="Runnable" seed="1049669748" result="Passed" start-time="2026-10-15 14:36:58Z" end-time="2026-10-15 14:36:58Z" duration="0.030226" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1011" name="SessionLoadRestoresSlotAndExitsTransientPhase" fullname="BreathIsland.Tests.CoreLoopTests.SessionLoadRestoresSlotAndExitsTransientPhase" methodname="SessionLoadRestoresSlotAndExitsTransientPhase" classname="BreathIsland.Tests.CoreLoopTests" runstate="Runnable" seed="610795216" result="Passed" start-time="2026-10-15 14:36:58Z" end-time="2026-10-15 14:36:58Z" duration="0.028470" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1016" name="FirstPersonBodyTests" fullname="BreathIsland.Tests.FirstPersonBodyTests" classname="BreathIsland.Tests.FirstPersonBodyTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-15 14:36:58Z" end-time="2026-10-15 14:36:58Z" duration="0.226278" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1017" name="PhaseChangesHideOnlyPlayerAndRestorePreexistingVisibility" fullname="BreathIsland.Tests.FirstPersonBodyTests.PhaseChangesHideOnlyPlayerAndRestorePreexistingVisibility" methodname="PhaseChangesHideOnlyPlayerAndRestorePreexistingVisibility" classname="BreathIsland.Tests.FirstPersonBodyTests" runstate="Runnable" seed="866342114" result="Passed" start-time="2026-10-15 14:36:58Z" end-time="2026-10-15 14:36:58Z" duration="0.222998" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1018" name="FishingMovementTests" fullname="BreathIsland.Tests.FishingMovementTests" classname="BreathIsland.Tests.FishingMovementTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-15 14:36:58Z" end-time="2026-10-15 14:37:01Z" duration="2.766436" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1019" name="MovingLookingAndPauseKeepCastInWorldAndNeverJump" fullname="BreathIsland.Tests.FishingMovementTests.MovingLookingAndPauseKeepCastInWorldAndNeverJump" methodname="MovingLookingAndPauseKeepCastInWorldAndNeverJump" classname="BreathIsland.Tests.FishingMovementTests" runstate="Runnable" seed="1295653919" result="Passed" start-time="2026-10-15 14:36:58Z" end-time="2026-10-15 14:37:01Z" duration="2.733203" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1020" name="FishingVisualPlayTests" fullname="BreathIsland.Tests.FishingVisualPlayTests" classname="BreathIsland.Tests.FishingVisualPlayTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-15 14:37:01Z" end-time="2026-10-15 14:37:04Z" duration="3.019109" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1021" name="CastReelEaseFailureAndExitKeepRulesAndReleaseVisuals" fullname="BreathIsland.Tests.FishingVisualPlayTests.CastReelEaseFailureAndExitKeepRulesAndReleaseVisuals" methodname="CastReelEaseFailureAndExitKeepRulesAndReleaseVisuals" classname="BreathIsland.Tests.FishingVisualPlayTests" runstate="Runnable" seed="934299656" result="Passed" start-time="2026-10-15 14:37:01Z" end-time="2026-10-15 14:37:04Z" duration="2.985958" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1022" name="FishingWaterEffectsTests" fullname="BreathIsland.Tests.FishingWaterEffectsTests" classname="BreathIsland.Tests.FishingWaterEffectsTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-10-15 14:37:04Z" end-time="2026-10-15 14:37:04Z" duration="0.399492" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1023" name="EffectsFireOncePerContactAndClearWithoutTouchingRandomState" fullname="BreathIsland.Tests.FishingWaterEffectsTests.EffectsFireOncePerContactAndClearWithoutTouchingRandomState" methodname="EffectsFireOncePerContactAndClearWithoutTouchingRandomState" classname="BreathIsland.Tests.FishingWaterEffectsTests" runstate="Runnable" seed="316277598" result="Passed" start-time="2026-10-15 14:37:04Z" end-time="2026-10-15 14:37:04Z" duration="0.099254" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1024" name="TailMovesWithoutMovingFishRoot" fullname="BreathIsland.Tests.FishingWaterEffectsTests.TailMovesWithoutMovingFishRoot" methodname="TailMovesWithoutMovingFishRoot" classname="BreathIsland.Tests.FishingWaterEffectsTests" runstate="Runnable" seed="1164067780" result="Passed" start-time="2026-10-15 14:37:04Z" end-time="2026-10-15 14:37:04Z" duration="0.266606" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1025" name="GatheringProgressTests" fullname="BreathIsland.Tests.GatheringProgressTests" classname="BreathIsland.Tests.GatheringProgressTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-15 14:37:04Z" end-time="2026-10-15 14:37:05Z" duration="0.314377" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1026" name="HoldCancelsOnReleaseMenuDistanceAndFacingThenRewardsOnce" fullname="BreathIsland.Tests.GatheringProgressTests.HoldCancelsOnReleaseMenuDistanceAndFacingThenRewardsOnce" methodname="HoldCancelsOnReleaseMenuDistanceAndFacingThenRewardsOnce" classname="BreathIsland.Tests.GatheringProgressTests" runstate="Runnable" seed="1535963583" result="Passed" start-time="2026-10-15 14:37:04Z" end-time="2026-10-15 14:37:05Z" duration="0.280914" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1027" name="HomeConstructionLoopTests" fullname="BreathIsland.Tests.HomeConstructionLoopTests" classname="BreathIsland.Tests.HomeConstructionLoopTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-15 14:37:05Z" end-time="2026-10-15 14:37:07Z" duration="2.059150" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1028" name="GridPreviewApplyReloadCollisionAndLocalizedScreens" fullname="BreathIsland.Tests.HomeConstructionLoopTests.GridPreviewApplyReloadCollisionAndLocalizedScreens" methodname="GridPreviewApplyReloadCollisionAndLocalizedScreens" classname="BreathIsland.Tests.HomeConstructionLoopTests" runstate="Runnable" seed="1162827138" result="Passed" start-time="2026-10-15 14:37:05Z" end-time="2026-10-15 14:37:07Z" duration="2.040086" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1029" name="HomeInteractionLoopTests" fullname="BreathIsland.Tests.HomeInteractionLoopTests" classname="BreathIsland.Tests.HomeInteractionLoopTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-10-15 14:37:07Z" end-time="2026-10-15 14:37:15Z" duration="8.618443" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1032" name="CraftStoreReloadAndRenderBothLanguagesAtThreeSizes" fullname="BreathIsland.Tests.HomeInteractionLoopTests.CraftStoreReloadAndRenderBothLanguagesAtThreeSizes" methodname="CraftStoreReloadAndRenderBothLanguagesAtThreeSizes" classname="BreathIsland.Tests.HomeInteractionLoopTests" runstate="Runnable" seed="31565171" result="Passed" start-time="2026-10-15 14:37:07Z" end-time="2026-10-15 14:37:09Z" duration="2.427396" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1033" name="ExpandedRoomKeepsFurnitureAtFarEdgeAndFramesWalkingAndDecorating" fullname="BreathIsland.Tests.HomeInteractionLoopTests.ExpandedRoomKeepsFurnitureAtFarEdgeAndFramesWalkingAndDecorating" methodname="ExpandedRoomKeepsFurnitureAtFarEdgeAndFramesWalkingAndDecorating" classname="BreathIsland.Tests.HomeInteractionLoopTests" runstate="Runnable" seed="411073429" result="Passed" start-time="2026-10-15 14:37:09Z" end-time="2026-10-15 14:37:10Z" duration="1.060581" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1031" name="RotatedSeatsOcclusionBedConfirmationAndEquipmentArePreserved" fullname="BreathIsland.Tests.HomeInteractionLoopTests.RotatedSeatsOcclusionBedConfirmationAndEquipmentArePreserved" methodname="RotatedSeatsOcclusionBedConfirmationAndEquipmentArePreserved" classname="BreathIsland.Tests.HomeInteractionLoopTests" runstate="Runnable" seed="1987613282" result="Passed" start-time="2026-10-15 14:37:10Z" end-time="2026-10-15 14:37:14Z" duration="3.629205" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1030" name="WalkCollideMenuReturnAndDecorateRejectPlayerOverlap" fullname="BreathIsland.Tests.HomeInteractionLoopTests.WalkCollideMenuReturnAndDecorateRejectPlayerOverlap" methodname="WalkCollideMenuReturnAndDecorateRejectPlayerOverlap" classname="BreathIsland.Tests.HomeInteractionLoopTests" runstate="Runnable" seed="937967222" result="Passed" start-time="2026-10-15 14:37:14Z" end-time="2026-10-15 14:37:15Z" duration="1.466682" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1034" name="IslandLifeLoopTests" fullname="BreathIsland.Tests.IslandLifeLoopTests" classname="BreathIsland.Tests.IslandLifeLoopTests" runstate="Runnable" testcasecount="9" result="Passed" start-time="2026-10-15 14:37:15Z" end-time="2026-10-15 14:37:20Z" duration="4.980358" total="9" passed="9" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1035" name="BowOutfitDiffersFromUnarmedAndRestoresWithoutChangingRig" fullname="BreathIsland.Tests.IslandLifeLoopTests.BowOutfitDiffersFromUnarmedAndRestoresWithoutChangingRig" methodname="BowOutfitDiffersFromUnarmedAndRestoresWithoutChangingRig" classname="BreathIsland.Tests.IslandLifeLoopTests" runstate="Runnable" seed="701560733" result="Passed" start-time="2026-10-15 14:37:15Z" end-time="2026-10-15 14:37:16Z" duration="0.434034" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1038" name="HarvestCraftPlaceReloadAndReturnKeepInventoryJobAndOutdoorPosition" fullname="BreathIsland.Tests.IslandLifeLoopTests.HarvestCraftPlaceReloadAndReturnKeepInventoryJobAndOutdoorPosition" methodname="HarvestCraftPlaceReloadAndReturnKeepInventoryJobAndOutdoorPosition" classname="BreathIsland.Tests.IslandLifeLoopTests" runstate="Runnable" seed="1624216090" result="Passed" start-time="2026-10-15 14:37:16Z" end-time="2026-10-15 14:37:16Z" duration="0.270389" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1042" name="ImportedCharacterAndBothLocalizedScreensRender" fullname="BreathIsland.Tests.IslandLifeLoopTests.ImportedCharacterAndBothLocalizedScreensRender" methodname="ImportedCharacterAndBothLocalizedScreensRender" classname="BreathIsland.Tests.IslandLifeLoopTests" runstate="Runnable" seed="885680545" result="Passed" start-time="2026-10-15 14:37:16Z" end-time="2026-10-15 14:37:18Z" duration="1.953655" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1043" name="ImportedNatureKeepsUpAxisAndToolChopMovesTheArmWithItsGrip" fullname="BreathIsland.Tests.IslandLifeLoopTests.ImportedNatureKeepsUpAxisAndToolChopMovesTheArmWithItsGrip" methodname="ImportedNatureKeepsUpAxisAndToolChopMovesTheArmWithItsGrip" classname="BreathIsland.Tests.IslandLifeLoopTests" runstate="Runnable" seed="1598897268" result="Passed" start-time="2026-10-15 14:37:18Z" end-time="2026-10-15 14:37:19Z" duration="0.724795" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1040" name="PreviewCancelPauseAndRecallNeverDuplicateItems" fullname="BreathIsland.Tests.IslandLifeLoopTests.PreviewCancelPauseAndRecallNeverDuplicateItems" methodname="PreviewCancelPauseAndRecallNeverDuplicateItems" classname="BreathIsland.Tests.IslandLifeLoopTests" runstate="Runnable" seed="597290955" result="Passed" start-time="2026-10-15 14:37:19Z" end-time="2026-10-15 14:37:19Z" duration="0.194799" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1041" name="RestRegrowsSavedNodesAndCannotRunDuringCombat" fullname="BreathIsland.Tests.IslandLifeLoopTests.RestRegrowsSavedNodesAndCannotRunDuringCombat" methodname="RestRegrowsSavedNodesAndCannotRunDuringCombat" classname="BreathIsland.Tests.IslandLifeLoopTests" runstate="Runnable" seed="2003347975" result="Passed" start-time="2026-10-15 14:37:19Z" end-time="2026-10-15 14:37:19Z" duration="0.315116" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1036" name="SavedBowOutfitSurvivesEquipmentReplacement" fullname="BreathIsland.Tests.IslandLifeLoopTests.SavedBowOutfitSurvivesEquipmentReplacement" methodname="SavedBowOutfitSurvivesEquipmentReplacement" classname="BreathIsland.Tests.IslandLifeLoopTests" runstate="Runnable" seed="1419745460" result="Passed" start-time="2026-10-15 14:37:19Z" end-time="2026-10-15 14:37:19Z" duration="0.266609" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1037" name="TrainingRecoversThreeSecondsAfterLastHitAndOutfitsKeepRig" fullname="BreathIsland.Tests.IslandLifeLoopTests.TrainingRecoversThreeSecondsAfterLastHitAndOutfitsKeepRig" methodname="TrainingRecoversThreeSecondsAfterLastHitAndOutfitsKeepRig" classname="BreathIsland.Tests.IslandLifeLoopTests" runstate="Runnable" seed="1388886803" result="Passed" start-time="2026-10-15 14:37:19Z" end-time="2026-10-15 14:37:20Z" duration="0.319832" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1039" name="UnlockTrainingWeaponUseSkillAndRejectStaleWeaponAction" fullname="BreathIsland.Tests.IslandLifeLoopTests.UnlockTrainingWeaponUseSkillAndRejectStaleWeaponAction" methodname="UnlockTrainingWeaponUseSkillAndRejectStaleWeaponAction" classname="BreathIsland.Tests.IslandLifeLoopTests" runstate="Runnable" seed="2007654365" result="Passed" start-time="2026-10-15 14:37:20Z" end-time="2026-10-15 14:37:20Z" duration="0.467293" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1044" name="LifeInputTests" fullname="BreathIsland.Tests.LifeInputTests" classname="BreathIsland.Tests.LifeInputTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-15 14:37:20Z" end-time="2026-10-15 14:37:21Z" duration="0.439021" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1045" name="EquipmentKeyboardAndPauseRouteThroughCompositionRoot" fullname="BreathIsland.Tests.LifeInputTests.EquipmentKeyboardAndPauseRouteThroughCompositionRoot" methodname="EquipmentKeyboardAndPauseRouteThroughCompositionRoot" classname="BreathIsland.Tests.LifeInputTests" runstate="Runnable" seed="1981578263" result="Passed" start-time="2026-10-15 14:37:20Z" end-time="2026-10-15 14:37:21Z" duration="0.406117" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1046" name="NotebookUiTests" fullname="BreathIsland.Tests.NotebookUiTests" classname="BreathIsland.Tests.NotebookUiTests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-10-15 14:37:21Z" end-time="2026-10-15 14:37:26Z" duration="5.314722" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1049" name="ExpandedFurnitureFinishesAndVillageRenderAndPersist" fullname="BreathIsland.Tests.NotebookUiTests.ExpandedFurnitureFinishesAndVillageRenderAndPersist" methodname="ExpandedFurnitureFinishesAndVillageRenderAndPersist" classname="BreathIsland.Tests.NotebookUiTests" runstate="Runnable" seed="1026687724" result="Passed" start-time="2026-10-15 14:37:21Z" end-time="2026-10-15 14:37:22Z" duration="0.953005" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1048" name="IndoorInventoryCraftsAndPlacesWithoutDuplicatingSavedStock" fullname="BreathIsland.Tests.NotebookUiTests.IndoorInventoryCraftsAndPlacesWithoutDuplicatingSavedStock" methodname="IndoorInventoryCraftsAndPlacesWithoutDuplicatingSavedStock" classname="BreathIsland.Tests.NotebookUiTests" runstate="Runnable" seed="284115935" result="Passed" start-time="2026-10-15 14:37:22Z" end-time="2026-10-15 14:37:22Z" duration="0.177252" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1047" name="InventoryButtonsHoldToolAndBlockClickThroughThenReturnToRoom" fullname="BreathIsland.Tests.NotebookUiTests.InventoryButtonsHoldToolAndBlockClickThroughThenReturnToRoom" methodname="InventoryButtonsHoldToolAndBlockClickThroughThenReturnToRoom" classname="BreathIsland.Tests.NotebookUiTests" runstate="Runnable" seed="1515500870" result="Passed" start-time="2026-10-15 14:37:22Z" end-time="2026-10-15 14:37:22Z" duration="0.300165" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1050" name="SatchelMouseDragSwapsPersistsAndClosingCancelsWithoutItemLoss" fullname="BreathIsland.Tests.NotebookUiTests.SatchelMouseDragSwapsPersistsAndClosingCancelsWithoutItemLoss" methodname="SatchelMouseDragSwapsPersistsAndClosingCancelsWithoutItemLoss" classname="BreathIsland.Tests.NotebookUiTests" runstate="Runnable" seed="846421138" result="Passed" start-time="2026-10-15 14:37:22Z" end-time="2026-10-15 14:37:24Z" duration="1.468335" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1051" name="VectorUiAndLicensedFontsRenderAtThreeAspectRatiosInBothLanguages" fullname="BreathIsland.Tests.NotebookUiTests.VectorUiAndLicensedFontsRenderAtThreeAspectRatiosInBothLanguages" methodname="VectorUiAndLicensedFontsRenderAtThreeAspectRatiosInBothLanguages" classname="BreathIsland.Tests.NotebookUiTests" runstate="Runnable" seed="1263631243" result="Passed" start-time="2026-10-15 14:37:24Z" end-time="2026-10-15 14:37:26Z" duration="2.383624" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1052" name="OceanRenderTests" fullname="BreathIsland.Tests.OceanRenderTests" classname="BreathIsland.Tests.OceanRenderTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-15 14:37:26Z" end-time="2026-10-15 14:37:29Z" duration="3.180449" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1053" name="FishAreVisibleThroughWaterAndBobberTracksAndDipsBelowWaves" fullname="BreathIsland.Tests.OceanRenderTests.FishAreVisibleThroughWaterAndBobberTracksAndDipsBelowWaves" methodname="FishAreVisibleThroughWaterAndBobberTracksAndDipsBelowWaves" classname="BreathIsland.Tests.OceanRenderTests" runstate="Runnable" seed="1236154482" result="Passed" start-time="2026-10-15 14:37:26Z" end-time="2026-10-15 14:37:29Z" duration="3.147851" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1055" name="PortfolioPresentationTests" fullname="BreathIsland.Tests.PortfolioPresentationTests" classname="BreathIsland.Tests.PortfolioPresentationTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-15 14:37:29Z" end-time="2026-10-15 14:37:35Z" duration="5.347483" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1056" name="DemoFixturesAndContextualHintsPreserveRulesAndRender" fullname="BreathIsland.Tests.PortfolioPresentationTests.DemoFixturesAndContextualHintsPreserveRulesAndRender" methodname="DemoFixturesAndContextualHintsPreserveRulesAndRender" classname="BreathIsland.Tests.PortfolioPresentationTests" runstate="Runnable" seed="1426309965" result="Passed" start-time="2026-10-15 14:37:29Z" end-time="2026-10-15 14:37:35Z" duration="5.314422" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1057" name="SceneBootstrapTests" fullname="BreathIsland.Tests.SceneBootstrapTests" classname="BreathIsland.Tests.SceneBootstrapTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-15 14:37:35Z" end-time="2026-10-15 14:37:35Z" duration="0.207959" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1058" name="CompositionRootBuildsWorldCameraAndExploreHud" fullname="BreathIsland.Tests.SceneBootstrapTests.CompositionRootBuildsWorldCameraAndExploreHud" methodname="CompositionRootBuildsWorldCameraAndExploreHud" classname="BreathIsland.Tests.SceneBootstrapTests" runstate="Runnable" seed="1986499317" result="Passed" start-time="2026-10-15 14:37:35Z" end-time="2026-10-15 14:37:35Z" duration="0.174044" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1059" name="SkillFlipbookTests" fullname="BreathIsland.Tests.SkillFlipbookTests" classname="BreathIsland.Tests.SkillFlipbookTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-10-15 14:37:35Z" end-time="2026-10-15 14:37:38Z" duration="2.979021" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1061" name="AtlasFramesAdvanceLeftToRightThenDown" fullname="BreathIsland.Tests.SkillFlipbookTests.AtlasFramesAdvanceLeftToRightThenDown" methodname="AtlasFramesAdvanceLeftToRightThenDown" classname="BreathIsland.Tests.SkillFlipbookTests" runstate="Runnable" seed="992441440" result="Passed" start-time="2026-10-15 14:37:35Z" end-time="2026-10-15 14:37:35Z" duration="0.001663" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1060" name="AuthoredEffectsReplayExpireAndStopWithOwner" fullname="BreathIsland.Tests.SkillFlipbookTests.AuthoredEffectsReplayExpireAndStopWithOwner" methodname="AuthoredEffectsReplayExpireAndStopWithOwner" classname="BreathIsland.Tests.SkillFlipbookTests" runstate="Runnable" seed="1285491464" result="Passed" start-time="2026-10-15 14:37:35Z" end-time="2026-10-15 14:37:38Z" duration="2.944156" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1062" name="VillagePolishPlayTests" fullname="BreathIsland.Tests.VillagePolishPlayTests" classname="BreathIsland.Tests.VillagePolishPlayTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-15 14:37:38Z" end-time="2026-10-15 14:37:42Z" duration="4.332783" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1063" name="VillagersAnimateAndLookWithoutMovingTheirInteractionAnchors" fullname="BreathIsland.Tests.VillagePolishPlayTests.VillagersAnimateAndLookWithoutMovingTheirInteractionAnchors" methodname="VillagersAnimateAndLookWithoutMovingTheirInteractionAnchors" classname="BreathIsland.Tests.VillagePolishPlayTests" runstate="Runnable" seed="2057389221" result="Passed" start-time="2026-10-15 14:37:38Z" end-time="2026-10-15 14:37:42Z" duration="4.298221" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1064" name="WeaponPoseTests" fullname="BreathIsland.Tests.WeaponPoseTests" classname="BreathIsland.Tests.WeaponPoseTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-15 14:37:42Z" end-time="2026-10-15 14:37:55Z" duration="12.921545" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1065" name="EachWeaponKeepsItsJobAndAnimatesTheArmOnValidHit" fullname="BreathIsland.Tests.WeaponPoseTests.EachWeaponKeepsItsJobAndAnimatesTheArmOnValidHit" methodname="EachWeaponKeepsItsJobAndAnimatesTheArmOnValidHit" classname="BreathIsland.Tests.WeaponPoseTests" runstate="Runnable" seed="2050750986" result="Passed" start-time="2026-10-15 14:37:42Z" end-time="2026-10-15 14:37:55Z" duration="12.888622" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1066" name="WorldMovementTests" fullname="BreathIsland.Tests.WorldMovementTests" classname="BreathIsland.Tests.WorldMovementTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-15 14:37:55Z" end-time="2026-10-15 14:37:56Z" duration="1.332899" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1067" name="GroundMatchesVisibleSurfaceAndPlayerCanWalk" fullname="BreathIsland.Tests.WorldMovementTests.GroundMatchesVisibleSurfaceAndPlayerCanWalk" methodname="GroundMatchesVisibleSurfaceAndPlayerCanWalk" classname="BreathIsland.Tests.WorldMovementTests" runstate="Runnable" seed="871625759" result="Passed" start-time="2026-10-15 14:37:55Z" end-time="2026-10-15 14:37:56Z" duration="1.300641" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[Movement diagnostic: (0.00, 0.68, 4.00) -> (0.39, 0.68, 5.07), canMove=True, dt=0.0335443, forward=(0.32, -0.34, 0.88), grounded=True
+Saving results to: C:/Users/JinYang/AppData/LocalLow/Breath Island Studio/Breath Island\TestResults.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

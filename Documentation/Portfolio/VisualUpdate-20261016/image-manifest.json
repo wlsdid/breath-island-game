@@ -1,0 +1,189 @@
+[
+  {
+    "file": "Images/01-01-village.png",
+    "source": "Documentation/Portfolio/Images/01-village.png",
+    "caption": "마을 이전 기록",
+    "stage": "2026-10-12",
+    "width": 1920,
+    "height": 1080,
+    "usage": "개선 전 자료. 현재 대표 화면으로 사용하지 않음. 02와 카메라·해상도·HUD가 다름.",
+    "sha256": "F333A239E139E56A59D1455B6FF1212E860331D064FB840738F2E0C5F3E121D0",
+    "capture": "Editor Play Mode, authored camera; original unedited"
+  },
+  {
+    "file": "Images/02-Village.png",
+    "source": "Documentation/VisualRepair/Village.png",
+    "caption": "마을·지면·수면 개선",
+    "stage": "5dc5dfd 단계",
+    "width": 1600,
+    "height": 900,
+    "usage": "대표 후보. 이후 허수아비·캐릭터 변경 전이므로 최신 전체 버전으로 표기하지 않음.",
+    "sha256": "177287F05B75E2BDA9E5E1A02D4857127910ECE132CF69F7C11F314B73B4E364",
+    "capture": "Editor Play Mode, authored camera; original unedited"
+  },
+  {
+    "file": "Images/03-Nari.png",
+    "source": "Documentation/VillagePolish/Nari.png",
+    "caption": "주민 나리",
+    "stage": "d2aec1d 단계",
+    "width": 1600,
+    "height": 900,
+    "usage": "NPC 외형 설명용. 촬영용 플레이어 숨김. 배경 수면·지면은 이후 개선 전.",
+    "sha256": "ED0B5C1922E7B04E8C7A87E135E85E87BE37AAAE12973AEE68731AD1885A6DB5",
+    "capture": "Editor Play Mode, authored camera; original unedited"
+  },
+  {
+    "file": "Images/04-Maru.png",
+    "source": "Documentation/VillagePolish/Maru.png",
+    "caption": "주민 마루",
+    "stage": "d2aec1d 단계",
+    "width": 1600,
+    "height": 900,
+    "usage": "NPC 외형 설명용. 마법사 플레이어와 혼동하지 않도록 주민 이름 표기.",
+    "sha256": "72403769941D2B47B2B1474AB14794F7DFFF153139723D3FA0C5EE29222F032C",
+    "capture": "Editor Play Mode, authored camera; original unedited"
+  },
+  {
+    "file": "Images/05-Underwater-fish.png",
+    "source": "Documentation/FishingPolish/Underwater-fish.png",
+    "caption": "수면 아래 보이는 물고기",
+    "stage": "8b3f9ed 단계",
+    "width": 1280,
+    "height": 720,
+    "usage": "물 표현 사례 대표 후보. 생태계 AI나 실제 물리 유체를 증명하지 않음.",
+    "sha256": "491A00585C63E57426E1CD7A4676199D6C6576F8A05F1E5D589587DB1B417CDD",
+    "capture": "Editor Play Mode, authored camera; original unedited"
+  },
+  {
+    "file": "Images/06-Bite-submerged.png",
+    "source": "Documentation/OceanReview/Bite-submerged.png",
+    "caption": "입질 시 찌 잠김",
+    "stage": "b6a4884 단계",
+    "width": 1280,
+    "height": 720,
+    "usage": "상태 설명 보조용. 물고기 재질과 손은 이후 수정 전.",
+    "sha256": "192AEB8D1C13BC56BA04BE852281CE1434743462FC17B58E325ED646159F698E",
+    "capture": "Editor Play Mode, authored camera; original unedited"
+  },
+  {
+    "file": "Images/07-Jump-splash.png",
+    "source": "Documentation/FishingPolish/Jump-splash.png",
+    "caption": "물고기 도약과 물보라",
+    "stage": "8b3f9ed 단계",
+    "width": 1280,
+    "height": 720,
+    "usage": "낚시 반응 설명용. 손은 후속 수정 전. 최신 손 품질 자료로 사용하지 않음.",
+    "sha256": "D172AC0D7E83F8DF6F449F0CD75D95A57945C0DA28932B79BB6EEEBFB02A5458",
+    "capture": "Editor Play Mode, authored camera; original unedited"
+  },
+  {
+    "file": "Images/08-Fishing-Hud.png",
+    "source": "Documentation/WeaponIdentity/Fishing-Hud.png",
+    "caption": "후속 낚시 화면·조작 안내",
+    "stage": "36178e1 단계",
+    "width": 734,
+    "height": 347,
+    "usage": "저해상도 HUD 검증 자료. 확대 대표 이미지에 부적합. 모든 UI 겹침 해소의 증거 아님.",
+    "sha256": "B150030C490EE61E63E5167210F5FDAC4D04A6A7E71EE980B0F8B49A2E3EE595",
+    "capture": "Editor Play Mode, authored camera; original unedited"
+  },
+  {
+    "file": "Images/09-03-inventory.png",
+    "source": "Documentation/Portfolio/Images/03-inventory.png",
+    "caption": "생활 수첩·가방 UI",
+    "stage": "2026-10-12",
+    "width": 1920,
+    "height": 1080,
+    "usage": "기존 UI 컨셉 보존 자료. 최신 무기 아이콘·외형을 보여주는 화면은 아님.",
+    "sha256": "28B3566DB283F40E08290CB01775A3A94006312C2F926CBAEBC7AB9B46A85A72",
+    "capture": "Editor Play Mode, authored camera; original unedited"
+  },
+  {
+    "file": "Images/10-05-interior.png",
+    "source": "Documentation/Portfolio/Images/05-interior.png",
+    "caption": "기존 집 꾸미기 화면",
+    "stage": "2026-10-12",
+    "width": 1920,
+    "height": 1080,
+    "usage": "기존 실내 시연 연결용. 이번 신규 비주얼 성과로 중복 집계하지 않음.",
+    "sha256": "9E94F2BC2D2D5DC7E07E9C98F3F262712E8F24C1DB7249CCCA0713E0E59D2880",
+    "capture": "Editor Play Mode, authored camera; original unedited"
+  },
+  {
+    "file": "Images/11-sword-carry.png",
+    "source": "Documentation/TrainingPresentation/sword-carry.png",
+    "caption": "검 장착·기사 외형",
+    "stage": "5222f51 단계",
+    "width": 1280,
+    "height": 720,
+    "usage": "직업별 외형 비교용. 모델은 KayKit. 허수아비 포함.",
+    "sha256": "301B00E5971FBA8088A71075425E6852D792A44E19322315448AB7D68E648593",
+    "capture": "Editor Play Mode, authored camera; original unedited"
+  },
+  {
+    "file": "Images/12-staff-carry.png",
+    "source": "Documentation/TrainingPresentation/staff-carry.png",
+    "caption": "지팡이 장착·마법사 외형",
+    "stage": "5222f51 단계",
+    "width": 1280,
+    "height": 720,
+    "usage": "직업별 외형 비교용. NPC 마루와 구분해 플레이어라고 표기.",
+    "sha256": "DE73BFFFB8011A8BABDA72E7D6A0AFE3A4CE38CE72589B8EF07142F9C054490B",
+    "capture": "Editor Play Mode, authored camera; original unedited"
+  },
+  {
+    "file": "Images/13-bow-carry.png",
+    "source": "Documentation/ArcherAppearance/bow-carry.png",
+    "caption": "활 장착·후드형 궁수",
+    "stage": "ec53ea9 단계",
+    "width": 1280,
+    "height": 720,
+    "usage": "직업 외형 사례 대표 후보. 사용자 확인된 궁수 변경 모습.",
+    "sha256": "41D474A72B4E43D244DFF0A859BEECB32B4E739E0F8BE20FDC61A9666BCC0618",
+    "capture": "Editor Play Mode, authored camera; original unedited"
+  },
+  {
+    "file": "Images/14-bow-draw.png",
+    "source": "Documentation/ArcherAppearance/bow-draw.png",
+    "caption": "후드형 궁수의 당김 자세",
+    "stage": "ec53ea9 단계",
+    "width": 1280,
+    "height": 720,
+    "usage": "정지 프레임. 전체 동작이 자연스럽다는 증거로 쓰지 않음.",
+    "sha256": "1865A93AEF4B898B8B77A2983C1F278BEE14FAF7E0B515B58D096ECF6C2BE728",
+    "capture": "Editor Play Mode, authored camera; original unedited"
+  },
+  {
+    "file": "Images/15-sword_special-skill.png",
+    "source": "Documentation/SkillVfx/sword_special-skill.png",
+    "caption": "특수 검 타격 불꽃",
+    "stage": "a0ddc79 단계",
+    "width": 1280,
+    "height": 720,
+    "usage": "VFX 보조 자료. 직업 캐릭터 외형·허수아비 도입 전 이미지.",
+    "sha256": "9CB3D5D31663CE98C007AC53DB7900060BA556C4DA9D99AA1292B055C0E55917",
+    "capture": "Editor Play Mode, authored camera; original unedited"
+  },
+  {
+    "file": "Images/16-bow_special-skill.png",
+    "source": "Documentation/SkillVfx/bow_special-skill.png",
+    "caption": "특수 활 착탄 별빛",
+    "stage": "a0ddc79 단계",
+    "width": 1280,
+    "height": 720,
+    "usage": "VFX 보조 자료. 직업 캐릭터 외형·허수아비 도입 전 이미지.",
+    "sha256": "0FB5F66B371B1D671044A0CDA41D3912F8AA0FB533E49B1F01B33ACC213E0DDB",
+    "capture": "Editor Play Mode, authored camera; original unedited"
+  },
+  {
+    "file": "Images/17-staff_special-skill.png",
+    "source": "Documentation/SkillVfx/staff_special-skill.png",
+    "caption": "특수 지팡이 전기 고리",
+    "stage": "a0ddc79 단계",
+    "width": 1280,
+    "height": 720,
+    "usage": "VFX 보조 자료. 직업 캐릭터 외형·허수아비 도입 전 이미지.",
+    "sha256": "18B19922F11DC21C6AB72334EE6D195328049AD4C0C18764453BA9F92026D9B9",
+    "capture": "Editor Play Mode, authored camera; original unedited"
+  }
+]

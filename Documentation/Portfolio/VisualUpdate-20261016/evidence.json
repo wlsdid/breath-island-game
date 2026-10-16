@@ -1,0 +1,40 @@
+{
+  "preparedDate": "2026-10-16",
+  "sourceCommit": "ec53ea90d303f1f75a79000e850f6233420d86b2",
+  "sourceBranch": "codex/portfolio-demo",
+  "tests": [
+    {
+      "file": "Evidence/editmode-results.xml",
+      "result": "Passed",
+      "total": 115,
+      "failed": 0,
+      "sha256": "D56C6C00EEB1ECC1C011EA32D5164C54A82A1CA8BABDBFA55D06BE1C7F513E5E",
+      "lastWriteTime": "2026-10-15T23:36:18.6426592+09:00"
+    },
+    {
+      "file": "Evidence/playmode-results.xml",
+      "result": "Passed",
+      "total": 47,
+      "failed": 0,
+      "sha256": "3127A74E4968441744A4EC1277862EB311A04C9246A236EE293E9821C462631C",
+      "lastWriteTime": "2026-10-15T23:37:56.8670808+09:00"
+    }
+  ],
+  "build": {
+    "source": "Builds/build.log",
+    "result": "Success",
+    "logSha256": "16E2BCBF87D14C12A9C0096F28EF27DF45B27006D3994D1B804296FC104E031E",
+    "exeSha256": "E8BB8F9DFE2A039CE0B2123DA1B65F48FE68FF838147361B468A559F43A27A66"
+  },
+  "notion": {
+    "url": "https://app.notion.com/p/3e992dba4d6681a2969ac5494e19301b",
+    "fetchedOn": "2026-10-16",
+    "lastEditedReported": "2026-10-13T14:50:43.507Z",
+    "operation": "read only; no edits"
+  },
+  "userConfirmation": "Archer appearance only; user said 확인 완료 after ec53ea9 demo",
+  "imageCount": 17,
+  "newTestsRunThisTask": false,
+  "newWindowsCaptureThisTask": false,
+  "remotePublicationVerified": false
+}
