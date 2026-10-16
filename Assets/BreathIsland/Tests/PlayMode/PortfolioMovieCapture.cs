@@ -14,7 +14,7 @@ namespace BreathIsland.Tests
         public IEnumerator CaptureLatestVisuals()
         {
             yield return UnityEngine.Localization.Settings.LocalizationSettings.InitializationOperation;
-            string output = "Builds/Portfolio/LatestCapture-20261016";
+            string output = "Builds/Portfolio/FinalCapture-20261016";
             string saves = Path.Combine(Application.temporaryCachePath, "portfolio-movie-" + Guid.NewGuid().ToString("N"));
             var root = new GameObject("Offline portfolio capture");
             var world = ProceduralWorld.Build(root.transform);
@@ -25,21 +25,23 @@ namespace BreathIsland.Tests
             var fishing = new FishingSystem(context, phases, () => phases.Set(GamePhase.PredatorCombat));
             root.AddComponent<FishingPresentation>().Initialize(world, fishing, phases);
             int previousRate = Time.captureFramerate; var random = UnityEngine.Random.state;
-            Time.captureFramerate = 30; UnityEngine.Random.InitState(42);
-            world.motor.enabled = false; world.cameraRig.enabled = false;
+            Time.captureFramerate = 60; UnityEngine.Random.InitState(42);
+            world.motor.enabled = false; world.motor.CanMove = false; world.cameraRig.enabled = false;
             try
             {
                 world.motor.Teleport(new Vector3(0, .62f, 8));
                 yield return new WaitForSeconds(.5f);
                 using (var movie = new PortfolioMovieWriter(world.camera, output, "01-village"))
-                for (int i = 0; i < 210; i++) {
+                for (int frame = 0; frame < 420; frame++) {
+                    float i = frame / 2f;
                     float t = i / 209f;
                     world.camera.transform.position = Vector3.Lerp(new Vector3(20, 15, 27), new Vector3(13, 12, 25), t);
                     world.camera.transform.LookAt(new Vector3(0, 1, 2));
                     yield return new WaitForEndOfFrame(); movie.Frame(); if (i == 100) movie.Still("01-village");
                 }
                 using (var movie = new PortfolioMovieWriter(world.camera, output, "02-coast"))
-                for (int i = 0; i < 180; i++) {
+                for (int frame = 0; frame < 360; frame++) {
+                    float i = frame / 2f;
                     world.camera.transform.position = Vector3.Lerp(new Vector3(15, 5, 39), new Vector3(9, 3, 37), i / 179f);
                     world.camera.transform.LookAt(new Vector3(0, 0, 27));
                     yield return new WaitForEndOfFrame(); movie.Frame(); if (i == 90) movie.Still("02-coast");
@@ -49,8 +51,9 @@ namespace BreathIsland.Tests
                 world.camera.transform.rotation = Quaternion.Euler(15, 0, 0);
                 yield return new WaitForSeconds(.5f); fishing.Cast();
                 using (var movie = new PortfolioMovieWriter(world.camera, output, "03-fishing"))
-                for (int i = 0; i < 330; i++) {
-                    fishing.Tick(1f / 30);
+                for (int frame = 0; frame < 660; frame++) {
+                    float i = frame / 2f;
+                    fishing.Tick(1f / 60);
                     if (fishing.Stage == FishingStage.Bite && fishing.ReactionRemaining < 2.3f) fishing.Hook();
                     if (fishing.Stage == FishingStage.Hooked && i % 60 == 0) { fishing.Ease(); fishing.Reel(); }
                     yield return new WaitForEndOfFrame(); movie.Frame();
@@ -59,17 +62,21 @@ namespace BreathIsland.Tests
                 phases.Set(GamePhase.Explore);
                 var standing = life.Training.TargetPosition - Vector3.forward * 2; standing.y = .62f;
                 world.motor.Teleport(standing); world.player.transform.rotation = Quaternion.identity;
+                world.motor.enabled = true;
+                yield return new WaitForSeconds(.5f);
+                world.motor.enabled = false; world.motor.CanMove = false;
                 save.equipment.achievements.AddRange(new[] { "craft", "training", "gather" });
                 foreach (string id in new[] { "sword_special", "bow_special", "staff_special" }) {
                     Assert.That(life.Equipment.Equip(id), Is.True);
                     life.Training.ResetTarget(); life.Training.Tick(10);
                     yield return new WaitForSeconds(.7f);
                     using (var movie = new PortfolioMovieWriter(world.camera, output, id))
-                    for (int i = 0; i < 210; i++) {
-                        bool wide = i >= 100;
+                    for (int frame = 0; frame < 420; frame++) {
+                    float i = frame / 2f;
+                        bool wide = true;
                         world.camera.transform.position = wide ? standing + new Vector3(2, 1.7f, 3.5f) : standing + new Vector3(2, 1.4f, 3);
                         world.camera.transform.LookAt(wide ? standing + Vector3.forward * .9f + Vector3.up * .9f : standing + Vector3.up * .8f);
-                        life.Training.Tick(1f / 30);
+                        life.Training.Tick(1f / 60);
                         if (i == 30) Assert.That(life.Training.Attack(false), Is.True);
                         if (i == 110) { life.Training.ResetTarget(); Assert.That(life.Training.Attack(true), Is.True); }
                         yield return new WaitForEndOfFrame(); movie.Frame();

@@ -33,24 +33,33 @@
     "operation": "read only; no edits"
   },
   "userConfirmation": "Archer appearance only; user said 확인 완료 after ec53ea9 demo",
-  "imageCount": 27,
+  "imageCount": 32,
   "newTestsRunThisTask": true,
   "newWindowsCaptureThisTask": false,
   "remotePublicationVerified": false,
   "historicalImageCount": 17,
-  "newCaptureImageCount": 10,
-  "newCaptureTest": {
-    "file": "Evidence/latest-capture-results.xml",
-    "result": "Passed",
-    "total": 1,
-    "failed": 0,
-    "scope": "Explicit offline Editor presentation capture, not full regression"
-  },
+  "newCaptureImageCount": 15,
   "newMedia": {
-    "manifest": "LatestCapture/capture-manifest.json",
-    "videoSeconds": 45,
-    "videoFps": 30,
+    "manifest": "FinalCapture/capture-manifest.json",
+    "videoSeconds": 75,
+    "lifeVideoSeconds": 30,
+    "videoFps": 60,
     "editorScripted": true,
     "manualWindowsGameplay": false
-  }
+  },
+  "newCaptureTests": [
+    {
+      "file": "Evidence/final-capture-results.xml",
+      "result": "Passed",
+      "total": 2,
+      "failed": 0
+    },
+    {
+      "file": "Evidence/final-life-results.xml",
+      "result": "Passed",
+      "total": 1,
+      "failed": 0,
+      "scope": "Recheck after capture framing and UI resolution fixes"
+    }
+  ]
 }

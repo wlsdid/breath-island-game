@@ -1,0 +1,209 @@
+{
+  "date": "2026-10-16",
+  "game_commit": "ec53ea90d303f1f75a79000e850f6233420d86b2",
+  "capture": "Unity 6000.5.4f1 Editor Play Mode; scripted camera and commands; real animated runtime rendering",
+  "manual_windows_gameplay": false,
+  "audio": false,
+  "video": {
+    "file": "breath-island-portfolio-final.mp4",
+    "width": 1280,
+    "height": 720,
+    "fps": 60,
+    "seconds": 75
+  },
+  "stills": {
+    "width": 1920,
+    "height": 1080,
+    "postprocessing": "none"
+  },
+  "fixture": "Prepared village seed; temporary save root; unlocked special weapons; fixed-step 60fps; no player saves",
+  "shots": [
+    {
+      "file": "01-village",
+      "caption": "마을 · 지면과 건물, 해안으로 이어지는 풍경",
+      "seconds": 7
+    },
+    {
+      "file": "02-coast",
+      "caption": "바다 · 움직이는 수면과 빛, 해안 표현",
+      "seconds": 6
+    },
+    {
+      "file": "04-walk-jump",
+      "caption": "섬 산책 · 걷기와 점프, 착지",
+      "seconds": 8
+    },
+    {
+      "file": "03-fishing",
+      "caption": "낚시 · 캐스팅 → 입질 → 챔질 → 감기",
+      "seconds": 11
+    },
+    {
+      "file": "sword_special",
+      "caption": "검 · 기사 외형과 특수 무기 스킬",
+      "seconds": 7
+    },
+    {
+      "file": "bow_special",
+      "caption": "활 · 궁수 외형, 당기기와 발사, 특수 스킬",
+      "seconds": 7
+    },
+    {
+      "file": "staff_special",
+      "caption": "지팡이 · 마법사 외형과 특수 무기 스킬",
+      "seconds": 7
+    },
+    {
+      "file": "05-chair",
+      "caption": "실내 생활 · 의자로 걸어가기, 앉기와 일어나기",
+      "seconds": 8
+    },
+    {
+      "file": "06-storage",
+      "caption": "보관 상자 · 나무 5개 넣기, 2개 꺼내기",
+      "seconds": 8
+    },
+    {
+      "file": "07-rest",
+      "caption": "침대 · 다음 날까지 쉬기",
+      "seconds": 6
+    }
+  ],
+  "files": [
+    {
+      "file": "01-village.png",
+      "bytes": 1247613,
+      "sha256": "9a49019db97795408a3ea0b3e424fb522d81386b1fd9b96e6abba8363f783086"
+    },
+    {
+      "file": "02-coast.png",
+      "bytes": 1028493,
+      "sha256": "c70eb09649bcb666b559c79f09546324ec96b41b6e4352aeba907883311fb326"
+    },
+    {
+      "file": "03-cast.png",
+      "bytes": 1078768,
+      "sha256": "05b9ac7948ee7a0ee60bdd69aadcd15e22f3db64648eefe3561b5bb5d88f259f"
+    },
+    {
+      "file": "04-fishing.png",
+      "bytes": 1052754,
+      "sha256": "0c9e7764c64b9b6f9889d8d8e54ac90bebf05b6e8d34964b04fcccfcc24e641a"
+    },
+    {
+      "file": "05-walking.png",
+      "bytes": 1095734,
+      "sha256": "1472dbac0294668f5a742e2a7c3814ed8d0aa4b807ff029b1a428a5cffa3c29e"
+    },
+    {
+      "file": "06-jump.png",
+      "bytes": 1069677,
+      "sha256": "c0a1ba884679bc2dfac2f1d84810a11f9a4547862b47c16c1f863bb188f443af"
+    },
+    {
+      "file": "07-seated.png",
+      "bytes": 1735178,
+      "sha256": "dfad74fc352b72ee5ea50355a664e25dfc17b20c69e909620424e11ef11517cd"
+    },
+    {
+      "file": "08-storage.png",
+      "bytes": 673220,
+      "sha256": "e7b5be387faa3525e3360ecc04865b1f0bbeb0efa3f6ac13604e4034f7bfdf88"
+    },
+    {
+      "file": "09-rest.png",
+      "bytes": 1549577,
+      "sha256": "a1ee75efa6ff71ca7813677edb20c17dc10152fcf037bb43c099ec4fc65f8e27"
+    },
+    {
+      "file": "bow_special-outfit.png",
+      "bytes": 1303554,
+      "sha256": "33417ef9adf7116ff6ccbd7bdb8fe798cd1e169d2d2361f07add4bda2eee21f1"
+    },
+    {
+      "file": "bow_special-skill.png",
+      "bytes": 1321090,
+      "sha256": "6f77f1eb88054588bc005d9336872974e203441beadab0bac206424dbee31405"
+    },
+    {
+      "file": "breath-island-life.mp4",
+      "bytes": 5607121,
+      "sha256": "59bf6ac381b42e21d551bf17c51c4861e9d3cd76bcf5e498c3a22d48c2227145"
+    },
+    {
+      "file": "breath-island-portfolio-final.mp4",
+      "bytes": 16643118,
+      "sha256": "f3e4a7b3046952f2c4ec311e0109a8435d9ae9b06ea5b16ee7ad899c6eab6f1e"
+    },
+    {
+      "file": "Clips/01-village.mp4",
+      "bytes": 2592542,
+      "sha256": "8b3a41e066604f2544c43d95f4361c60c7986c92656549a17594f505e36fb7fc"
+    },
+    {
+      "file": "Clips/02-coast.mp4",
+      "bytes": 2412213,
+      "sha256": "572d04c40825b66e92ede537fc158e279b8db9115dcc2dc20665b23748f7f6b6"
+    },
+    {
+      "file": "Clips/03-fishing.mp4",
+      "bytes": 4679670,
+      "sha256": "6bed8e88dcae94d0ec417c1cb1b16b96d90cc9fae14ad2413760cbf1443cb46e"
+    },
+    {
+      "file": "Clips/04-walk-jump.mp4",
+      "bytes": 2824600,
+      "sha256": "e9fb8521566097163b25dc396f477b5893b2ef183f5f2492615116d99b7b66f7"
+    },
+    {
+      "file": "Clips/05-chair.mp4",
+      "bytes": 1390298,
+      "sha256": "b604f0572bd8fe8f8fd337d5a341999921d636ef2180474270f576e4b727d10a"
+    },
+    {
+      "file": "Clips/06-storage.mp4",
+      "bytes": 936689,
+      "sha256": "12d0707ee13fc348edd9a88572ee509bfc58062fdf2d5b386e5187b90d64ec4a"
+    },
+    {
+      "file": "Clips/07-rest.mp4",
+      "bytes": 1058540,
+      "sha256": "0f9708fd43f0ea46489f4a005b6795c24ea77f27fa0d7ca08586ac492925dd6f"
+    },
+    {
+      "file": "Clips/bow_special.mp4",
+      "bytes": 587233,
+      "sha256": "0f93e5acec3926f6f399e9daaf5fdb01697f7a11e9eca9df863a108932815cdf"
+    },
+    {
+      "file": "Clips/staff_special.mp4",
+      "bytes": 875421,
+      "sha256": "be83f7b60e76584a4ec2c0a01cb4430536649092cd9719fdaa6b31e1a0d42811"
+    },
+    {
+      "file": "Clips/sword_special.mp4",
+      "bytes": 622776,
+      "sha256": "96f671ba8210f608369d8b3c84aec53e8aef6a446eadd6acf721839c02acf1e9"
+    },
+    {
+      "file": "staff_special-outfit.png",
+      "bytes": 1302141,
+      "sha256": "89edce98f167298ce67bfa035e9e3b6ada368e029e483c62bf1616390d972254"
+    },
+    {
+      "file": "staff_special-skill.png",
+      "bytes": 1332865,
+      "sha256": "32428161801e776b1d72906a601e831d7fc41ca70e3a6aae1043dd9a58f0c493"
+    },
+    {
+      "file": "sword_special-outfit.png",
+      "bytes": 1306208,
+      "sha256": "4539c036ae0bdca3f6c373b22c101bf98960987df2b79732352eaf4dfdecf522"
+    },
+    {
+      "file": "sword_special-skill.png",
+      "bytes": 1339159,
+      "sha256": "8b7e889951923ea2f19dccd38b39efca868bc2ff47d746bb23501862d0c9ceab"
+    }
+  ]
+}

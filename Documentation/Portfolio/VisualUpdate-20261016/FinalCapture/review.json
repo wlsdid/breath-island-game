@@ -1,0 +1,142 @@
+{
+  "checks": [
+    {
+      "clip": "01-village",
+      "frames": 420,
+      "expectedFrames": 420,
+      "maxMeanPixelDelta": 0.4002700746059418,
+      "largestChangesSeconds": [
+        4.167,
+        5.317,
+        6.117,
+        5.45,
+        5.383
+      ]
+    },
+    {
+      "clip": "02-coast",
+      "frames": 360,
+      "expectedFrames": 360,
+      "maxMeanPixelDelta": 0.43171295523643494,
+      "largestChangesSeconds": [
+        4.167,
+        5.85,
+        5.717,
+        5.783,
+        5.45
+      ]
+    },
+    {
+      "clip": "04-walk-jump",
+      "frames": 480,
+      "expectedFrames": 480,
+      "maxMeanPixelDelta": 1.6257716417312622,
+      "largestChangesSeconds": [
+        0.517,
+        0.583,
+        0.533,
+        0.55,
+        3.25
+      ]
+    },
+    {
+      "clip": "03-fishing",
+      "frames": 660,
+      "expectedFrames": 660,
+      "maxMeanPixelDelta": 5.5285491943359375,
+      "largestChangesSeconds": [
+        0.267,
+        0.25,
+        0.283,
+        0.233,
+        0.3
+      ]
+    },
+    {
+      "clip": "sword_special",
+      "frames": 420,
+      "expectedFrames": 420,
+      "maxMeanPixelDelta": 1.5050153732299805,
+      "largestChangesSeconds": [
+        3.667,
+        3.733,
+        4.167,
+        3.95,
+        3.883
+      ]
+    },
+    {
+      "clip": "bow_special",
+      "frames": 420,
+      "expectedFrames": 420,
+      "maxMeanPixelDelta": 0.39525464177131653,
+      "largestChangesSeconds": [
+        4.167,
+        4.283,
+        4.233,
+        4.317,
+        4.2
+      ]
+    },
+    {
+      "clip": "staff_special",
+      "frames": 420,
+      "expectedFrames": 420,
+      "maxMeanPixelDelta": 11.635994911193848,
+      "largestChangesSeconds": [
+        4.467,
+        3.667,
+        3.983,
+        4.4,
+        4.383
+      ]
+    },
+    {
+      "clip": "05-chair",
+      "frames": 480,
+      "expectedFrames": 480,
+      "maxMeanPixelDelta": 8.718171119689941,
+      "largestChangesSeconds": [
+        0.033,
+        5.5,
+        2.75,
+        5.633,
+        5.667
+      ]
+    },
+    {
+      "clip": "06-storage",
+      "frames": 480,
+      "expectedFrames": 480,
+      "maxMeanPixelDelta": 87.52951049804688,
+      "largestChangesSeconds": [
+        7.5,
+        2.017,
+        2.0,
+        2.033,
+        7.533
+      ]
+    },
+    {
+      "clip": "07-rest",
+      "frames": 360,
+      "expectedFrames": 360,
+      "maxMeanPixelDelta": 16.109375,
+      "largestChangesSeconds": [
+        4.5,
+        2.017,
+        2.0,
+        4.517,
+        2.033
+      ]
+    }
+  ],
+  "scope": "Every frame decoded; all scenes reviewed at 1-second intervals and action sequences at finer intervals. This is presentation review, not manual Windows gameplay.",
+  "visualReview": {
+    "overview": "All 75 seconds sampled at 1-second intervals",
+    "detail": "Sword, bow, staff, casting, jumping, sitting and standing inspected at 6-10 samples per second",
+    "camera": "No intra-shot camera switch in any weapon clip",
+    "ui": "Storage and rest transitions account for the largest image deltas; labels readable after render-target correction",
+    "limitations": "No real-time Windows playback or manual game-input validation in this capture task"
+  }
+}

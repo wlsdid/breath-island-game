@@ -1,8 +1,8 @@
 [
   {
     "path": "00_CLAUDE_HANDOFF.md",
-    "bytes": 3806,
-    "sha256": "8AAE92D84BE97A4E7DAA3076CB39D609CB9E07BDD75AB9D1953AADC3335DE28A"
+    "bytes": 4160,
+    "sha256": "06FFAC01457BBC24EE0C89A527459B87920970C1A3A6513A649BB36B82BD4BFF"
   },
   {
     "path": "01_EXISTING_PAGE_CHANGES.md",
@@ -16,18 +16,23 @@
   },
   {
     "path": "03_EVIDENCE.md",
-    "bytes": 6234,
-    "sha256": "081FA2C686AD067A86297B32669B28461BA1351EA79F033D39ADDDA9F1558278"
+    "bytes": 6385,
+    "sha256": "820C530110C0FB7EE468DFAF0771BF37F231E880AB3CEEE3CF25F14C2946A926"
   },
   {
     "path": "04_IMAGES.md",
-    "bytes": 4805,
-    "sha256": "98EC48171EDF6AE1A13A369CA367DAB42C726FE0BEE6C951404529F1002E9DF1"
+    "bytes": 4812,
+    "sha256": "745B5294183751B0FDFED2DE0B8B1DB69EFD1A31D355BC2424FFB45608264787"
   },
   {
     "path": "05_NEW_CAPTURE.md",
     "bytes": 3583,
     "sha256": "6E427AC515177933C213ADFD4477D1BD4AED27F404BEFC80966F248ED9E4D946"
+  },
+  {
+    "path": "06_FINAL_DELIVERY.md",
+    "bytes": 4051,
+    "sha256": "4CD697309BCF53D4B058C80F67A19635C522C7C258C2BBBF605BC1D9DB01BFC7"
   },
   {
     "path": "Code/BowShotView.cs",
@@ -115,6 +120,16 @@
     "sha256": "D56C6C00EEB1ECC1C011EA32D5164C54A82A1CA8BABDBFA55D06BE1C7F513E5E"
   },
   {
+    "path": "Evidence/final-capture-results.xml",
+    "bytes": 4875,
+    "sha256": "A29EF5B7F85D455C5A96B7F547EA9F5AE0A17B9791D63E16A5761C3C8B5B42D1"
+  },
+  {
+    "path": "Evidence/final-life-results.xml",
+    "bytes": 3634,
+    "sha256": "8FD9C5C841DF62BD18673BB4B0A0266506FE2F4269899A2D49F1460E522871B9"
+  },
+  {
     "path": "Evidence/latest-capture-results.xml",
     "bytes": 3650,
     "sha256": "2AD79F295429A0F5FB2163354210B20AA2BD3530FB938B5EE0DD08E24DFECCB2"
@@ -131,8 +146,158 @@
   },
   {
     "path": "evidence.json",
-    "bytes": 1886,
-    "sha256": "7AECD3185008EB6E530D6DA8DB4D1ABF7FD28633A5283554E03830CDA5AAF942"
+    "bytes": 2056,
+    "sha256": "14F1C10815E62ED7E4CBE2559CC4CEE45E610C1E0527FF980E15890A1C37392A"
+  },
+  {
+    "path": "FinalCapture/01-village.png",
+    "bytes": 1247613,
+    "sha256": "9A49019DB97795408A3EA0B3E424FB522D81386B1FD9B96E6ABBA8363F783086"
+  },
+  {
+    "path": "FinalCapture/02-coast.png",
+    "bytes": 1028493,
+    "sha256": "C70EB09649BCB666B559C79F09546324EC96B41B6E4352AEBA907883311FB326"
+  },
+  {
+    "path": "FinalCapture/03-cast.png",
+    "bytes": 1078768,
+    "sha256": "05B9AC7948EE7A0EE60BDD69AADCD15E22F3DB64648EEFE3561B5BB5D88F259F"
+  },
+  {
+    "path": "FinalCapture/04-fishing.png",
+    "bytes": 1052754,
+    "sha256": "0C9E7764C64B9B6F9889D8D8E54AC90BEBF05B6E8D34964B04FCCCFCC24E641A"
+  },
+  {
+    "path": "FinalCapture/05-walking.png",
+    "bytes": 1095734,
+    "sha256": "1472DBAC0294668F5A742E2A7C3814ED8D0AA4B807FF029B1A428A5CFFA3C29E"
+  },
+  {
+    "path": "FinalCapture/06-jump.png",
+    "bytes": 1069677,
+    "sha256": "C0A1BA884679BC2DFAC2F1D84810A11F9A4547862B47C16C1F863BB188F443AF"
+  },
+  {
+    "path": "FinalCapture/07-seated.png",
+    "bytes": 1735178,
+    "sha256": "DFAD74FC352B72EE5EA50355A664E25DFC17B20C69E909620424E11EF11517CD"
+  },
+  {
+    "path": "FinalCapture/08-storage.png",
+    "bytes": 673220,
+    "sha256": "E7B5BE387FAA3525E3360ECC04865B1F0BBEB0EFA3F6AC13604E4034F7BFDF88"
+  },
+  {
+    "path": "FinalCapture/09-rest.png",
+    "bytes": 1549577,
+    "sha256": "A1EE75EFA6FF71CA7813677EDB20C17DC10152FCF037BB43C099EC4FC65F8E27"
+  },
+  {
+    "path": "FinalCapture/bow_special-outfit.png",
+    "bytes": 1303554,
+    "sha256": "33417EF9ADF7116FF6CCBD7BDB8FE798CD1E169D2D2361F07ADD4BDA2EEE21F1"
+  },
+  {
+    "path": "FinalCapture/bow_special-skill.png",
+    "bytes": 1321090,
+    "sha256": "6F77F1EB88054588BC005D9336872974E203441BEADAB0BAC206424DBEE31405"
+  },
+  {
+    "path": "FinalCapture/breath-island-life.mp4",
+    "bytes": 5607121,
+    "sha256": "59BF6AC381B42E21D551BF17C51C4861E9D3CD76BCF5E498C3A22D48C2227145"
+  },
+  {
+    "path": "FinalCapture/breath-island-portfolio-final.mp4",
+    "bytes": 16643118,
+    "sha256": "F3E4A7B3046952F2C4EC311E0109A8435D9AE9B06EA5B16EE7AD899C6EAB6F1E"
+  },
+  {
+    "path": "FinalCapture/capture-manifest.json",
+    "bytes": 6387,
+    "sha256": "50F9617F3328EA866B1D687CE51083E4F4C2AEEF7484623C2470E6641AD3FD61"
+  },
+  {
+    "path": "FinalCapture/Clips/01-village.mp4",
+    "bytes": 2592542,
+    "sha256": "8B3A41E066604F2544C43D95F4361C60C7986C92656549A17594F505E36FB7FC"
+  },
+  {
+    "path": "FinalCapture/Clips/02-coast.mp4",
+    "bytes": 2412213,
+    "sha256": "572D04C40825B66E92EDE537FC158E279B8DB9115DCC2DC20665B23748F7F6B6"
+  },
+  {
+    "path": "FinalCapture/Clips/03-fishing.mp4",
+    "bytes": 4679670,
+    "sha256": "6BED8E88DCAE94D0EC417C1CB1B16B96D90CC9FAE14AD2413760CBF1443CB46E"
+  },
+  {
+    "path": "FinalCapture/Clips/04-walk-jump.mp4",
+    "bytes": 2824600,
+    "sha256": "E9FB8521566097163B25DC396F477B5893B2EF183F5F2492615116D99B7B66F7"
+  },
+  {
+    "path": "FinalCapture/Clips/05-chair.mp4",
+    "bytes": 1390298,
+    "sha256": "B604F0572BD8FE8F8FD337D5A341999921D636EF2180474270F576E4B727D10A"
+  },
+  {
+    "path": "FinalCapture/Clips/06-storage.mp4",
+    "bytes": 936689,
+    "sha256": "12D0707EE13FC348EDD9A88572EE509BFC58062FDF2D5B386E5187B90D64EC4A"
+  },
+  {
+    "path": "FinalCapture/Clips/07-rest.mp4",
+    "bytes": 1058540,
+    "sha256": "0F9708FD43F0EA46489F4A005B6795C24EA77F27FA0D7CA08586AC492925DD6F"
+  },
+  {
+    "path": "FinalCapture/Clips/bow_special.mp4",
+    "bytes": 587233,
+    "sha256": "0F93E5ACEC3926F6F399E9DAAF5FDB01697F7A11E9ECA9DF863A108932815CDF"
+  },
+  {
+    "path": "FinalCapture/Clips/staff_special.mp4",
+    "bytes": 875421,
+    "sha256": "BE83F7B60E76584A4EC2C0A01CB4430536649092CD9719FDAA6B31E1A0D42811"
+  },
+  {
+    "path": "FinalCapture/Clips/sword_special.mp4",
+    "bytes": 622776,
+    "sha256": "96F671BA8210F608369D8B3C84AEC53E8AEF6A446EADD6ACF721839C02ACF1E9"
+  },
+  {
+    "path": "FinalCapture/motion-check.txt",
+    "bytes": 143,
+    "sha256": "16F0E02D074EE4BC71ACD6E9C03C51E88D415D9EB9DE5451A520E00092FDA0B3"
+  },
+  {
+    "path": "FinalCapture/review.json",
+    "bytes": 3334,
+    "sha256": "2AAB73AEABD70F756793D120E9E20FB0B35E5C39C7D427E4A9BF9986310E6500"
+  },
+  {
+    "path": "FinalCapture/staff_special-outfit.png",
+    "bytes": 1302141,
+    "sha256": "89EDCE98F167298CE67BFA035E9E3B6ADA368E029E483C62BF1616390D972254"
+  },
+  {
+    "path": "FinalCapture/staff_special-skill.png",
+    "bytes": 1332865,
+    "sha256": "32428161801E776B1D72906A601E831D7FC41CA70E3A6AAE1043DD9A58F0C493"
+  },
+  {
+    "path": "FinalCapture/sword_special-outfit.png",
+    "bytes": 1306208,
+    "sha256": "4539C036AE0BDCA3F6C373B22C101BF98960987DF2B79732352EAF4DFDECF522"
+  },
+  {
+    "path": "FinalCapture/sword_special-skill.png",
+    "bytes": 1339159,
+    "sha256": "8B7E889951923EA2F19DCCD38B39EFCA868BC2FF47D746BB23501862D0C9CEAB"
   },
   {
     "path": "image-manifest.json",
